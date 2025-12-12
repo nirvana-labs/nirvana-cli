@@ -1,4 +1,4 @@
-module github.com/stainless-sdks/nirvana-cli
+module github.com/nirvana-labs/nirvana-cli
 
 go 1.25
 

@@ -6,15 +6,21 @@ The official CLI for the [Nirvana Labs REST API](https://docs.nirvanalabs.io).
 
 ### Installing with Go
 
+<!-- x-release-please-start-version -->
+
 ```sh
-go install 'github.com/stainless-sdks/nirvana-cli/cmd/nirvana@latest'
+go install 'github.com/nirvana-labs/nirvana-cli/cmd/nirvana@latest'
 ```
 
 ### Running Locally
 
+<!-- x-release-please-start-version -->
+
 ```sh
 go run cmd/nirvana/main.go
 ```
+
+<!-- x-release-please-end -->
 
 ## Usage
 
