@@ -7,11 +7,11 @@ import (
 	"fmt"
 	"os"
 
+	"github.com/nirvana-labs/nirvana-cli/internal/apiquery"
+	"github.com/nirvana-labs/nirvana-cli/internal/requestflag"
 	"github.com/nirvana-labs/nirvana-go"
 	"github.com/nirvana-labs/nirvana-go/api_keys"
 	"github.com/nirvana-labs/nirvana-go/option"
-	"github.com/stainless-sdks/nirvana-cli/internal/apiquery"
-	"github.com/stainless-sdks/nirvana-cli/internal/requestflag"
 	"github.com/tidwall/gjson"
 	"github.com/urfave/cli/v3"
 )
