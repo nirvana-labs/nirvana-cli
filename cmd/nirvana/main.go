@@ -9,8 +9,8 @@ import (
 	"net/http"
 	"os"
 
+	"github.com/nirvana-labs/nirvana-cli/pkg/cmd"
 	"github.com/nirvana-labs/nirvana-go"
-	"github.com/stainless-sdks/nirvana-cli/pkg/cmd"
 	"github.com/tidwall/gjson"
 )
 

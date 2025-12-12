@@ -13,8 +13,8 @@ import (
 	"strings"
 	"syscall"
 
+	"github.com/nirvana-labs/nirvana-cli/pkg/jsonview"
 	"github.com/nirvana-labs/nirvana-go/option"
-	"github.com/stainless-sdks/nirvana-cli/pkg/jsonview"
 
 	"github.com/itchyny/json2yaml"
 	"github.com/tidwall/gjson"
