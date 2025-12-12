@@ -4,6 +4,13 @@ The official CLI for the [Nirvana Labs REST API](https://docs.nirvanalabs.io).
 
 ## Installation
 
+### Installing with Homebrew
+
+```sh
+brew tap nirvana-labs/tap
+brew install nirvana
+```
+
 ### Installing with Go
 
 <!-- x-release-please-start-version -->
