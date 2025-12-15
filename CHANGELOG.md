@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.2.1 (2025-12-15)
+
+Full Changelog: [v0.2.0...v0.2.1](https://github.com/nirvana-labs/nirvana-cli/compare/v0.2.0...v0.2.1)
+
+### Chores
+
+* remove custom code ([108b7c4](https://github.com/nirvana-labs/nirvana-cli/commit/108b7c4f3f0bd54d3408b69539002817d3aa0921))
+
 ## 0.2.0 (2025-12-12)
 
 Full Changelog: [v0.1.0...v0.2.0](https://github.com/nirvana-labs/nirvana-cli/compare/v0.1.0...v0.2.0)
