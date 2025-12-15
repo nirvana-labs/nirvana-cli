@@ -1,5 +1,18 @@
 # Changelog
 
+## 0.2.2 (2025-12-15)
+
+Full Changelog: [v0.2.1...v0.2.2](https://github.com/nirvana-labs/nirvana-cli/compare/v0.2.1...v0.2.2)
+
+### Bug Fixes
+
+* fixed manpage generation ([73114d9](https://github.com/nirvana-labs/nirvana-cli/commit/73114d9546cc70799431f82ca855420862ef4d8a))
+
+
+### Chores
+
+* use `stretchr/testify` assertion helpers in tests ([15aebbd](https://github.com/nirvana-labs/nirvana-cli/commit/15aebbd246d68c15dce2bdb9e09d9ae1cb6b3cef))
+
 ## 0.2.1 (2025-12-15)
 
 Full Changelog: [v0.2.0...v0.2.1](https://github.com/nirvana-labs/nirvana-cli/compare/v0.2.0...v0.2.1)
