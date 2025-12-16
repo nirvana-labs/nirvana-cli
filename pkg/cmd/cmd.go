@@ -106,7 +106,6 @@ func init() {
 				Category: "API RESOURCE",
 				Commands: []*cli.Command{
 					&regionsList,
-					&regionsGet,
 				},
 			},
 			{
