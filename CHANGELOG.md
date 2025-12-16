@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.3.0 (2025-12-16)
+
+Full Changelog: [v0.2.3...v0.3.0](https://github.com/nirvana-labs/nirvana-cli/compare/v0.2.3...v0.3.0)
+
+### Features
+
+* **api:** manual updates ([bf59b9c](https://github.com/nirvana-labs/nirvana-cli/commit/bf59b9c0be0e1bf2ea811c0c6d74622ed4a3917d))
+
 ## 0.2.3 (2025-12-16)
 
 Full Changelog: [v0.2.2...v0.2.3](https://github.com/nirvana-labs/nirvana-cli/compare/v0.2.2...v0.2.3)

@@ -102,6 +102,14 @@ func init() {
 				},
 			},
 			{
+				Name:     "regions",
+				Category: "API RESOURCE",
+				Commands: []*cli.Command{
+					&regionsList,
+					&regionsGet,
+				},
+			},
+			{
 				Name:     "compute:vms",
 				Category: "API RESOURCE",
 				Commands: []*cli.Command{
