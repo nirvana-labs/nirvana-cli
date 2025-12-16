@@ -49,7 +49,7 @@ func handleRPCNodesDedicatedBlockchainsList(ctx context.Context, cmd *cli.Comman
 		cmd,
 		apiquery.NestedQueryFormatBrackets,
 		apiquery.ArrayQueryFormatComma,
-		ApplicationJSON,
+		EmptyBody,
 	)
 	if err != nil {
 		return err
