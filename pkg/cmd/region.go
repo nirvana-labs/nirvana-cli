@@ -41,7 +41,7 @@ var regionsGet = cli.Command{
 	Usage: "Get a region by name",
 	Flags: []cli.Flag{
 		&requestflag.Flag[string]{
-			Name: "region-name",
+			Name: "name",
 		},
 	},
 	Action:          handleRegionsGet,
@@ -96,8 +96,8 @@ func handleRegionsList(ctx context.Context, cmd *cli.Command) error {
 func handleRegionsGet(ctx context.Context, cmd *cli.Command) error {
 	client := nirvana.NewClient(getDefaultRequestOptions(cmd)...)
 	unusedArgs := cmd.Args().Slice()
-	if !cmd.IsSet("region-name") && len(unusedArgs) > 0 {
-		cmd.Set("region-name", unusedArgs[0])
+	if !cmd.IsSet("name") && len(unusedArgs) > 0 {
+		cmd.Set("name", unusedArgs[0])
 		unusedArgs = unusedArgs[1:]
 	}
 	if len(unusedArgs) > 0 {
@@ -115,7 +115,7 @@ func handleRegionsGet(ctx context.Context, cmd *cli.Command) error {
 
 	var res []byte
 	options = append(options, option.WithResponseBodyInto(&res))
-	_, err = client.Regions.Get(ctx, cmd.Value("region-name").(string), options...)
+	_, err = client.Regions.Get(ctx, cmd.Value("name").(string), options...)
 	if err != nil {
 		return err
 	}
