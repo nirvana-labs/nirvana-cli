@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.2.3 (2025-12-16)
+
+Full Changelog: [v0.2.2...v0.2.3](https://github.com/nirvana-labs/nirvana-cli/compare/v0.2.2...v0.2.3)
+
+### Bug Fixes
+
+* fix for empty request bodies ([a36b81b](https://github.com/nirvana-labs/nirvana-cli/commit/a36b81b6bfa2c535d44df25de52f21e3c0239129))
+
 ## 0.2.2 (2025-12-15)
 
 Full Changelog: [v0.2.1...v0.2.2](https://github.com/nirvana-labs/nirvana-cli/compare/v0.2.1...v0.2.2)
