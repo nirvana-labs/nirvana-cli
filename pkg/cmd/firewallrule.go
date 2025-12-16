@@ -257,7 +257,7 @@ func handleNetworkingFirewallRulesList(ctx context.Context, cmd *cli.Command) er
 		cmd,
 		apiquery.NestedQueryFormatBrackets,
 		apiquery.ArrayQueryFormatComma,
-		ApplicationJSON,
+		EmptyBody,
 	)
 	if err != nil {
 		return err
@@ -317,7 +317,7 @@ func handleNetworkingFirewallRulesDelete(ctx context.Context, cmd *cli.Command) 
 		cmd,
 		apiquery.NestedQueryFormatBrackets,
 		apiquery.ArrayQueryFormatComma,
-		ApplicationJSON,
+		EmptyBody,
 	)
 	if err != nil {
 		return err
@@ -359,7 +359,7 @@ func handleNetworkingFirewallRulesGet(ctx context.Context, cmd *cli.Command) err
 		cmd,
 		apiquery.NestedQueryFormatBrackets,
 		apiquery.ArrayQueryFormatComma,
-		ApplicationJSON,
+		EmptyBody,
 	)
 	if err != nil {
 		return err

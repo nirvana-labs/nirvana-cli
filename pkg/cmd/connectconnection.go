@@ -211,7 +211,7 @@ func handleNetworkingConnectConnectionsList(ctx context.Context, cmd *cli.Comman
 		cmd,
 		apiquery.NestedQueryFormatBrackets,
 		apiquery.ArrayQueryFormatComma,
-		ApplicationJSON,
+		EmptyBody,
 	)
 	if err != nil {
 		return err
@@ -257,7 +257,7 @@ func handleNetworkingConnectConnectionsDelete(ctx context.Context, cmd *cli.Comm
 		cmd,
 		apiquery.NestedQueryFormatBrackets,
 		apiquery.ArrayQueryFormatComma,
-		ApplicationJSON,
+		EmptyBody,
 	)
 	if err != nil {
 		return err
@@ -290,7 +290,7 @@ func handleNetworkingConnectConnectionsGet(ctx context.Context, cmd *cli.Command
 		cmd,
 		apiquery.NestedQueryFormatBrackets,
 		apiquery.ArrayQueryFormatComma,
-		ApplicationJSON,
+		EmptyBody,
 	)
 	if err != nil {
 		return err
