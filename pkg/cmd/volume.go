@@ -109,6 +109,35 @@ var computeVolumesDelete = cli.Command{
 	HideHelpCommand: true,
 }
 
+var computeVolumesAttach = cli.Command{
+	Name:  "attach",
+	Usage: "Attach a volume to a VM",
+	Flags: []cli.Flag{
+		&requestflag.Flag[string]{
+			Name: "volume-id",
+		},
+		&requestflag.Flag[string]{
+			Name:     "vm-id",
+			Usage:    "ID of the VM to attach the Volume to.",
+			BodyPath: "vm_id",
+		},
+	},
+	Action:          handleComputeVolumesAttach,
+	HideHelpCommand: true,
+}
+
+var computeVolumesDetach = cli.Command{
+	Name:  "detach",
+	Usage: "Detach a volume from a VM",
+	Flags: []cli.Flag{
+		&requestflag.Flag[string]{
+			Name: "volume-id",
+		},
+	},
+	Action:          handleComputeVolumesDetach,
+	HideHelpCommand: true,
+}
+
 var computeVolumesGet = cli.Command{
 	Name:  "get",
 	Usage: "Get a Volume.",
@@ -277,6 +306,83 @@ func handleComputeVolumesDelete(ctx context.Context, cmd *cli.Command) error {
 	format := cmd.Root().String("format")
 	transform := cmd.Root().String("transform")
 	return ShowJSON(os.Stdout, "compute:volumes delete", obj, format, transform)
+}
+
+func handleComputeVolumesAttach(ctx context.Context, cmd *cli.Command) error {
+	client := nirvana.NewClient(getDefaultRequestOptions(cmd)...)
+	unusedArgs := cmd.Args().Slice()
+	if !cmd.IsSet("volume-id") && len(unusedArgs) > 0 {
+		cmd.Set("volume-id", unusedArgs[0])
+		unusedArgs = unusedArgs[1:]
+	}
+	if len(unusedArgs) > 0 {
+		return fmt.Errorf("Unexpected extra arguments: %v", unusedArgs)
+	}
+
+	params := compute.VolumeAttachParams{}
+
+	options, err := flagOptions(
+		cmd,
+		apiquery.NestedQueryFormatBrackets,
+		apiquery.ArrayQueryFormatComma,
+		ApplicationJSON,
+		false,
+	)
+	if err != nil {
+		return err
+	}
+
+	var res []byte
+	options = append(options, option.WithResponseBodyInto(&res))
+	_, err = client.Compute.Volumes.Attach(
+		ctx,
+		cmd.Value("volume-id").(string),
+		params,
+		options...,
+	)
+	if err != nil {
+		return err
+	}
+
+	obj := gjson.ParseBytes(res)
+	format := cmd.Root().String("format")
+	transform := cmd.Root().String("transform")
+	return ShowJSON(os.Stdout, "compute:volumes attach", obj, format, transform)
+}
+
+func handleComputeVolumesDetach(ctx context.Context, cmd *cli.Command) error {
+	client := nirvana.NewClient(getDefaultRequestOptions(cmd)...)
+	unusedArgs := cmd.Args().Slice()
+	if !cmd.IsSet("volume-id") && len(unusedArgs) > 0 {
+		cmd.Set("volume-id", unusedArgs[0])
+		unusedArgs = unusedArgs[1:]
+	}
+	if len(unusedArgs) > 0 {
+		return fmt.Errorf("Unexpected extra arguments: %v", unusedArgs)
+	}
+
+	options, err := flagOptions(
+		cmd,
+		apiquery.NestedQueryFormatBrackets,
+		apiquery.ArrayQueryFormatComma,
+		EmptyBody,
+		false,
+	)
+	if err != nil {
+		return err
+	}
+
+	var res []byte
+	options = append(options, option.WithResponseBodyInto(&res))
+	_, err = client.Compute.Volumes.Detach(ctx, cmd.Value("volume-id").(string), options...)
+	if err != nil {
+		return err
+	}
+
+	obj := gjson.ParseBytes(res)
+	format := cmd.Root().String("format")
+	transform := cmd.Root().String("transform")
+	return ShowJSON(os.Stdout, "compute:volumes detach", obj, format, transform)
 }
 
 func handleComputeVolumesGet(ctx context.Context, cmd *cli.Command) error {
