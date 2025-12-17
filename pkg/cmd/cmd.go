@@ -23,6 +23,7 @@ func init() {
 	Command = &cli.Command{
 		Name:    "nirvana",
 		Usage:   "CLI for the Nirvana Labs API",
+		Suggest: true,
 		Version: Version,
 		Flags: []cli.Flag{
 			&cli.BoolFlag{
