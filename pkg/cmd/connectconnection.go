@@ -133,6 +133,7 @@ func handleNetworkingConnectConnectionsCreate(ctx context.Context, cmd *cli.Comm
 	if len(unusedArgs) > 0 {
 		return fmt.Errorf("Unexpected extra arguments: %v", unusedArgs)
 	}
+
 	params := networking.ConnectConnectionNewParams{}
 
 	options, err := flagOptions(
@@ -140,6 +141,7 @@ func handleNetworkingConnectConnectionsCreate(ctx context.Context, cmd *cli.Comm
 		apiquery.NestedQueryFormatBrackets,
 		apiquery.ArrayQueryFormatComma,
 		ApplicationJSON,
+		false,
 	)
 	if err != nil {
 		return err
@@ -168,6 +170,7 @@ func handleNetworkingConnectConnectionsUpdate(ctx context.Context, cmd *cli.Comm
 	if len(unusedArgs) > 0 {
 		return fmt.Errorf("Unexpected extra arguments: %v", unusedArgs)
 	}
+
 	params := networking.ConnectConnectionUpdateParams{}
 
 	options, err := flagOptions(
@@ -175,6 +178,7 @@ func handleNetworkingConnectConnectionsUpdate(ctx context.Context, cmd *cli.Comm
 		apiquery.NestedQueryFormatBrackets,
 		apiquery.ArrayQueryFormatComma,
 		ApplicationJSON,
+		false,
 	)
 	if err != nil {
 		return err
@@ -205,6 +209,7 @@ func handleNetworkingConnectConnectionsList(ctx context.Context, cmd *cli.Comman
 	if len(unusedArgs) > 0 {
 		return fmt.Errorf("Unexpected extra arguments: %v", unusedArgs)
 	}
+
 	params := networking.ConnectConnectionListParams{}
 
 	options, err := flagOptions(
@@ -212,6 +217,7 @@ func handleNetworkingConnectConnectionsList(ctx context.Context, cmd *cli.Comman
 		apiquery.NestedQueryFormatBrackets,
 		apiquery.ArrayQueryFormatComma,
 		EmptyBody,
+		false,
 	)
 	if err != nil {
 		return err
@@ -253,11 +259,13 @@ func handleNetworkingConnectConnectionsDelete(ctx context.Context, cmd *cli.Comm
 	if len(unusedArgs) > 0 {
 		return fmt.Errorf("Unexpected extra arguments: %v", unusedArgs)
 	}
+
 	options, err := flagOptions(
 		cmd,
 		apiquery.NestedQueryFormatBrackets,
 		apiquery.ArrayQueryFormatComma,
 		EmptyBody,
+		false,
 	)
 	if err != nil {
 		return err
@@ -286,11 +294,13 @@ func handleNetworkingConnectConnectionsGet(ctx context.Context, cmd *cli.Command
 	if len(unusedArgs) > 0 {
 		return fmt.Errorf("Unexpected extra arguments: %v", unusedArgs)
 	}
+
 	options, err := flagOptions(
 		cmd,
 		apiquery.NestedQueryFormatBrackets,
 		apiquery.ArrayQueryFormatComma,
 		EmptyBody,
+		false,
 	)
 	if err != nil {
 		return err

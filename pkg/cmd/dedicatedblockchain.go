@@ -43,6 +43,7 @@ func handleRPCNodesDedicatedBlockchainsList(ctx context.Context, cmd *cli.Comman
 	if len(unusedArgs) > 0 {
 		return fmt.Errorf("Unexpected extra arguments: %v", unusedArgs)
 	}
+
 	params := rpc_nodes.DedicatedBlockchainListParams{}
 
 	options, err := flagOptions(
@@ -50,6 +51,7 @@ func handleRPCNodesDedicatedBlockchainsList(ctx context.Context, cmd *cli.Comman
 		apiquery.NestedQueryFormatBrackets,
 		apiquery.ArrayQueryFormatComma,
 		EmptyBody,
+		false,
 	)
 	if err != nil {
 		return err

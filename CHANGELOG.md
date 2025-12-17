@@ -1,5 +1,28 @@
 # Changelog
 
+## 0.6.0 (2025-12-17)
+
+Full Changelog: [v0.5.0...v0.6.0](https://github.com/nirvana-labs/nirvana-cli/compare/v0.5.0...v0.6.0)
+
+### Features
+
+* add better suggests when commands don't match ([173cba6](https://github.com/nirvana-labs/nirvana-cli/commit/173cba6fe0f823d88ec4e541646434911a772834))
+* **api:** api update ([3cb04a6](https://github.com/nirvana-labs/nirvana-cli/commit/3cb04a67bbdd39944915ee1d40406015aacb9627))
+* **api:** api update ([dc4f1b6](https://github.com/nirvana-labs/nirvana-cli/commit/dc4f1b67205a0dd2c41a342c4c2eeb7d0f5b21f0))
+* **cli:** binary request bodies ([8add963](https://github.com/nirvana-labs/nirvana-cli/commit/8add963a3201e90d40ef5c327af3c988411877cb))
+
+
+### Bug Fixes
+
+* **cli:** fix compilation on Windows ([23bfcdc](https://github.com/nirvana-labs/nirvana-cli/commit/23bfcdceebd38b99ee0aab0756ec4533ede89490))
+* **cli:** remove `*.exe` files from customer SDK changes ([1175aab](https://github.com/nirvana-labs/nirvana-cli/commit/1175aabcd117cb87f51c064cd7a28e0a6eb21498))
+* ignore .exe files ([1547fb0](https://github.com/nirvana-labs/nirvana-cli/commit/1547fb0c20dd87f9e99a0bb80ca7dfdac42052c0))
+
+
+### Chores
+
+* **cli:** temporarily remove `*.exe` from `.gitignore` ([19690c4](https://github.com/nirvana-labs/nirvana-cli/commit/19690c4499dc6b3fdd5a821872862f1fce381f80))
+
 ## 0.5.0 (2025-12-16)
 
 Full Changelog: [v0.4.0...v0.5.0](https://github.com/nirvana-labs/nirvana-cli/compare/v0.4.0...v0.5.0)

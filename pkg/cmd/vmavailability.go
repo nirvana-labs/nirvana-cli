@@ -124,6 +124,7 @@ func handleComputeVMsAvailabilityCreate(ctx context.Context, cmd *cli.Command) e
 	if len(unusedArgs) > 0 {
 		return fmt.Errorf("Unexpected extra arguments: %v", unusedArgs)
 	}
+
 	params := compute.VMAvailabilityNewParams{}
 
 	options, err := flagOptions(
@@ -131,6 +132,7 @@ func handleComputeVMsAvailabilityCreate(ctx context.Context, cmd *cli.Command) e
 		apiquery.NestedQueryFormatBrackets,
 		apiquery.ArrayQueryFormatComma,
 		ApplicationJSON,
+		false,
 	)
 	if err != nil {
 		return err
@@ -159,6 +161,7 @@ func handleComputeVMsAvailabilityUpdate(ctx context.Context, cmd *cli.Command) e
 	if len(unusedArgs) > 0 {
 		return fmt.Errorf("Unexpected extra arguments: %v", unusedArgs)
 	}
+
 	params := compute.VMAvailabilityUpdateParams{}
 
 	options, err := flagOptions(
@@ -166,6 +169,7 @@ func handleComputeVMsAvailabilityUpdate(ctx context.Context, cmd *cli.Command) e
 		apiquery.NestedQueryFormatBrackets,
 		apiquery.ArrayQueryFormatComma,
 		ApplicationJSON,
+		false,
 	)
 	if err != nil {
 		return err

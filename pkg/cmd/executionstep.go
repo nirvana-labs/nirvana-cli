@@ -65,11 +65,13 @@ func handleVektorExecutionsStepsGet(ctx context.Context, cmd *cli.Command) error
 	if len(unusedArgs) > 0 {
 		return fmt.Errorf("Unexpected extra arguments: %v", unusedArgs)
 	}
+
 	options, err := flagOptions(
 		cmd,
 		apiquery.NestedQueryFormatBrackets,
 		apiquery.ArrayQueryFormatComma,
 		EmptyBody,
+		false,
 	)
 	if err != nil {
 		return err
@@ -107,6 +109,7 @@ func handleVektorExecutionsStepsSign(ctx context.Context, cmd *cli.Command) erro
 	if len(unusedArgs) > 0 {
 		return fmt.Errorf("Unexpected extra arguments: %v", unusedArgs)
 	}
+
 	params := vektor.ExecutionStepSignParams{}
 
 	options, err := flagOptions(
@@ -114,6 +117,7 @@ func handleVektorExecutionsStepsSign(ctx context.Context, cmd *cli.Command) erro
 		apiquery.NestedQueryFormatBrackets,
 		apiquery.ArrayQueryFormatComma,
 		ApplicationJSON,
+		false,
 	)
 	if err != nil {
 		return err

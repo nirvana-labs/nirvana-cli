@@ -67,6 +67,7 @@ func handleVektorLPWithdrawQuoteCreate(ctx context.Context, cmd *cli.Command) er
 	if len(unusedArgs) > 0 {
 		return fmt.Errorf("Unexpected extra arguments: %v", unusedArgs)
 	}
+
 	params := vektor.LPWithdrawQuoteNewParams{}
 
 	options, err := flagOptions(
@@ -74,6 +75,7 @@ func handleVektorLPWithdrawQuoteCreate(ctx context.Context, cmd *cli.Command) er
 		apiquery.NestedQueryFormatBrackets,
 		apiquery.ArrayQueryFormatComma,
 		ApplicationJSON,
+		false,
 	)
 	if err != nil {
 		return err
