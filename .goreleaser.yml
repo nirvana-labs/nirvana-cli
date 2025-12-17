@@ -85,7 +85,7 @@ homebrew_casks:
       name: homebrew-tap
       token: "{{ .Env.HOMEBREW_TAP_GITHUB_TOKEN }}"
     homepage: https://nirvanalabs.io
-    description: Nirvana Labs CL
+    description: Nirvana Labs CLI
     license: Apache-2.0
     binary: "nirvana"
     completions:
