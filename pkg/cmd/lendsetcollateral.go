@@ -51,6 +51,7 @@ func handleVektorLendSetCollateralCreate(ctx context.Context, cmd *cli.Command) 
 	if len(unusedArgs) > 0 {
 		return fmt.Errorf("Unexpected extra arguments: %v", unusedArgs)
 	}
+
 	params := vektor.LendSetCollateralNewParams{}
 
 	options, err := flagOptions(
@@ -58,6 +59,7 @@ func handleVektorLendSetCollateralCreate(ctx context.Context, cmd *cli.Command) 
 		apiquery.NestedQueryFormatBrackets,
 		apiquery.ArrayQueryFormatComma,
 		ApplicationJSON,
+		false,
 	)
 	if err != nil {
 		return err

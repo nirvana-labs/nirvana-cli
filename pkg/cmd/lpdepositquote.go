@@ -72,6 +72,7 @@ func handleVektorLPDepositQuoteCreate(ctx context.Context, cmd *cli.Command) err
 	if len(unusedArgs) > 0 {
 		return fmt.Errorf("Unexpected extra arguments: %v", unusedArgs)
 	}
+
 	params := vektor.LPDepositQuoteNewParams{}
 
 	options, err := flagOptions(
@@ -79,6 +80,7 @@ func handleVektorLPDepositQuoteCreate(ctx context.Context, cmd *cli.Command) err
 		apiquery.NestedQueryFormatBrackets,
 		apiquery.ArrayQueryFormatComma,
 		ApplicationJSON,
+		false,
 	)
 	if err != nil {
 		return err

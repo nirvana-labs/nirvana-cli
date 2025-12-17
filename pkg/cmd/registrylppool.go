@@ -52,6 +52,7 @@ func handleVektorRegistryLPPoolsList(ctx context.Context, cmd *cli.Command) erro
 	if len(unusedArgs) > 0 {
 		return fmt.Errorf("Unexpected extra arguments: %v", unusedArgs)
 	}
+
 	params := vektor.RegistryLPPoolListParams{}
 
 	options, err := flagOptions(
@@ -59,6 +60,7 @@ func handleVektorRegistryLPPoolsList(ctx context.Context, cmd *cli.Command) erro
 		apiquery.NestedQueryFormatBrackets,
 		apiquery.ArrayQueryFormatComma,
 		ApplicationJSON,
+		false,
 	)
 	if err != nil {
 		return err

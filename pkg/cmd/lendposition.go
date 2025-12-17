@@ -116,6 +116,7 @@ func handleVektorLendPositionsList(ctx context.Context, cmd *cli.Command) error 
 	if len(unusedArgs) > 0 {
 		return fmt.Errorf("Unexpected extra arguments: %v", unusedArgs)
 	}
+
 	params := vektor.LendPositionListParams{}
 
 	options, err := flagOptions(
@@ -123,6 +124,7 @@ func handleVektorLendPositionsList(ctx context.Context, cmd *cli.Command) error 
 		apiquery.NestedQueryFormatBrackets,
 		apiquery.ArrayQueryFormatComma,
 		ApplicationJSON,
+		false,
 	)
 	if err != nil {
 		return err
@@ -148,6 +150,7 @@ func handleVektorLendPositionsListHistorical(ctx context.Context, cmd *cli.Comma
 	if len(unusedArgs) > 0 {
 		return fmt.Errorf("Unexpected extra arguments: %v", unusedArgs)
 	}
+
 	params := vektor.LendPositionListHistoricalParams{}
 
 	options, err := flagOptions(
@@ -155,6 +158,7 @@ func handleVektorLendPositionsListHistorical(ctx context.Context, cmd *cli.Comma
 		apiquery.NestedQueryFormatBrackets,
 		apiquery.ArrayQueryFormatComma,
 		ApplicationJSON,
+		false,
 	)
 	if err != nil {
 		return err

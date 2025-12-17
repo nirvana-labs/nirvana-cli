@@ -96,6 +96,7 @@ func handleVektorBalancesList(ctx context.Context, cmd *cli.Command) error {
 	if len(unusedArgs) > 0 {
 		return fmt.Errorf("Unexpected extra arguments: %v", unusedArgs)
 	}
+
 	params := vektor.BalanceListParams{}
 
 	options, err := flagOptions(
@@ -103,6 +104,7 @@ func handleVektorBalancesList(ctx context.Context, cmd *cli.Command) error {
 		apiquery.NestedQueryFormatBrackets,
 		apiquery.ArrayQueryFormatComma,
 		ApplicationJSON,
+		false,
 	)
 	if err != nil {
 		return err
@@ -128,6 +130,7 @@ func handleVektorBalancesListHistorical(ctx context.Context, cmd *cli.Command) e
 	if len(unusedArgs) > 0 {
 		return fmt.Errorf("Unexpected extra arguments: %v", unusedArgs)
 	}
+
 	params := vektor.BalanceListHistoricalParams{}
 
 	options, err := flagOptions(
@@ -135,6 +138,7 @@ func handleVektorBalancesListHistorical(ctx context.Context, cmd *cli.Command) e
 		apiquery.NestedQueryFormatBrackets,
 		apiquery.ArrayQueryFormatComma,
 		ApplicationJSON,
+		false,
 	)
 	if err != nil {
 		return err

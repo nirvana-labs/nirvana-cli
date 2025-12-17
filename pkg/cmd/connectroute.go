@@ -43,6 +43,7 @@ func handleNetworkingConnectRoutesList(ctx context.Context, cmd *cli.Command) er
 	if len(unusedArgs) > 0 {
 		return fmt.Errorf("Unexpected extra arguments: %v", unusedArgs)
 	}
+
 	params := networking.ConnectRouteListParams{}
 
 	options, err := flagOptions(
@@ -50,6 +51,7 @@ func handleNetworkingConnectRoutesList(ctx context.Context, cmd *cli.Command) er
 		apiquery.NestedQueryFormatBrackets,
 		apiquery.ArrayQueryFormatComma,
 		EmptyBody,
+		false,
 	)
 	if err != nil {
 		return err
