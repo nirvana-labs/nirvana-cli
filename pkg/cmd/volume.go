@@ -128,6 +128,7 @@ func handleComputeVolumesCreate(ctx context.Context, cmd *cli.Command) error {
 	if len(unusedArgs) > 0 {
 		return fmt.Errorf("Unexpected extra arguments: %v", unusedArgs)
 	}
+
 	params := compute.VolumeNewParams{}
 
 	options, err := flagOptions(
@@ -135,6 +136,7 @@ func handleComputeVolumesCreate(ctx context.Context, cmd *cli.Command) error {
 		apiquery.NestedQueryFormatBrackets,
 		apiquery.ArrayQueryFormatComma,
 		ApplicationJSON,
+		false,
 	)
 	if err != nil {
 		return err
@@ -163,6 +165,7 @@ func handleComputeVolumesUpdate(ctx context.Context, cmd *cli.Command) error {
 	if len(unusedArgs) > 0 {
 		return fmt.Errorf("Unexpected extra arguments: %v", unusedArgs)
 	}
+
 	params := compute.VolumeUpdateParams{}
 
 	options, err := flagOptions(
@@ -170,6 +173,7 @@ func handleComputeVolumesUpdate(ctx context.Context, cmd *cli.Command) error {
 		apiquery.NestedQueryFormatBrackets,
 		apiquery.ArrayQueryFormatComma,
 		ApplicationJSON,
+		false,
 	)
 	if err != nil {
 		return err
@@ -200,6 +204,7 @@ func handleComputeVolumesList(ctx context.Context, cmd *cli.Command) error {
 	if len(unusedArgs) > 0 {
 		return fmt.Errorf("Unexpected extra arguments: %v", unusedArgs)
 	}
+
 	params := compute.VolumeListParams{}
 
 	options, err := flagOptions(
@@ -207,6 +212,7 @@ func handleComputeVolumesList(ctx context.Context, cmd *cli.Command) error {
 		apiquery.NestedQueryFormatBrackets,
 		apiquery.ArrayQueryFormatComma,
 		EmptyBody,
+		false,
 	)
 	if err != nil {
 		return err
@@ -248,11 +254,13 @@ func handleComputeVolumesDelete(ctx context.Context, cmd *cli.Command) error {
 	if len(unusedArgs) > 0 {
 		return fmt.Errorf("Unexpected extra arguments: %v", unusedArgs)
 	}
+
 	options, err := flagOptions(
 		cmd,
 		apiquery.NestedQueryFormatBrackets,
 		apiquery.ArrayQueryFormatComma,
 		EmptyBody,
+		false,
 	)
 	if err != nil {
 		return err
@@ -281,11 +289,13 @@ func handleComputeVolumesGet(ctx context.Context, cmd *cli.Command) error {
 	if len(unusedArgs) > 0 {
 		return fmt.Errorf("Unexpected extra arguments: %v", unusedArgs)
 	}
+
 	options, err := flagOptions(
 		cmd,
 		apiquery.NestedQueryFormatBrackets,
 		apiquery.ArrayQueryFormatComma,
 		EmptyBody,
+		false,
 	)
 	if err != nil {
 		return err

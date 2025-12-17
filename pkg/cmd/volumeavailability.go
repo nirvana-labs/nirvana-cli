@@ -84,6 +84,7 @@ func handleComputeVolumesAvailabilityCreate(ctx context.Context, cmd *cli.Comman
 	if len(unusedArgs) > 0 {
 		return fmt.Errorf("Unexpected extra arguments: %v", unusedArgs)
 	}
+
 	params := compute.VolumeAvailabilityNewParams{}
 
 	options, err := flagOptions(
@@ -91,6 +92,7 @@ func handleComputeVolumesAvailabilityCreate(ctx context.Context, cmd *cli.Comman
 		apiquery.NestedQueryFormatBrackets,
 		apiquery.ArrayQueryFormatComma,
 		ApplicationJSON,
+		false,
 	)
 	if err != nil {
 		return err
@@ -119,6 +121,7 @@ func handleComputeVolumesAvailabilityUpdate(ctx context.Context, cmd *cli.Comman
 	if len(unusedArgs) > 0 {
 		return fmt.Errorf("Unexpected extra arguments: %v", unusedArgs)
 	}
+
 	params := compute.VolumeAvailabilityUpdateParams{}
 
 	options, err := flagOptions(
@@ -126,6 +129,7 @@ func handleComputeVolumesAvailabilityUpdate(ctx context.Context, cmd *cli.Comman
 		apiquery.NestedQueryFormatBrackets,
 		apiquery.ArrayQueryFormatComma,
 		ApplicationJSON,
+		false,
 	)
 	if err != nil {
 		return err

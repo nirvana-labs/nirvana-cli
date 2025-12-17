@@ -79,6 +79,7 @@ func handleNetworkingVPCsAvailabilityCreate(ctx context.Context, cmd *cli.Comman
 	if len(unusedArgs) > 0 {
 		return fmt.Errorf("Unexpected extra arguments: %v", unusedArgs)
 	}
+
 	params := networking.VPCAvailabilityNewParams{}
 
 	options, err := flagOptions(
@@ -86,6 +87,7 @@ func handleNetworkingVPCsAvailabilityCreate(ctx context.Context, cmd *cli.Comman
 		apiquery.NestedQueryFormatBrackets,
 		apiquery.ArrayQueryFormatComma,
 		ApplicationJSON,
+		false,
 	)
 	if err != nil {
 		return err
@@ -114,6 +116,7 @@ func handleNetworkingVPCsAvailabilityUpdate(ctx context.Context, cmd *cli.Comman
 	if len(unusedArgs) > 0 {
 		return fmt.Errorf("Unexpected extra arguments: %v", unusedArgs)
 	}
+
 	params := networking.VPCAvailabilityUpdateParams{}
 
 	options, err := flagOptions(
@@ -121,6 +124,7 @@ func handleNetworkingVPCsAvailabilityUpdate(ctx context.Context, cmd *cli.Comman
 		apiquery.NestedQueryFormatBrackets,
 		apiquery.ArrayQueryFormatComma,
 		ApplicationJSON,
+		false,
 	)
 	if err != nil {
 		return err
