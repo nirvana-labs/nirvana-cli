@@ -144,6 +144,8 @@ func init() {
 					&computeVolumesUpdate,
 					&computeVolumesList,
 					&computeVolumesDelete,
+					&computeVolumesAttach,
+					&computeVolumesDetach,
 					&computeVolumesGet,
 				},
 			},
