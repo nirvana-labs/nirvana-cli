@@ -12,7 +12,7 @@ import (
 	"strings"
 	"syscall"
 
-	"github.com/nirvana-labs/nirvana-cli/pkg/jsonview"
+	"github.com/nirvana-labs/nirvana-cli/internal/jsonview"
 	"github.com/nirvana-labs/nirvana-go/option"
 
 	"github.com/itchyny/json2yaml"
