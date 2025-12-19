@@ -50,7 +50,7 @@ var vektorLPWithdrawQuoteCreate = cli.Command{
 			Usage:    "An asset symbol",
 			BodyPath: "quote_asset_symbol",
 		},
-		&requestflag.Flag[any]{
+		&requestflag.Flag[map[string]map[string]any]{
 			Name:     "specifier",
 			Usage:    "Uniswap position specifier",
 			BodyPath: "specifier",
