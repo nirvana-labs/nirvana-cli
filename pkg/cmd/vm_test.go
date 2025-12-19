@@ -21,7 +21,7 @@ func TestComputeVMsCreate(t *testing.T) {
 		"--region", "us-wdc-1",
 		"--ssh-key", "{public_key: ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDBIASkmwNiLcdlW6927Zjt1Hf7Kw/PpEZ4Zm+wU9wn2}",
 		"--subnet-id", "123e4567-e89b-12d3-a456-426614174000",
-		"--data-volume", "{name: my-data-volume, size: 100, type: nvme, tags: [production, ethereum]}\n",
+		"--data-volume", "{name: my-data-volume, size: 100, type: nvme, tags: [production, ethereum]}",
 		"--tag", "production",
 		"--tag", "ethereum",
 	)

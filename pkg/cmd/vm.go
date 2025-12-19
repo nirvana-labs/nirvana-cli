@@ -20,17 +20,17 @@ var computeVMsCreate = cli.Command{
 	Name:  "create",
 	Usage: "Create a VM",
 	Flags: []cli.Flag{
-		&requestflag.Flag[any]{
+		&requestflag.Flag[map[string]any]{
 			Name:     "boot-volume",
 			Usage:    "Boot volume for the VM.",
 			BodyPath: "boot_volume",
 		},
-		&requestflag.Flag[any]{
+		&requestflag.Flag[map[string]int64]{
 			Name:     "cpu-config",
 			Usage:    "CPU configuration for the VM.",
 			BodyPath: "cpu_config",
 		},
-		&requestflag.Flag[any]{
+		&requestflag.Flag[map[string]int64]{
 			Name:     "memory-config",
 			Usage:    "Memory configuration for the VM.",
 			BodyPath: "memory_config",
@@ -55,7 +55,7 @@ var computeVMsCreate = cli.Command{
 			Usage:    "Region the resource is in.",
 			BodyPath: "region",
 		},
-		&requestflag.Flag[any]{
+		&requestflag.Flag[map[string]string]{
 			Name:     "ssh-key",
 			Usage:    "Public SSH key configuration for the VM.",
 			BodyPath: "ssh_key",
@@ -65,7 +65,7 @@ var computeVMsCreate = cli.Command{
 			Usage:    "ID of the subnet to use for the VM.",
 			BodyPath: "subnet_id",
 		},
-		&requestflag.Flag[[]any]{
+		&requestflag.Flag[[]map[string]any]{
 			Name:     "data-volume",
 			Usage:    "Data volumes for the VM.",
 			BodyPath: "data_volumes",
@@ -87,12 +87,12 @@ var computeVMsUpdate = cli.Command{
 		&requestflag.Flag[string]{
 			Name: "vm-id",
 		},
-		&requestflag.Flag[any]{
+		&requestflag.Flag[map[string]int64]{
 			Name:     "cpu-config",
 			Usage:    "CPU configuration for the VM.",
 			BodyPath: "cpu_config",
 		},
-		&requestflag.Flag[any]{
+		&requestflag.Flag[map[string]int64]{
 			Name:     "memory-config",
 			Usage:    "Memory configuration for the VM.",
 			BodyPath: "memory_config",

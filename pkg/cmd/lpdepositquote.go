@@ -45,7 +45,7 @@ var vektorLPDepositQuoteCreate = cli.Command{
 			Usage:    "An asset symbol",
 			BodyPath: "quote_asset_symbol",
 		},
-		&requestflag.Flag[any]{
+		&requestflag.Flag[map[string]string]{
 			Name:     "range",
 			Usage:    "A Uniswap V3 range. Lower and upper bounds should satisfy 0 <= `lower` < `upper`. The value -1 can be used in `upper` for infinity",
 			BodyPath: "range",
@@ -55,7 +55,7 @@ var vektorLPDepositQuoteCreate = cli.Command{
 			Usage:    "An EVM address",
 			BodyPath: "account",
 		},
-		&requestflag.Flag[any]{
+		&requestflag.Flag[map[string]map[string]any]{
 			Name:     "specifier",
 			Usage:    "Uniswap position specifier",
 			BodyPath: "specifier",
