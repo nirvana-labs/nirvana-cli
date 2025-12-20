@@ -83,9 +83,12 @@ homebrew_casks:
     repository:
       owner: nirvana-labs
       name: homebrew-tap
+      branch: "update-nirvana-{{ .Version }}"
       token: "{{ .Env.HOMEBREW_TAP_GITHUB_TOKEN }}"
       pull_request:
         enabled: true
+        base:
+          branch: main
     homepage: https://nirvanalabs.io
     description: Nirvana Labs CLI
     license: Apache-2.0
