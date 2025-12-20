@@ -45,7 +45,7 @@ var networkingConnectConnectionsCreate = cli.Command{
 			Usage:    "Region the resource is in.",
 			BodyPath: "region",
 		},
-		&requestflag.Flag[any]{
+		&requestflag.Flag[map[string]string]{
 			Name:     "aws",
 			Usage:    "AWS provider configuration",
 			BodyPath: "aws",

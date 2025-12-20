@@ -1,0 +1,25 @@
+// File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
+
+package cmd
+
+import (
+	"testing"
+
+	"github.com/nirvana-labs/nirvana-cli/internal/mocktest"
+)
+
+func TestVektorLPDepositQuoteCreate(t *testing.T) {
+	t.Skip("Prism doesn't support callbacks yet")
+	mocktest.TestRunMockTestWithFlags(
+		t,
+		"vektor:lp:deposit-quote", "create",
+		"--amount", "10.0000000000000024",
+		"--asset", "asset_01jbz9qc00f8wr64hfe459gb7y",
+		"--blockchain", "blockchain_01jbz9nsy8egar70jg79dkwmaf",
+		"--lp-pool-id", "lp_pool_01h455vb4pex5vsknk084sn02q",
+		"--quote-asset-symbol", "eth",
+		"--range", "{lower: '10.0000000000000024', upper: '10.0000000000000024'}",
+		"--account", "0x6b175474e89094c44da98b954eedeac495271d0f",
+		"--specifier", "{position_nft: {id: 0, collection: {address: address}}}",
+	)
+}

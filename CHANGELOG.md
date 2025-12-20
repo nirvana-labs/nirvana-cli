@@ -1,5 +1,30 @@
 # Changelog
 
+## 0.8.0 (2025-12-19)
+
+Full Changelog: [v0.7.0...v0.8.0](https://github.com/nirvana-labs/nirvana-cli/compare/v0.7.0...v0.8.0)
+
+### Features
+
+* added mock server tests ([c4d5ce6](https://github.com/nirvana-labs/nirvana-cli/commit/c4d5ce64d572c41781a45d9a817162e7f30f2254))
+* **api:** api update ([7313474](https://github.com/nirvana-labs/nirvana-cli/commit/7313474afaa4718375e20812a152c807b9928f11))
+
+
+### Bug Fixes
+
+* fix generated flag types and value wrapping ([73d40a4](https://github.com/nirvana-labs/nirvana-cli/commit/73d40a4a89abab64df0e51e71c7d05ccf4c1e4a9))
+
+
+### Chores
+
+* **cli:** add `*.exe` files back to `.gitignore` ([bf56733](https://github.com/nirvana-labs/nirvana-cli/commit/bf5673326cd891834a19bc4f547002fb8261fb2f))
+* **cli:** move `jsonview` subpackage to `internal` ([736e92b](https://github.com/nirvana-labs/nirvana-cli/commit/736e92b62961dcbab8b5d4409052c52e073824dc))
+* **cli:** run pre-codegen tests on Windows ([4d035c6](https://github.com/nirvana-labs/nirvana-cli/commit/4d035c6b5b7807317a58613c2c02fd26a2cbb783))
+* **internal:** codegen related update ([14e6b01](https://github.com/nirvana-labs/nirvana-cli/commit/14e6b01e028f1cce6d97d9972b4a1062163fd47c))
+* **internal:** codegen related update ([e2249d2](https://github.com/nirvana-labs/nirvana-cli/commit/e2249d259d67f488c8adb35d13970cb10fcc8051))
+* **internal:** codegen related update ([33dacd2](https://github.com/nirvana-labs/nirvana-cli/commit/33dacd231fe951ebd623ff071846aec189d03fef))
+* **internal:** codegen related update ([9e6685e](https://github.com/nirvana-labs/nirvana-cli/commit/9e6685e8d1dc5ff584f71d8b2d0579e8c3b5cfd9))
+
 ## 0.7.0 (2025-12-17)
 
 Full Changelog: [v0.6.0...v0.7.0](https://github.com/nirvana-labs/nirvana-cli/compare/v0.6.0...v0.7.0)
