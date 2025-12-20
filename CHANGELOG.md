@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.8.1 (2025-12-20)
+
+Full Changelog: [v0.8.0...v0.8.1](https://github.com/nirvana-labs/nirvana-cli/compare/v0.8.0...v0.8.1)
+
+### Build System
+
+* **goreleaser:** use PR for homebrew cask ([#15](https://github.com/nirvana-labs/nirvana-cli/issues/15)) ([0b49a81](https://github.com/nirvana-labs/nirvana-cli/commit/0b49a8158c6518317cd4925b7808e59ced7e4a6b))
+
 ## 0.8.0 (2025-12-19)
 
 Full Changelog: [v0.7.0...v0.8.0](https://github.com/nirvana-labs/nirvana-cli/compare/v0.7.0...v0.8.0)
