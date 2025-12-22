@@ -14,6 +14,7 @@ func TestAPIKeysCreate(t *testing.T) {
 		"api-keys", "create",
 		"--expires-at", "2025-12-31T23:59:59Z",
 		"--name", "My API Key",
+		"--source-ip-rule", "{in: [192.168.1.0/24, 10.0.0.0/8], not_in: [192.168.1.100/32]}",
 		"--starts-at", "2025-01-01T00:00:00Z",
 		"--tag", "production",
 		"--tag", "ethereum",
@@ -26,6 +27,7 @@ func TestAPIKeysUpdate(t *testing.T) {
 		"api-keys", "update",
 		"--api-key-id", "api_key_id",
 		"--name", "My Updated API Key",
+		"--source-ip-rule", "{in: [192.168.1.0/24, 10.0.0.0/8], not_in: [192.168.1.100/32]}",
 		"--tag", "production",
 		"--tag", "ethereum",
 	)
