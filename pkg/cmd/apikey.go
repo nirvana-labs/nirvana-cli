@@ -30,6 +30,11 @@ var apiKeysCreate = cli.Command{
 			Usage:    "API Key name.",
 			BodyPath: "name",
 		},
+		&requestflag.Flag[map[string][]string]{
+			Name:     "source-ip-rule",
+			Usage:    "IP filter configuration for the API Key.",
+			BodyPath: "source_ip_rule",
+		},
 		&requestflag.Flag[requestflag.DateTimeValue]{
 			Name:     "starts-at",
 			Usage:    "When the API Key starts to be valid.",
@@ -56,6 +61,11 @@ var apiKeysUpdate = cli.Command{
 			Name:     "name",
 			Usage:    "API Key name.",
 			BodyPath: "name",
+		},
+		&requestflag.Flag[map[string][]string]{
+			Name:     "source-ip-rule",
+			Usage:    "IP filter configuration for the API Key.",
+			BodyPath: "source_ip_rule",
 		},
 		&requestflag.Flag[[]string]{
 			Name:     "tag",
