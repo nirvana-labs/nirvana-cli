@@ -25,6 +25,11 @@ var computeVolumesAvailabilityCreate = cli.Command{
 			Usage:    "Name of the Volume.",
 			BodyPath: "name",
 		},
+		&requestflag.Flag[string]{
+			Name:     "region",
+			Usage:    "Region the resource is in.",
+			BodyPath: "region",
+		},
 		&requestflag.Flag[int64]{
 			Name:     "size",
 			Usage:    "Size of the Volume in GB.",
@@ -35,15 +40,15 @@ var computeVolumesAvailabilityCreate = cli.Command{
 			Usage:    "Type of the Volume.",
 			BodyPath: "type",
 		},
-		&requestflag.Flag[string]{
-			Name:     "vm-id",
-			Usage:    "ID of the VM the Volume is attached to.",
-			BodyPath: "vm_id",
-		},
 		&requestflag.Flag[[]string]{
 			Name:     "tag",
 			Usage:    "Tags to attach to the Volume.",
 			BodyPath: "tags",
+		},
+		&requestflag.Flag[string]{
+			Name:     "vm-id",
+			Usage:    "ID of the VM the Volume is attached to.",
+			BodyPath: "vm_id",
 		},
 	},
 	Action:          handleComputeVolumesAvailabilityCreate,
