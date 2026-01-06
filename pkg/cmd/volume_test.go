@@ -13,11 +13,12 @@ func TestComputeVolumesCreate(t *testing.T) {
 		t,
 		"compute:volumes", "create",
 		"--name", "my-data-volume",
+		"--region", "us-wdc-1",
 		"--size", "100",
 		"--type", "nvme",
-		"--vm-id", "vm_id",
 		"--tag", "production",
 		"--tag", "ethereum",
+		"--vm-id", "123e4567-e89b-12d3-a456-426614174000",
 	)
 }
 

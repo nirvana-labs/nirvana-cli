@@ -75,6 +75,14 @@ func init() {
 				},
 			},
 			{
+				Name:     "user:security",
+				Category: "API RESOURCE",
+				Commands: []*cli.Command{
+					&userSecurityUpdate,
+					&userSecurityGet,
+				},
+			},
+			{
 				Name:     "api-keys",
 				Category: "API RESOURCE",
 				Commands: []*cli.Command{
