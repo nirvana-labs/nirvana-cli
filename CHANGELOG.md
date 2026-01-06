@@ -1,5 +1,21 @@
 # Changelog
 
+## 0.10.0 (2026-01-06)
+
+Full Changelog: [v0.9.0...v0.10.0](https://github.com/nirvana-labs/nirvana-cli/compare/v0.9.0...v0.10.0)
+
+### Features
+
+* **api:** api update ([f9ec777](https://github.com/nirvana-labs/nirvana-cli/commit/f9ec7774054fefb4a1dcc2816ad741cf08443ed4))
+* **api:** api update ([947084f](https://github.com/nirvana-labs/nirvana-cli/commit/947084ff1d0d3bb79d999c1906906efcac1ab1d6))
+* **api:** api update ([39886e8](https://github.com/nirvana-labs/nirvana-cli/commit/39886e8b806aee5a39d5454f3cae079580fe8b10))
+* **api:** update ([99fc740](https://github.com/nirvana-labs/nirvana-cli/commit/99fc7403a939f86b1bfbd40d3bb8727c0b8607d0))
+
+
+### Chores
+
+* **internal:** codegen related update ([cac8481](https://github.com/nirvana-labs/nirvana-cli/commit/cac84818d8e1571672aeff424949c97d51c218d2))
+
 ## 0.9.0 (2025-12-22)
 
 Full Changelog: [v0.8.2...v0.9.0](https://github.com/nirvana-labs/nirvana-cli/compare/v0.8.2...v0.9.0)
