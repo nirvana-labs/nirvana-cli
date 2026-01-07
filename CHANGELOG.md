@@ -1,5 +1,19 @@
 # Changelog
 
+## 0.11.0 (2026-01-07)
+
+Full Changelog: [v0.10.0...v0.11.0](https://github.com/nirvana-labs/nirvana-cli/compare/v0.10.0...v0.11.0)
+
+### Features
+
+* improved behavior for exploring paginated/streamed endpoints ([5102650](https://github.com/nirvana-labs/nirvana-cli/commit/5102650091f0f67a88f9cb79b8a27797b81fe90e))
+
+
+### Bug Fixes
+
+* check required arguments ([bb61850](https://github.com/nirvana-labs/nirvana-cli/commit/bb618507bdd0e88ee6924fe85c4b004cffc2ce1d))
+* fixed placeholders for date/time arguments ([96b5d28](https://github.com/nirvana-labs/nirvana-cli/commit/96b5d28398260ec0fd3f13d7f27b8f34f9e9ab81))
+
 ## 0.10.0 (2026-01-06)
 
 Full Changelog: [v0.9.0...v0.10.0](https://github.com/nirvana-labs/nirvana-cli/compare/v0.9.0...v0.10.0)
