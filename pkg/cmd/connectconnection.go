@@ -244,16 +244,7 @@ func handleNetworkingConnectConnectionsList(ctx context.Context, cmd *cli.Comman
 		return ShowJSON(os.Stdout, "networking:connect:connections list", obj, format, transform)
 	} else {
 		iter := client.Networking.Connect.Connections.ListAutoPaging(ctx, params, options...)
-		return streamOutput("networking:connect:connections list", func(w *os.File) error {
-			for iter.Next() {
-				item := iter.Current()
-				obj := gjson.Parse(item.RawJSON())
-				if err := ShowJSON(w, "networking:connect:connections list", obj, format, transform); err != nil {
-					return err
-				}
-			}
-			return iter.Err()
-		})
+		return ShowJSONIterator(os.Stdout, "networking:connect:connections list", iter, format, transform)
 	}
 }
 

@@ -305,16 +305,7 @@ func handleNetworkingFirewallRulesList(ctx context.Context, cmd *cli.Command) er
 			params,
 			options...,
 		)
-		return streamOutput("networking:firewall-rules list", func(w *os.File) error {
-			for iter.Next() {
-				item := iter.Current()
-				obj := gjson.Parse(item.RawJSON())
-				if err := ShowJSON(w, "networking:firewall-rules list", obj, format, transform); err != nil {
-					return err
-				}
-			}
-			return iter.Err()
-		})
+		return ShowJSONIterator(os.Stdout, "networking:firewall-rules list", iter, format, transform)
 	}
 }
 

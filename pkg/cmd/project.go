@@ -215,16 +215,7 @@ func handleProjectsList(ctx context.Context, cmd *cli.Command) error {
 		return ShowJSON(os.Stdout, "projects list", obj, format, transform)
 	} else {
 		iter := client.Projects.ListAutoPaging(ctx, params, options...)
-		return streamOutput("projects list", func(w *os.File) error {
-			for iter.Next() {
-				item := iter.Current()
-				obj := gjson.Parse(item.RawJSON())
-				if err := ShowJSON(w, "projects list", obj, format, transform); err != nil {
-					return err
-				}
-			}
-			return iter.Err()
-		})
+		return ShowJSONIterator(os.Stdout, "projects list", iter, format, transform)
 	}
 }
 

@@ -232,16 +232,7 @@ func handleNetworkingVPCsList(ctx context.Context, cmd *cli.Command) error {
 		return ShowJSON(os.Stdout, "networking:vpcs list", obj, format, transform)
 	} else {
 		iter := client.Networking.VPCs.ListAutoPaging(ctx, params, options...)
-		return streamOutput("networking:vpcs list", func(w *os.File) error {
-			for iter.Next() {
-				item := iter.Current()
-				obj := gjson.Parse(item.RawJSON())
-				if err := ShowJSON(w, "networking:vpcs list", obj, format, transform); err != nil {
-					return err
-				}
-			}
-			return iter.Err()
-		})
+		return ShowJSONIterator(os.Stdout, "networking:vpcs list", iter, format, transform)
 	}
 }
 
