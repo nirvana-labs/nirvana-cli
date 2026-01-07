@@ -23,6 +23,7 @@ var vektorPricesList = cli.Command{
 		&requestflag.Flag[[]string]{
 			Name:     "asset-symbol",
 			Usage:    "A list of asset symbols",
+			Required: true,
 			BodyPath: "asset_symbols",
 		},
 		&requestflag.Flag[string]{
@@ -42,6 +43,7 @@ var vektorPricesListHistorical = cli.Command{
 		&requestflag.Flag[[]string]{
 			Name:     "asset-symbol",
 			Usage:    "A list of asset symbols",
+			Required: true,
 			BodyPath: "asset_symbols",
 		},
 		&requestflag.Flag[string]{

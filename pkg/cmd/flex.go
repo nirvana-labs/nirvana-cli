@@ -23,21 +23,25 @@ var rpcNodesFlexCreate = cli.Command{
 		&requestflag.Flag[string]{
 			Name:     "blockchain",
 			Usage:    "Blockchain.",
+			Required: true,
 			BodyPath: "blockchain",
 		},
 		&requestflag.Flag[string]{
 			Name:     "name",
 			Usage:    "Name of the RPC Node Flex.",
+			Required: true,
 			BodyPath: "name",
 		},
 		&requestflag.Flag[string]{
 			Name:     "network",
 			Usage:    "Network type (e.g., mainnet, testnet).",
+			Required: true,
 			BodyPath: "network",
 		},
 		&requestflag.Flag[string]{
 			Name:     "project-id",
 			Usage:    "Project ID to associate with the RPC Node Flex.",
+			Required: true,
 			BodyPath: "project_id",
 		},
 		&requestflag.Flag[[]string]{
@@ -55,7 +59,8 @@ var rpcNodesFlexUpdate = cli.Command{
 	Usage: "Update an existing RPC Node Flex",
 	Flags: []cli.Flag{
 		&requestflag.Flag[string]{
-			Name: "node-id",
+			Name:     "node-id",
+			Required: true,
 		},
 		&requestflag.Flag[string]{
 			Name:     "name",
@@ -102,7 +107,8 @@ var rpcNodesFlexDelete = cli.Command{
 	Usage: "Delete an RPC Node Flex",
 	Flags: []cli.Flag{
 		&requestflag.Flag[string]{
-			Name: "node-id",
+			Name:     "node-id",
+			Required: true,
 		},
 	},
 	Action:          handleRPCNodesFlexDelete,
@@ -114,7 +120,8 @@ var rpcNodesFlexGet = cli.Command{
 	Usage: "Get details about an RPC Node Flex",
 	Flags: []cli.Flag{
 		&requestflag.Flag[string]{
-			Name: "node-id",
+			Name:     "node-id",
+			Required: true,
 		},
 	},
 	Action:          handleRPCNodesFlexGet,
@@ -231,16 +238,7 @@ func handleRPCNodesFlexList(ctx context.Context, cmd *cli.Command) error {
 		return ShowJSON(os.Stdout, "rpc-nodes:flex list", obj, format, transform)
 	} else {
 		iter := client.RPCNodes.Flex.ListAutoPaging(ctx, params, options...)
-		return streamOutput("rpc-nodes:flex list", func(w *os.File) error {
-			for iter.Next() {
-				item := iter.Current()
-				obj := gjson.Parse(item.RawJSON())
-				if err := ShowJSON(w, "rpc-nodes:flex list", obj, format, transform); err != nil {
-					return err
-				}
-			}
-			return iter.Err()
-		})
+		return ShowJSONIterator(os.Stdout, "rpc-nodes:flex list", iter, format, transform)
 	}
 }
 

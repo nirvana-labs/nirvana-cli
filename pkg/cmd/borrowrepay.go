@@ -23,16 +23,19 @@ var vektorBorrowRepayCreate = cli.Command{
 		&requestflag.Flag[string]{
 			Name:     "blockchain",
 			Usage:    "A blockchain ID, represented as a TypeID with `blockchain` prefix",
+			Required: true,
 			BodyPath: "blockchain",
 		},
 		&requestflag.Flag[string]{
 			Name:     "from",
 			Usage:    "An EVM address",
+			Required: true,
 			BodyPath: "from",
 		},
 		&requestflag.Flag[string]{
 			Name:     "market-id",
 			Usage:    "A lend/borrow market ID, represented as a TypeID with `lend_borrow_market` prefix",
+			Required: true,
 			BodyPath: "market_id",
 		},
 		&requestflag.Flag[string]{

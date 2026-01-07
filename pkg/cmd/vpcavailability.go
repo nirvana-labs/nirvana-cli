@@ -23,16 +23,19 @@ var networkingVPCsAvailabilityCreate = cli.Command{
 		&requestflag.Flag[string]{
 			Name:     "name",
 			Usage:    "Name of the VPC.",
+			Required: true,
 			BodyPath: "name",
 		},
 		&requestflag.Flag[string]{
 			Name:     "region",
 			Usage:    "Region the resource is in.",
+			Required: true,
 			BodyPath: "region",
 		},
 		&requestflag.Flag[string]{
 			Name:     "subnet-name",
 			Usage:    "Name of the subnet to create.",
+			Required: true,
 			BodyPath: "subnet_name",
 		},
 		&requestflag.Flag[[]string]{
@@ -50,7 +53,8 @@ var networkingVPCsAvailabilityUpdate = cli.Command{
 	Usage: "Check if a VPC can be updated",
 	Flags: []cli.Flag{
 		&requestflag.Flag[string]{
-			Name: "vpc-id",
+			Name:     "vpc-id",
+			Required: true,
 		},
 		&requestflag.Flag[string]{
 			Name:     "name",

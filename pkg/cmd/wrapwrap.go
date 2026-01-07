@@ -23,16 +23,19 @@ var vektorWrapWrapCreate = cli.Command{
 		&requestflag.Flag[string]{
 			Name:     "amount",
 			Usage:    "An arbitrary precision decimal represented as a string",
+			Required: true,
 			BodyPath: "amount",
 		},
 		&requestflag.Flag[string]{
 			Name:     "blockchain",
 			Usage:    "A blockchain ID, represented as a TypeID with `blockchain` prefix",
+			Required: true,
 			BodyPath: "blockchain",
 		},
 		&requestflag.Flag[string]{
 			Name:     "from",
 			Usage:    "An EVM address",
+			Required: true,
 			BodyPath: "from",
 		},
 	},

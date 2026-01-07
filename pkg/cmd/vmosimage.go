@@ -70,15 +70,6 @@ func handleComputeVMsOSImagesList(ctx context.Context, cmd *cli.Command) error {
 		return ShowJSON(os.Stdout, "compute:vms:os-images list", obj, format, transform)
 	} else {
 		iter := client.Compute.VMs.OSImages.ListAutoPaging(ctx, params, options...)
-		return streamOutput("compute:vms:os-images list", func(w *os.File) error {
-			for iter.Next() {
-				item := iter.Current()
-				obj := gjson.Parse(item.RawJSON())
-				if err := ShowJSON(w, "compute:vms:os-images list", obj, format, transform); err != nil {
-					return err
-				}
-			}
-			return iter.Err()
-		})
+		return ShowJSONIterator(os.Stdout, "compute:vms:os-images list", iter, format, transform)
 	}
 }

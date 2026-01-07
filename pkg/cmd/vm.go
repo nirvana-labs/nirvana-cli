@@ -23,46 +23,55 @@ var computeVMsCreate = cli.Command{
 		&requestflag.Flag[map[string]any]{
 			Name:     "boot-volume",
 			Usage:    "Boot volume for the VM.",
+			Required: true,
 			BodyPath: "boot_volume",
 		},
 		&requestflag.Flag[map[string]int64]{
 			Name:     "cpu-config",
 			Usage:    "CPU configuration for the VM.",
+			Required: true,
 			BodyPath: "cpu_config",
 		},
 		&requestflag.Flag[map[string]int64]{
 			Name:     "memory-config",
 			Usage:    "Memory configuration for the VM.",
+			Required: true,
 			BodyPath: "memory_config",
 		},
 		&requestflag.Flag[string]{
 			Name:     "name",
 			Usage:    "Name of the VM.",
+			Required: true,
 			BodyPath: "name",
 		},
 		&requestflag.Flag[string]{
 			Name:     "os-image-name",
 			Usage:    "Name of the OS Image to use for the VM.",
+			Required: true,
 			BodyPath: "os_image_name",
 		},
 		&requestflag.Flag[bool]{
 			Name:     "public-ip-enabled",
 			Usage:    "Whether to enable public IP for the VM.",
+			Required: true,
 			BodyPath: "public_ip_enabled",
 		},
 		&requestflag.Flag[string]{
 			Name:     "region",
 			Usage:    "Region the resource is in.",
+			Required: true,
 			BodyPath: "region",
 		},
 		&requestflag.Flag[map[string]string]{
 			Name:     "ssh-key",
 			Usage:    "Public SSH key configuration for the VM.",
+			Required: true,
 			BodyPath: "ssh_key",
 		},
 		&requestflag.Flag[string]{
 			Name:     "subnet-id",
 			Usage:    "ID of the subnet to use for the VM.",
+			Required: true,
 			BodyPath: "subnet_id",
 		},
 		&requestflag.Flag[[]map[string]any]{
@@ -85,7 +94,8 @@ var computeVMsUpdate = cli.Command{
 	Usage: "Update a VM",
 	Flags: []cli.Flag{
 		&requestflag.Flag[string]{
-			Name: "vm-id",
+			Name:     "vm-id",
+			Required: true,
 		},
 		&requestflag.Flag[map[string]int64]{
 			Name:     "cpu-config",
@@ -142,7 +152,8 @@ var computeVMsDelete = cli.Command{
 	Usage: "Delete a VM",
 	Flags: []cli.Flag{
 		&requestflag.Flag[string]{
-			Name: "vm-id",
+			Name:     "vm-id",
+			Required: true,
 		},
 	},
 	Action:          handleComputeVMsDelete,
@@ -154,7 +165,8 @@ var computeVMsGet = cli.Command{
 	Usage: "Get details about a VM",
 	Flags: []cli.Flag{
 		&requestflag.Flag[string]{
-			Name: "vm-id",
+			Name:     "vm-id",
+			Required: true,
 		},
 	},
 	Action:          handleComputeVMsGet,
@@ -166,7 +178,8 @@ var computeVMsRestart = cli.Command{
 	Usage: "Restart a VM",
 	Flags: []cli.Flag{
 		&requestflag.Flag[string]{
-			Name: "vm-id",
+			Name:     "vm-id",
+			Required: true,
 		},
 	},
 	Action:          handleComputeVMsRestart,
@@ -283,16 +296,7 @@ func handleComputeVMsList(ctx context.Context, cmd *cli.Command) error {
 		return ShowJSON(os.Stdout, "compute:vms list", obj, format, transform)
 	} else {
 		iter := client.Compute.VMs.ListAutoPaging(ctx, params, options...)
-		return streamOutput("compute:vms list", func(w *os.File) error {
-			for iter.Next() {
-				item := iter.Current()
-				obj := gjson.Parse(item.RawJSON())
-				if err := ShowJSON(w, "compute:vms list", obj, format, transform); err != nil {
-					return err
-				}
-			}
-			return iter.Err()
-		})
+		return ShowJSONIterator(os.Stdout, "compute:vms list", iter, format, transform)
 	}
 }
 

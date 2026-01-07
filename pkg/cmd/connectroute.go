@@ -70,15 +70,6 @@ func handleNetworkingConnectRoutesList(ctx context.Context, cmd *cli.Command) er
 		return ShowJSON(os.Stdout, "networking:connect:routes list", obj, format, transform)
 	} else {
 		iter := client.Networking.Connect.Routes.ListAutoPaging(ctx, params, options...)
-		return streamOutput("networking:connect:routes list", func(w *os.File) error {
-			for iter.Next() {
-				item := iter.Current()
-				obj := gjson.Parse(item.RawJSON())
-				if err := ShowJSON(w, "networking:connect:routes list", obj, format, transform); err != nil {
-					return err
-				}
-			}
-			return iter.Err()
-		})
+		return ShowJSONIterator(os.Stdout, "networking:connect:routes list", iter, format, transform)
 	}
 }

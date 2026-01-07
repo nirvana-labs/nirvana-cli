@@ -21,31 +21,37 @@ var networkingFirewallRulesCreate = cli.Command{
 	Usage: "Create a firewall rule",
 	Flags: []cli.Flag{
 		&requestflag.Flag[string]{
-			Name: "vpc-id",
+			Name:     "vpc-id",
+			Required: true,
 		},
 		&requestflag.Flag[string]{
 			Name:     "destination-address",
 			Usage:    "Destination address of the Firewall Rule. Either VPC CIDR or VM in VPC. Must be in network-aligned/canonical form.",
+			Required: true,
 			BodyPath: "destination_address",
 		},
 		&requestflag.Flag[[]string]{
 			Name:     "destination-port",
 			Usage:    "Destination ports of the Firewall Rule.",
+			Required: true,
 			BodyPath: "destination_ports",
 		},
 		&requestflag.Flag[string]{
 			Name:     "name",
 			Usage:    "Name of the Firewall Rule.",
+			Required: true,
 			BodyPath: "name",
 		},
 		&requestflag.Flag[string]{
 			Name:     "protocol",
 			Usage:    "Protocol of the Firewall Rule.",
+			Required: true,
 			BodyPath: "protocol",
 		},
 		&requestflag.Flag[string]{
 			Name:     "source-address",
 			Usage:    "Source address of the Firewall Rule. Address of 0.0.0.0 requires a CIDR mask of 0. Must be in network-aligned/canonical form.",
+			Required: true,
 			BodyPath: "source_address",
 		},
 		&requestflag.Flag[[]string]{
@@ -63,10 +69,12 @@ var networkingFirewallRulesUpdate = cli.Command{
 	Usage: "Update a firewall rule",
 	Flags: []cli.Flag{
 		&requestflag.Flag[string]{
-			Name: "vpc-id",
+			Name:     "vpc-id",
+			Required: true,
 		},
 		&requestflag.Flag[string]{
-			Name: "firewall-rule-id",
+			Name:     "firewall-rule-id",
+			Required: true,
 		},
 		&requestflag.Flag[string]{
 			Name:     "destination-address",
@@ -108,7 +116,8 @@ var networkingFirewallRulesList = cli.Command{
 	Usage: "List all firewall rules",
 	Flags: []cli.Flag{
 		&requestflag.Flag[string]{
-			Name: "vpc-id",
+			Name:     "vpc-id",
+			Required: true,
 		},
 		&requestflag.Flag[string]{
 			Name:      "cursor",
@@ -131,10 +140,12 @@ var networkingFirewallRulesDelete = cli.Command{
 	Usage: "Delete a firewall rule",
 	Flags: []cli.Flag{
 		&requestflag.Flag[string]{
-			Name: "vpc-id",
+			Name:     "vpc-id",
+			Required: true,
 		},
 		&requestflag.Flag[string]{
-			Name: "firewall-rule-id",
+			Name:     "firewall-rule-id",
+			Required: true,
 		},
 	},
 	Action:          handleNetworkingFirewallRulesDelete,
@@ -146,10 +157,12 @@ var networkingFirewallRulesGet = cli.Command{
 	Usage: "Get details about a firewall rule",
 	Flags: []cli.Flag{
 		&requestflag.Flag[string]{
-			Name: "vpc-id",
+			Name:     "vpc-id",
+			Required: true,
 		},
 		&requestflag.Flag[string]{
-			Name: "firewall-rule-id",
+			Name:     "firewall-rule-id",
+			Required: true,
 		},
 	},
 	Action:          handleNetworkingFirewallRulesGet,
@@ -292,16 +305,7 @@ func handleNetworkingFirewallRulesList(ctx context.Context, cmd *cli.Command) er
 			params,
 			options...,
 		)
-		return streamOutput("networking:firewall-rules list", func(w *os.File) error {
-			for iter.Next() {
-				item := iter.Current()
-				obj := gjson.Parse(item.RawJSON())
-				if err := ShowJSON(w, "networking:firewall-rules list", obj, format, transform); err != nil {
-					return err
-				}
-			}
-			return iter.Err()
-		})
+		return ShowJSONIterator(os.Stdout, "networking:firewall-rules list", iter, format, transform)
 	}
 }
 

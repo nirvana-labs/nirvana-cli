@@ -21,7 +21,8 @@ var computeVMsVolumesList = cli.Command{
 	Usage: "List VM's Volumes",
 	Flags: []cli.Flag{
 		&requestflag.Flag[string]{
-			Name: "vm-id",
+			Name:     "vm-id",
+			Required: true,
 		},
 		&requestflag.Flag[string]{
 			Name:      "cursor",
@@ -86,15 +87,6 @@ func handleComputeVMsVolumesList(ctx context.Context, cmd *cli.Command) error {
 			params,
 			options...,
 		)
-		return streamOutput("compute:vms:volumes list", func(w *os.File) error {
-			for iter.Next() {
-				item := iter.Current()
-				obj := gjson.Parse(item.RawJSON())
-				if err := ShowJSON(w, "compute:vms:volumes list", obj, format, transform); err != nil {
-					return err
-				}
-			}
-			return iter.Err()
-		})
+		return ShowJSONIterator(os.Stdout, "compute:vms:volumes list", iter, format, transform)
 	}
 }

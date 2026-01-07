@@ -23,21 +23,25 @@ var computeVolumesCreate = cli.Command{
 		&requestflag.Flag[string]{
 			Name:     "name",
 			Usage:    "Name of the Volume.",
+			Required: true,
 			BodyPath: "name",
 		},
 		&requestflag.Flag[string]{
 			Name:     "region",
 			Usage:    "Region the resource is in.",
+			Required: true,
 			BodyPath: "region",
 		},
 		&requestflag.Flag[int64]{
 			Name:     "size",
 			Usage:    "Size of the Volume in GB.",
+			Required: true,
 			BodyPath: "size",
 		},
 		&requestflag.Flag[string]{
 			Name:     "type",
 			Usage:    "Type of the Volume.",
+			Required: true,
 			BodyPath: "type",
 		},
 		&requestflag.Flag[[]string]{
@@ -60,7 +64,8 @@ var computeVolumesUpdate = cli.Command{
 	Usage: "Update a Volume. Boot or data volumes can be updated.",
 	Flags: []cli.Flag{
 		&requestflag.Flag[string]{
-			Name: "volume-id",
+			Name:     "volume-id",
+			Required: true,
 		},
 		&requestflag.Flag[string]{
 			Name:     "name",
@@ -107,7 +112,8 @@ var computeVolumesDelete = cli.Command{
 	Usage: "Delete a Volume. Boot or data volumes can be deleted.",
 	Flags: []cli.Flag{
 		&requestflag.Flag[string]{
-			Name: "volume-id",
+			Name:     "volume-id",
+			Required: true,
 		},
 	},
 	Action:          handleComputeVolumesDelete,
@@ -119,11 +125,13 @@ var computeVolumesAttach = cli.Command{
 	Usage: "Attach a volume to a VM",
 	Flags: []cli.Flag{
 		&requestflag.Flag[string]{
-			Name: "volume-id",
+			Name:     "volume-id",
+			Required: true,
 		},
 		&requestflag.Flag[string]{
 			Name:     "vm-id",
 			Usage:    "ID of the VM to attach the Volume to.",
+			Required: true,
 			BodyPath: "vm_id",
 		},
 	},
@@ -136,7 +144,8 @@ var computeVolumesDetach = cli.Command{
 	Usage: "Detach a volume from a VM",
 	Flags: []cli.Flag{
 		&requestflag.Flag[string]{
-			Name: "volume-id",
+			Name:     "volume-id",
+			Required: true,
 		},
 	},
 	Action:          handleComputeVolumesDetach,
@@ -148,7 +157,8 @@ var computeVolumesGet = cli.Command{
 	Usage: "Get a Volume.",
 	Flags: []cli.Flag{
 		&requestflag.Flag[string]{
-			Name: "volume-id",
+			Name:     "volume-id",
+			Required: true,
 		},
 	},
 	Action:          handleComputeVolumesGet,
@@ -265,16 +275,7 @@ func handleComputeVolumesList(ctx context.Context, cmd *cli.Command) error {
 		return ShowJSON(os.Stdout, "compute:volumes list", obj, format, transform)
 	} else {
 		iter := client.Compute.Volumes.ListAutoPaging(ctx, params, options...)
-		return streamOutput("compute:volumes list", func(w *os.File) error {
-			for iter.Next() {
-				item := iter.Current()
-				obj := gjson.Parse(item.RawJSON())
-				if err := ShowJSON(w, "compute:volumes list", obj, format, transform); err != nil {
-					return err
-				}
-			}
-			return iter.Err()
-		})
+		return ShowJSONIterator(os.Stdout, "compute:volumes list", iter, format, transform)
 	}
 }
 

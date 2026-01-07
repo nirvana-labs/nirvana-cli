@@ -23,16 +23,19 @@ var vektorVoteMarketsList = cli.Command{
 		&requestflag.Flag[[]string]{
 			Name:     "asset",
 			Usage:    "A list of asset IDs, EVM addresses or asset symbols",
+			Required: true,
 			BodyPath: "assets",
 		},
 		&requestflag.Flag[string]{
 			Name:     "blockchain",
 			Usage:    "A blockchain ID, represented as a TypeID with `blockchain` prefix",
+			Required: true,
 			BodyPath: "blockchain",
 		},
 		&requestflag.Flag[[]string]{
 			Name:     "venue",
 			Usage:    "A list of venue IDs or venue symbols",
+			Required: true,
 			BodyPath: "venues",
 		},
 		&requestflag.Flag[string]{
