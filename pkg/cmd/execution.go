@@ -28,7 +28,8 @@ var vektorExecutionsGet = cli.Command{
 	Usage: "Get an execution",
 	Flags: []cli.Flag{
 		&requestflag.Flag[string]{
-			Name: "execution-id",
+			Name:     "execution-id",
+			Required: true,
 		},
 	},
 	Action:          handleVektorExecutionsGet,

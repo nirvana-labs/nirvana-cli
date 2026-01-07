@@ -21,7 +21,8 @@ var computeVMsVolumesList = cli.Command{
 	Usage: "List VM's Volumes",
 	Flags: []cli.Flag{
 		&requestflag.Flag[string]{
-			Name: "vm-id",
+			Name:     "vm-id",
+			Required: true,
 		},
 		&requestflag.Flag[string]{
 			Name:      "cursor",

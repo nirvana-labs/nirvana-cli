@@ -23,26 +23,31 @@ var vektorLendLendCreate = cli.Command{
 		&requestflag.Flag[string]{
 			Name:     "amount",
 			Usage:    "An arbitrary precision decimal represented as a string",
+			Required: true,
 			BodyPath: "amount",
 		},
 		&requestflag.Flag[string]{
 			Name:     "asset",
 			Usage:    "An asset ID, represented as a TypeID with `asset` prefix",
+			Required: true,
 			BodyPath: "asset",
 		},
 		&requestflag.Flag[string]{
 			Name:     "blockchain",
 			Usage:    "A blockchain ID, represented as a TypeID with `blockchain` prefix",
+			Required: true,
 			BodyPath: "blockchain",
 		},
 		&requestflag.Flag[string]{
 			Name:     "from",
 			Usage:    "An EVM address",
+			Required: true,
 			BodyPath: "from",
 		},
 		&requestflag.Flag[[]string]{
 			Name:     "venue",
 			Usage:    "A list of venue IDs or venue symbols",
+			Required: true,
 			BodyPath: "venues",
 		},
 	},

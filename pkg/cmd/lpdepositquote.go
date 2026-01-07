@@ -23,21 +23,25 @@ var vektorLPDepositQuoteCreate = cli.Command{
 		&requestflag.Flag[string]{
 			Name:     "amount",
 			Usage:    "An arbitrary precision decimal represented as a string",
+			Required: true,
 			BodyPath: "amount",
 		},
 		&requestflag.Flag[string]{
 			Name:     "asset",
 			Usage:    "An asset ID, represented as a TypeID with `asset` prefix",
+			Required: true,
 			BodyPath: "asset",
 		},
 		&requestflag.Flag[string]{
 			Name:     "blockchain",
 			Usage:    "A blockchain ID, represented as a TypeID with `blockchain` prefix",
+			Required: true,
 			BodyPath: "blockchain",
 		},
 		&requestflag.Flag[string]{
 			Name:     "lp-pool-id",
 			Usage:    "A LP pool ID, represented as a TypeID with `lp_pool` prefix",
+			Required: true,
 			BodyPath: "lp_pool_id",
 		},
 		&requestflag.Flag[string]{
@@ -53,6 +57,7 @@ var vektorLPDepositQuoteCreate = cli.Command{
 		&requestflag.Flag[string]{
 			Name:     "account",
 			Usage:    "An EVM address",
+			Required: true,
 			BodyPath: "account",
 		},
 		&requestflag.Flag[map[string]map[string]any]{

@@ -23,21 +23,25 @@ var computeVolumesAvailabilityCreate = cli.Command{
 		&requestflag.Flag[string]{
 			Name:     "name",
 			Usage:    "Name of the Volume.",
+			Required: true,
 			BodyPath: "name",
 		},
 		&requestflag.Flag[string]{
 			Name:     "region",
 			Usage:    "Region the resource is in.",
+			Required: true,
 			BodyPath: "region",
 		},
 		&requestflag.Flag[int64]{
 			Name:     "size",
 			Usage:    "Size of the Volume in GB.",
+			Required: true,
 			BodyPath: "size",
 		},
 		&requestflag.Flag[string]{
 			Name:     "type",
 			Usage:    "Type of the Volume.",
+			Required: true,
 			BodyPath: "type",
 		},
 		&requestflag.Flag[[]string]{
@@ -60,7 +64,8 @@ var computeVolumesAvailabilityUpdate = cli.Command{
 	Usage: "Check Volume Update Availability",
 	Flags: []cli.Flag{
 		&requestflag.Flag[string]{
-			Name: "volume-id",
+			Name:     "volume-id",
+			Required: true,
 		},
 		&requestflag.Flag[string]{
 			Name:     "name",
