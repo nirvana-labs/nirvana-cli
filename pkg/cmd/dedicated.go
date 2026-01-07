@@ -46,7 +46,8 @@ var rpcNodesDedicatedGet = cli.Command{
 	Usage: "Get details about an RPC Node Dedicated",
 	Flags: []cli.Flag{
 		&requestflag.Flag[string]{
-			Name: "node-id",
+			Name:     "node-id",
+			Required: true,
 		},
 	},
 	Action:          handleRPCNodesDedicatedGet,

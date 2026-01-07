@@ -23,16 +23,19 @@ var networkingVPCsCreate = cli.Command{
 		&requestflag.Flag[string]{
 			Name:     "name",
 			Usage:    "Name of the VPC.",
+			Required: true,
 			BodyPath: "name",
 		},
 		&requestflag.Flag[string]{
 			Name:     "region",
 			Usage:    "Region the resource is in.",
+			Required: true,
 			BodyPath: "region",
 		},
 		&requestflag.Flag[string]{
 			Name:     "subnet-name",
 			Usage:    "Name of the subnet to create.",
+			Required: true,
 			BodyPath: "subnet_name",
 		},
 		&requestflag.Flag[[]string]{
@@ -50,7 +53,8 @@ var networkingVPCsUpdate = cli.Command{
 	Usage: "Update a VPC",
 	Flags: []cli.Flag{
 		&requestflag.Flag[string]{
-			Name: "vpc-id",
+			Name:     "vpc-id",
+			Required: true,
 		},
 		&requestflag.Flag[string]{
 			Name:     "name",
@@ -97,7 +101,8 @@ var networkingVPCsDelete = cli.Command{
 	Usage: "Delete a VPC",
 	Flags: []cli.Flag{
 		&requestflag.Flag[string]{
-			Name: "vpc-id",
+			Name:     "vpc-id",
+			Required: true,
 		},
 	},
 	Action:          handleNetworkingVPCsDelete,
@@ -109,7 +114,8 @@ var networkingVPCsGet = cli.Command{
 	Usage: "Get details about a VPC",
 	Flags: []cli.Flag{
 		&requestflag.Flag[string]{
-			Name: "vpc-id",
+			Name:     "vpc-id",
+			Required: true,
 		},
 	},
 	Action:          handleNetworkingVPCsGet,

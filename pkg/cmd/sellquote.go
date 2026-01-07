@@ -23,26 +23,31 @@ var vektorSellQuotesList = cli.Command{
 		&requestflag.Flag[string]{
 			Name:     "blockchain",
 			Usage:    "A blockchain ID, represented as a TypeID with `blockchain` prefix",
+			Required: true,
 			BodyPath: "blockchain",
 		},
 		&requestflag.Flag[string]{
 			Name:     "receive-asset",
 			Usage:    "An asset ID, represented as a TypeID with `asset` prefix",
+			Required: true,
 			BodyPath: "receive_asset",
 		},
 		&requestflag.Flag[string]{
 			Name:     "spend-amount",
 			Usage:    "An arbitrary precision decimal represented as a string",
+			Required: true,
 			BodyPath: "spend_amount",
 		},
 		&requestflag.Flag[string]{
 			Name:     "spend-asset",
 			Usage:    "An asset ID, represented as a TypeID with `asset` prefix",
+			Required: true,
 			BodyPath: "spend_asset",
 		},
 		&requestflag.Flag[[]string]{
 			Name:     "venue",
 			Usage:    "A list of venue IDs or venue symbols",
+			Required: true,
 			BodyPath: "venues",
 		},
 		&requestflag.Flag[string]{

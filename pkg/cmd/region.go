@@ -41,7 +41,8 @@ var regionsGet = cli.Command{
 	Usage: "Get a region by name",
 	Flags: []cli.Flag{
 		&requestflag.Flag[string]{
-			Name: "name",
+			Name:     "name",
+			Required: true,
 		},
 	},
 	Action:          handleRegionsGet,

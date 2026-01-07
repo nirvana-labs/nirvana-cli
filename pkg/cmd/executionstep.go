@@ -21,10 +21,12 @@ var vektorExecutionsStepsGet = cli.Command{
 	Usage: "Get a step of an execution",
 	Flags: []cli.Flag{
 		&requestflag.Flag[string]{
-			Name: "execution-id",
+			Name:     "execution-id",
+			Required: true,
 		},
 		&requestflag.Flag[string]{
-			Name: "step-id",
+			Name:     "step-id",
+			Required: true,
 		},
 	},
 	Action:          handleVektorExecutionsStepsGet,
@@ -36,14 +38,17 @@ var vektorExecutionsStepsSign = cli.Command{
 	Usage: "Sign an EVM transaction step",
 	Flags: []cli.Flag{
 		&requestflag.Flag[string]{
-			Name: "execution-id",
+			Name:     "execution-id",
+			Required: true,
 		},
 		&requestflag.Flag[string]{
-			Name: "step-id",
+			Name:     "step-id",
+			Required: true,
 		},
 		&requestflag.Flag[string]{
 			Name:     "signed-payload",
 			Usage:    "A hex string starting with 0x",
+			Required: true,
 			BodyPath: "signed_payload",
 		},
 	},

@@ -23,11 +23,13 @@ var apiKeysCreate = cli.Command{
 		&requestflag.Flag[requestflag.DateTimeValue]{
 			Name:     "expires-at",
 			Usage:    "When the API Key expires and is no longer valid.",
+			Required: true,
 			BodyPath: "expires_at",
 		},
 		&requestflag.Flag[string]{
 			Name:     "name",
 			Usage:    "API Key name.",
+			Required: true,
 			BodyPath: "name",
 		},
 		&requestflag.Flag[map[string][]string]{
@@ -55,7 +57,8 @@ var apiKeysUpdate = cli.Command{
 	Usage: "Update an existing API key",
 	Flags: []cli.Flag{
 		&requestflag.Flag[string]{
-			Name: "api-key-id",
+			Name:     "api-key-id",
+			Required: true,
 		},
 		&requestflag.Flag[string]{
 			Name:     "name",
@@ -102,7 +105,8 @@ var apiKeysDelete = cli.Command{
 	Usage: "Delete an API key",
 	Flags: []cli.Flag{
 		&requestflag.Flag[string]{
-			Name: "api-key-id",
+			Name:     "api-key-id",
+			Required: true,
 		},
 	},
 	Action:          handleAPIKeysDelete,
@@ -114,7 +118,8 @@ var apiKeysGet = cli.Command{
 	Usage: "Get details about an API key",
 	Flags: []cli.Flag{
 		&requestflag.Flag[string]{
-			Name: "api-key-id",
+			Name:     "api-key-id",
+			Required: true,
 		},
 	},
 	Action:          handleAPIKeysGet,

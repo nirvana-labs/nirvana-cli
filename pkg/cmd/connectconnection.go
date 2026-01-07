@@ -23,26 +23,31 @@ var networkingConnectConnectionsCreate = cli.Command{
 		&requestflag.Flag[int64]{
 			Name:     "bandwidth-mbps",
 			Usage:    "Connect Connection speed in Mbps",
+			Required: true,
 			BodyPath: "bandwidth_mbps",
 		},
 		&requestflag.Flag[[]string]{
 			Name:     "cidr",
 			Usage:    "CIDRs for the Connect Connection. Must be in network-aligned/canonical form.",
+			Required: true,
 			BodyPath: "cidrs",
 		},
 		&requestflag.Flag[string]{
 			Name:     "name",
 			Usage:    "Name of the Connect Connection",
+			Required: true,
 			BodyPath: "name",
 		},
 		&requestflag.Flag[[]string]{
 			Name:     "provider-cidr",
 			Usage:    "Provider CIDRs. Must be in network-aligned/canonical form.",
+			Required: true,
 			BodyPath: "provider_cidrs",
 		},
 		&requestflag.Flag[string]{
 			Name:     "region",
 			Usage:    "Region the resource is in.",
+			Required: true,
 			BodyPath: "region",
 		},
 		&requestflag.Flag[map[string]string]{
@@ -65,7 +70,8 @@ var networkingConnectConnectionsUpdate = cli.Command{
 	Usage: "Update Connect Connection details",
 	Flags: []cli.Flag{
 		&requestflag.Flag[string]{
-			Name: "connection-id",
+			Name:     "connection-id",
+			Required: true,
 		},
 		&requestflag.Flag[string]{
 			Name:     "name",
@@ -107,7 +113,8 @@ var networkingConnectConnectionsDelete = cli.Command{
 	Usage: "Delete Connect Connection",
 	Flags: []cli.Flag{
 		&requestflag.Flag[string]{
-			Name: "connection-id",
+			Name:     "connection-id",
+			Required: true,
 		},
 	},
 	Action:          handleNetworkingConnectConnectionsDelete,
@@ -119,7 +126,8 @@ var networkingConnectConnectionsGet = cli.Command{
 	Usage: "Get Connect Connection details",
 	Flags: []cli.Flag{
 		&requestflag.Flag[string]{
-			Name: "connection-id",
+			Name:     "connection-id",
+			Required: true,
 		},
 	},
 	Action:          handleNetworkingConnectConnectionsGet,

@@ -23,6 +23,7 @@ var projectsCreate = cli.Command{
 		&requestflag.Flag[string]{
 			Name:     "name",
 			Usage:    "Project name.",
+			Required: true,
 			BodyPath: "name",
 		},
 		&requestflag.Flag[[]string]{
@@ -40,7 +41,8 @@ var projectsUpdate = cli.Command{
 	Usage: "Update an existing project",
 	Flags: []cli.Flag{
 		&requestflag.Flag[string]{
-			Name: "project-id",
+			Name:     "project-id",
+			Required: true,
 		},
 		&requestflag.Flag[string]{
 			Name:     "name",
@@ -82,7 +84,8 @@ var projectsDelete = cli.Command{
 	Usage: "Delete a project",
 	Flags: []cli.Flag{
 		&requestflag.Flag[string]{
-			Name: "project-id",
+			Name:     "project-id",
+			Required: true,
 		},
 	},
 	Action:          handleProjectsDelete,
@@ -94,7 +97,8 @@ var projectsGet = cli.Command{
 	Usage: "Get details about a project",
 	Flags: []cli.Flag{
 		&requestflag.Flag[string]{
-			Name: "project-id",
+			Name:     "project-id",
+			Required: true,
 		},
 	},
 	Action:          handleProjectsGet,

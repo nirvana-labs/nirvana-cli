@@ -41,7 +41,8 @@ var operationsGet = cli.Command{
 	Usage: "Get details about a specific operation",
 	Flags: []cli.Flag{
 		&requestflag.Flag[string]{
-			Name: "operation-id",
+			Name:     "operation-id",
+			Required: true,
 		},
 	},
 	Action:          handleOperationsGet,

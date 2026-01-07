@@ -23,21 +23,25 @@ var vektorBorrowPositionsList = cli.Command{
 		&requestflag.Flag[[]string]{
 			Name:     "account",
 			Usage:    "A list of accounts. Currently only EVM addresses are supported.",
+			Required: true,
 			BodyPath: "accounts",
 		},
 		&requestflag.Flag[[]string]{
 			Name:     "asset",
 			Usage:    "A list of asset IDs, EVM addresses or asset symbols",
+			Required: true,
 			BodyPath: "assets",
 		},
 		&requestflag.Flag[string]{
 			Name:     "blockchain",
 			Usage:    "A blockchain ID, represented as a TypeID with `blockchain` prefix",
+			Required: true,
 			BodyPath: "blockchain",
 		},
 		&requestflag.Flag[[]string]{
 			Name:     "venue",
 			Usage:    "A list of venue IDs or venue symbols",
+			Required: true,
 			BodyPath: "venues",
 		},
 		&requestflag.Flag[any]{
@@ -53,6 +57,7 @@ var vektorBorrowPositionsList = cli.Command{
 		&requestflag.Flag[[]string]{
 			Name:     "market-id",
 			Usage:    "A list of lend/borrow market IDs",
+			Required: true,
 			BodyPath: "market_ids",
 		},
 	},
@@ -67,31 +72,37 @@ var vektorBorrowPositionsListHistorical = cli.Command{
 		&requestflag.Flag[[]string]{
 			Name:     "account",
 			Usage:    "A list of accounts. Currently only EVM addresses are supported.",
+			Required: true,
 			BodyPath: "accounts",
 		},
 		&requestflag.Flag[[]string]{
 			Name:     "asset",
 			Usage:    "A list of asset IDs, EVM addresses or asset symbols",
+			Required: true,
 			BodyPath: "assets",
 		},
 		&requestflag.Flag[string]{
 			Name:     "blockchain",
 			Usage:    "A blockchain ID, represented as a TypeID with `blockchain` prefix",
+			Required: true,
 			BodyPath: "blockchain",
 		},
 		&requestflag.Flag[any]{
 			Name:     "from",
 			Usage:    "Either a ISO8601 timestamp or a block number",
+			Required: true,
 			BodyPath: "from",
 		},
 		&requestflag.Flag[any]{
 			Name:     "to",
 			Usage:    "Either a ISO8601 timestamp or a block number",
+			Required: true,
 			BodyPath: "to",
 		},
 		&requestflag.Flag[[]string]{
 			Name:     "venue",
 			Usage:    "A list of venue IDs or venue symbols",
+			Required: true,
 			BodyPath: "venues",
 		},
 		&requestflag.Flag[string]{
@@ -102,6 +113,7 @@ var vektorBorrowPositionsListHistorical = cli.Command{
 		&requestflag.Flag[[]string]{
 			Name:     "market-id",
 			Usage:    "A list of lend/borrow market IDs",
+			Required: true,
 			BodyPath: "market_ids",
 		},
 	},
