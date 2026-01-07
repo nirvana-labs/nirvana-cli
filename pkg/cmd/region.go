@@ -83,16 +83,7 @@ func handleRegionsList(ctx context.Context, cmd *cli.Command) error {
 		return ShowJSON(os.Stdout, "regions list", obj, format, transform)
 	} else {
 		iter := client.Regions.ListAutoPaging(ctx, params, options...)
-		return streamOutput("regions list", func(w *os.File) error {
-			for iter.Next() {
-				item := iter.Current()
-				obj := gjson.Parse(item.RawJSON())
-				if err := ShowJSON(w, "regions list", obj, format, transform); err != nil {
-					return err
-				}
-			}
-			return iter.Err()
-		})
+		return ShowJSONIterator(os.Stdout, "regions list", iter, format, transform)
 	}
 }
 

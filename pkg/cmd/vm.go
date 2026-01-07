@@ -296,16 +296,7 @@ func handleComputeVMsList(ctx context.Context, cmd *cli.Command) error {
 		return ShowJSON(os.Stdout, "compute:vms list", obj, format, transform)
 	} else {
 		iter := client.Compute.VMs.ListAutoPaging(ctx, params, options...)
-		return streamOutput("compute:vms list", func(w *os.File) error {
-			for iter.Next() {
-				item := iter.Current()
-				obj := gjson.Parse(item.RawJSON())
-				if err := ShowJSON(w, "compute:vms list", obj, format, transform); err != nil {
-					return err
-				}
-			}
-			return iter.Err()
-		})
+		return ShowJSONIterator(os.Stdout, "compute:vms list", iter, format, transform)
 	}
 }
 
