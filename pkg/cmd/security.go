@@ -16,11 +16,11 @@ import (
 	"github.com/urfave/cli/v3"
 )
 
-var userSecurityUpdate = cli.Command{
+var userSecurityUpdate = requestflag.WithInnerFlags(cli.Command{
 	Name:  "update",
 	Usage: "Update the current user's security settings",
 	Flags: []cli.Flag{
-		&requestflag.Flag[map[string][]string]{
+		&requestflag.Flag[map[string]any]{
 			Name:     "source-ip-rule",
 			Usage:    "IP filter rules.",
 			BodyPath: "source_ip_rule",
@@ -28,7 +28,20 @@ var userSecurityUpdate = cli.Command{
 	},
 	Action:          handleUserSecurityUpdate,
 	HideHelpCommand: true,
-}
+}, map[string][]requestflag.HasOuterFlag{
+	"source-ip-rule": {
+		&requestflag.InnerFlag[[]string]{
+			Name:       "source-ip-rule.allowed",
+			Usage:      "List of IPv4 CIDR addresses to allow.",
+			InnerField: "allowed",
+		},
+		&requestflag.InnerFlag[[]string]{
+			Name:       "source-ip-rule.blocked",
+			Usage:      "List of IPv4 CIDR addresses to deny.",
+			InnerField: "blocked",
+		},
+	},
+})
 
 var userSecurityGet = cli.Command{
 	Name:            "get",

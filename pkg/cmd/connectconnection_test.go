@@ -6,6 +6,7 @@ import (
 	"testing"
 
 	"github.com/nirvana-labs/nirvana-cli/internal/mocktest"
+	"github.com/nirvana-labs/nirvana-cli/internal/requestflag"
 )
 
 func TestNetworkingConnectConnectionsCreate(t *testing.T) {
@@ -18,6 +19,24 @@ func TestNetworkingConnectConnectionsCreate(t *testing.T) {
 		"--provider-cidr", "172.16.0.0/16",
 		"--region", "us-wdc-1",
 		"--aws", "{account_id: '523816707215', region: us-east-1}",
+		"--tag", "production",
+		"--tag", "ethereum",
+	)
+
+	// Check that inner flags have been set up correctly
+	requestflag.CheckInnerFlags(networkingConnectConnectionsCreate)
+
+	// Alternative argument passing style using inner flags
+	mocktest.TestRunMockTestWithFlags(
+		t,
+		"networking:connect:connections", "create",
+		"--bandwidth-mbps", "50",
+		"--cidr", "10.0.0.0/16",
+		"--name", "my-connect-connection",
+		"--provider-cidr", "172.16.0.0/16",
+		"--region", "us-wdc-1",
+		"--aws.account_id", "523816707215",
+		"--aws.region", "us-east-1",
 		"--tag", "production",
 		"--tag", "ethereum",
 	)
