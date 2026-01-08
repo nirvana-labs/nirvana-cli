@@ -18,7 +18,7 @@ func TestVektorLPPositionsList(t *testing.T) {
 		"--blockchain", "blockchain_01jbz9nsy8egar70jg79dkwmaf",
 		"--venue", "venue_01jbz9qc18evw86sg8m0sj9jg5",
 		"--at", "2021-01-01T12:00:00Z",
-		"--exclude-zeros",
+		"--exclude-zeros=true",
 		"--quote-asset-symbol", "eth",
 		"--lp-pool-id", "lp_pool_01h455vb4pex5vsknk084sn02q",
 	)
@@ -35,7 +35,7 @@ func TestVektorLPPositionsListHistorical(t *testing.T) {
 		"--from", "2021-01-01T12:00:00Z",
 		"--to", "2021-01-01T12:00:00Z",
 		"--venue", "venue_01jbz9qc18evw86sg8m0sj9jg5",
-		"--exclude-zeros",
+		"--exclude-zeros=true",
 		"--quote-asset-symbol", "eth",
 		"--lp-pool-id", "lp_pool_01h455vb4pex5vsknk084sn02q",
 	)

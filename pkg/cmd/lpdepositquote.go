@@ -16,7 +16,7 @@ import (
 	"github.com/urfave/cli/v3"
 )
 
-var vektorLPDepositQuoteCreate = cli.Command{
+var vektorLPDepositQuoteCreate = requestflag.WithInnerFlags(cli.Command{
 	Name:  "create",
 	Usage: "Simulate depositing liquidity to a specific LP pool, creating a position or\nadding to an existing one.",
 	Flags: []cli.Flag{
@@ -49,7 +49,7 @@ var vektorLPDepositQuoteCreate = cli.Command{
 			Usage:    "An asset symbol",
 			BodyPath: "quote_asset_symbol",
 		},
-		&requestflag.Flag[map[string]string]{
+		&requestflag.Flag[map[string]any]{
 			Name:     "range",
 			Usage:    "A Uniswap V3 range. Lower and upper bounds should satisfy 0 <= `lower` < `upper`. The value -1 can be used in `upper` for infinity",
 			BodyPath: "range",
@@ -60,7 +60,7 @@ var vektorLPDepositQuoteCreate = cli.Command{
 			Required: true,
 			BodyPath: "account",
 		},
-		&requestflag.Flag[map[string]map[string]any]{
+		&requestflag.Flag[map[string]any]{
 			Name:     "specifier",
 			Usage:    "Uniswap position specifier",
 			BodyPath: "specifier",
@@ -68,7 +68,27 @@ var vektorLPDepositQuoteCreate = cli.Command{
 	},
 	Action:          handleVektorLPDepositQuoteCreate,
 	HideHelpCommand: true,
-}
+}, map[string][]requestflag.HasOuterFlag{
+	"range": {
+		&requestflag.InnerFlag[string]{
+			Name:       "range.lower",
+			Usage:      "An arbitrary precision decimal represented as a string",
+			InnerField: "lower",
+		},
+		&requestflag.InnerFlag[string]{
+			Name:       "range.upper",
+			Usage:      "An arbitrary precision decimal represented as a string",
+			InnerField: "upper",
+		},
+	},
+	"specifier": {
+		&requestflag.InnerFlag[map[string]any]{
+			Name:       "specifier.position-nft",
+			Usage:      "A NFT",
+			InnerField: "position_nft",
+		},
+	},
+})
 
 func handleVektorLPDepositQuoteCreate(ctx context.Context, cmd *cli.Command) error {
 	client := nirvana.NewClient(getDefaultRequestOptions(cmd)...)

@@ -16,6 +16,6 @@ func TestVektorLendSetCollateralCreate(t *testing.T) {
 		"--blockchain", "blockchain_01jbz9nsy8egar70jg79dkwmaf",
 		"--from", "0x6b175474e89094c44da98b954eedeac495271d0f",
 		"--market-id", "lend_borrow_market_01h455vb4pex5vsknk084sn02q",
-		"--status",
+		"--status=true",
 	)
 }

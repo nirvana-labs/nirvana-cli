@@ -16,7 +16,7 @@ import (
 	"github.com/urfave/cli/v3"
 )
 
-var computeVMsAvailabilityCreate = cli.Command{
+var computeVMsAvailabilityCreate = requestflag.WithInnerFlags(cli.Command{
 	Name:  "create",
 	Usage: "Check VM Create Availability",
 	Flags: []cli.Flag{
@@ -26,13 +26,13 @@ var computeVMsAvailabilityCreate = cli.Command{
 			Required: true,
 			BodyPath: "boot_volume",
 		},
-		&requestflag.Flag[map[string]int64]{
+		&requestflag.Flag[map[string]any]{
 			Name:     "cpu-config",
 			Usage:    "CPU configuration for the VM.",
 			Required: true,
 			BodyPath: "cpu_config",
 		},
-		&requestflag.Flag[map[string]int64]{
+		&requestflag.Flag[map[string]any]{
 			Name:     "memory-config",
 			Usage:    "Memory configuration for the VM.",
 			Required: true,
@@ -62,7 +62,7 @@ var computeVMsAvailabilityCreate = cli.Command{
 			Required: true,
 			BodyPath: "region",
 		},
-		&requestflag.Flag[map[string]string]{
+		&requestflag.Flag[map[string]any]{
 			Name:     "ssh-key",
 			Usage:    "Public SSH key configuration for the VM.",
 			Required: true,
@@ -87,9 +87,70 @@ var computeVMsAvailabilityCreate = cli.Command{
 	},
 	Action:          handleComputeVMsAvailabilityCreate,
 	HideHelpCommand: true,
-}
+}, map[string][]requestflag.HasOuterFlag{
+	"boot-volume": {
+		&requestflag.InnerFlag[int64]{
+			Name:       "boot-volume.size",
+			Usage:      "Size of the Volume in GB.",
+			InnerField: "size",
+		},
+		&requestflag.InnerFlag[string]{
+			Name:       "boot-volume.type",
+			Usage:      "Type of the Volume.",
+			InnerField: "type",
+		},
+		&requestflag.InnerFlag[[]string]{
+			Name:       "boot-volume.tags",
+			Usage:      "Tags to attach to the Volume.",
+			InnerField: "tags",
+		},
+	},
+	"cpu-config": {
+		&requestflag.InnerFlag[int64]{
+			Name:       "cpu-config.vcpu",
+			Usage:      "Number of virtual CPUs.",
+			InnerField: "vcpu",
+		},
+	},
+	"memory-config": {
+		&requestflag.InnerFlag[int64]{
+			Name:       "memory-config.size",
+			Usage:      "Size of the memory in GB.",
+			InnerField: "size",
+		},
+	},
+	"ssh-key": {
+		&requestflag.InnerFlag[string]{
+			Name:       "ssh-key.public-key",
+			Usage:      "Public key to and and use to access the VM.",
+			InnerField: "public_key",
+		},
+	},
+	"data-volume": {
+		&requestflag.InnerFlag[string]{
+			Name:       "data-volume.name",
+			Usage:      "Name of the Volume.",
+			InnerField: "name",
+		},
+		&requestflag.InnerFlag[int64]{
+			Name:       "data-volume.size",
+			Usage:      "Size of the Volume in GB.",
+			InnerField: "size",
+		},
+		&requestflag.InnerFlag[string]{
+			Name:       "data-volume.type",
+			Usage:      "Type of the Volume.",
+			InnerField: "type",
+		},
+		&requestflag.InnerFlag[[]string]{
+			Name:       "data-volume.tags",
+			Usage:      "Tags to attach to the Volume.",
+			InnerField: "tags",
+		},
+	},
+})
 
-var computeVMsAvailabilityUpdate = cli.Command{
+var computeVMsAvailabilityUpdate = requestflag.WithInnerFlags(cli.Command{
 	Name:  "update",
 	Usage: "Check VM Update Availability",
 	Flags: []cli.Flag{
@@ -97,12 +158,12 @@ var computeVMsAvailabilityUpdate = cli.Command{
 			Name:     "vm-id",
 			Required: true,
 		},
-		&requestflag.Flag[map[string]int64]{
+		&requestflag.Flag[map[string]any]{
 			Name:     "cpu-config",
 			Usage:    "CPU configuration for the VM.",
 			BodyPath: "cpu_config",
 		},
-		&requestflag.Flag[map[string]int64]{
+		&requestflag.Flag[map[string]any]{
 			Name:     "memory-config",
 			Usage:    "Memory configuration for the VM.",
 			BodyPath: "memory_config",
@@ -125,7 +186,22 @@ var computeVMsAvailabilityUpdate = cli.Command{
 	},
 	Action:          handleComputeVMsAvailabilityUpdate,
 	HideHelpCommand: true,
-}
+}, map[string][]requestflag.HasOuterFlag{
+	"cpu-config": {
+		&requestflag.InnerFlag[int64]{
+			Name:       "cpu-config.vcpu",
+			Usage:      "Number of virtual CPUs.",
+			InnerField: "vcpu",
+		},
+	},
+	"memory-config": {
+		&requestflag.InnerFlag[int64]{
+			Name:       "memory-config.size",
+			Usage:      "Size of the memory in GB.",
+			InnerField: "size",
+		},
+	},
+})
 
 func handleComputeVMsAvailabilityCreate(ctx context.Context, cmd *cli.Command) error {
 	client := nirvana.NewClient(getDefaultRequestOptions(cmd)...)
