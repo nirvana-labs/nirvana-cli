@@ -16,7 +16,7 @@ import (
 	"github.com/urfave/cli/v3"
 )
 
-var vektorLPWithdrawQuoteCreate = cli.Command{
+var vektorLPWithdrawQuoteCreate = requestflag.WithInnerFlags(cli.Command{
 	Name:  "create",
 	Usage: "Simulate withdrawing liquidity from a specific existing LP position",
 	Flags: []cli.Flag{
@@ -55,7 +55,7 @@ var vektorLPWithdrawQuoteCreate = cli.Command{
 			Usage:    "An asset symbol",
 			BodyPath: "quote_asset_symbol",
 		},
-		&requestflag.Flag[map[string]map[string]any]{
+		&requestflag.Flag[map[string]any]{
 			Name:     "specifier",
 			Usage:    "Uniswap position specifier",
 			BodyPath: "specifier",
@@ -63,7 +63,15 @@ var vektorLPWithdrawQuoteCreate = cli.Command{
 	},
 	Action:          handleVektorLPWithdrawQuoteCreate,
 	HideHelpCommand: true,
-}
+}, map[string][]requestflag.HasOuterFlag{
+	"specifier": {
+		&requestflag.InnerFlag[map[string]any]{
+			Name:       "specifier.position-nft",
+			Usage:      "A NFT",
+			InnerField: "position_nft",
+		},
+	},
+})
 
 func handleVektorLPWithdrawQuoteCreate(ctx context.Context, cmd *cli.Command) error {
 	client := nirvana.NewClient(getDefaultRequestOptions(cmd)...)

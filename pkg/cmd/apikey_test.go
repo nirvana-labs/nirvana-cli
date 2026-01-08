@@ -6,6 +6,7 @@ import (
 	"testing"
 
 	"github.com/nirvana-labs/nirvana-cli/internal/mocktest"
+	"github.com/nirvana-labs/nirvana-cli/internal/requestflag"
 )
 
 func TestAPIKeysCreate(t *testing.T) {
@@ -19,6 +20,22 @@ func TestAPIKeysCreate(t *testing.T) {
 		"--tag", "production",
 		"--tag", "ethereum",
 	)
+
+	// Check that inner flags have been set up correctly
+	requestflag.CheckInnerFlags(apiKeysCreate)
+
+	// Alternative argument passing style using inner flags
+	mocktest.TestRunMockTestWithFlags(
+		t,
+		"api-keys", "create",
+		"--expires-at", "2025-12-31T23:59:59Z",
+		"--name", "My API Key",
+		"--source-ip-rule.allowed", "[192.168.1.0/24, 10.0.0.0/8]",
+		"--source-ip-rule.blocked", "[192.168.1.100/32]",
+		"--starts-at", "2025-01-01T00:00:00Z",
+		"--tag", "production",
+		"--tag", "ethereum",
+	)
 }
 
 func TestAPIKeysUpdate(t *testing.T) {
@@ -28,6 +45,21 @@ func TestAPIKeysUpdate(t *testing.T) {
 		"--api-key-id", "api_key_id",
 		"--name", "My Updated API Key",
 		"--source-ip-rule", "{allowed: [192.168.1.0/24, 10.0.0.0/8], blocked: [192.168.1.100/32]}",
+		"--tag", "production",
+		"--tag", "ethereum",
+	)
+
+	// Check that inner flags have been set up correctly
+	requestflag.CheckInnerFlags(apiKeysUpdate)
+
+	// Alternative argument passing style using inner flags
+	mocktest.TestRunMockTestWithFlags(
+		t,
+		"api-keys", "update",
+		"--api-key-id", "api_key_id",
+		"--name", "My Updated API Key",
+		"--source-ip-rule.allowed", "[192.168.1.0/24, 10.0.0.0/8]",
+		"--source-ip-rule.blocked", "[192.168.1.100/32]",
 		"--tag", "production",
 		"--tag", "ethereum",
 	)

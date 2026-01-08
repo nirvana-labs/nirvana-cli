@@ -16,7 +16,7 @@ import (
 	"github.com/urfave/cli/v3"
 )
 
-var apiKeysCreate = cli.Command{
+var apiKeysCreate = requestflag.WithInnerFlags(cli.Command{
 	Name:  "create",
 	Usage: "Create a new API key",
 	Flags: []cli.Flag{
@@ -32,7 +32,7 @@ var apiKeysCreate = cli.Command{
 			Required: true,
 			BodyPath: "name",
 		},
-		&requestflag.Flag[map[string][]string]{
+		&requestflag.Flag[map[string]any]{
 			Name:     "source-ip-rule",
 			Usage:    "IP filter rules.",
 			BodyPath: "source_ip_rule",
@@ -50,9 +50,22 @@ var apiKeysCreate = cli.Command{
 	},
 	Action:          handleAPIKeysCreate,
 	HideHelpCommand: true,
-}
+}, map[string][]requestflag.HasOuterFlag{
+	"source-ip-rule": {
+		&requestflag.InnerFlag[[]string]{
+			Name:       "source-ip-rule.allowed",
+			Usage:      "List of IPv4 CIDR addresses to allow.",
+			InnerField: "allowed",
+		},
+		&requestflag.InnerFlag[[]string]{
+			Name:       "source-ip-rule.blocked",
+			Usage:      "List of IPv4 CIDR addresses to deny.",
+			InnerField: "blocked",
+		},
+	},
+})
 
-var apiKeysUpdate = cli.Command{
+var apiKeysUpdate = requestflag.WithInnerFlags(cli.Command{
 	Name:  "update",
 	Usage: "Update an existing API key",
 	Flags: []cli.Flag{
@@ -65,7 +78,7 @@ var apiKeysUpdate = cli.Command{
 			Usage:    "API Key name.",
 			BodyPath: "name",
 		},
-		&requestflag.Flag[map[string][]string]{
+		&requestflag.Flag[map[string]any]{
 			Name:     "source-ip-rule",
 			Usage:    "IP filter rules.",
 			BodyPath: "source_ip_rule",
@@ -78,7 +91,20 @@ var apiKeysUpdate = cli.Command{
 	},
 	Action:          handleAPIKeysUpdate,
 	HideHelpCommand: true,
-}
+}, map[string][]requestflag.HasOuterFlag{
+	"source-ip-rule": {
+		&requestflag.InnerFlag[[]string]{
+			Name:       "source-ip-rule.allowed",
+			Usage:      "List of IPv4 CIDR addresses to allow.",
+			InnerField: "allowed",
+		},
+		&requestflag.InnerFlag[[]string]{
+			Name:       "source-ip-rule.blocked",
+			Usage:      "List of IPv4 CIDR addresses to deny.",
+			InnerField: "blocked",
+		},
+	},
+})
 
 var apiKeysList = cli.Command{
 	Name:  "list",

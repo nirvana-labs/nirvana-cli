@@ -16,7 +16,7 @@ import (
 	"github.com/urfave/cli/v3"
 )
 
-var networkingConnectConnectionsCreate = cli.Command{
+var networkingConnectConnectionsCreate = requestflag.WithInnerFlags(cli.Command{
 	Name:  "create",
 	Usage: "Create a Connect Connection",
 	Flags: []cli.Flag{
@@ -50,7 +50,7 @@ var networkingConnectConnectionsCreate = cli.Command{
 			Required: true,
 			BodyPath: "region",
 		},
-		&requestflag.Flag[map[string]string]{
+		&requestflag.Flag[map[string]any]{
 			Name:     "aws",
 			Usage:    "AWS provider configuration",
 			BodyPath: "aws",
@@ -63,7 +63,20 @@ var networkingConnectConnectionsCreate = cli.Command{
 	},
 	Action:          handleNetworkingConnectConnectionsCreate,
 	HideHelpCommand: true,
-}
+}, map[string][]requestflag.HasOuterFlag{
+	"aws": {
+		&requestflag.InnerFlag[string]{
+			Name:       "aws.account-id",
+			Usage:      "AWS account id",
+			InnerField: "account_id",
+		},
+		&requestflag.InnerFlag[string]{
+			Name:       "aws.region",
+			Usage:      "AWS region where the connection will be established",
+			InnerField: "region",
+		},
+	},
+})
 
 var networkingConnectConnectionsUpdate = cli.Command{
 	Name:  "update",
