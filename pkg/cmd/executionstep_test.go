@@ -17,14 +17,3 @@ func TestVektorExecutionsStepsGet(t *testing.T) {
 		"--step-id", "step_id",
 	)
 }
-
-func TestVektorExecutionsStepsSign(t *testing.T) {
-	t.Skip("Prism doesn't support callbacks yet")
-	mocktest.TestRunMockTestWithFlags(
-		t,
-		"vektor:executions:steps", "sign",
-		"--execution-id", "execution_id",
-		"--step-id", "step_id",
-		"--signed-payload", "0x123456789abcdef",
-	)
-}

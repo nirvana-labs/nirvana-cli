@@ -74,14 +74,6 @@ func TestAPIKeysList(t *testing.T) {
 	)
 }
 
-func TestAPIKeysDelete(t *testing.T) {
-	mocktest.TestRunMockTestWithFlags(
-		t,
-		"api-keys", "delete",
-		"--api-key-id", "api_key_id",
-	)
-}
-
 func TestAPIKeysGet(t *testing.T) {
 	mocktest.TestRunMockTestWithFlags(
 		t,
