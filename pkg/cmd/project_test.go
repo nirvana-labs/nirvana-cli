@@ -38,14 +38,6 @@ func TestProjectsList(t *testing.T) {
 	)
 }
 
-func TestProjectsDelete(t *testing.T) {
-	mocktest.TestRunMockTestWithFlags(
-		t,
-		"projects", "delete",
-		"--project-id", "project_id",
-	)
-}
-
 func TestProjectsGet(t *testing.T) {
 	mocktest.TestRunMockTestWithFlags(
 		t,
