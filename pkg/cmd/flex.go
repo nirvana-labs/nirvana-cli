@@ -17,8 +17,9 @@ import (
 )
 
 var rpcNodesFlexCreate = cli.Command{
-	Name:  "create",
-	Usage: "Create a new RPC Node Flex",
+	Name:    "create",
+	Usage:   "Create a new RPC Node Flex",
+	Suggest: true,
 	Flags: []cli.Flag{
 		&requestflag.Flag[string]{
 			Name:     "blockchain",
@@ -55,8 +56,9 @@ var rpcNodesFlexCreate = cli.Command{
 }
 
 var rpcNodesFlexUpdate = cli.Command{
-	Name:  "update",
-	Usage: "Update an existing RPC Node Flex",
+	Name:    "update",
+	Usage:   "Update an existing RPC Node Flex",
+	Suggest: true,
 	Flags: []cli.Flag{
 		&requestflag.Flag[string]{
 			Name:     "node-id",
@@ -78,8 +80,9 @@ var rpcNodesFlexUpdate = cli.Command{
 }
 
 var rpcNodesFlexList = cli.Command{
-	Name:  "list",
-	Usage: "List all RPC Node Flex you created",
+	Name:    "list",
+	Usage:   "List all RPC Node Flex you created",
+	Suggest: true,
 	Flags: []cli.Flag{
 		&requestflag.Flag[string]{
 			Name:      "cursor",
@@ -103,8 +106,9 @@ var rpcNodesFlexList = cli.Command{
 }
 
 var rpcNodesFlexGet = cli.Command{
-	Name:  "get",
-	Usage: "Get details about an RPC Node Flex",
+	Name:    "get",
+	Usage:   "Get details about an RPC Node Flex",
+	Suggest: true,
 	Flags: []cli.Flag{
 		&requestflag.Flag[string]{
 			Name:     "node-id",

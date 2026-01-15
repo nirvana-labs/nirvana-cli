@@ -17,10 +17,11 @@ import (
 )
 
 var apiKeysCreate = requestflag.WithInnerFlags(cli.Command{
-	Name:  "create",
-	Usage: "Create a new API key",
+	Name:    "create",
+	Usage:   "Create a new API key",
+	Suggest: true,
 	Flags: []cli.Flag{
-		&requestflag.Flag[requestflag.DateTimeValue]{
+		&requestflag.Flag[any]{
 			Name:     "expires-at",
 			Usage:    "When the API Key expires and is no longer valid.",
 			Required: true,
@@ -37,7 +38,7 @@ var apiKeysCreate = requestflag.WithInnerFlags(cli.Command{
 			Usage:    "IP filter rules.",
 			BodyPath: "source_ip_rule",
 		},
-		&requestflag.Flag[requestflag.DateTimeValue]{
+		&requestflag.Flag[any]{
 			Name:     "starts-at",
 			Usage:    "When the API Key starts to be valid.",
 			BodyPath: "starts_at",
@@ -66,8 +67,9 @@ var apiKeysCreate = requestflag.WithInnerFlags(cli.Command{
 })
 
 var apiKeysUpdate = requestflag.WithInnerFlags(cli.Command{
-	Name:  "update",
-	Usage: "Update an existing API key",
+	Name:    "update",
+	Usage:   "Update an existing API key",
+	Suggest: true,
 	Flags: []cli.Flag{
 		&requestflag.Flag[string]{
 			Name:     "api-key-id",
@@ -107,8 +109,9 @@ var apiKeysUpdate = requestflag.WithInnerFlags(cli.Command{
 })
 
 var apiKeysList = cli.Command{
-	Name:  "list",
-	Usage: "List all API keys for the authenticated user",
+	Name:    "list",
+	Usage:   "List all API keys for the authenticated user",
+	Suggest: true,
 	Flags: []cli.Flag{
 		&requestflag.Flag[string]{
 			Name:      "cursor",
@@ -127,8 +130,9 @@ var apiKeysList = cli.Command{
 }
 
 var apiKeysGet = cli.Command{
-	Name:  "get",
-	Usage: "Get details about an API key",
+	Name:    "get",
+	Usage:   "Get details about an API key",
+	Suggest: true,
 	Flags: []cli.Flag{
 		&requestflag.Flag[string]{
 			Name:     "api-key-id",

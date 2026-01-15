@@ -17,8 +17,9 @@ import (
 )
 
 var regionsList = cli.Command{
-	Name:  "list",
-	Usage: "List all regions",
+	Name:    "list",
+	Usage:   "List all regions",
+	Suggest: true,
 	Flags: []cli.Flag{
 		&requestflag.Flag[string]{
 			Name:      "cursor",
@@ -37,8 +38,9 @@ var regionsList = cli.Command{
 }
 
 var regionsGet = cli.Command{
-	Name:  "get",
-	Usage: "Get a region by name",
+	Name:    "get",
+	Usage:   "Get a region by name",
+	Suggest: true,
 	Flags: []cli.Flag{
 		&requestflag.Flag[string]{
 			Name:     "name",

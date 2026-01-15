@@ -17,8 +17,9 @@ import (
 )
 
 var rpcNodesDedicatedList = cli.Command{
-	Name:  "list",
-	Usage: "List all RPC Node Dedicated you created",
+	Name:    "list",
+	Usage:   "List all RPC Node Dedicated you created",
+	Suggest: true,
 	Flags: []cli.Flag{
 		&requestflag.Flag[string]{
 			Name:      "cursor",
@@ -42,8 +43,9 @@ var rpcNodesDedicatedList = cli.Command{
 }
 
 var rpcNodesDedicatedGet = cli.Command{
-	Name:  "get",
-	Usage: "Get details about an RPC Node Dedicated",
+	Name:    "get",
+	Usage:   "Get details about an RPC Node Dedicated",
+	Suggest: true,
 	Flags: []cli.Flag{
 		&requestflag.Flag[string]{
 			Name:     "node-id",

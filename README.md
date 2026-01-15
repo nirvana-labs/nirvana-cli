@@ -2,6 +2,8 @@
 
 The official CLI for the [Nirvana Labs REST API](https://docs.nirvanalabs.io).
 
+<!-- x-release-please-start-version -->
+
 ## Installation
 
 ### Installing with Homebrew
@@ -13,21 +15,17 @@ brew install nirvana
 
 ### Installing with Go
 
-<!-- x-release-please-start-version -->
-
 ```sh
 go install 'github.com/nirvana-labs/nirvana-cli/cmd/nirvana@latest'
 ```
 
+<!-- x-release-please-end -->
+
 ### Running Locally
 
-<!-- x-release-please-start-version -->
-
 ```sh
-go run cmd/nirvana/main.go
+./scripts/run args...
 ```
-
-<!-- x-release-please-end -->
 
 ## Usage
 
@@ -39,7 +37,7 @@ nirvana [resource] [command] [flags]
 
 ```sh
 nirvana compute:vms create \
-  --boot-volume '{size: 100, type: nvme}' \
+  --boot-volume '{size: 100, type: nvme, tags: [production, ethereum]}' \
   --cpu-config '{vcpu: 2}' \
   --memory-config '{size: 2}' \
   --name my-vm \
@@ -47,12 +45,21 @@ nirvana compute:vms create \
   --public-ip-enabled \
   --region us-wdc-1 \
   --ssh-key '{public_key: ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDBIASkmwNiLcdlW6927Zjt1Hf7Kw/PpEZ4Zm+wU9wn2}' \
-  --subnet-id 123e4567-e89b-12d3-a456-426614174000
+  --subnet-id 123e4567-e89b-12d3-a456-426614174000 \
+  --data-volume '{name: my-data-volume, size: 100, type: nvme, tags: [production, ethereum]}' \
+  --tag production \
+  --tag ethereum
 ```
 
 For details about specific commands, use the `--help` flag.
 
 ## Global Flags
 
+- `--help` - Show command line usage
 - `--debug` - Enable debug logging (includes HTTP request/response details)
 - `--version`, `-v` - Show the CLI version
+- `--base-url` - Use a custom API backend URL
+- `--format` - Change the output format (`auto`, `explore`, `json`, `jsonl`, `pretty`, `raw`, `yaml`)
+- `--format-error` - Change the output format for errors (`auto`, `explore`, `json`, `jsonl`, `pretty`, `raw`, `yaml`)
+- `--transform` - Transform the data output using [GJSON syntax](https://github.com/tidwall/gjson/blob/master/SYNTAX.md)
+- `--transform-error` - Transform the error output using [GJSON syntax](https://github.com/tidwall/gjson/blob/master/SYNTAX.md)

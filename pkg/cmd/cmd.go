@@ -70,6 +70,7 @@ func init() {
 			{
 				Name:     "user",
 				Category: "API RESOURCE",
+				Suggest:  true,
 				Commands: []*cli.Command{
 					&userGet,
 				},
@@ -77,6 +78,7 @@ func init() {
 			{
 				Name:     "user:security",
 				Category: "API RESOURCE",
+				Suggest:  true,
 				Commands: []*cli.Command{
 					&userSecurityUpdate,
 					&userSecurityGet,
@@ -85,6 +87,7 @@ func init() {
 			{
 				Name:     "api-keys",
 				Category: "API RESOURCE",
+				Suggest:  true,
 				Commands: []*cli.Command{
 					&apiKeysCreate,
 					&apiKeysUpdate,
@@ -95,6 +98,7 @@ func init() {
 			{
 				Name:     "operations",
 				Category: "API RESOURCE",
+				Suggest:  true,
 				Commands: []*cli.Command{
 					&operationsList,
 					&operationsGet,
@@ -103,6 +107,7 @@ func init() {
 			{
 				Name:     "projects",
 				Category: "API RESOURCE",
+				Suggest:  true,
 				Commands: []*cli.Command{
 					&projectsCreate,
 					&projectsUpdate,
@@ -113,6 +118,7 @@ func init() {
 			{
 				Name:     "regions",
 				Category: "API RESOURCE",
+				Suggest:  true,
 				Commands: []*cli.Command{
 					&regionsList,
 					&regionsGet,
@@ -121,6 +127,7 @@ func init() {
 			{
 				Name:     "compute:vms",
 				Category: "API RESOURCE",
+				Suggest:  true,
 				Commands: []*cli.Command{
 					&computeVMsCreate,
 					&computeVMsUpdate,
@@ -133,6 +140,7 @@ func init() {
 			{
 				Name:     "compute:vms:volumes",
 				Category: "API RESOURCE",
+				Suggest:  true,
 				Commands: []*cli.Command{
 					&computeVMsVolumesList,
 				},
@@ -140,6 +148,7 @@ func init() {
 			{
 				Name:     "compute:vms:os-images",
 				Category: "API RESOURCE",
+				Suggest:  true,
 				Commands: []*cli.Command{
 					&computeVMsOSImagesList,
 				},
@@ -147,6 +156,7 @@ func init() {
 			{
 				Name:     "compute:volumes",
 				Category: "API RESOURCE",
+				Suggest:  true,
 				Commands: []*cli.Command{
 					&computeVolumesCreate,
 					&computeVolumesUpdate,
@@ -160,6 +170,7 @@ func init() {
 			{
 				Name:     "networking:vpcs",
 				Category: "API RESOURCE",
+				Suggest:  true,
 				Commands: []*cli.Command{
 					&networkingVPCsCreate,
 					&networkingVPCsUpdate,
@@ -171,6 +182,7 @@ func init() {
 			{
 				Name:     "networking:firewall-rules",
 				Category: "API RESOURCE",
+				Suggest:  true,
 				Commands: []*cli.Command{
 					&networkingFirewallRulesCreate,
 					&networkingFirewallRulesUpdate,
@@ -182,6 +194,7 @@ func init() {
 			{
 				Name:     "networking:connect:connections",
 				Category: "API RESOURCE",
+				Suggest:  true,
 				Commands: []*cli.Command{
 					&networkingConnectConnectionsCreate,
 					&networkingConnectConnectionsUpdate,
@@ -193,6 +206,7 @@ func init() {
 			{
 				Name:     "networking:connect:routes",
 				Category: "API RESOURCE",
+				Suggest:  true,
 				Commands: []*cli.Command{
 					&networkingConnectRoutesList,
 				},
@@ -200,6 +214,7 @@ func init() {
 			{
 				Name:     "rpc-nodes:flex",
 				Category: "API RESOURCE",
+				Suggest:  true,
 				Commands: []*cli.Command{
 					&rpcNodesFlexCreate,
 					&rpcNodesFlexUpdate,
@@ -210,6 +225,7 @@ func init() {
 			{
 				Name:     "rpc-nodes:flex:blockchains",
 				Category: "API RESOURCE",
+				Suggest:  true,
 				Commands: []*cli.Command{
 					&rpcNodesFlexBlockchainsList,
 				},
@@ -217,6 +233,7 @@ func init() {
 			{
 				Name:     "rpc-nodes:dedicated",
 				Category: "API RESOURCE",
+				Suggest:  true,
 				Commands: []*cli.Command{
 					&rpcNodesDedicatedList,
 					&rpcNodesDedicatedGet,
@@ -225,6 +242,7 @@ func init() {
 			{
 				Name:     "rpc-nodes:dedicated:blockchains",
 				Category: "API RESOURCE",
+				Suggest:  true,
 				Commands: []*cli.Command{
 					&rpcNodesDedicatedBlockchainsList,
 				},
