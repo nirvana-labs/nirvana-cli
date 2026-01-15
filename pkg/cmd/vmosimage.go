@@ -17,8 +17,9 @@ import (
 )
 
 var computeVMsOSImagesList = cli.Command{
-	Name:  "list",
-	Usage: "List all OS Images",
+	Name:    "list",
+	Usage:   "List all OS Images",
+	Suggest: true,
 	Flags: []cli.Flag{
 		&requestflag.Flag[string]{
 			Name:      "cursor",

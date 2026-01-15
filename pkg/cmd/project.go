@@ -17,8 +17,9 @@ import (
 )
 
 var projectsCreate = cli.Command{
-	Name:  "create",
-	Usage: "Create a new project",
+	Name:    "create",
+	Usage:   "Create a new project",
+	Suggest: true,
 	Flags: []cli.Flag{
 		&requestflag.Flag[string]{
 			Name:     "name",
@@ -37,8 +38,9 @@ var projectsCreate = cli.Command{
 }
 
 var projectsUpdate = cli.Command{
-	Name:  "update",
-	Usage: "Update an existing project",
+	Name:    "update",
+	Usage:   "Update an existing project",
+	Suggest: true,
 	Flags: []cli.Flag{
 		&requestflag.Flag[string]{
 			Name:     "project-id",
@@ -60,8 +62,9 @@ var projectsUpdate = cli.Command{
 }
 
 var projectsList = cli.Command{
-	Name:  "list",
-	Usage: "List all projects for the authenticated user",
+	Name:    "list",
+	Usage:   "List all projects for the authenticated user",
+	Suggest: true,
 	Flags: []cli.Flag{
 		&requestflag.Flag[string]{
 			Name:      "cursor",
@@ -80,8 +83,9 @@ var projectsList = cli.Command{
 }
 
 var projectsGet = cli.Command{
-	Name:  "get",
-	Usage: "Get details about a project",
+	Name:    "get",
+	Usage:   "Get details about a project",
+	Suggest: true,
 	Flags: []cli.Flag{
 		&requestflag.Flag[string]{
 			Name:     "project-id",

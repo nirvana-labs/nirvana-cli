@@ -17,8 +17,9 @@ import (
 )
 
 var computeVolumesCreate = cli.Command{
-	Name:  "create",
-	Usage: "Create a Volume. Only data volumes can be created.",
+	Name:    "create",
+	Usage:   "Create a Volume. Only data volumes can be created.",
+	Suggest: true,
 	Flags: []cli.Flag{
 		&requestflag.Flag[string]{
 			Name:     "name",
@@ -60,8 +61,9 @@ var computeVolumesCreate = cli.Command{
 }
 
 var computeVolumesUpdate = cli.Command{
-	Name:  "update",
-	Usage: "Update a Volume. Boot or data volumes can be updated.",
+	Name:    "update",
+	Usage:   "Update a Volume. Boot or data volumes can be updated.",
+	Suggest: true,
 	Flags: []cli.Flag{
 		&requestflag.Flag[string]{
 			Name:     "volume-id",
@@ -88,8 +90,9 @@ var computeVolumesUpdate = cli.Command{
 }
 
 var computeVolumesList = cli.Command{
-	Name:  "list",
-	Usage: "List all volumes",
+	Name:    "list",
+	Usage:   "List all volumes",
+	Suggest: true,
 	Flags: []cli.Flag{
 		&requestflag.Flag[string]{
 			Name:      "cursor",
@@ -108,8 +111,9 @@ var computeVolumesList = cli.Command{
 }
 
 var computeVolumesDelete = cli.Command{
-	Name:  "delete",
-	Usage: "Delete a Volume. Boot or data volumes can be deleted.",
+	Name:    "delete",
+	Usage:   "Delete a Volume. Boot or data volumes can be deleted.",
+	Suggest: true,
 	Flags: []cli.Flag{
 		&requestflag.Flag[string]{
 			Name:     "volume-id",
@@ -121,8 +125,9 @@ var computeVolumesDelete = cli.Command{
 }
 
 var computeVolumesAttach = cli.Command{
-	Name:  "attach",
-	Usage: "Attach a volume to a VM",
+	Name:    "attach",
+	Usage:   "Attach a volume to a VM",
+	Suggest: true,
 	Flags: []cli.Flag{
 		&requestflag.Flag[string]{
 			Name:     "volume-id",
@@ -140,8 +145,9 @@ var computeVolumesAttach = cli.Command{
 }
 
 var computeVolumesDetach = cli.Command{
-	Name:  "detach",
-	Usage: "Detach a volume from a VM",
+	Name:    "detach",
+	Usage:   "Detach a volume from a VM",
+	Suggest: true,
 	Flags: []cli.Flag{
 		&requestflag.Flag[string]{
 			Name:     "volume-id",
@@ -153,8 +159,9 @@ var computeVolumesDetach = cli.Command{
 }
 
 var computeVolumesGet = cli.Command{
-	Name:  "get",
-	Usage: "Get a Volume.",
+	Name:    "get",
+	Usage:   "Get a Volume.",
+	Suggest: true,
 	Flags: []cli.Flag{
 		&requestflag.Flag[string]{
 			Name:     "volume-id",

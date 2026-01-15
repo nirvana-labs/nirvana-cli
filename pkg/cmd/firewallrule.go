@@ -17,8 +17,9 @@ import (
 )
 
 var networkingFirewallRulesCreate = cli.Command{
-	Name:  "create",
-	Usage: "Create a firewall rule",
+	Name:    "create",
+	Usage:   "Create a firewall rule",
+	Suggest: true,
 	Flags: []cli.Flag{
 		&requestflag.Flag[string]{
 			Name:     "vpc-id",
@@ -65,8 +66,9 @@ var networkingFirewallRulesCreate = cli.Command{
 }
 
 var networkingFirewallRulesUpdate = cli.Command{
-	Name:  "update",
-	Usage: "Update a firewall rule",
+	Name:    "update",
+	Usage:   "Update a firewall rule",
+	Suggest: true,
 	Flags: []cli.Flag{
 		&requestflag.Flag[string]{
 			Name:     "vpc-id",
@@ -112,8 +114,9 @@ var networkingFirewallRulesUpdate = cli.Command{
 }
 
 var networkingFirewallRulesList = cli.Command{
-	Name:  "list",
-	Usage: "List all firewall rules",
+	Name:    "list",
+	Usage:   "List all firewall rules",
+	Suggest: true,
 	Flags: []cli.Flag{
 		&requestflag.Flag[string]{
 			Name:     "vpc-id",
@@ -136,8 +139,9 @@ var networkingFirewallRulesList = cli.Command{
 }
 
 var networkingFirewallRulesDelete = cli.Command{
-	Name:  "delete",
-	Usage: "Delete a firewall rule",
+	Name:    "delete",
+	Usage:   "Delete a firewall rule",
+	Suggest: true,
 	Flags: []cli.Flag{
 		&requestflag.Flag[string]{
 			Name:     "vpc-id",
@@ -153,8 +157,9 @@ var networkingFirewallRulesDelete = cli.Command{
 }
 
 var networkingFirewallRulesGet = cli.Command{
-	Name:  "get",
-	Usage: "Get details about a firewall rule",
+	Name:    "get",
+	Usage:   "Get details about a firewall rule",
+	Suggest: true,
 	Flags: []cli.Flag{
 		&requestflag.Flag[string]{
 			Name:     "vpc-id",

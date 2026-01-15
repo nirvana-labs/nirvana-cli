@@ -17,6 +17,7 @@ import (
 var userGet = cli.Command{
 	Name:            "get",
 	Usage:           "Get details about an authenticated user",
+	Suggest:         true,
 	Flags:           []cli.Flag{},
 	Action:          handleUserGet,
 	HideHelpCommand: true,

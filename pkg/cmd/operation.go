@@ -17,8 +17,9 @@ import (
 )
 
 var operationsList = cli.Command{
-	Name:  "list",
-	Usage: "List all operations",
+	Name:    "list",
+	Usage:   "List all operations",
+	Suggest: true,
 	Flags: []cli.Flag{
 		&requestflag.Flag[string]{
 			Name:      "cursor",
@@ -37,8 +38,9 @@ var operationsList = cli.Command{
 }
 
 var operationsGet = cli.Command{
-	Name:  "get",
-	Usage: "Get details about a specific operation",
+	Name:    "get",
+	Usage:   "Get details about a specific operation",
+	Suggest: true,
 	Flags: []cli.Flag{
 		&requestflag.Flag[string]{
 			Name:     "operation-id",
