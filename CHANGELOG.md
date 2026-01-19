@@ -1,5 +1,33 @@
 # Changelog
 
+## 0.13.0 (2026-01-19)
+
+Full Changelog: [v0.12.0...v0.13.0](https://github.com/nirvana-labs/nirvana-cli/compare/v0.12.0...v0.13.0)
+
+### Features
+
+* **api:** api update ([b585534](https://github.com/nirvana-labs/nirvana-cli/commit/b585534baa91d8754f65953b142442ad77e34405))
+* enable CI tests ([9312a30](https://github.com/nirvana-labs/nirvana-cli/commit/9312a30597e9960f38b38b7d2d7ed3967a467afc))
+
+
+### Bug Fixes
+
+* fix terminal height issues causing test failures ([920e3bc](https://github.com/nirvana-labs/nirvana-cli/commit/920e3bccb667588771d302239cecdad0b2c73d55))
+* overly broad redaction of Authorization ([f76a2a5](https://github.com/nirvana-labs/nirvana-cli/commit/f76a2a5c039d8cc97612d45d4218e704fbf57f9b))
+* prevent flag duplication ([6e140a7](https://github.com/nirvana-labs/nirvana-cli/commit/6e140a7cc143ff518c906119db801f2cbb76ed4f))
+* remove unsupported methods ([7e13f63](https://github.com/nirvana-labs/nirvana-cli/commit/7e13f63936885b58553e03bd6cae11bb93ad9bf4))
+
+
+### Chores
+
+* **internal:** codegen related update ([787515e](https://github.com/nirvana-labs/nirvana-cli/commit/787515e5f290247446cd87e7de38076fe9f8c721))
+* **internal:** codegen related update ([5320630](https://github.com/nirvana-labs/nirvana-cli/commit/53206306d6e6b82f3eb0834a3383b21c3e2fd08f))
+* **internal:** codegen related update ([71d8da4](https://github.com/nirvana-labs/nirvana-cli/commit/71d8da4e9a64739587719e9bee369060703b7848))
+* **internal:** codegen related update ([9be5cf6](https://github.com/nirvana-labs/nirvana-cli/commit/9be5cf6feae04c62c35609f5eda77e2e1c02c2d3))
+* **internal:** update `actions/checkout` version ([7206000](https://github.com/nirvana-labs/nirvana-cli/commit/720600082fafccbd3ade4866f241ade87e597861))
+* **stainless:** CLI generation bug requires disabling mock server for now ([#80](https://github.com/nirvana-labs/nirvana-cli/issues/80)) ([9730be7](https://github.com/nirvana-labs/nirvana-cli/commit/9730be74d92973b3ec3b8caede5a158f39e031d5))
+* update internal comment ([f76a2a5](https://github.com/nirvana-labs/nirvana-cli/commit/f76a2a5c039d8cc97612d45d4218e704fbf57f9b))
+
 ## 0.12.0 (2026-01-08)
 
 Full Changelog: [v0.11.0...v0.12.0](https://github.com/nirvana-labs/nirvana-cli/compare/v0.11.0...v0.12.0)
