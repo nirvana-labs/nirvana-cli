@@ -9,6 +9,7 @@ import (
 )
 
 func TestRPCNodesDedicatedList(t *testing.T) {
+	t.Skip("Prism tests are disabled")
 	mocktest.TestRunMockTestWithFlags(
 		t,
 		"rpc-nodes:dedicated", "list",
@@ -19,6 +20,7 @@ func TestRPCNodesDedicatedList(t *testing.T) {
 }
 
 func TestRPCNodesDedicatedGet(t *testing.T) {
+	t.Skip("Prism tests are disabled")
 	mocktest.TestRunMockTestWithFlags(
 		t,
 		"rpc-nodes:dedicated", "get",

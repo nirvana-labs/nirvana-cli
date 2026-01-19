@@ -9,6 +9,7 @@ import (
 )
 
 func TestNetworkingConnectRoutesList(t *testing.T) {
+	t.Skip("Prism tests are disabled")
 	mocktest.TestRunMockTestWithFlags(
 		t,
 		"networking:connect:routes", "list",

@@ -10,6 +10,7 @@ import (
 )
 
 func TestNetworkingConnectConnectionsCreate(t *testing.T) {
+	t.Skip("Prism tests are disabled")
 	mocktest.TestRunMockTestWithFlags(
 		t,
 		"networking:connect:connections", "create",
@@ -43,6 +44,7 @@ func TestNetworkingConnectConnectionsCreate(t *testing.T) {
 }
 
 func TestNetworkingConnectConnectionsUpdate(t *testing.T) {
+	t.Skip("Prism tests are disabled")
 	mocktest.TestRunMockTestWithFlags(
 		t,
 		"networking:connect:connections", "update",
@@ -54,6 +56,7 @@ func TestNetworkingConnectConnectionsUpdate(t *testing.T) {
 }
 
 func TestNetworkingConnectConnectionsList(t *testing.T) {
+	t.Skip("Prism tests are disabled")
 	mocktest.TestRunMockTestWithFlags(
 		t,
 		"networking:connect:connections", "list",
@@ -63,6 +66,7 @@ func TestNetworkingConnectConnectionsList(t *testing.T) {
 }
 
 func TestNetworkingConnectConnectionsDelete(t *testing.T) {
+	t.Skip("Prism tests are disabled")
 	mocktest.TestRunMockTestWithFlags(
 		t,
 		"networking:connect:connections", "delete",
@@ -71,6 +75,7 @@ func TestNetworkingConnectConnectionsDelete(t *testing.T) {
 }
 
 func TestNetworkingConnectConnectionsGet(t *testing.T) {
+	t.Skip("Prism tests are disabled")
 	mocktest.TestRunMockTestWithFlags(
 		t,
 		"networking:connect:connections", "get",
