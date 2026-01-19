@@ -17,8 +17,9 @@ import (
 )
 
 var rpcNodesFlexBlockchainsList = cli.Command{
-	Name:  "list",
-	Usage: "List all Flex Blockchains",
+	Name:    "list",
+	Usage:   "List all Flex Blockchains",
+	Suggest: true,
 	Flags: []cli.Flag{
 		&requestflag.Flag[string]{
 			Name:      "cursor",

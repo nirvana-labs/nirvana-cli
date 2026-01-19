@@ -17,8 +17,9 @@ import (
 )
 
 var networkingConnectConnectionsCreate = requestflag.WithInnerFlags(cli.Command{
-	Name:  "create",
-	Usage: "Create a Connect Connection",
+	Name:    "create",
+	Usage:   "Create a Connect Connection",
+	Suggest: true,
 	Flags: []cli.Flag{
 		&requestflag.Flag[int64]{
 			Name:     "bandwidth-mbps",
@@ -79,8 +80,9 @@ var networkingConnectConnectionsCreate = requestflag.WithInnerFlags(cli.Command{
 })
 
 var networkingConnectConnectionsUpdate = cli.Command{
-	Name:  "update",
-	Usage: "Update Connect Connection details",
+	Name:    "update",
+	Usage:   "Update Connect Connection details",
+	Suggest: true,
 	Flags: []cli.Flag{
 		&requestflag.Flag[string]{
 			Name:     "connection-id",
@@ -102,8 +104,9 @@ var networkingConnectConnectionsUpdate = cli.Command{
 }
 
 var networkingConnectConnectionsList = cli.Command{
-	Name:  "list",
-	Usage: "List all Connect Connections",
+	Name:    "list",
+	Usage:   "List all Connect Connections",
+	Suggest: true,
 	Flags: []cli.Flag{
 		&requestflag.Flag[string]{
 			Name:      "cursor",
@@ -122,8 +125,9 @@ var networkingConnectConnectionsList = cli.Command{
 }
 
 var networkingConnectConnectionsDelete = cli.Command{
-	Name:  "delete",
-	Usage: "Delete Connect Connection",
+	Name:    "delete",
+	Usage:   "Delete Connect Connection",
+	Suggest: true,
 	Flags: []cli.Flag{
 		&requestflag.Flag[string]{
 			Name:     "connection-id",
@@ -135,8 +139,9 @@ var networkingConnectConnectionsDelete = cli.Command{
 }
 
 var networkingConnectConnectionsGet = cli.Command{
-	Name:  "get",
-	Usage: "Get Connect Connection details",
+	Name:    "get",
+	Usage:   "Get Connect Connection details",
+	Suggest: true,
 	Flags: []cli.Flag{
 		&requestflag.Flag[string]{
 			Name:     "connection-id",

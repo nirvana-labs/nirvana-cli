@@ -70,6 +70,7 @@ func init() {
 			{
 				Name:     "user",
 				Category: "API RESOURCE",
+				Suggest:  true,
 				Commands: []*cli.Command{
 					&userGet,
 				},
@@ -77,6 +78,7 @@ func init() {
 			{
 				Name:     "user:security",
 				Category: "API RESOURCE",
+				Suggest:  true,
 				Commands: []*cli.Command{
 					&userSecurityUpdate,
 					&userSecurityGet,
@@ -85,6 +87,7 @@ func init() {
 			{
 				Name:     "api-keys",
 				Category: "API RESOURCE",
+				Suggest:  true,
 				Commands: []*cli.Command{
 					&apiKeysCreate,
 					&apiKeysUpdate,
@@ -95,6 +98,7 @@ func init() {
 			{
 				Name:     "operations",
 				Category: "API RESOURCE",
+				Suggest:  true,
 				Commands: []*cli.Command{
 					&operationsList,
 					&operationsGet,
@@ -103,6 +107,7 @@ func init() {
 			{
 				Name:     "projects",
 				Category: "API RESOURCE",
+				Suggest:  true,
 				Commands: []*cli.Command{
 					&projectsCreate,
 					&projectsUpdate,
@@ -113,6 +118,7 @@ func init() {
 			{
 				Name:     "regions",
 				Category: "API RESOURCE",
+				Suggest:  true,
 				Commands: []*cli.Command{
 					&regionsList,
 					&regionsGet,
@@ -121,6 +127,7 @@ func init() {
 			{
 				Name:     "compute:vms",
 				Category: "API RESOURCE",
+				Suggest:  true,
 				Commands: []*cli.Command{
 					&computeVMsCreate,
 					&computeVMsUpdate,
@@ -133,6 +140,7 @@ func init() {
 			{
 				Name:     "compute:vms:volumes",
 				Category: "API RESOURCE",
+				Suggest:  true,
 				Commands: []*cli.Command{
 					&computeVMsVolumesList,
 				},
@@ -140,6 +148,7 @@ func init() {
 			{
 				Name:     "compute:vms:os-images",
 				Category: "API RESOURCE",
+				Suggest:  true,
 				Commands: []*cli.Command{
 					&computeVMsOSImagesList,
 				},
@@ -147,6 +156,7 @@ func init() {
 			{
 				Name:     "compute:volumes",
 				Category: "API RESOURCE",
+				Suggest:  true,
 				Commands: []*cli.Command{
 					&computeVolumesCreate,
 					&computeVolumesUpdate,
@@ -160,6 +170,7 @@ func init() {
 			{
 				Name:     "networking:vpcs",
 				Category: "API RESOURCE",
+				Suggest:  true,
 				Commands: []*cli.Command{
 					&networkingVPCsCreate,
 					&networkingVPCsUpdate,
@@ -171,6 +182,7 @@ func init() {
 			{
 				Name:     "networking:firewall-rules",
 				Category: "API RESOURCE",
+				Suggest:  true,
 				Commands: []*cli.Command{
 					&networkingFirewallRulesCreate,
 					&networkingFirewallRulesUpdate,
@@ -182,6 +194,7 @@ func init() {
 			{
 				Name:     "networking:connect:connections",
 				Category: "API RESOURCE",
+				Suggest:  true,
 				Commands: []*cli.Command{
 					&networkingConnectConnectionsCreate,
 					&networkingConnectConnectionsUpdate,
@@ -193,6 +206,7 @@ func init() {
 			{
 				Name:     "networking:connect:routes",
 				Category: "API RESOURCE",
+				Suggest:  true,
 				Commands: []*cli.Command{
 					&networkingConnectRoutesList,
 				},
@@ -200,6 +214,7 @@ func init() {
 			{
 				Name:     "rpc-nodes:flex",
 				Category: "API RESOURCE",
+				Suggest:  true,
 				Commands: []*cli.Command{
 					&rpcNodesFlexCreate,
 					&rpcNodesFlexUpdate,
@@ -210,6 +225,7 @@ func init() {
 			{
 				Name:     "rpc-nodes:flex:blockchains",
 				Category: "API RESOURCE",
+				Suggest:  true,
 				Commands: []*cli.Command{
 					&rpcNodesFlexBlockchainsList,
 				},
@@ -217,6 +233,7 @@ func init() {
 			{
 				Name:     "rpc-nodes:dedicated",
 				Category: "API RESOURCE",
+				Suggest:  true,
 				Commands: []*cli.Command{
 					&rpcNodesDedicatedList,
 					&rpcNodesDedicatedGet,
@@ -225,284 +242,9 @@ func init() {
 			{
 				Name:     "rpc-nodes:dedicated:blockchains",
 				Category: "API RESOURCE",
+				Suggest:  true,
 				Commands: []*cli.Command{
 					&rpcNodesDedicatedBlockchainsList,
-				},
-			},
-			{
-				Name:     "vektor:registry:assets",
-				Category: "API RESOURCE",
-				Commands: []*cli.Command{
-					&vektorRegistryAssetsList,
-				},
-			},
-			{
-				Name:     "vektor:registry:blockchains",
-				Category: "API RESOURCE",
-				Commands: []*cli.Command{
-					&vektorRegistryBlockchainsList,
-				},
-			},
-			{
-				Name:     "vektor:registry:venues",
-				Category: "API RESOURCE",
-				Commands: []*cli.Command{
-					&vektorRegistryVenuesList,
-				},
-			},
-			{
-				Name:     "vektor:registry:errors",
-				Category: "API RESOURCE",
-				Commands: []*cli.Command{
-					&vektorRegistryErrorsList,
-				},
-			},
-			{
-				Name:     "vektor:registry:lend-markets",
-				Category: "API RESOURCE",
-				Commands: []*cli.Command{
-					&vektorRegistryLendMarketsList,
-				},
-			},
-			{
-				Name:     "vektor:registry:borrow-markets",
-				Category: "API RESOURCE",
-				Commands: []*cli.Command{
-					&vektorRegistryBorrowMarketsList,
-				},
-			},
-			{
-				Name:     "vektor:registry:lp-pools",
-				Category: "API RESOURCE",
-				Commands: []*cli.Command{
-					&vektorRegistryLPPoolsList,
-				},
-			},
-			{
-				Name:     "vektor:balances",
-				Category: "API RESOURCE",
-				Commands: []*cli.Command{
-					&vektorBalancesList,
-					&vektorBalancesListHistorical,
-				},
-			},
-			{
-				Name:     "vektor:prices",
-				Category: "API RESOURCE",
-				Commands: []*cli.Command{
-					&vektorPricesList,
-					&vektorPricesListHistorical,
-				},
-			},
-			{
-				Name:     "vektor:lend:markets",
-				Category: "API RESOURCE",
-				Commands: []*cli.Command{
-					&vektorLendMarketsList,
-					&vektorLendMarketsListHistorical,
-				},
-			},
-			{
-				Name:     "vektor:lend:positions",
-				Category: "API RESOURCE",
-				Commands: []*cli.Command{
-					&vektorLendPositionsList,
-					&vektorLendPositionsListHistorical,
-				},
-			},
-			{
-				Name:     "vektor:lend:lend",
-				Category: "API RESOURCE",
-				Commands: []*cli.Command{
-					&vektorLendLendCreate,
-				},
-			},
-			{
-				Name:     "vektor:lend:withdraw",
-				Category: "API RESOURCE",
-				Commands: []*cli.Command{
-					&vektorLendWithdrawCreate,
-				},
-			},
-			{
-				Name:     "vektor:lend:set-collateral",
-				Category: "API RESOURCE",
-				Commands: []*cli.Command{
-					&vektorLendSetCollateralCreate,
-				},
-			},
-			{
-				Name:     "vektor:borrow:markets",
-				Category: "API RESOURCE",
-				Commands: []*cli.Command{
-					&vektorBorrowMarketsList,
-					&vektorBorrowMarketsListHistorical,
-				},
-			},
-			{
-				Name:     "vektor:borrow:positions",
-				Category: "API RESOURCE",
-				Commands: []*cli.Command{
-					&vektorBorrowPositionsList,
-					&vektorBorrowPositionsListHistorical,
-				},
-			},
-			{
-				Name:     "vektor:borrow:accounts",
-				Category: "API RESOURCE",
-				Commands: []*cli.Command{
-					&vektorBorrowAccountsList,
-					&vektorBorrowAccountsListHistorical,
-				},
-			},
-			{
-				Name:     "vektor:borrow:borrow",
-				Category: "API RESOURCE",
-				Commands: []*cli.Command{
-					&vektorBorrowBorrowCreate,
-				},
-			},
-			{
-				Name:     "vektor:borrow:repay",
-				Category: "API RESOURCE",
-				Commands: []*cli.Command{
-					&vektorBorrowRepayCreate,
-				},
-			},
-			{
-				Name:     "vektor:lp:pools",
-				Category: "API RESOURCE",
-				Commands: []*cli.Command{
-					&vektorLPPoolsList,
-					&vektorLPPoolsListHistorical,
-				},
-			},
-			{
-				Name:     "vektor:lp:positions",
-				Category: "API RESOURCE",
-				Commands: []*cli.Command{
-					&vektorLPPositionsList,
-					&vektorLPPositionsListHistorical,
-				},
-			},
-			{
-				Name:     "vektor:lp:deposit-quote",
-				Category: "API RESOURCE",
-				Commands: []*cli.Command{
-					&vektorLPDepositQuoteCreate,
-				},
-			},
-			{
-				Name:     "vektor:lp:withdraw-quote",
-				Category: "API RESOURCE",
-				Commands: []*cli.Command{
-					&vektorLPWithdrawQuoteCreate,
-				},
-			},
-			{
-				Name:     "vektor:buy:quotes",
-				Category: "API RESOURCE",
-				Commands: []*cli.Command{
-					&vektorBuyQuotesList,
-				},
-			},
-			{
-				Name:     "vektor:buy:buy",
-				Category: "API RESOURCE",
-				Commands: []*cli.Command{
-					&vektorBuyBuyCreate,
-				},
-			},
-			{
-				Name:     "vektor:sell:quotes",
-				Category: "API RESOURCE",
-				Commands: []*cli.Command{
-					&vektorSellQuotesList,
-				},
-			},
-			{
-				Name:     "vektor:sell:sell",
-				Category: "API RESOURCE",
-				Commands: []*cli.Command{
-					&vektorSellSellCreate,
-				},
-			},
-			{
-				Name:     "vektor:move",
-				Category: "API RESOURCE",
-				Commands: []*cli.Command{
-					&vektorMoveCreate,
-				},
-			},
-			{
-				Name:     "vektor:wrap:wrap",
-				Category: "API RESOURCE",
-				Commands: []*cli.Command{
-					&vektorWrapWrapCreate,
-				},
-			},
-			{
-				Name:     "vektor:wrap:unwrap",
-				Category: "API RESOURCE",
-				Commands: []*cli.Command{
-					&vektorWrapUnwrapCreate,
-				},
-			},
-			{
-				Name:     "vektor:bridge:quotes",
-				Category: "API RESOURCE",
-				Commands: []*cli.Command{
-					&vektorBridgeQuotesList,
-				},
-			},
-			{
-				Name:     "vektor:lock:markets",
-				Category: "API RESOURCE",
-				Commands: []*cli.Command{
-					&vektorLockMarketsList,
-				},
-			},
-			{
-				Name:     "vektor:lock:positions",
-				Category: "API RESOURCE",
-				Commands: []*cli.Command{
-					&vektorLockPositionsList,
-				},
-			},
-			{
-				Name:     "vektor:vote:markets",
-				Category: "API RESOURCE",
-				Commands: []*cli.Command{
-					&vektorVoteMarketsList,
-				},
-			},
-			{
-				Name:     "vektor:vote:rewards",
-				Category: "API RESOURCE",
-				Commands: []*cli.Command{
-					&vektorVoteRewardsList,
-				},
-			},
-			{
-				Name:     "vektor:incentivize",
-				Category: "API RESOURCE",
-				Commands: []*cli.Command{
-					&vektorIncentivizeList,
-				},
-			},
-			{
-				Name:     "vektor:executions",
-				Category: "API RESOURCE",
-				Commands: []*cli.Command{
-					&vektorExecutionsList,
-					&vektorExecutionsGet,
-				},
-			},
-			{
-				Name:     "vektor:executions:steps",
-				Category: "API RESOURCE",
-				Commands: []*cli.Command{
-					&vektorExecutionsStepsGet,
 				},
 			},
 			{

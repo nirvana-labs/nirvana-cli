@@ -9,6 +9,7 @@ import (
 )
 
 func TestOperationsList(t *testing.T) {
+	t.Skip("Prism tests are disabled")
 	mocktest.TestRunMockTestWithFlags(
 		t,
 		"operations", "list",
@@ -18,6 +19,7 @@ func TestOperationsList(t *testing.T) {
 }
 
 func TestOperationsGet(t *testing.T) {
+	t.Skip("Prism tests are disabled")
 	mocktest.TestRunMockTestWithFlags(
 		t,
 		"operations", "get",

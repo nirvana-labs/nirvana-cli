@@ -17,8 +17,9 @@ import (
 )
 
 var networkingConnectRoutesList = cli.Command{
-	Name:  "list",
-	Usage: "List all supported routes with regions for Connect.",
+	Name:    "list",
+	Usage:   "List all supported routes with regions for Connect.",
+	Suggest: true,
 	Flags: []cli.Flag{
 		&requestflag.Flag[string]{
 			Name:      "cursor",

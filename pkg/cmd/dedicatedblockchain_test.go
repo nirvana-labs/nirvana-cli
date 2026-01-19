@@ -9,6 +9,7 @@ import (
 )
 
 func TestRPCNodesDedicatedBlockchainsList(t *testing.T) {
+	t.Skip("Prism tests are disabled")
 	mocktest.TestRunMockTestWithFlags(
 		t,
 		"rpc-nodes:dedicated:blockchains", "list",

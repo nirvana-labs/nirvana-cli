@@ -17,8 +17,9 @@ import (
 )
 
 var computeVMsVolumesList = cli.Command{
-	Name:  "list",
-	Usage: "List VM's Volumes",
+	Name:    "list",
+	Usage:   "List VM's Volumes",
+	Suggest: true,
 	Flags: []cli.Flag{
 		&requestflag.Flag[string]{
 			Name:     "vm-id",

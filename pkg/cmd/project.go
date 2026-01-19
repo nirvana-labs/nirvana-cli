@@ -17,8 +17,9 @@ import (
 )
 
 var projectsCreate = cli.Command{
-	Name:  "create",
-	Usage: "Create a new project",
+	Name:    "create",
+	Usage:   "Create a new project",
+	Suggest: true,
 	Flags: []cli.Flag{
 		&requestflag.Flag[string]{
 			Name:     "name",
@@ -37,8 +38,9 @@ var projectsCreate = cli.Command{
 }
 
 var projectsUpdate = cli.Command{
-	Name:  "update",
-	Usage: "Update an existing project",
+	Name:    "update",
+	Usage:   "Update an existing project",
+	Suggest: true,
 	Flags: []cli.Flag{
 		&requestflag.Flag[string]{
 			Name:     "project-id",
@@ -60,8 +62,9 @@ var projectsUpdate = cli.Command{
 }
 
 var projectsList = cli.Command{
-	Name:  "list",
-	Usage: "List all projects for the authenticated user",
+	Name:    "list",
+	Usage:   "List all projects for the authenticated user",
+	Suggest: true,
 	Flags: []cli.Flag{
 		&requestflag.Flag[string]{
 			Name:      "cursor",
@@ -79,22 +82,10 @@ var projectsList = cli.Command{
 	HideHelpCommand: true,
 }
 
-var projectsDelete = cli.Command{
-	Name:  "delete",
-	Usage: "Delete a project",
-	Flags: []cli.Flag{
-		&requestflag.Flag[string]{
-			Name:     "project-id",
-			Required: true,
-		},
-	},
-	Action:          handleProjectsDelete,
-	HideHelpCommand: true,
-}
-
 var projectsGet = cli.Command{
-	Name:  "get",
-	Usage: "Get details about a project",
+	Name:    "get",
+	Usage:   "Get details about a project",
+	Suggest: true,
 	Flags: []cli.Flag{
 		&requestflag.Flag[string]{
 			Name:     "project-id",
@@ -217,31 +208,6 @@ func handleProjectsList(ctx context.Context, cmd *cli.Command) error {
 		iter := client.Projects.ListAutoPaging(ctx, params, options...)
 		return ShowJSONIterator(os.Stdout, "projects list", iter, format, transform)
 	}
-}
-
-func handleProjectsDelete(ctx context.Context, cmd *cli.Command) error {
-	client := nirvana.NewClient(getDefaultRequestOptions(cmd)...)
-	unusedArgs := cmd.Args().Slice()
-	if !cmd.IsSet("project-id") && len(unusedArgs) > 0 {
-		cmd.Set("project-id", unusedArgs[0])
-		unusedArgs = unusedArgs[1:]
-	}
-	if len(unusedArgs) > 0 {
-		return fmt.Errorf("Unexpected extra arguments: %v", unusedArgs)
-	}
-
-	options, err := flagOptions(
-		cmd,
-		apiquery.NestedQueryFormatBrackets,
-		apiquery.ArrayQueryFormatComma,
-		EmptyBody,
-		false,
-	)
-	if err != nil {
-		return err
-	}
-
-	return client.Projects.Delete(ctx, cmd.Value("project-id").(string), options...)
 }
 
 func handleProjectsGet(ctx context.Context, cmd *cli.Command) error {

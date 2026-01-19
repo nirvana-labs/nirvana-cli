@@ -17,8 +17,9 @@ import (
 )
 
 var networkingVPCsCreate = cli.Command{
-	Name:  "create",
-	Usage: "Create a VPC",
+	Name:    "create",
+	Usage:   "Create a VPC",
+	Suggest: true,
 	Flags: []cli.Flag{
 		&requestflag.Flag[string]{
 			Name:     "name",
@@ -49,8 +50,9 @@ var networkingVPCsCreate = cli.Command{
 }
 
 var networkingVPCsUpdate = cli.Command{
-	Name:  "update",
-	Usage: "Update a VPC",
+	Name:    "update",
+	Usage:   "Update a VPC",
+	Suggest: true,
 	Flags: []cli.Flag{
 		&requestflag.Flag[string]{
 			Name:     "vpc-id",
@@ -77,8 +79,9 @@ var networkingVPCsUpdate = cli.Command{
 }
 
 var networkingVPCsList = cli.Command{
-	Name:  "list",
-	Usage: "List all VPCs",
+	Name:    "list",
+	Usage:   "List all VPCs",
+	Suggest: true,
 	Flags: []cli.Flag{
 		&requestflag.Flag[string]{
 			Name:      "cursor",
@@ -97,8 +100,9 @@ var networkingVPCsList = cli.Command{
 }
 
 var networkingVPCsDelete = cli.Command{
-	Name:  "delete",
-	Usage: "Delete a VPC",
+	Name:    "delete",
+	Usage:   "Delete a VPC",
+	Suggest: true,
 	Flags: []cli.Flag{
 		&requestflag.Flag[string]{
 			Name:     "vpc-id",
@@ -110,8 +114,9 @@ var networkingVPCsDelete = cli.Command{
 }
 
 var networkingVPCsGet = cli.Command{
-	Name:  "get",
-	Usage: "Get details about a VPC",
+	Name:    "get",
+	Usage:   "Get details about a VPC",
+	Suggest: true,
 	Flags: []cli.Flag{
 		&requestflag.Flag[string]{
 			Name:     "vpc-id",

@@ -17,8 +17,9 @@ import (
 )
 
 var computeVMsCreate = requestflag.WithInnerFlags(cli.Command{
-	Name:  "create",
-	Usage: "Create a VM",
+	Name:    "create",
+	Usage:   "Create a VM",
+	Suggest: true,
 	Flags: []cli.Flag{
 		&requestflag.Flag[map[string]any]{
 			Name:     "boot-volume",
@@ -151,8 +152,9 @@ var computeVMsCreate = requestflag.WithInnerFlags(cli.Command{
 })
 
 var computeVMsUpdate = requestflag.WithInnerFlags(cli.Command{
-	Name:  "update",
-	Usage: "Update a VM",
+	Name:    "update",
+	Usage:   "Update a VM",
+	Suggest: true,
 	Flags: []cli.Flag{
 		&requestflag.Flag[string]{
 			Name:     "vm-id",
@@ -204,8 +206,9 @@ var computeVMsUpdate = requestflag.WithInnerFlags(cli.Command{
 })
 
 var computeVMsList = cli.Command{
-	Name:  "list",
-	Usage: "List all VMs",
+	Name:    "list",
+	Usage:   "List all VMs",
+	Suggest: true,
 	Flags: []cli.Flag{
 		&requestflag.Flag[string]{
 			Name:      "cursor",
@@ -224,8 +227,9 @@ var computeVMsList = cli.Command{
 }
 
 var computeVMsDelete = cli.Command{
-	Name:  "delete",
-	Usage: "Delete a VM",
+	Name:    "delete",
+	Usage:   "Delete a VM",
+	Suggest: true,
 	Flags: []cli.Flag{
 		&requestflag.Flag[string]{
 			Name:     "vm-id",
@@ -237,8 +241,9 @@ var computeVMsDelete = cli.Command{
 }
 
 var computeVMsGet = cli.Command{
-	Name:  "get",
-	Usage: "Get details about a VM",
+	Name:    "get",
+	Usage:   "Get details about a VM",
+	Suggest: true,
 	Flags: []cli.Flag{
 		&requestflag.Flag[string]{
 			Name:     "vm-id",
@@ -250,8 +255,9 @@ var computeVMsGet = cli.Command{
 }
 
 var computeVMsRestart = cli.Command{
-	Name:  "restart",
-	Usage: "Restart a VM",
+	Name:    "restart",
+	Usage:   "Restart a VM",
+	Suggest: true,
 	Flags: []cli.Flag{
 		&requestflag.Flag[string]{
 			Name:     "vm-id",

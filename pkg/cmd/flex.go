@@ -17,8 +17,9 @@ import (
 )
 
 var rpcNodesFlexCreate = cli.Command{
-	Name:  "create",
-	Usage: "Create a new RPC Node Flex",
+	Name:    "create",
+	Usage:   "Create a new RPC Node Flex",
+	Suggest: true,
 	Flags: []cli.Flag{
 		&requestflag.Flag[string]{
 			Name:     "blockchain",
@@ -55,8 +56,9 @@ var rpcNodesFlexCreate = cli.Command{
 }
 
 var rpcNodesFlexUpdate = cli.Command{
-	Name:  "update",
-	Usage: "Update an existing RPC Node Flex",
+	Name:    "update",
+	Usage:   "Update an existing RPC Node Flex",
+	Suggest: true,
 	Flags: []cli.Flag{
 		&requestflag.Flag[string]{
 			Name:     "node-id",
@@ -78,8 +80,9 @@ var rpcNodesFlexUpdate = cli.Command{
 }
 
 var rpcNodesFlexList = cli.Command{
-	Name:  "list",
-	Usage: "List all RPC Node Flex you created",
+	Name:    "list",
+	Usage:   "List all RPC Node Flex you created",
+	Suggest: true,
 	Flags: []cli.Flag{
 		&requestflag.Flag[string]{
 			Name:      "cursor",
@@ -102,22 +105,10 @@ var rpcNodesFlexList = cli.Command{
 	HideHelpCommand: true,
 }
 
-var rpcNodesFlexDelete = cli.Command{
-	Name:  "delete",
-	Usage: "Delete an RPC Node Flex",
-	Flags: []cli.Flag{
-		&requestflag.Flag[string]{
-			Name:     "node-id",
-			Required: true,
-		},
-	},
-	Action:          handleRPCNodesFlexDelete,
-	HideHelpCommand: true,
-}
-
 var rpcNodesFlexGet = cli.Command{
-	Name:  "get",
-	Usage: "Get details about an RPC Node Flex",
+	Name:    "get",
+	Usage:   "Get details about an RPC Node Flex",
+	Suggest: true,
 	Flags: []cli.Flag{
 		&requestflag.Flag[string]{
 			Name:     "node-id",
@@ -240,31 +231,6 @@ func handleRPCNodesFlexList(ctx context.Context, cmd *cli.Command) error {
 		iter := client.RPCNodes.Flex.ListAutoPaging(ctx, params, options...)
 		return ShowJSONIterator(os.Stdout, "rpc-nodes:flex list", iter, format, transform)
 	}
-}
-
-func handleRPCNodesFlexDelete(ctx context.Context, cmd *cli.Command) error {
-	client := nirvana.NewClient(getDefaultRequestOptions(cmd)...)
-	unusedArgs := cmd.Args().Slice()
-	if !cmd.IsSet("node-id") && len(unusedArgs) > 0 {
-		cmd.Set("node-id", unusedArgs[0])
-		unusedArgs = unusedArgs[1:]
-	}
-	if len(unusedArgs) > 0 {
-		return fmt.Errorf("Unexpected extra arguments: %v", unusedArgs)
-	}
-
-	options, err := flagOptions(
-		cmd,
-		apiquery.NestedQueryFormatBrackets,
-		apiquery.ArrayQueryFormatComma,
-		EmptyBody,
-		false,
-	)
-	if err != nil {
-		return err
-	}
-
-	return client.RPCNodes.Flex.Delete(ctx, cmd.Value("node-id").(string), options...)
 }
 
 func handleRPCNodesFlexGet(ctx context.Context, cmd *cli.Command) error {

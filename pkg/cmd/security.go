@@ -17,8 +17,9 @@ import (
 )
 
 var userSecurityUpdate = requestflag.WithInnerFlags(cli.Command{
-	Name:  "update",
-	Usage: "Update the current user's security settings",
+	Name:    "update",
+	Usage:   "Update the current user's security settings",
+	Suggest: true,
 	Flags: []cli.Flag{
 		&requestflag.Flag[map[string]any]{
 			Name:     "source-ip-rule",
@@ -46,6 +47,7 @@ var userSecurityUpdate = requestflag.WithInnerFlags(cli.Command{
 var userSecurityGet = cli.Command{
 	Name:            "get",
 	Usage:           "Get the current user's security settings",
+	Suggest:         true,
 	Flags:           []cli.Flag{},
 	Action:          handleUserSecurityGet,
 	HideHelpCommand: true,

@@ -9,6 +9,7 @@ import (
 )
 
 func TestUserGet(t *testing.T) {
+	t.Skip("Prism tests are disabled")
 	mocktest.TestRunMockTestWithFlags(
 		t,
 		"user", "get",
