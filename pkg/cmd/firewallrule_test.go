@@ -9,6 +9,7 @@ import (
 )
 
 func TestNetworkingFirewallRulesCreate(t *testing.T) {
+	t.Skip("Prism tests are disabled")
 	mocktest.TestRunMockTestWithFlags(
 		t,
 		"networking:firewall-rules", "create",
@@ -26,6 +27,7 @@ func TestNetworkingFirewallRulesCreate(t *testing.T) {
 }
 
 func TestNetworkingFirewallRulesUpdate(t *testing.T) {
+	t.Skip("Prism tests are disabled")
 	mocktest.TestRunMockTestWithFlags(
 		t,
 		"networking:firewall-rules", "update",
@@ -44,6 +46,7 @@ func TestNetworkingFirewallRulesUpdate(t *testing.T) {
 }
 
 func TestNetworkingFirewallRulesList(t *testing.T) {
+	t.Skip("Prism tests are disabled")
 	mocktest.TestRunMockTestWithFlags(
 		t,
 		"networking:firewall-rules", "list",
@@ -54,6 +57,7 @@ func TestNetworkingFirewallRulesList(t *testing.T) {
 }
 
 func TestNetworkingFirewallRulesDelete(t *testing.T) {
+	t.Skip("Prism tests are disabled")
 	mocktest.TestRunMockTestWithFlags(
 		t,
 		"networking:firewall-rules", "delete",
@@ -63,6 +67,7 @@ func TestNetworkingFirewallRulesDelete(t *testing.T) {
 }
 
 func TestNetworkingFirewallRulesGet(t *testing.T) {
+	t.Skip("Prism tests are disabled")
 	mocktest.TestRunMockTestWithFlags(
 		t,
 		"networking:firewall-rules", "get",
