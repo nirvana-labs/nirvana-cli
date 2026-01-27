@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.14.1 (2026-01-27)
+
+Full Changelog: [v0.14.0...v0.14.1](https://github.com/nirvana-labs/nirvana-cli/compare/v0.14.0...v0.14.1)
+
+### Chores
+
+* **internal:** codegen related update ([40d506e](https://github.com/nirvana-labs/nirvana-cli/commit/40d506e55976a9ee7fc70159f2edd4c44e6ec3e8))
+
 ## 0.14.0 (2026-01-21)
 
 Full Changelog: [v0.13.0...v0.14.0](https://github.com/nirvana-labs/nirvana-cli/compare/v0.13.0...v0.14.0)
