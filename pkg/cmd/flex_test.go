@@ -45,6 +45,15 @@ func TestRPCNodesFlexList(t *testing.T) {
 	)
 }
 
+func TestRPCNodesFlexDelete(t *testing.T) {
+	t.Skip("Prism tests are disabled")
+	mocktest.TestRunMockTestWithFlags(
+		t,
+		"rpc-nodes:flex", "delete",
+		"--node-id", "node_id",
+	)
+}
+
 func TestRPCNodesFlexGet(t *testing.T) {
 	t.Skip("Prism tests are disabled")
 	mocktest.TestRunMockTestWithFlags(

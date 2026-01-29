@@ -129,6 +129,20 @@ var apiKeysList = cli.Command{
 	HideHelpCommand: true,
 }
 
+var apiKeysDelete = cli.Command{
+	Name:    "delete",
+	Usage:   "Delete an API key",
+	Suggest: true,
+	Flags: []cli.Flag{
+		&requestflag.Flag[string]{
+			Name:     "api-key-id",
+			Required: true,
+		},
+	},
+	Action:          handleAPIKeysDelete,
+	HideHelpCommand: true,
+}
+
 var apiKeysGet = cli.Command{
 	Name:    "get",
 	Usage:   "Get details about an API key",
@@ -255,6 +269,31 @@ func handleAPIKeysList(ctx context.Context, cmd *cli.Command) error {
 		iter := client.APIKeys.ListAutoPaging(ctx, params, options...)
 		return ShowJSONIterator(os.Stdout, "api-keys list", iter, format, transform)
 	}
+}
+
+func handleAPIKeysDelete(ctx context.Context, cmd *cli.Command) error {
+	client := nirvana.NewClient(getDefaultRequestOptions(cmd)...)
+	unusedArgs := cmd.Args().Slice()
+	if !cmd.IsSet("api-key-id") && len(unusedArgs) > 0 {
+		cmd.Set("api-key-id", unusedArgs[0])
+		unusedArgs = unusedArgs[1:]
+	}
+	if len(unusedArgs) > 0 {
+		return fmt.Errorf("Unexpected extra arguments: %v", unusedArgs)
+	}
+
+	options, err := flagOptions(
+		cmd,
+		apiquery.NestedQueryFormatBrackets,
+		apiquery.ArrayQueryFormatComma,
+		EmptyBody,
+		false,
+	)
+	if err != nil {
+		return err
+	}
+
+	return client.APIKeys.Delete(ctx, cmd.Value("api-key-id").(string), options...)
 }
 
 func handleAPIKeysGet(ctx context.Context, cmd *cli.Command) error {

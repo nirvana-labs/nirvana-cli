@@ -11,6 +11,7 @@ import (
 	"slices"
 	"strings"
 
+	"github.com/nirvana-labs/nirvana-cli/internal/autocomplete"
 	docs "github.com/urfave/cli-docs/v3"
 	"github.com/urfave/cli/v3"
 )
@@ -92,6 +93,7 @@ func init() {
 					&apiKeysCreate,
 					&apiKeysUpdate,
 					&apiKeysList,
+					&apiKeysDelete,
 					&apiKeysGet,
 				},
 			},
@@ -112,6 +114,7 @@ func init() {
 					&projectsCreate,
 					&projectsUpdate,
 					&projectsList,
+					&projectsDelete,
 					&projectsGet,
 				},
 			},
@@ -219,6 +222,7 @@ func init() {
 					&rpcNodesFlexCreate,
 					&rpcNodesFlexUpdate,
 					&rpcNodesFlexList,
+					&rpcNodesFlexDelete,
 					&rpcNodesFlexGet,
 				},
 			},
@@ -275,10 +279,20 @@ func init() {
 					},
 				},
 			},
+			{
+				Name:            "__complete",
+				Hidden:          true,
+				HideHelpCommand: true,
+				Action:          autocomplete.ExecuteShellCompletion,
+			},
+			{
+				Name:            "@completion",
+				Hidden:          true,
+				HideHelpCommand: true,
+				Action:          autocomplete.OutputCompletionScript,
+			},
 		},
-		EnableShellCompletion:      true,
-		ShellCompletionCommandName: "@completion",
-		HideHelpCommand:            true,
+		HideHelpCommand: true,
 	}
 }
 
