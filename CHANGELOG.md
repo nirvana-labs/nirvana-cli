@@ -1,5 +1,25 @@
 # Changelog
 
+## 0.15.0 (2026-01-29)
+
+Full Changelog: [v0.14.1...v0.15.0](https://github.com/nirvana-labs/nirvana-cli/compare/v0.14.1...v0.15.0)
+
+### ⚠ BREAKING CHANGES
+
+* add support for passing files as parameters
+
+### Features
+
+* add support for passing files as parameters ([cd86d72](https://github.com/nirvana-labs/nirvana-cli/commit/cd86d723ad14957df8ddadcf1fc0e41fdca739b9))
+* **cli:** improve shell completions for namespaced commands and flags ([210d0dd](https://github.com/nirvana-labs/nirvana-cli/commit/210d0dd80a0c5a1f549bb8dad3e4563a19696139))
+
+
+### Bug Fixes
+
+* fix mock tests with inner fields that have underscores ([a3cd7e2](https://github.com/nirvana-labs/nirvana-cli/commit/a3cd7e2cc049008c5eceefe872282cbf31b7dcb9))
+* restore support for void endpoints ([f1c1541](https://github.com/nirvana-labs/nirvana-cli/commit/f1c1541e52fddaf09f3d1e162154f9c73c333c9e))
+* use RawJSON for iterated values instead of re-marshalling ([e3a24d0](https://github.com/nirvana-labs/nirvana-cli/commit/e3a24d042e570562de9c5b960d7a4f837d7dd059))
+
 ## 0.14.1 (2026-01-27)
 
 Full Changelog: [v0.14.0...v0.14.1](https://github.com/nirvana-labs/nirvana-cli/compare/v0.14.0...v0.14.1)
