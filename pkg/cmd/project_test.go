@@ -41,6 +41,15 @@ func TestProjectsList(t *testing.T) {
 	)
 }
 
+func TestProjectsDelete(t *testing.T) {
+	t.Skip("Prism tests are disabled")
+	mocktest.TestRunMockTestWithFlags(
+		t,
+		"projects", "delete",
+		"--project-id", "project_id",
+	)
+}
+
 func TestProjectsGet(t *testing.T) {
 	t.Skip("Prism tests are disabled")
 	mocktest.TestRunMockTestWithFlags(
