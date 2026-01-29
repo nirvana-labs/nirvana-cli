@@ -36,7 +36,7 @@ func TestNetworkingConnectConnectionsCreate(t *testing.T) {
 		"--name", "my-connect-connection",
 		"--provider-cidr", "172.16.0.0/16",
 		"--region", "us-wdc-1",
-		"--aws.account_id", "523816707215",
+		"--aws.account-id", "523816707215",
 		"--aws.region", "us-east-1",
 		"--tag", "production",
 		"--tag", "ethereum",
