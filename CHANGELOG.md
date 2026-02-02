@@ -1,5 +1,24 @@
 # Changelog
 
+## 0.16.0 (2026-01-30)
+
+Full Changelog: [v0.15.0...v0.16.0](https://github.com/nirvana-labs/nirvana-cli/compare/v0.15.0...v0.16.0)
+
+### Features
+
+* add readme documentation for passing files as arguments ([e1f5954](https://github.com/nirvana-labs/nirvana-cli/commit/e1f5954bad896ad6d01c5304a4ae0e8390f7469d))
+
+
+### Bug Fixes
+
+* fix for file uploads to octet stream and form encoding endpoints ([74faa4e](https://github.com/nirvana-labs/nirvana-cli/commit/74faa4ec5b43437702d8220c8719bd31ffffac30))
+
+
+### Chores
+
+* add build step to ci ([c019928](https://github.com/nirvana-labs/nirvana-cli/commit/c019928f0218b696d5510eaaca7628ea0ccd456d))
+* update documentation in readme ([4f8841a](https://github.com/nirvana-labs/nirvana-cli/commit/4f8841af118c785f47f51e712d120daf8cb7c974))
+
 ## 0.15.0 (2026-01-29)
 
 Full Changelog: [v0.14.1...v0.15.0](https://github.com/nirvana-labs/nirvana-cli/compare/v0.14.1...v0.15.0)
