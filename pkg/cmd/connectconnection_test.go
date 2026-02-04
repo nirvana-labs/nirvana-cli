@@ -20,6 +20,7 @@ func TestNetworkingConnectConnectionsCreate(t *testing.T) {
 		"--provider-cidr", "172.16.0.0/16",
 		"--region", "us-wdc-1",
 		"--aws", "{account_id: '523816707215', region: us-east-1}",
+		"--project-id", "123e4567-e89b-12d3-a456-426614174000",
 		"--tag", "production",
 		"--tag", "ethereum",
 	)
@@ -38,6 +39,7 @@ func TestNetworkingConnectConnectionsCreate(t *testing.T) {
 		"--region", "us-wdc-1",
 		"--aws.account-id", "523816707215",
 		"--aws.region", "us-east-1",
+		"--project-id", "123e4567-e89b-12d3-a456-426614174000",
 		"--tag", "production",
 		"--tag", "ethereum",
 	)
@@ -62,6 +64,7 @@ func TestNetworkingConnectConnectionsList(t *testing.T) {
 		"networking:connect:connections", "list",
 		"--cursor", "cursor",
 		"--limit", "10",
+		"--project-id", "project_id",
 	)
 }
 

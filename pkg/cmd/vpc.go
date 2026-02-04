@@ -39,6 +39,11 @@ var networkingVPCsCreate = cli.Command{
 			Required: true,
 			BodyPath: "subnet_name",
 		},
+		&requestflag.Flag[string]{
+			Name:     "project-id",
+			Usage:    "Project ID the VPC belongs to.",
+			BodyPath: "project_id",
+		},
 		&requestflag.Flag[[]string]{
 			Name:     "tag",
 			Usage:    "Tags to attach to the VPC.",
@@ -93,6 +98,11 @@ var networkingVPCsList = cli.Command{
 			Usage:     "Maximum number of items to return",
 			Default:   10,
 			QueryPath: "limit",
+		},
+		&requestflag.Flag[string]{
+			Name:      "project-id",
+			Usage:     "Project ID of resources to request",
+			QueryPath: "project_id",
 		},
 	},
 	Action:          handleNetworkingVPCsList,

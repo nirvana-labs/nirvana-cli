@@ -16,6 +16,7 @@ func TestNetworkingVPCsCreate(t *testing.T) {
 		"--name", "my-vpc",
 		"--region", "us-wdc-1",
 		"--subnet-name", "my-subnet",
+		"--project-id", "123e4567-e89b-12d3-a456-426614174000",
 		"--tag", "production",
 		"--tag", "ethereum",
 	)
@@ -41,6 +42,7 @@ func TestNetworkingVPCsList(t *testing.T) {
 		"networking:vpcs", "list",
 		"--cursor", "cursor",
 		"--limit", "10",
+		"--project-id", "project_id",
 	)
 }
 
