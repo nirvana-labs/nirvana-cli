@@ -32,6 +32,11 @@ var operationsList = cli.Command{
 			Default:   10,
 			QueryPath: "limit",
 		},
+		&requestflag.Flag[string]{
+			Name:      "project-id",
+			Usage:     "Project ID of resources to request",
+			QueryPath: "project_id",
+		},
 	},
 	Action:          handleOperationsList,
 	HideHelpCommand: true,

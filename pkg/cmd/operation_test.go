@@ -15,6 +15,7 @@ func TestOperationsList(t *testing.T) {
 		"operations", "list",
 		"--cursor", "cursor",
 		"--limit", "10",
+		"--project-id", "project_id",
 	)
 }
 

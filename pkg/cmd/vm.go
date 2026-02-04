@@ -80,6 +80,11 @@ var computeVMsCreate = requestflag.WithInnerFlags(cli.Command{
 			Usage:    "Data volumes for the VM.",
 			BodyPath: "data_volumes",
 		},
+		&requestflag.Flag[string]{
+			Name:     "project-id",
+			Usage:    "Project ID to create the VM in.",
+			BodyPath: "project_id",
+		},
 		&requestflag.Flag[[]string]{
 			Name:     "tag",
 			Usage:    "Tags to attach to the VM.",
@@ -220,6 +225,11 @@ var computeVMsList = cli.Command{
 			Usage:     "Maximum number of items to return",
 			Default:   10,
 			QueryPath: "limit",
+		},
+		&requestflag.Flag[string]{
+			Name:      "project-id",
+			Usage:     "Project ID of resources to request",
+			QueryPath: "project_id",
 		},
 	},
 	Action:          handleComputeVMsList,
