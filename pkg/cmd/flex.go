@@ -85,6 +85,12 @@ var rpcNodesFlexList = cli.Command{
 	Suggest: true,
 	Flags: []cli.Flag{
 		&requestflag.Flag[string]{
+			Name:      "project-id",
+			Usage:     "Project ID of resources to request",
+			Required:  true,
+			QueryPath: "project_id",
+		},
+		&requestflag.Flag[string]{
 			Name:      "cursor",
 			Usage:     "Pagination cursor returned by a previous request",
 			QueryPath: "cursor",
@@ -94,11 +100,6 @@ var rpcNodesFlexList = cli.Command{
 			Usage:     "Maximum number of items to return",
 			Default:   10,
 			QueryPath: "limit",
-		},
-		&requestflag.Flag[string]{
-			Name:      "project-id",
-			Usage:     "Project ID of resources to request",
-			QueryPath: "project_id",
 		},
 	},
 	Action:          handleRPCNodesFlexList,

@@ -51,6 +51,12 @@ var computeVMsCreate = requestflag.WithInnerFlags(cli.Command{
 			Required: true,
 			BodyPath: "os_image_name",
 		},
+		&requestflag.Flag[string]{
+			Name:     "project-id",
+			Usage:    "Project ID to create the VM in.",
+			Required: true,
+			BodyPath: "project_id",
+		},
 		&requestflag.Flag[bool]{
 			Name:     "public-ip-enabled",
 			Usage:    "Whether to enable public IP for the VM.",
@@ -79,11 +85,6 @@ var computeVMsCreate = requestflag.WithInnerFlags(cli.Command{
 			Name:     "data-volume",
 			Usage:    "Data volumes for the VM.",
 			BodyPath: "data_volumes",
-		},
-		&requestflag.Flag[string]{
-			Name:     "project-id",
-			Usage:    "Project ID to create the VM in.",
-			BodyPath: "project_id",
 		},
 		&requestflag.Flag[[]string]{
 			Name:     "tag",
@@ -216,6 +217,12 @@ var computeVMsList = cli.Command{
 	Suggest: true,
 	Flags: []cli.Flag{
 		&requestflag.Flag[string]{
+			Name:      "project-id",
+			Usage:     "Project ID of resources to request",
+			Required:  true,
+			QueryPath: "project_id",
+		},
+		&requestflag.Flag[string]{
 			Name:      "cursor",
 			Usage:     "Pagination cursor returned by a previous request",
 			QueryPath: "cursor",
@@ -225,11 +232,6 @@ var computeVMsList = cli.Command{
 			Usage:     "Maximum number of items to return",
 			Default:   10,
 			QueryPath: "limit",
-		},
-		&requestflag.Flag[string]{
-			Name:      "project-id",
-			Usage:     "Project ID of resources to request",
-			QueryPath: "project_id",
 		},
 	},
 	Action:          handleComputeVMsList,
