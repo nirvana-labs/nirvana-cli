@@ -22,6 +22,12 @@ var operationsList = cli.Command{
 	Suggest: true,
 	Flags: []cli.Flag{
 		&requestflag.Flag[string]{
+			Name:      "project-id",
+			Usage:     "Project ID of resources to request",
+			Required:  true,
+			QueryPath: "project_id",
+		},
+		&requestflag.Flag[string]{
 			Name:      "cursor",
 			Usage:     "Pagination cursor returned by a previous request",
 			QueryPath: "cursor",

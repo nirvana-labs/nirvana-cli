@@ -1,5 +1,21 @@
 # Changelog
 
+## 0.17.0 (2026-02-05)
+
+Full Changelog: [v0.16.0...v0.17.0](https://github.com/nirvana-labs/nirvana-cli/compare/v0.16.0...v0.17.0)
+
+### Features
+
+* **api:** api update ([59d7dce](https://github.com/nirvana-labs/nirvana-cli/commit/59d7dce2ce5c4dc5f1c31f1351aaf79698de7ccf))
+* **api:** api update ([046e419](https://github.com/nirvana-labs/nirvana-cli/commit/046e419464b5d73a3e7b8115196f0f721b71558c))
+* **client:** provide file completions when using file embed syntax ([b5bc77f](https://github.com/nirvana-labs/nirvana-cli/commit/b5bc77fb295e7520c4586e3d4e9451740d98f445))
+
+
+### Chores
+
+* **internal:** codegen related update ([381d5c1](https://github.com/nirvana-labs/nirvana-cli/commit/381d5c1af62e0a73eb36f5dd6e1b303ef37c538c))
+* **internal:** codegen related update ([e3bb60a](https://github.com/nirvana-labs/nirvana-cli/commit/e3bb60ad4a68cf10771c357c76a92c8ea301f813))
+
 ## 0.16.0 (2026-01-30)
 
 Full Changelog: [v0.15.0...v0.16.0](https://github.com/nirvana-labs/nirvana-cli/compare/v0.15.0...v0.16.0)

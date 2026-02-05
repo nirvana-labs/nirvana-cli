@@ -19,6 +19,7 @@ func TestComputeVMsCreate(t *testing.T) {
 		"--memory-config", "{size: 2}",
 		"--name", "my-vm",
 		"--os-image-name", "ubuntu-noble-2025-10-01",
+		"--project-id", "123e4567-e89b-12d3-a456-426614174000",
 		"--public-ip-enabled=true",
 		"--region", "us-wdc-1",
 		"--ssh-key", "{public_key: ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDBIASkmwNiLcdlW6927Zjt1Hf7Kw/PpEZ4Zm+wU9wn2}",
@@ -42,6 +43,7 @@ func TestComputeVMsCreate(t *testing.T) {
 		"--memory-config.size", "2",
 		"--name", "my-vm",
 		"--os-image-name", "ubuntu-noble-2025-10-01",
+		"--project-id", "123e4567-e89b-12d3-a456-426614174000",
 		"--public-ip-enabled=true",
 		"--region", "us-wdc-1",
 		"--ssh-key.public-key", "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDBIASkmwNiLcdlW6927Zjt1Hf7Kw/PpEZ4Zm+wU9wn2",
@@ -91,6 +93,7 @@ func TestComputeVMsList(t *testing.T) {
 	mocktest.TestRunMockTestWithFlags(
 		t,
 		"compute:vms", "list",
+		"--project-id", "project_id",
 		"--cursor", "cursor",
 		"--limit", "10",
 	)

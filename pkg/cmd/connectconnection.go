@@ -39,6 +39,12 @@ var networkingConnectConnectionsCreate = requestflag.WithInnerFlags(cli.Command{
 			Required: true,
 			BodyPath: "name",
 		},
+		&requestflag.Flag[string]{
+			Name:     "project-id",
+			Usage:    "Project ID the Connect Connection belongs to",
+			Required: true,
+			BodyPath: "project_id",
+		},
 		&requestflag.Flag[[]string]{
 			Name:     "provider-cidr",
 			Usage:    "Provider CIDRs. Must be in network-aligned/canonical form.",
@@ -108,6 +114,12 @@ var networkingConnectConnectionsList = cli.Command{
 	Usage:   "List all Connect Connections",
 	Suggest: true,
 	Flags: []cli.Flag{
+		&requestflag.Flag[string]{
+			Name:      "project-id",
+			Usage:     "Project ID of resources to request",
+			Required:  true,
+			QueryPath: "project_id",
+		},
 		&requestflag.Flag[string]{
 			Name:      "cursor",
 			Usage:     "Pagination cursor returned by a previous request",

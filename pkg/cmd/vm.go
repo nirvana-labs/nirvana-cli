@@ -51,6 +51,12 @@ var computeVMsCreate = requestflag.WithInnerFlags(cli.Command{
 			Required: true,
 			BodyPath: "os_image_name",
 		},
+		&requestflag.Flag[string]{
+			Name:     "project-id",
+			Usage:    "Project ID to create the VM in.",
+			Required: true,
+			BodyPath: "project_id",
+		},
 		&requestflag.Flag[bool]{
 			Name:     "public-ip-enabled",
 			Usage:    "Whether to enable public IP for the VM.",
@@ -210,6 +216,12 @@ var computeVMsList = cli.Command{
 	Usage:   "List all VMs",
 	Suggest: true,
 	Flags: []cli.Flag{
+		&requestflag.Flag[string]{
+			Name:      "project-id",
+			Usage:     "Project ID of resources to request",
+			Required:  true,
+			QueryPath: "project_id",
+		},
 		&requestflag.Flag[string]{
 			Name:      "cursor",
 			Usage:     "Pagination cursor returned by a previous request",

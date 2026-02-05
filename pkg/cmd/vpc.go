@@ -28,6 +28,12 @@ var networkingVPCsCreate = cli.Command{
 			BodyPath: "name",
 		},
 		&requestflag.Flag[string]{
+			Name:     "project-id",
+			Usage:    "Project ID the VPC belongs to.",
+			Required: true,
+			BodyPath: "project_id",
+		},
+		&requestflag.Flag[string]{
 			Name:     "region",
 			Usage:    "Region the resource is in.",
 			Required: true,
@@ -83,6 +89,12 @@ var networkingVPCsList = cli.Command{
 	Usage:   "List all VPCs",
 	Suggest: true,
 	Flags: []cli.Flag{
+		&requestflag.Flag[string]{
+			Name:      "project-id",
+			Usage:     "Project ID of resources to request",
+			Required:  true,
+			QueryPath: "project_id",
+		},
 		&requestflag.Flag[string]{
 			Name:      "cursor",
 			Usage:     "Pagination cursor returned by a previous request",

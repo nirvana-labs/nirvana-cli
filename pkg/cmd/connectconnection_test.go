@@ -17,6 +17,7 @@ func TestNetworkingConnectConnectionsCreate(t *testing.T) {
 		"--bandwidth-mbps", "50",
 		"--cidr", "10.0.0.0/16",
 		"--name", "my-connect-connection",
+		"--project-id", "123e4567-e89b-12d3-a456-426614174000",
 		"--provider-cidr", "172.16.0.0/16",
 		"--region", "us-wdc-1",
 		"--aws", "{account_id: '523816707215', region: us-east-1}",
@@ -34,6 +35,7 @@ func TestNetworkingConnectConnectionsCreate(t *testing.T) {
 		"--bandwidth-mbps", "50",
 		"--cidr", "10.0.0.0/16",
 		"--name", "my-connect-connection",
+		"--project-id", "123e4567-e89b-12d3-a456-426614174000",
 		"--provider-cidr", "172.16.0.0/16",
 		"--region", "us-wdc-1",
 		"--aws.account-id", "523816707215",
@@ -60,6 +62,7 @@ func TestNetworkingConnectConnectionsList(t *testing.T) {
 	mocktest.TestRunMockTestWithFlags(
 		t,
 		"networking:connect:connections", "list",
+		"--project-id", "project_id",
 		"--cursor", "cursor",
 		"--limit", "10",
 	)
