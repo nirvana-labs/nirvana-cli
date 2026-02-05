@@ -14,10 +14,10 @@ func TestComputeVolumesCreate(t *testing.T) {
 		t,
 		"compute:volumes", "create",
 		"--name", "my-data-volume",
+		"--project-id", "123e4567-e89b-12d3-a456-426614174000",
 		"--region", "us-wdc-1",
 		"--size", "100",
 		"--type", "nvme",
-		"--project-id", "123e4567-e89b-12d3-a456-426614174000",
 		"--tag", "production",
 		"--tag", "ethereum",
 		"--vm-id", "123e4567-e89b-12d3-a456-426614174000",
@@ -42,9 +42,9 @@ func TestComputeVolumesList(t *testing.T) {
 	mocktest.TestRunMockTestWithFlags(
 		t,
 		"compute:volumes", "list",
+		"--project-id", "project_id",
 		"--cursor", "cursor",
 		"--limit", "10",
-		"--project-id", "project_id",
 	)
 }
 

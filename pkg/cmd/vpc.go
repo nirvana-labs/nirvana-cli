@@ -28,6 +28,12 @@ var networkingVPCsCreate = cli.Command{
 			BodyPath: "name",
 		},
 		&requestflag.Flag[string]{
+			Name:     "project-id",
+			Usage:    "Project ID the VPC belongs to.",
+			Required: true,
+			BodyPath: "project_id",
+		},
+		&requestflag.Flag[string]{
 			Name:     "region",
 			Usage:    "Region the resource is in.",
 			Required: true,
@@ -38,11 +44,6 @@ var networkingVPCsCreate = cli.Command{
 			Usage:    "Name of the subnet to create.",
 			Required: true,
 			BodyPath: "subnet_name",
-		},
-		&requestflag.Flag[string]{
-			Name:     "project-id",
-			Usage:    "Project ID the VPC belongs to.",
-			BodyPath: "project_id",
 		},
 		&requestflag.Flag[[]string]{
 			Name:     "tag",
@@ -89,6 +90,12 @@ var networkingVPCsList = cli.Command{
 	Suggest: true,
 	Flags: []cli.Flag{
 		&requestflag.Flag[string]{
+			Name:      "project-id",
+			Usage:     "Project ID of resources to request",
+			Required:  true,
+			QueryPath: "project_id",
+		},
+		&requestflag.Flag[string]{
 			Name:      "cursor",
 			Usage:     "Pagination cursor returned by a previous request",
 			QueryPath: "cursor",
@@ -98,11 +105,6 @@ var networkingVPCsList = cli.Command{
 			Usage:     "Maximum number of items to return",
 			Default:   10,
 			QueryPath: "limit",
-		},
-		&requestflag.Flag[string]{
-			Name:      "project-id",
-			Usage:     "Project ID of resources to request",
-			QueryPath: "project_id",
 		},
 	},
 	Action:          handleNetworkingVPCsList,

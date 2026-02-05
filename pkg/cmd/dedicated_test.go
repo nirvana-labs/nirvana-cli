@@ -13,9 +13,9 @@ func TestRPCNodesDedicatedList(t *testing.T) {
 	mocktest.TestRunMockTestWithFlags(
 		t,
 		"rpc-nodes:dedicated", "list",
+		"--project-id", "project_id",
 		"--cursor", "cursor",
 		"--limit", "10",
-		"--project-id", "project_id",
 	)
 }
 

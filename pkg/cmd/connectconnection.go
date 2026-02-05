@@ -39,6 +39,12 @@ var networkingConnectConnectionsCreate = requestflag.WithInnerFlags(cli.Command{
 			Required: true,
 			BodyPath: "name",
 		},
+		&requestflag.Flag[string]{
+			Name:     "project-id",
+			Usage:    "Project ID the Connect Connection belongs to",
+			Required: true,
+			BodyPath: "project_id",
+		},
 		&requestflag.Flag[[]string]{
 			Name:     "provider-cidr",
 			Usage:    "Provider CIDRs. Must be in network-aligned/canonical form.",
@@ -55,11 +61,6 @@ var networkingConnectConnectionsCreate = requestflag.WithInnerFlags(cli.Command{
 			Name:     "aws",
 			Usage:    "AWS provider configuration",
 			BodyPath: "aws",
-		},
-		&requestflag.Flag[string]{
-			Name:     "project-id",
-			Usage:    "Project ID the Connect Connection belongs to",
-			BodyPath: "project_id",
 		},
 		&requestflag.Flag[[]string]{
 			Name:     "tag",
@@ -114,6 +115,12 @@ var networkingConnectConnectionsList = cli.Command{
 	Suggest: true,
 	Flags: []cli.Flag{
 		&requestflag.Flag[string]{
+			Name:      "project-id",
+			Usage:     "Project ID of resources to request",
+			Required:  true,
+			QueryPath: "project_id",
+		},
+		&requestflag.Flag[string]{
 			Name:      "cursor",
 			Usage:     "Pagination cursor returned by a previous request",
 			QueryPath: "cursor",
@@ -123,11 +130,6 @@ var networkingConnectConnectionsList = cli.Command{
 			Usage:     "Maximum number of items to return",
 			Default:   10,
 			QueryPath: "limit",
-		},
-		&requestflag.Flag[string]{
-			Name:      "project-id",
-			Usage:     "Project ID of resources to request",
-			QueryPath: "project_id",
 		},
 	},
 	Action:          handleNetworkingConnectConnectionsList,

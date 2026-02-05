@@ -14,9 +14,9 @@ func TestNetworkingVPCsCreate(t *testing.T) {
 		t,
 		"networking:vpcs", "create",
 		"--name", "my-vpc",
+		"--project-id", "123e4567-e89b-12d3-a456-426614174000",
 		"--region", "us-wdc-1",
 		"--subnet-name", "my-subnet",
-		"--project-id", "123e4567-e89b-12d3-a456-426614174000",
 		"--tag", "production",
 		"--tag", "ethereum",
 	)
@@ -40,9 +40,9 @@ func TestNetworkingVPCsList(t *testing.T) {
 	mocktest.TestRunMockTestWithFlags(
 		t,
 		"networking:vpcs", "list",
+		"--project-id", "project_id",
 		"--cursor", "cursor",
 		"--limit", "10",
-		"--project-id", "project_id",
 	)
 }
 

@@ -13,9 +13,9 @@ func TestOperationsList(t *testing.T) {
 	mocktest.TestRunMockTestWithFlags(
 		t,
 		"operations", "list",
+		"--project-id", "project_id",
 		"--cursor", "cursor",
 		"--limit", "10",
-		"--project-id", "project_id",
 	)
 }
 

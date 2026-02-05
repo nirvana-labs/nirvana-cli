@@ -28,6 +28,12 @@ var computeVolumesCreate = cli.Command{
 			BodyPath: "name",
 		},
 		&requestflag.Flag[string]{
+			Name:     "project-id",
+			Usage:    "Project ID the Volume belongs to.",
+			Required: true,
+			BodyPath: "project_id",
+		},
+		&requestflag.Flag[string]{
 			Name:     "region",
 			Usage:    "Region the resource is in.",
 			Required: true,
@@ -44,11 +50,6 @@ var computeVolumesCreate = cli.Command{
 			Usage:    "Type of the Volume.",
 			Required: true,
 			BodyPath: "type",
-		},
-		&requestflag.Flag[string]{
-			Name:     "project-id",
-			Usage:    "Project ID the Volume belongs to.",
-			BodyPath: "project_id",
 		},
 		&requestflag.Flag[[]string]{
 			Name:     "tag",
@@ -100,6 +101,12 @@ var computeVolumesList = cli.Command{
 	Suggest: true,
 	Flags: []cli.Flag{
 		&requestflag.Flag[string]{
+			Name:      "project-id",
+			Usage:     "Project ID of resources to request",
+			Required:  true,
+			QueryPath: "project_id",
+		},
+		&requestflag.Flag[string]{
 			Name:      "cursor",
 			Usage:     "Pagination cursor returned by a previous request",
 			QueryPath: "cursor",
@@ -109,11 +116,6 @@ var computeVolumesList = cli.Command{
 			Usage:     "Maximum number of items to return",
 			Default:   10,
 			QueryPath: "limit",
-		},
-		&requestflag.Flag[string]{
-			Name:      "project-id",
-			Usage:     "Project ID of resources to request",
-			QueryPath: "project_id",
 		},
 	},
 	Action:          handleComputeVolumesList,
