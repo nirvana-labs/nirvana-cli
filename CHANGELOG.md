@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.17.1 (2026-02-06)
+
+Full Changelog: [v0.17.0...v0.17.1](https://github.com/nirvana-labs/nirvana-cli/compare/v0.17.0...v0.17.1)
+
+### Bug Fixes
+
+* fix for when terminal width is not available ([9be8c0e](https://github.com/nirvana-labs/nirvana-cli/commit/9be8c0e12454cac6a24b06f1d7e328b2480f9660))
+
 ## 0.17.0 (2026-02-05)
 
 Full Changelog: [v0.16.0...v0.17.0](https://github.com/nirvana-labs/nirvana-cli/compare/v0.16.0...v0.17.0)
