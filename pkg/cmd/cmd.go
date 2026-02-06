@@ -107,6 +107,15 @@ func init() {
 				},
 			},
 			{
+				Name:     "organizations",
+				Category: "API RESOURCE",
+				Suggest:  true,
+				Commands: []*cli.Command{
+					&organizationsList,
+					&organizationsGet,
+				},
+			},
+			{
 				Name:     "projects",
 				Category: "API RESOURCE",
 				Suggest:  true,
