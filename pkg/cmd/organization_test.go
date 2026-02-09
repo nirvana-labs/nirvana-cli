@@ -8,6 +8,25 @@ import (
 	"github.com/nirvana-labs/nirvana-cli/internal/mocktest"
 )
 
+func TestOrganizationsCreate(t *testing.T) {
+	t.Skip("Prism tests are disabled")
+	mocktest.TestRunMockTestWithFlags(
+		t,
+		"organizations", "create",
+		"--name", "My Organization",
+	)
+}
+
+func TestOrganizationsUpdate(t *testing.T) {
+	t.Skip("Prism tests are disabled")
+	mocktest.TestRunMockTestWithFlags(
+		t,
+		"organizations", "update",
+		"--organization-id", "organization_id",
+		"--name", "My Updated Organization",
+	)
+}
+
 func TestOrganizationsList(t *testing.T) {
 	t.Skip("Prism tests are disabled")
 	mocktest.TestRunMockTestWithFlags(
