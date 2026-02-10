@@ -53,7 +53,7 @@ var organizationsUpdate = cli.Command{
 
 var organizationsList = cli.Command{
 	Name:    "list",
-	Usage:   "List all Organizations",
+	Usage:   "List organizations for the authenticated user",
 	Suggest: true,
 	Flags: []cli.Flag{
 		&requestflag.Flag[string]{
