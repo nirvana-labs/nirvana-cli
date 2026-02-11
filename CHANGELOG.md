@@ -1,5 +1,19 @@
 # Changelog
 
+## 0.20.0 (2026-02-11)
+
+Full Changelog: [v0.19.0...v0.20.0](https://github.com/nirvana-labs/nirvana-cli/compare/v0.19.0...v0.20.0)
+
+### Features
+
+* **api:** api update ([76d21ea](https://github.com/nirvana-labs/nirvana-cli/commit/76d21ea0bbbe4c81f79ac100936d1d18a83f53c8))
+* improved support for passing files for `any`-typed arguments ([a1d2ec4](https://github.com/nirvana-labs/nirvana-cli/commit/a1d2ec4dd1215e4a86952c7aa18d1137a3712802))
+
+
+### Bug Fixes
+
+* preserve filename in content-disposition for file uploads ([3c3b055](https://github.com/nirvana-labs/nirvana-cli/commit/3c3b055755674793c72a68a6d335b5cd57134fd0))
+
 ## 0.19.0 (2026-02-10)
 
 Full Changelog: [v0.18.0...v0.19.0](https://github.com/nirvana-labs/nirvana-cli/compare/v0.18.0...v0.19.0)
