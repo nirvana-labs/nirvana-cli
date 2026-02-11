@@ -152,6 +152,15 @@ func init() {
 				},
 			},
 			{
+				Name:     "compute:vms:availability",
+				Category: "API RESOURCE",
+				Suggest:  true,
+				Commands: []*cli.Command{
+					&computeVMsAvailabilityCreate,
+					&computeVMsAvailabilityUpdate,
+				},
+			},
+			{
 				Name:     "compute:vms:volumes",
 				Category: "API RESOURCE",
 				Suggest:  true,
@@ -182,6 +191,15 @@ func init() {
 				},
 			},
 			{
+				Name:     "compute:volumes:availability",
+				Category: "API RESOURCE",
+				Suggest:  true,
+				Commands: []*cli.Command{
+					&computeVolumesAvailabilityCreate,
+					&computeVolumesAvailabilityUpdate,
+				},
+			},
+			{
 				Name:     "networking:vpcs",
 				Category: "API RESOURCE",
 				Suggest:  true,
@@ -191,6 +209,15 @@ func init() {
 					&networkingVPCsList,
 					&networkingVPCsDelete,
 					&networkingVPCsGet,
+				},
+			},
+			{
+				Name:     "networking:vpcs:availability",
+				Category: "API RESOURCE",
+				Suggest:  true,
+				Commands: []*cli.Command{
+					&networkingVPCsAvailabilityCreate,
+					&networkingVPCsAvailabilityUpdate,
 				},
 			},
 			{
