@@ -63,7 +63,7 @@ var projectsUpdate = cli.Command{
 
 var projectsList = cli.Command{
 	Name:    "list",
-	Usage:   "List all projects for the authenticated user",
+	Usage:   "List all projects",
 	Suggest: true,
 	Flags: []cli.Flag{
 		&requestflag.Flag[string]{
