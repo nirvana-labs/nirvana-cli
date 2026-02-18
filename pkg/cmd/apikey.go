@@ -110,7 +110,7 @@ var apiKeysUpdate = requestflag.WithInnerFlags(cli.Command{
 
 var apiKeysList = cli.Command{
 	Name:    "list",
-	Usage:   "List all API keys for the authenticated user",
+	Usage:   "List all API keys",
 	Suggest: true,
 	Flags: []cli.Flag{
 		&requestflag.Flag[string]{

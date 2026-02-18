@@ -1,5 +1,18 @@
 # Changelog
 
+## 0.22.0 (2026-02-18)
+
+Full Changelog: [v0.21.0...v0.22.0](https://github.com/nirvana-labs/nirvana-cli/compare/v0.21.0...v0.22.0)
+
+### Features
+
+* **api:** api update ([df501bf](https://github.com/nirvana-labs/nirvana-cli/commit/df501bf8b5930f00aa602c2043a3ce98da6ae9f4))
+
+
+### Bug Fixes
+
+* prevent tests from hanging on streaming/paginated endpoints ([003e797](https://github.com/nirvana-labs/nirvana-cli/commit/003e79752f1a347b490f5a83eac8a1cc3ca3c2c3))
+
 ## 0.21.0 (2026-02-11)
 
 Full Changelog: [v0.20.0...v0.21.0](https://github.com/nirvana-labs/nirvana-cli/compare/v0.20.0...v0.21.0)
