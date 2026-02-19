@@ -17,7 +17,7 @@ func TestComputeVolumesAvailabilityCreate(t *testing.T) {
 		"--project-id", "123e4567-e89b-12d3-a456-426614174000",
 		"--region", "us-wdc-1",
 		"--size", "100",
-		"--type", "nvme",
+		"--type", "abs",
 		"--tag", "production",
 		"--tag", "ethereum",
 		"--vm-id", "123e4567-e89b-12d3-a456-426614174000",
