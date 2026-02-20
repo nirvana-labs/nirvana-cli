@@ -10,7 +10,7 @@ import (
 )
 
 func TestAPIKeysCreate(t *testing.T) {
-	t.Skip("Prism tests are disabled")
+	t.Skip("Mock server tests are disabled")
 	mocktest.TestRunMockTestWithFlags(
 		t,
 		"api-keys", "create",
@@ -40,7 +40,7 @@ func TestAPIKeysCreate(t *testing.T) {
 }
 
 func TestAPIKeysUpdate(t *testing.T) {
-	t.Skip("Prism tests are disabled")
+	t.Skip("Mock server tests are disabled")
 	mocktest.TestRunMockTestWithFlags(
 		t,
 		"api-keys", "update",
@@ -68,7 +68,7 @@ func TestAPIKeysUpdate(t *testing.T) {
 }
 
 func TestAPIKeysList(t *testing.T) {
-	t.Skip("Prism tests are disabled")
+	t.Skip("Mock server tests are disabled")
 	mocktest.TestRunMockTestWithFlags(
 		t,
 		"api-keys", "list",
@@ -78,7 +78,7 @@ func TestAPIKeysList(t *testing.T) {
 }
 
 func TestAPIKeysDelete(t *testing.T) {
-	t.Skip("Prism tests are disabled")
+	t.Skip("Mock server tests are disabled")
 	mocktest.TestRunMockTestWithFlags(
 		t,
 		"api-keys", "delete",
@@ -87,7 +87,7 @@ func TestAPIKeysDelete(t *testing.T) {
 }
 
 func TestAPIKeysGet(t *testing.T) {
-	t.Skip("Prism tests are disabled")
+	t.Skip("Mock server tests are disabled")
 	mocktest.TestRunMockTestWithFlags(
 		t,
 		"api-keys", "get",

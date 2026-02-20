@@ -9,7 +9,7 @@ import (
 )
 
 func TestProjectsCreate(t *testing.T) {
-	t.Skip("Prism tests are disabled")
+	t.Skip("Mock server tests are disabled")
 	mocktest.TestRunMockTestWithFlags(
 		t,
 		"projects", "create",
@@ -20,7 +20,7 @@ func TestProjectsCreate(t *testing.T) {
 }
 
 func TestProjectsUpdate(t *testing.T) {
-	t.Skip("Prism tests are disabled")
+	t.Skip("Mock server tests are disabled")
 	mocktest.TestRunMockTestWithFlags(
 		t,
 		"projects", "update",
@@ -32,7 +32,7 @@ func TestProjectsUpdate(t *testing.T) {
 }
 
 func TestProjectsList(t *testing.T) {
-	t.Skip("Prism tests are disabled")
+	t.Skip("Mock server tests are disabled")
 	mocktest.TestRunMockTestWithFlags(
 		t,
 		"projects", "list",
@@ -42,7 +42,7 @@ func TestProjectsList(t *testing.T) {
 }
 
 func TestProjectsDelete(t *testing.T) {
-	t.Skip("Prism tests are disabled")
+	t.Skip("Mock server tests are disabled")
 	mocktest.TestRunMockTestWithFlags(
 		t,
 		"projects", "delete",
@@ -51,7 +51,7 @@ func TestProjectsDelete(t *testing.T) {
 }
 
 func TestProjectsGet(t *testing.T) {
-	t.Skip("Prism tests are disabled")
+	t.Skip("Mock server tests are disabled")
 	mocktest.TestRunMockTestWithFlags(
 		t,
 		"projects", "get",

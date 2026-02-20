@@ -9,7 +9,7 @@ import (
 )
 
 func TestRPCNodesFlexCreate(t *testing.T) {
-	t.Skip("Prism tests are disabled")
+	t.Skip("Mock server tests are disabled")
 	mocktest.TestRunMockTestWithFlags(
 		t,
 		"rpc-nodes:flex", "create",
@@ -23,7 +23,7 @@ func TestRPCNodesFlexCreate(t *testing.T) {
 }
 
 func TestRPCNodesFlexUpdate(t *testing.T) {
-	t.Skip("Prism tests are disabled")
+	t.Skip("Mock server tests are disabled")
 	mocktest.TestRunMockTestWithFlags(
 		t,
 		"rpc-nodes:flex", "update",
@@ -35,7 +35,7 @@ func TestRPCNodesFlexUpdate(t *testing.T) {
 }
 
 func TestRPCNodesFlexList(t *testing.T) {
-	t.Skip("Prism tests are disabled")
+	t.Skip("Mock server tests are disabled")
 	mocktest.TestRunMockTestWithFlags(
 		t,
 		"rpc-nodes:flex", "list",
@@ -46,7 +46,7 @@ func TestRPCNodesFlexList(t *testing.T) {
 }
 
 func TestRPCNodesFlexDelete(t *testing.T) {
-	t.Skip("Prism tests are disabled")
+	t.Skip("Mock server tests are disabled")
 	mocktest.TestRunMockTestWithFlags(
 		t,
 		"rpc-nodes:flex", "delete",
@@ -55,7 +55,7 @@ func TestRPCNodesFlexDelete(t *testing.T) {
 }
 
 func TestRPCNodesFlexGet(t *testing.T) {
-	t.Skip("Prism tests are disabled")
+	t.Skip("Mock server tests are disabled")
 	mocktest.TestRunMockTestWithFlags(
 		t,
 		"rpc-nodes:flex", "get",

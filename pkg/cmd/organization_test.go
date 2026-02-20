@@ -9,7 +9,7 @@ import (
 )
 
 func TestOrganizationsCreate(t *testing.T) {
-	t.Skip("Prism tests are disabled")
+	t.Skip("Mock server tests are disabled")
 	mocktest.TestRunMockTestWithFlags(
 		t,
 		"organizations", "create",
@@ -18,7 +18,7 @@ func TestOrganizationsCreate(t *testing.T) {
 }
 
 func TestOrganizationsUpdate(t *testing.T) {
-	t.Skip("Prism tests are disabled")
+	t.Skip("Mock server tests are disabled")
 	mocktest.TestRunMockTestWithFlags(
 		t,
 		"organizations", "update",
@@ -28,7 +28,7 @@ func TestOrganizationsUpdate(t *testing.T) {
 }
 
 func TestOrganizationsList(t *testing.T) {
-	t.Skip("Prism tests are disabled")
+	t.Skip("Mock server tests are disabled")
 	mocktest.TestRunMockTestWithFlags(
 		t,
 		"organizations", "list",
@@ -38,7 +38,7 @@ func TestOrganizationsList(t *testing.T) {
 }
 
 func TestOrganizationsGet(t *testing.T) {
-	t.Skip("Prism tests are disabled")
+	t.Skip("Mock server tests are disabled")
 	mocktest.TestRunMockTestWithFlags(
 		t,
 		"organizations", "get",
