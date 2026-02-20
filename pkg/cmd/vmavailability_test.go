@@ -10,7 +10,7 @@ import (
 )
 
 func TestComputeVMsAvailabilityCreate(t *testing.T) {
-	t.Skip("Prism tests are disabled")
+	t.Skip("Mock server tests are disabled")
 	mocktest.TestRunMockTestWithFlags(
 		t,
 		"compute:vms:availability", "create",
@@ -58,7 +58,7 @@ func TestComputeVMsAvailabilityCreate(t *testing.T) {
 }
 
 func TestComputeVMsAvailabilityUpdate(t *testing.T) {
-	t.Skip("Prism tests are disabled")
+	t.Skip("Mock server tests are disabled")
 	mocktest.TestRunMockTestWithFlags(
 		t,
 		"compute:vms:availability", "update",

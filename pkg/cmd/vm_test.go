@@ -10,7 +10,7 @@ import (
 )
 
 func TestComputeVMsCreate(t *testing.T) {
-	t.Skip("Prism tests are disabled")
+	t.Skip("Mock server tests are disabled")
 	mocktest.TestRunMockTestWithFlags(
 		t,
 		"compute:vms", "create",
@@ -58,7 +58,7 @@ func TestComputeVMsCreate(t *testing.T) {
 }
 
 func TestComputeVMsUpdate(t *testing.T) {
-	t.Skip("Prism tests are disabled")
+	t.Skip("Mock server tests are disabled")
 	mocktest.TestRunMockTestWithFlags(
 		t,
 		"compute:vms", "update",
@@ -89,7 +89,7 @@ func TestComputeVMsUpdate(t *testing.T) {
 }
 
 func TestComputeVMsList(t *testing.T) {
-	t.Skip("Prism tests are disabled")
+	t.Skip("Mock server tests are disabled")
 	mocktest.TestRunMockTestWithFlags(
 		t,
 		"compute:vms", "list",
@@ -100,7 +100,7 @@ func TestComputeVMsList(t *testing.T) {
 }
 
 func TestComputeVMsDelete(t *testing.T) {
-	t.Skip("Prism tests are disabled")
+	t.Skip("Mock server tests are disabled")
 	mocktest.TestRunMockTestWithFlags(
 		t,
 		"compute:vms", "delete",
@@ -109,7 +109,7 @@ func TestComputeVMsDelete(t *testing.T) {
 }
 
 func TestComputeVMsGet(t *testing.T) {
-	t.Skip("Prism tests are disabled")
+	t.Skip("Mock server tests are disabled")
 	mocktest.TestRunMockTestWithFlags(
 		t,
 		"compute:vms", "get",
@@ -118,7 +118,7 @@ func TestComputeVMsGet(t *testing.T) {
 }
 
 func TestComputeVMsRestart(t *testing.T) {
-	t.Skip("Prism tests are disabled")
+	t.Skip("Mock server tests are disabled")
 	mocktest.TestRunMockTestWithFlags(
 		t,
 		"compute:vms", "restart",

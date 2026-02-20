@@ -9,7 +9,7 @@ import (
 )
 
 func TestRegionsList(t *testing.T) {
-	t.Skip("Prism tests are disabled")
+	t.Skip("Mock server tests are disabled")
 	mocktest.TestRunMockTestWithFlags(
 		t,
 		"regions", "list",
@@ -19,7 +19,7 @@ func TestRegionsList(t *testing.T) {
 }
 
 func TestRegionsGet(t *testing.T) {
-	t.Skip("Prism tests are disabled")
+	t.Skip("Mock server tests are disabled")
 	mocktest.TestRunMockTestWithFlags(
 		t,
 		"regions", "get",

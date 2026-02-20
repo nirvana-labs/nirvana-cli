@@ -9,7 +9,7 @@ import (
 )
 
 func TestComputeVolumesCreate(t *testing.T) {
-	t.Skip("Prism tests are disabled")
+	t.Skip("Mock server tests are disabled")
 	mocktest.TestRunMockTestWithFlags(
 		t,
 		"compute:volumes", "create",
@@ -25,7 +25,7 @@ func TestComputeVolumesCreate(t *testing.T) {
 }
 
 func TestComputeVolumesUpdate(t *testing.T) {
-	t.Skip("Prism tests are disabled")
+	t.Skip("Mock server tests are disabled")
 	mocktest.TestRunMockTestWithFlags(
 		t,
 		"compute:volumes", "update",
@@ -38,7 +38,7 @@ func TestComputeVolumesUpdate(t *testing.T) {
 }
 
 func TestComputeVolumesList(t *testing.T) {
-	t.Skip("Prism tests are disabled")
+	t.Skip("Mock server tests are disabled")
 	mocktest.TestRunMockTestWithFlags(
 		t,
 		"compute:volumes", "list",
@@ -49,7 +49,7 @@ func TestComputeVolumesList(t *testing.T) {
 }
 
 func TestComputeVolumesDelete(t *testing.T) {
-	t.Skip("Prism tests are disabled")
+	t.Skip("Mock server tests are disabled")
 	mocktest.TestRunMockTestWithFlags(
 		t,
 		"compute:volumes", "delete",
@@ -58,7 +58,7 @@ func TestComputeVolumesDelete(t *testing.T) {
 }
 
 func TestComputeVolumesAttach(t *testing.T) {
-	t.Skip("Prism tests are disabled")
+	t.Skip("Mock server tests are disabled")
 	mocktest.TestRunMockTestWithFlags(
 		t,
 		"compute:volumes", "attach",
@@ -68,7 +68,7 @@ func TestComputeVolumesAttach(t *testing.T) {
 }
 
 func TestComputeVolumesDetach(t *testing.T) {
-	t.Skip("Prism tests are disabled")
+	t.Skip("Mock server tests are disabled")
 	mocktest.TestRunMockTestWithFlags(
 		t,
 		"compute:volumes", "detach",
@@ -77,7 +77,7 @@ func TestComputeVolumesDetach(t *testing.T) {
 }
 
 func TestComputeVolumesGet(t *testing.T) {
-	t.Skip("Prism tests are disabled")
+	t.Skip("Mock server tests are disabled")
 	mocktest.TestRunMockTestWithFlags(
 		t,
 		"compute:volumes", "get",
