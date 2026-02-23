@@ -9,7 +9,7 @@ import (
 )
 
 func TestNetworkingVPCsCreate(t *testing.T) {
-	t.Skip("Prism tests are disabled")
+	t.Skip("Mock server tests are disabled")
 	mocktest.TestRunMockTestWithFlags(
 		t,
 		"networking:vpcs", "create",
@@ -23,7 +23,7 @@ func TestNetworkingVPCsCreate(t *testing.T) {
 }
 
 func TestNetworkingVPCsUpdate(t *testing.T) {
-	t.Skip("Prism tests are disabled")
+	t.Skip("Mock server tests are disabled")
 	mocktest.TestRunMockTestWithFlags(
 		t,
 		"networking:vpcs", "update",
@@ -36,7 +36,7 @@ func TestNetworkingVPCsUpdate(t *testing.T) {
 }
 
 func TestNetworkingVPCsList(t *testing.T) {
-	t.Skip("Prism tests are disabled")
+	t.Skip("Mock server tests are disabled")
 	mocktest.TestRunMockTestWithFlags(
 		t,
 		"networking:vpcs", "list",
@@ -47,7 +47,7 @@ func TestNetworkingVPCsList(t *testing.T) {
 }
 
 func TestNetworkingVPCsDelete(t *testing.T) {
-	t.Skip("Prism tests are disabled")
+	t.Skip("Mock server tests are disabled")
 	mocktest.TestRunMockTestWithFlags(
 		t,
 		"networking:vpcs", "delete",
@@ -56,7 +56,7 @@ func TestNetworkingVPCsDelete(t *testing.T) {
 }
 
 func TestNetworkingVPCsGet(t *testing.T) {
-	t.Skip("Prism tests are disabled")
+	t.Skip("Mock server tests are disabled")
 	mocktest.TestRunMockTestWithFlags(
 		t,
 		"networking:vpcs", "get",

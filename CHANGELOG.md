@@ -1,5 +1,20 @@
 # Changelog
 
+## 0.23.0 (2026-02-23)
+
+Full Changelog: [v0.22.0...v0.23.0](https://github.com/nirvana-labs/nirvana-cli/compare/v0.22.0...v0.23.0)
+
+### Features
+
+* **api:** api update ([011cb78](https://github.com/nirvana-labs/nirvana-cli/commit/011cb78b34f8e7671aa2c599a8de5205bcf1d5a3))
+
+
+### Chores
+
+* **internal:** codegen related update ([abf0a22](https://github.com/nirvana-labs/nirvana-cli/commit/abf0a22213666f7e0cf89be2ca4cb3caa6c04c0e))
+* **internal:** remove mock server code ([dfd42cd](https://github.com/nirvana-labs/nirvana-cli/commit/dfd42cd1842c88f8ff16a527c96a989d411e823e))
+* update mock server docs ([b62b217](https://github.com/nirvana-labs/nirvana-cli/commit/b62b217631da70226a3a8a6ca453c7d2f077867c))
+
 ## 0.22.0 (2026-02-18)
 
 Full Changelog: [v0.21.0...v0.22.0](https://github.com/nirvana-labs/nirvana-cli/compare/v0.21.0...v0.22.0)

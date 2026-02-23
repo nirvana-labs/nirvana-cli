@@ -9,7 +9,7 @@ import (
 )
 
 func TestNetworkingVPCsAvailabilityCreate(t *testing.T) {
-	t.Skip("Prism tests are disabled")
+	t.Skip("Mock server tests are disabled")
 	mocktest.TestRunMockTestWithFlags(
 		t,
 		"networking:vpcs:availability", "create",
@@ -23,7 +23,7 @@ func TestNetworkingVPCsAvailabilityCreate(t *testing.T) {
 }
 
 func TestNetworkingVPCsAvailabilityUpdate(t *testing.T) {
-	t.Skip("Prism tests are disabled")
+	t.Skip("Mock server tests are disabled")
 	mocktest.TestRunMockTestWithFlags(
 		t,
 		"networking:vpcs:availability", "update",
