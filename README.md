@@ -9,8 +9,7 @@ The official CLI for the [Nirvana Labs REST API](https://docs.nirvanalabs.io).
 ### Installing with Homebrew
 
 ```sh
-brew tap nirvana-labs/tap
-brew install nirvana
+brew install nirvana-labs/tap/nirvana
 ```
 
 ### Installing with Go
