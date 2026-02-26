@@ -1,5 +1,25 @@
 # Changelog
 
+## 0.24.0 (2026-02-26)
+
+Full Changelog: [v0.23.1...v0.24.0](https://github.com/nirvana-labs/nirvana-cli/compare/v0.23.1...v0.24.0)
+
+### Features
+
+* **api:** api update ([82b7fdf](https://github.com/nirvana-labs/nirvana-cli/commit/82b7fdfd92c43560242f55ff385d388e36b3a806))
+
+
+### Bug Fixes
+
+* pin formatting for headers to always use repeat/dot formats ([cd6a9e5](https://github.com/nirvana-labs/nirvana-cli/commit/cd6a9e53e491d4287ef55ac6c7d69aaa69bf2eb9))
+
+
+### Chores
+
+* **internal:** codegen related update ([5a99c05](https://github.com/nirvana-labs/nirvana-cli/commit/5a99c05325d0bb969aacd0527cd03f5917dfcaf6))
+* **internal:** codegen related update ([c90e0f6](https://github.com/nirvana-labs/nirvana-cli/commit/c90e0f6b459a4cfc191b2e082cbb9e8489ab6593))
+* update readme with better instructions for installing with homebrew ([6c0999a](https://github.com/nirvana-labs/nirvana-cli/commit/6c0999aaf0d67a013ed4a9406592f740c604e64b))
+
 ## 0.23.1 (2026-02-23)
 
 Full Changelog: [v0.23.0...v0.23.1](https://github.com/nirvana-labs/nirvana-cli/compare/v0.23.0...v0.23.1)
