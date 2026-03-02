@@ -1,5 +1,18 @@
 # Changelog
 
+## 0.24.1 (2026-02-27)
+
+Full Changelog: [v0.24.0...v0.24.1](https://github.com/nirvana-labs/nirvana-cli/compare/v0.24.0...v0.24.1)
+
+### Bug Fixes
+
+* more gracefully handle empty stdin input ([3263055](https://github.com/nirvana-labs/nirvana-cli/commit/326305567e9f7591093464e243bee6c00df881f2))
+
+
+### Chores
+
+* zip READMEs as part of build artifact ([2972657](https://github.com/nirvana-labs/nirvana-cli/commit/29726577508cd094c071878890d96b2c105e31ee))
+
 ## 0.24.0 (2026-02-26)
 
 Full Changelog: [v0.23.1...v0.24.0](https://github.com/nirvana-labs/nirvana-cli/compare/v0.23.1...v0.24.0)
