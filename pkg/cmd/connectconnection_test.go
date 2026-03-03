@@ -14,6 +14,7 @@ func TestNetworkingConnectConnectionsCreate(t *testing.T) {
 	mocktest.TestRunMockTestWithFlags(
 		t,
 		"networking:connect:connections", "create",
+		"--api-key", "string",
 		"--bandwidth-mbps", "50",
 		"--cidr", "10.0.0.0/16",
 		"--name", "my-connect-connection",
@@ -50,6 +51,7 @@ func TestNetworkingConnectConnectionsUpdate(t *testing.T) {
 	mocktest.TestRunMockTestWithFlags(
 		t,
 		"networking:connect:connections", "update",
+		"--api-key", "string",
 		"--connection-id", "connection_id",
 		"--name", "my-connect-connection",
 		"--tag", "production",
@@ -62,6 +64,7 @@ func TestNetworkingConnectConnectionsList(t *testing.T) {
 	mocktest.TestRunMockTestWithFlags(
 		t,
 		"networking:connect:connections", "list",
+		"--api-key", "string",
 		"--project-id", "project_id",
 		"--cursor", "cursor",
 		"--limit", "10",
@@ -73,6 +76,7 @@ func TestNetworkingConnectConnectionsDelete(t *testing.T) {
 	mocktest.TestRunMockTestWithFlags(
 		t,
 		"networking:connect:connections", "delete",
+		"--api-key", "string",
 		"--connection-id", "connection_id",
 	)
 }
@@ -82,6 +86,7 @@ func TestNetworkingConnectConnectionsGet(t *testing.T) {
 	mocktest.TestRunMockTestWithFlags(
 		t,
 		"networking:connect:connections", "get",
+		"--api-key", "string",
 		"--connection-id", "connection_id",
 	)
 }

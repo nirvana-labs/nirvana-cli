@@ -13,5 +13,6 @@ func TestUserGet(t *testing.T) {
 	mocktest.TestRunMockTestWithFlags(
 		t,
 		"user", "get",
+		"--api-key", "string",
 	)
 }

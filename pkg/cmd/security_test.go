@@ -14,6 +14,7 @@ func TestUserSecurityUpdate(t *testing.T) {
 	mocktest.TestRunMockTestWithFlags(
 		t,
 		"user:security", "update",
+		"--api-key", "string",
 		"--source-ip-rule", "{allowed: [192.168.1.0/24, 10.0.0.0/8], blocked: [192.168.1.100/32]}",
 	)
 
@@ -34,5 +35,6 @@ func TestUserSecurityGet(t *testing.T) {
 	mocktest.TestRunMockTestWithFlags(
 		t,
 		"user:security", "get",
+		"--api-key", "string",
 	)
 }

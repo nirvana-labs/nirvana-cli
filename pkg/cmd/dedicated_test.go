@@ -13,6 +13,7 @@ func TestRPCNodesDedicatedList(t *testing.T) {
 	mocktest.TestRunMockTestWithFlags(
 		t,
 		"rpc-nodes:dedicated", "list",
+		"--api-key", "string",
 		"--project-id", "project_id",
 		"--cursor", "cursor",
 		"--limit", "10",
@@ -24,6 +25,7 @@ func TestRPCNodesDedicatedGet(t *testing.T) {
 	mocktest.TestRunMockTestWithFlags(
 		t,
 		"rpc-nodes:dedicated", "get",
+		"--api-key", "string",
 		"--node-id", "node_id",
 	)
 }

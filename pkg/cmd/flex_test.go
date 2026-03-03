@@ -13,6 +13,7 @@ func TestRPCNodesFlexCreate(t *testing.T) {
 	mocktest.TestRunMockTestWithFlags(
 		t,
 		"rpc-nodes:flex", "create",
+		"--api-key", "string",
 		"--blockchain", "ethereum",
 		"--name", "my-ethereum-node",
 		"--network", "mainnet",
@@ -27,6 +28,7 @@ func TestRPCNodesFlexUpdate(t *testing.T) {
 	mocktest.TestRunMockTestWithFlags(
 		t,
 		"rpc-nodes:flex", "update",
+		"--api-key", "string",
 		"--node-id", "node_id",
 		"--name", "my-ethereum-node",
 		"--tag", "production",
@@ -39,6 +41,7 @@ func TestRPCNodesFlexList(t *testing.T) {
 	mocktest.TestRunMockTestWithFlags(
 		t,
 		"rpc-nodes:flex", "list",
+		"--api-key", "string",
 		"--project-id", "project_id",
 		"--cursor", "cursor",
 		"--limit", "10",
@@ -50,6 +53,7 @@ func TestRPCNodesFlexDelete(t *testing.T) {
 	mocktest.TestRunMockTestWithFlags(
 		t,
 		"rpc-nodes:flex", "delete",
+		"--api-key", "string",
 		"--node-id", "node_id",
 	)
 }
@@ -59,6 +63,7 @@ func TestRPCNodesFlexGet(t *testing.T) {
 	mocktest.TestRunMockTestWithFlags(
 		t,
 		"rpc-nodes:flex", "get",
+		"--api-key", "string",
 		"--node-id", "node_id",
 	)
 }

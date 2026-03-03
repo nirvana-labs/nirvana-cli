@@ -13,6 +13,7 @@ func TestComputeVMsVolumesList(t *testing.T) {
 	mocktest.TestRunMockTestWithFlags(
 		t,
 		"compute:vms:volumes", "list",
+		"--api-key", "string",
 		"--vm-id", "vm_id",
 		"--cursor", "cursor",
 		"--limit", "10",

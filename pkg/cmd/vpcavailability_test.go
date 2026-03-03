@@ -13,6 +13,7 @@ func TestNetworkingVPCsAvailabilityCreate(t *testing.T) {
 	mocktest.TestRunMockTestWithFlags(
 		t,
 		"networking:vpcs:availability", "create",
+		"--api-key", "string",
 		"--name", "my-vpc",
 		"--project-id", "123e4567-e89b-12d3-a456-426614174000",
 		"--region", "us-wdc-1",
@@ -27,6 +28,7 @@ func TestNetworkingVPCsAvailabilityUpdate(t *testing.T) {
 	mocktest.TestRunMockTestWithFlags(
 		t,
 		"networking:vpcs:availability", "update",
+		"--api-key", "string",
 		"--vpc-id", "vpc_id",
 		"--name", "my-vpc",
 		"--subnet-name", "my-subnet",

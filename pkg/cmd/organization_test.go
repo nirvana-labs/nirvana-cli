@@ -13,6 +13,7 @@ func TestOrganizationsCreate(t *testing.T) {
 	mocktest.TestRunMockTestWithFlags(
 		t,
 		"organizations", "create",
+		"--api-key", "string",
 		"--name", "My Organization",
 	)
 }
@@ -22,6 +23,7 @@ func TestOrganizationsUpdate(t *testing.T) {
 	mocktest.TestRunMockTestWithFlags(
 		t,
 		"organizations", "update",
+		"--api-key", "string",
 		"--organization-id", "organization_id",
 		"--name", "My Updated Organization",
 	)
@@ -32,6 +34,7 @@ func TestOrganizationsList(t *testing.T) {
 	mocktest.TestRunMockTestWithFlags(
 		t,
 		"organizations", "list",
+		"--api-key", "string",
 		"--cursor", "cursor",
 		"--limit", "10",
 	)
@@ -42,6 +45,7 @@ func TestOrganizationsGet(t *testing.T) {
 	mocktest.TestRunMockTestWithFlags(
 		t,
 		"organizations", "get",
+		"--api-key", "string",
 		"--organization-id", "organization_id",
 	)
 }

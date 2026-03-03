@@ -13,6 +13,7 @@ func TestRegionsList(t *testing.T) {
 	mocktest.TestRunMockTestWithFlags(
 		t,
 		"regions", "list",
+		"--api-key", "string",
 		"--cursor", "cursor",
 		"--limit", "10",
 	)
@@ -23,6 +24,7 @@ func TestRegionsGet(t *testing.T) {
 	mocktest.TestRunMockTestWithFlags(
 		t,
 		"regions", "get",
+		"--api-key", "string",
 		"--name", "us-wdc-1",
 	)
 }

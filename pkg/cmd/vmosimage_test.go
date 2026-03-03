@@ -13,6 +13,7 @@ func TestComputeVMsOSImagesList(t *testing.T) {
 	mocktest.TestRunMockTestWithFlags(
 		t,
 		"compute:vms:os-images", "list",
+		"--api-key", "string",
 		"--cursor", "cursor",
 		"--limit", "10",
 	)

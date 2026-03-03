@@ -13,6 +13,7 @@ func TestComputeVolumesAvailabilityCreate(t *testing.T) {
 	mocktest.TestRunMockTestWithFlags(
 		t,
 		"compute:volumes:availability", "create",
+		"--api-key", "string",
 		"--name", "my-data-volume",
 		"--project-id", "123e4567-e89b-12d3-a456-426614174000",
 		"--region", "us-wdc-1",
@@ -29,6 +30,7 @@ func TestComputeVolumesAvailabilityUpdate(t *testing.T) {
 	mocktest.TestRunMockTestWithFlags(
 		t,
 		"compute:volumes:availability", "update",
+		"--api-key", "string",
 		"--volume-id", "volume_id",
 		"--name", "my-data-volume",
 		"--size", "100",
