@@ -13,6 +13,7 @@ func TestProjectsCreate(t *testing.T) {
 	mocktest.TestRunMockTestWithFlags(
 		t,
 		"projects", "create",
+		"--api-key", "string",
 		"--name", "My Project",
 		"--tag", "production",
 		"--tag", "ethereum",
@@ -24,6 +25,7 @@ func TestProjectsUpdate(t *testing.T) {
 	mocktest.TestRunMockTestWithFlags(
 		t,
 		"projects", "update",
+		"--api-key", "string",
 		"--project-id", "project_id",
 		"--name", "My Updated Project",
 		"--tag", "production",
@@ -36,6 +38,7 @@ func TestProjectsList(t *testing.T) {
 	mocktest.TestRunMockTestWithFlags(
 		t,
 		"projects", "list",
+		"--api-key", "string",
 		"--cursor", "cursor",
 		"--limit", "10",
 	)
@@ -46,6 +49,7 @@ func TestProjectsDelete(t *testing.T) {
 	mocktest.TestRunMockTestWithFlags(
 		t,
 		"projects", "delete",
+		"--api-key", "string",
 		"--project-id", "project_id",
 	)
 }
@@ -55,6 +59,7 @@ func TestProjectsGet(t *testing.T) {
 	mocktest.TestRunMockTestWithFlags(
 		t,
 		"projects", "get",
+		"--api-key", "string",
 		"--project-id", "project_id",
 	)
 }

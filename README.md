@@ -53,7 +53,8 @@ nirvana [resource] <command> [flags...]
 
 ```sh
 nirvana compute:vms create \
-  --boot-volume '{size: 100, type: nvme, tags: [production, ethereum]}' \
+  --api-key 'My API Key' \
+  --boot-volume '{size: 100, type: nvme}' \
   --cpu-config '{vcpu: 2}' \
   --memory-config '{size: 2}' \
   --name my-vm \
@@ -62,16 +63,20 @@ nirvana compute:vms create \
   --public-ip-enabled \
   --region us-wdc-1 \
   --ssh-key '{public_key: ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDBIASkmwNiLcdlW6927Zjt1Hf7Kw/PpEZ4Zm+wU9wn2}' \
-  --subnet-id 123e4567-e89b-12d3-a456-426614174000 \
-  --data-volume '{name: my-data-volume, size: 100, type: abs, tags: [production, ethereum]}' \
-  --tag production \
-  --tag ethereum
+  --subnet-id 123e4567-e89b-12d3-a456-426614174000
 ```
 
 For details about specific commands, use the `--help` flag.
 
-### Global Flags
+### Environment variables
 
+| Environment variable   | Required |
+| ---------------------- | -------- |
+| `NIRVANA_LABS_API_KEY` | yes      |
+
+### Global flags
+
+- `--api-key` (can also be set with `NIRVANA_LABS_API_KEY` env var)
 - `--help` - Show command line usage
 - `--debug` - Enable debug logging (includes HTTP request/response details)
 - `--version`, `-v` - Show the CLI version

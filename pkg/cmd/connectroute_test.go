@@ -13,6 +13,7 @@ func TestNetworkingConnectRoutesList(t *testing.T) {
 	mocktest.TestRunMockTestWithFlags(
 		t,
 		"networking:connect:routes", "list",
+		"--api-key", "string",
 		"--cursor", "cursor",
 		"--limit", "10",
 	)

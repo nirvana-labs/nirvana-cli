@@ -13,6 +13,7 @@ func TestNetworkingFirewallRulesCreate(t *testing.T) {
 	mocktest.TestRunMockTestWithFlags(
 		t,
 		"networking:firewall-rules", "create",
+		"--api-key", "string",
 		"--vpc-id", "vpc_id",
 		"--destination-address", "10.0.0.0/25",
 		"--destination-port", "22",
@@ -31,6 +32,7 @@ func TestNetworkingFirewallRulesUpdate(t *testing.T) {
 	mocktest.TestRunMockTestWithFlags(
 		t,
 		"networking:firewall-rules", "update",
+		"--api-key", "string",
 		"--vpc-id", "vpc_id",
 		"--firewall-rule-id", "firewall_rule_id",
 		"--destination-address", "10.0.0.0/25",
@@ -50,6 +52,7 @@ func TestNetworkingFirewallRulesList(t *testing.T) {
 	mocktest.TestRunMockTestWithFlags(
 		t,
 		"networking:firewall-rules", "list",
+		"--api-key", "string",
 		"--vpc-id", "vpc_id",
 		"--cursor", "cursor",
 		"--limit", "10",
@@ -61,6 +64,7 @@ func TestNetworkingFirewallRulesDelete(t *testing.T) {
 	mocktest.TestRunMockTestWithFlags(
 		t,
 		"networking:firewall-rules", "delete",
+		"--api-key", "string",
 		"--vpc-id", "vpc_id",
 		"--firewall-rule-id", "firewall_rule_id",
 	)
@@ -71,6 +75,7 @@ func TestNetworkingFirewallRulesGet(t *testing.T) {
 	mocktest.TestRunMockTestWithFlags(
 		t,
 		"networking:firewall-rules", "get",
+		"--api-key", "string",
 		"--vpc-id", "vpc_id",
 		"--firewall-rule-id", "firewall_rule_id",
 	)
