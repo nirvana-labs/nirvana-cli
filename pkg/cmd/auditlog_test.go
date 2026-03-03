@@ -13,6 +13,7 @@ func TestOrganizationsAuditLogsList(t *testing.T) {
 	mocktest.TestRunMockTestWithFlags(
 		t,
 		"organizations:audit-logs", "list",
+		"--api-key", "string",
 		"--organization-id", "organization_id",
 		"--cursor", "cursor",
 		"--limit", "10",
@@ -24,6 +25,7 @@ func TestOrganizationsAuditLogsGet(t *testing.T) {
 	mocktest.TestRunMockTestWithFlags(
 		t,
 		"organizations:audit-logs", "get",
+		"--api-key", "string",
 		"--organization-id", "organization_id",
 		"--audit-log-id", "audit_log_id",
 	)

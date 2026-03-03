@@ -13,6 +13,7 @@ func TestComputeVolumesCreate(t *testing.T) {
 	mocktest.TestRunMockTestWithFlags(
 		t,
 		"compute:volumes", "create",
+		"--api-key", "string",
 		"--name", "my-data-volume",
 		"--project-id", "123e4567-e89b-12d3-a456-426614174000",
 		"--region", "us-wdc-1",
@@ -29,6 +30,7 @@ func TestComputeVolumesUpdate(t *testing.T) {
 	mocktest.TestRunMockTestWithFlags(
 		t,
 		"compute:volumes", "update",
+		"--api-key", "string",
 		"--volume-id", "volume_id",
 		"--name", "my-data-volume",
 		"--size", "100",
@@ -42,6 +44,7 @@ func TestComputeVolumesList(t *testing.T) {
 	mocktest.TestRunMockTestWithFlags(
 		t,
 		"compute:volumes", "list",
+		"--api-key", "string",
 		"--project-id", "project_id",
 		"--cursor", "cursor",
 		"--limit", "10",
@@ -53,6 +56,7 @@ func TestComputeVolumesDelete(t *testing.T) {
 	mocktest.TestRunMockTestWithFlags(
 		t,
 		"compute:volumes", "delete",
+		"--api-key", "string",
 		"--volume-id", "volume_id",
 	)
 }
@@ -62,6 +66,7 @@ func TestComputeVolumesAttach(t *testing.T) {
 	mocktest.TestRunMockTestWithFlags(
 		t,
 		"compute:volumes", "attach",
+		"--api-key", "string",
 		"--volume-id", "volume_id",
 		"--vm-id", "123e4567-e89b-12d3-a456-426614174000",
 	)
@@ -72,6 +77,7 @@ func TestComputeVolumesDetach(t *testing.T) {
 	mocktest.TestRunMockTestWithFlags(
 		t,
 		"compute:volumes", "detach",
+		"--api-key", "string",
 		"--volume-id", "volume_id",
 	)
 }
@@ -81,6 +87,7 @@ func TestComputeVolumesGet(t *testing.T) {
 	mocktest.TestRunMockTestWithFlags(
 		t,
 		"compute:volumes", "get",
+		"--api-key", "string",
 		"--volume-id", "volume_id",
 	)
 }

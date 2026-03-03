@@ -14,6 +14,7 @@ func TestComputeVMsCreate(t *testing.T) {
 	mocktest.TestRunMockTestWithFlags(
 		t,
 		"compute:vms", "create",
+		"--api-key", "string",
 		"--boot-volume", "{size: 100, type: abs, tags: [production, ethereum]}",
 		"--cpu-config", "{vcpu: 2}",
 		"--memory-config", "{size: 2}",
@@ -62,6 +63,7 @@ func TestComputeVMsUpdate(t *testing.T) {
 	mocktest.TestRunMockTestWithFlags(
 		t,
 		"compute:vms", "update",
+		"--api-key", "string",
 		"--vm-id", "vm_id",
 		"--cpu-config", "{vcpu: 2}",
 		"--memory-config", "{size: 2}",
@@ -93,6 +95,7 @@ func TestComputeVMsList(t *testing.T) {
 	mocktest.TestRunMockTestWithFlags(
 		t,
 		"compute:vms", "list",
+		"--api-key", "string",
 		"--project-id", "project_id",
 		"--cursor", "cursor",
 		"--limit", "10",
@@ -104,6 +107,7 @@ func TestComputeVMsDelete(t *testing.T) {
 	mocktest.TestRunMockTestWithFlags(
 		t,
 		"compute:vms", "delete",
+		"--api-key", "string",
 		"--vm-id", "vm_id",
 	)
 }
@@ -113,6 +117,7 @@ func TestComputeVMsGet(t *testing.T) {
 	mocktest.TestRunMockTestWithFlags(
 		t,
 		"compute:vms", "get",
+		"--api-key", "string",
 		"--vm-id", "vm_id",
 	)
 }
@@ -122,6 +127,7 @@ func TestComputeVMsRestart(t *testing.T) {
 	mocktest.TestRunMockTestWithFlags(
 		t,
 		"compute:vms", "restart",
+		"--api-key", "string",
 		"--vm-id", "vm_id",
 	)
 }

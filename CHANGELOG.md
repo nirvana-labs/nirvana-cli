@@ -1,5 +1,19 @@
 # Changelog
 
+## 0.25.0 (2026-03-03)
+
+Full Changelog: [v0.24.1...v0.25.0](https://github.com/nirvana-labs/nirvana-cli/compare/v0.24.1...v0.25.0)
+
+### Features
+
+* add support for file downloads from binary response endpoints ([d2dbc79](https://github.com/nirvana-labs/nirvana-cli/commit/d2dbc79c57ff137a00b6cbce1efd9358cc5e7f4f))
+* improved documentation and flags for client options ([3b5d65e](https://github.com/nirvana-labs/nirvana-cli/commit/3b5d65e5496926fe353dea1140efb9b488f84883))
+
+
+### Chores
+
+* **internal:** codegen related update ([49afe72](https://github.com/nirvana-labs/nirvana-cli/commit/49afe72f38965e70703ca213dd858ff486e2388f))
+
 ## 0.24.1 (2026-02-27)
 
 Full Changelog: [v0.24.0...v0.24.1](https://github.com/nirvana-labs/nirvana-cli/compare/v0.24.0...v0.24.1)
