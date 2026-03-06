@@ -90,6 +90,20 @@ var organizationsGet = cli.Command{
 	HideHelpCommand: true,
 }
 
+var organizationsLeave = cli.Command{
+	Name:    "leave",
+	Usage:   "Leave an Organization",
+	Suggest: true,
+	Flags: []cli.Flag{
+		&requestflag.Flag[string]{
+			Name:     "organization-id",
+			Required: true,
+		},
+	},
+	Action:          handleOrganizationsLeave,
+	HideHelpCommand: true,
+}
+
 func handleOrganizationsCreate(ctx context.Context, cmd *cli.Command) error {
 	client := nirvana.NewClient(getDefaultRequestOptions(cmd)...)
 	unusedArgs := cmd.Args().Slice()
@@ -241,4 +255,29 @@ func handleOrganizationsGet(ctx context.Context, cmd *cli.Command) error {
 	format := cmd.Root().String("format")
 	transform := cmd.Root().String("transform")
 	return ShowJSON(os.Stdout, "organizations get", obj, format, transform)
+}
+
+func handleOrganizationsLeave(ctx context.Context, cmd *cli.Command) error {
+	client := nirvana.NewClient(getDefaultRequestOptions(cmd)...)
+	unusedArgs := cmd.Args().Slice()
+	if !cmd.IsSet("organization-id") && len(unusedArgs) > 0 {
+		cmd.Set("organization-id", unusedArgs[0])
+		unusedArgs = unusedArgs[1:]
+	}
+	if len(unusedArgs) > 0 {
+		return fmt.Errorf("Unexpected extra arguments: %v", unusedArgs)
+	}
+
+	options, err := flagOptions(
+		cmd,
+		apiquery.NestedQueryFormatBrackets,
+		apiquery.ArrayQueryFormatComma,
+		EmptyBody,
+		false,
+	)
+	if err != nil {
+		return err
+	}
+
+	return client.Organizations.Leave(ctx, cmd.Value("organization-id").(string), options...)
 }
