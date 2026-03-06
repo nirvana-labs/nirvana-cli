@@ -10,84 +10,134 @@ import (
 
 func TestComputeVolumesCreate(t *testing.T) {
 	t.Skip("Mock server tests are disabled")
-	mocktest.TestRunMockTestWithFlags(
-		t,
-		"compute:volumes", "create",
-		"--api-key", "string",
-		"--name", "my-data-volume",
-		"--project-id", "123e4567-e89b-12d3-a456-426614174000",
-		"--region", "us-wdc-1",
-		"--size", "100",
-		"--type", "abs",
-		"--tag", "production",
-		"--tag", "ethereum",
-		"--vm-id", "123e4567-e89b-12d3-a456-426614174000",
-	)
+	t.Run("regular flags", func(t *testing.T) {
+		mocktest.TestRunMockTestWithFlags(
+			t, "compute:volumes", "create",
+			"--api-key", "string",
+			"--name", "my-data-volume",
+			"--project-id", "123e4567-e89b-12d3-a456-426614174000",
+			"--region", "us-wdc-1",
+			"--size", "100",
+			"--type", "abs",
+			"--tag", "production",
+			"--tag", "ethereum",
+			"--vm-id", "123e4567-e89b-12d3-a456-426614174000",
+		)
+	})
+
+	t.Run("piping data", func(t *testing.T) {
+		// Test piping YAML data over stdin
+		pipeData := []byte("" +
+			"name: my-data-volume\n" +
+			"project_id: 123e4567-e89b-12d3-a456-426614174000\n" +
+			"region: us-wdc-1\n" +
+			"size: 100\n" +
+			"type: abs\n" +
+			"tags:\n" +
+			"  - production\n" +
+			"  - ethereum\n" +
+			"vm_id: 123e4567-e89b-12d3-a456-426614174000\n")
+		mocktest.TestRunMockTestWithPipeAndFlags(
+			t, pipeData, "compute:volumes", "create",
+			"--api-key", "string",
+		)
+	})
 }
 
 func TestComputeVolumesUpdate(t *testing.T) {
 	t.Skip("Mock server tests are disabled")
-	mocktest.TestRunMockTestWithFlags(
-		t,
-		"compute:volumes", "update",
-		"--api-key", "string",
-		"--volume-id", "volume_id",
-		"--name", "my-data-volume",
-		"--size", "100",
-		"--tag", "production",
-		"--tag", "ethereum",
-	)
+	t.Run("regular flags", func(t *testing.T) {
+		mocktest.TestRunMockTestWithFlags(
+			t, "compute:volumes", "update",
+			"--api-key", "string",
+			"--volume-id", "volume_id",
+			"--name", "my-data-volume",
+			"--size", "100",
+			"--tag", "production",
+			"--tag", "ethereum",
+		)
+	})
+
+	t.Run("piping data", func(t *testing.T) {
+		// Test piping YAML data over stdin
+		pipeData := []byte("" +
+			"name: my-data-volume\n" +
+			"size: 100\n" +
+			"tags:\n" +
+			"  - production\n" +
+			"  - ethereum\n")
+		mocktest.TestRunMockTestWithPipeAndFlags(
+			t, pipeData, "compute:volumes", "update",
+			"--api-key", "string",
+			"--volume-id", "volume_id",
+		)
+	})
 }
 
 func TestComputeVolumesList(t *testing.T) {
 	t.Skip("Mock server tests are disabled")
-	mocktest.TestRunMockTestWithFlags(
-		t,
-		"compute:volumes", "list",
-		"--api-key", "string",
-		"--project-id", "project_id",
-		"--cursor", "cursor",
-		"--limit", "10",
-	)
+	t.Run("regular flags", func(t *testing.T) {
+		mocktest.TestRunMockTestWithFlags(
+			t, "compute:volumes", "list",
+			"--api-key", "string",
+			"--project-id", "project_id",
+			"--cursor", "cursor",
+			"--limit", "10",
+		)
+	})
 }
 
 func TestComputeVolumesDelete(t *testing.T) {
 	t.Skip("Mock server tests are disabled")
-	mocktest.TestRunMockTestWithFlags(
-		t,
-		"compute:volumes", "delete",
-		"--api-key", "string",
-		"--volume-id", "volume_id",
-	)
+	t.Run("regular flags", func(t *testing.T) {
+		mocktest.TestRunMockTestWithFlags(
+			t, "compute:volumes", "delete",
+			"--api-key", "string",
+			"--volume-id", "volume_id",
+		)
+	})
 }
 
 func TestComputeVolumesAttach(t *testing.T) {
 	t.Skip("Mock server tests are disabled")
-	mocktest.TestRunMockTestWithFlags(
-		t,
-		"compute:volumes", "attach",
-		"--api-key", "string",
-		"--volume-id", "volume_id",
-		"--vm-id", "123e4567-e89b-12d3-a456-426614174000",
-	)
+	t.Run("regular flags", func(t *testing.T) {
+		mocktest.TestRunMockTestWithFlags(
+			t, "compute:volumes", "attach",
+			"--api-key", "string",
+			"--volume-id", "volume_id",
+			"--vm-id", "123e4567-e89b-12d3-a456-426614174000",
+		)
+	})
+
+	t.Run("piping data", func(t *testing.T) {
+		// Test piping YAML data over stdin
+		pipeData := []byte("vm_id: 123e4567-e89b-12d3-a456-426614174000")
+		mocktest.TestRunMockTestWithPipeAndFlags(
+			t, pipeData, "compute:volumes", "attach",
+			"--api-key", "string",
+			"--volume-id", "volume_id",
+		)
+	})
 }
 
 func TestComputeVolumesDetach(t *testing.T) {
 	t.Skip("Mock server tests are disabled")
-	mocktest.TestRunMockTestWithFlags(
-		t,
-		"compute:volumes", "detach",
-		"--api-key", "string",
-		"--volume-id", "volume_id",
-	)
+	t.Run("regular flags", func(t *testing.T) {
+		mocktest.TestRunMockTestWithFlags(
+			t, "compute:volumes", "detach",
+			"--api-key", "string",
+			"--volume-id", "volume_id",
+		)
+	})
 }
 
 func TestComputeVolumesGet(t *testing.T) {
 	t.Skip("Mock server tests are disabled")
-	mocktest.TestRunMockTestWithFlags(
-		t,
-		"compute:volumes", "get",
-		"--api-key", "string",
-		"--volume-id", "volume_id",
-	)
+	t.Run("regular flags", func(t *testing.T) {
+		mocktest.TestRunMockTestWithFlags(
+			t, "compute:volumes", "get",
+			"--api-key", "string",
+			"--volume-id", "volume_id",
+		)
+	})
 }
