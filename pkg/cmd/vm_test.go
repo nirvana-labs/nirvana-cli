@@ -37,6 +37,7 @@ func TestComputeVMsCreate(t *testing.T) {
 	mocktest.TestRunMockTestWithFlags(
 		t,
 		"compute:vms", "create",
+		"--api-key", "string",
 		"--boot-volume.size", "100",
 		"--boot-volume.type", "abs",
 		"--boot-volume.tags", "[production, ethereum]",
@@ -80,6 +81,7 @@ func TestComputeVMsUpdate(t *testing.T) {
 	mocktest.TestRunMockTestWithFlags(
 		t,
 		"compute:vms", "update",
+		"--api-key", "string",
 		"--vm-id", "vm_id",
 		"--cpu-config.vcpu", "2",
 		"--memory-config.size", "2",
