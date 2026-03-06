@@ -10,23 +10,25 @@ import (
 
 func TestOrganizationsAuditLogsList(t *testing.T) {
 	t.Skip("Mock server tests are disabled")
-	mocktest.TestRunMockTestWithFlags(
-		t,
-		"organizations:audit-logs", "list",
-		"--api-key", "string",
-		"--organization-id", "organization_id",
-		"--cursor", "cursor",
-		"--limit", "10",
-	)
+	t.Run("regular flags", func(t *testing.T) {
+		mocktest.TestRunMockTestWithFlags(
+			t, "organizations:audit-logs", "list",
+			"--api-key", "string",
+			"--organization-id", "organization_id",
+			"--cursor", "cursor",
+			"--limit", "10",
+		)
+	})
 }
 
 func TestOrganizationsAuditLogsGet(t *testing.T) {
 	t.Skip("Mock server tests are disabled")
-	mocktest.TestRunMockTestWithFlags(
-		t,
-		"organizations:audit-logs", "get",
-		"--api-key", "string",
-		"--organization-id", "organization_id",
-		"--audit-log-id", "audit_log_id",
-	)
+	t.Run("regular flags", func(t *testing.T) {
+		mocktest.TestRunMockTestWithFlags(
+			t, "organizations:audit-logs", "get",
+			"--api-key", "string",
+			"--organization-id", "organization_id",
+			"--audit-log-id", "audit_log_id",
+		)
+	})
 }
