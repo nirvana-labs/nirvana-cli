@@ -37,6 +37,7 @@ func TestComputeVMsAvailabilityCreate(t *testing.T) {
 	mocktest.TestRunMockTestWithFlags(
 		t,
 		"compute:vms:availability", "create",
+		"--api-key", "string",
 		"--boot-volume.size", "100",
 		"--boot-volume.type", "abs",
 		"--boot-volume.tags", "[production, ethereum]",
@@ -80,6 +81,7 @@ func TestComputeVMsAvailabilityUpdate(t *testing.T) {
 	mocktest.TestRunMockTestWithFlags(
 		t,
 		"compute:vms:availability", "update",
+		"--api-key", "string",
 		"--vm-id", "vm_id",
 		"--cpu-config.vcpu", "2",
 		"--memory-config.size", "2",

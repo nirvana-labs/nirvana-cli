@@ -33,6 +33,7 @@ func TestNetworkingConnectConnectionsCreate(t *testing.T) {
 	mocktest.TestRunMockTestWithFlags(
 		t,
 		"networking:connect:connections", "create",
+		"--api-key", "string",
 		"--bandwidth-mbps", "50",
 		"--cidr", "10.0.0.0/16",
 		"--name", "my-connect-connection",

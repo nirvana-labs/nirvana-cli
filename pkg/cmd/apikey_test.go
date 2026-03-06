@@ -30,6 +30,7 @@ func TestAPIKeysCreate(t *testing.T) {
 	mocktest.TestRunMockTestWithFlags(
 		t,
 		"api-keys", "create",
+		"--api-key", "string",
 		"--expires-at", "'2025-12-31T23:59:59Z'",
 		"--name", "My API Key",
 		"--source-ip-rule.allowed", "[192.168.1.0/24, 10.0.0.0/8]",
@@ -60,6 +61,7 @@ func TestAPIKeysUpdate(t *testing.T) {
 	mocktest.TestRunMockTestWithFlags(
 		t,
 		"api-keys", "update",
+		"--api-key", "string",
 		"--api-key-id", "api_key_id",
 		"--name", "My Updated API Key",
 		"--source-ip-rule.allowed", "[192.168.1.0/24, 10.0.0.0/8]",
