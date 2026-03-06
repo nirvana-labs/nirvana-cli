@@ -80,6 +80,7 @@ func TestComputeVolumesList(t *testing.T) {
 		mocktest.TestRunMockTestWithFlags(
 			t, "compute:volumes", "list",
 			"--api-key", "string",
+			"--max-items", "10",
 			"--project-id", "project_id",
 			"--cursor", "cursor",
 			"--limit", "10",

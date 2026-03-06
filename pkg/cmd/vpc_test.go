@@ -76,6 +76,7 @@ func TestNetworkingVPCsList(t *testing.T) {
 		mocktest.TestRunMockTestWithFlags(
 			t, "networking:vpcs", "list",
 			"--api-key", "string",
+			"--max-items", "10",
 			"--project-id", "project_id",
 			"--cursor", "cursor",
 			"--limit", "10",

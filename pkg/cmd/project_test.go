@@ -68,6 +68,7 @@ func TestProjectsList(t *testing.T) {
 		mocktest.TestRunMockTestWithFlags(
 			t, "projects", "list",
 			"--api-key", "string",
+			"--max-items", "10",
 			"--cursor", "cursor",
 			"--limit", "10",
 		)

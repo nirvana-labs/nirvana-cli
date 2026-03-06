@@ -14,6 +14,7 @@ func TestRPCNodesDedicatedBlockchainsList(t *testing.T) {
 		mocktest.TestRunMockTestWithFlags(
 			t, "rpc-nodes:dedicated:blockchains", "list",
 			"--api-key", "string",
+			"--max-items", "10",
 			"--cursor", "cursor",
 			"--limit", "10",
 		)

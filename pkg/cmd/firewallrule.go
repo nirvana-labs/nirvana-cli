@@ -133,6 +133,10 @@ var networkingFirewallRulesList = cli.Command{
 			Default:   10,
 			QueryPath: "limit",
 		},
+		&requestflag.Flag[int64]{
+			Name:  "max-items",
+			Usage: "The maximum number of items to return (use -1 for unlimited).",
+		},
 	},
 	Action:          handleNetworkingFirewallRulesList,
 	HideHelpCommand: true,
@@ -310,7 +314,11 @@ func handleNetworkingFirewallRulesList(ctx context.Context, cmd *cli.Command) er
 			params,
 			options...,
 		)
-		return ShowJSONIterator(os.Stdout, "networking:firewall-rules list", iter, format, transform)
+		maxItems := int64(-1)
+		if cmd.IsSet("max-items") {
+			maxItems = cmd.Value("max-items").(int64)
+		}
+		return ShowJSONIterator(os.Stdout, "networking:firewall-rules list", iter, format, transform, maxItems)
 	}
 }
 
