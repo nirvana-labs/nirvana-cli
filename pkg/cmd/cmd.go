@@ -123,6 +123,7 @@ func init() {
 					&organizationsUpdate,
 					&organizationsList,
 					&organizationsGet,
+					&organizationsLeave,
 				},
 			},
 			{
