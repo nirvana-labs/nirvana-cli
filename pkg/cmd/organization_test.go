@@ -56,6 +56,7 @@ func TestOrganizationsList(t *testing.T) {
 		mocktest.TestRunMockTestWithFlags(
 			t, "organizations", "list",
 			"--api-key", "string",
+			"--max-items", "10",
 			"--cursor", "cursor",
 			"--limit", "10",
 		)

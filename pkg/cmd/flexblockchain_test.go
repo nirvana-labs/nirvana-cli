@@ -14,6 +14,7 @@ func TestRPCNodesFlexBlockchainsList(t *testing.T) {
 		mocktest.TestRunMockTestWithFlags(
 			t, "rpc-nodes:flex:blockchains", "list",
 			"--api-key", "string",
+			"--max-items", "10",
 			"--cursor", "cursor",
 			"--limit", "10",
 		)

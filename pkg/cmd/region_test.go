@@ -14,6 +14,7 @@ func TestRegionsList(t *testing.T) {
 		mocktest.TestRunMockTestWithFlags(
 			t, "regions", "list",
 			"--api-key", "string",
+			"--max-items", "10",
 			"--cursor", "cursor",
 			"--limit", "10",
 		)

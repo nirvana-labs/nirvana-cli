@@ -106,6 +106,7 @@ func TestNetworkingConnectConnectionsList(t *testing.T) {
 		mocktest.TestRunMockTestWithFlags(
 			t, "networking:connect:connections", "list",
 			"--api-key", "string",
+			"--max-items", "10",
 			"--project-id", "project_id",
 			"--cursor", "cursor",
 			"--limit", "10",

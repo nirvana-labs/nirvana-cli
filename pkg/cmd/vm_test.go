@@ -160,6 +160,7 @@ func TestComputeVMsList(t *testing.T) {
 		mocktest.TestRunMockTestWithFlags(
 			t, "compute:vms", "list",
 			"--api-key", "string",
+			"--max-items", "10",
 			"--project-id", "project_id",
 			"--cursor", "cursor",
 			"--limit", "10",

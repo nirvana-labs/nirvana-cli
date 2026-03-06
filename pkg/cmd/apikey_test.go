@@ -122,6 +122,7 @@ func TestAPIKeysList(t *testing.T) {
 		mocktest.TestRunMockTestWithFlags(
 			t, "api-keys", "list",
 			"--api-key", "string",
+			"--max-items", "10",
 			"--cursor", "cursor",
 			"--limit", "10",
 		)

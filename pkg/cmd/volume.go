@@ -117,6 +117,10 @@ var computeVolumesList = cli.Command{
 			Default:   10,
 			QueryPath: "limit",
 		},
+		&requestflag.Flag[int64]{
+			Name:  "max-items",
+			Usage: "The maximum number of items to return (use -1 for unlimited).",
+		},
 	},
 	Action:          handleComputeVolumesList,
 	HideHelpCommand: true,
@@ -294,7 +298,11 @@ func handleComputeVolumesList(ctx context.Context, cmd *cli.Command) error {
 		return ShowJSON(os.Stdout, "compute:volumes list", obj, format, transform)
 	} else {
 		iter := client.Compute.Volumes.ListAutoPaging(ctx, params, options...)
-		return ShowJSONIterator(os.Stdout, "compute:volumes list", iter, format, transform)
+		maxItems := int64(-1)
+		if cmd.IsSet("max-items") {
+			maxItems = cmd.Value("max-items").(int64)
+		}
+		return ShowJSONIterator(os.Stdout, "compute:volumes list", iter, format, transform, maxItems)
 	}
 }
 

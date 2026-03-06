@@ -98,6 +98,7 @@ func TestNetworkingFirewallRulesList(t *testing.T) {
 		mocktest.TestRunMockTestWithFlags(
 			t, "networking:firewall-rules", "list",
 			"--api-key", "string",
+			"--max-items", "10",
 			"--vpc-id", "vpc_id",
 			"--cursor", "cursor",
 			"--limit", "10",
