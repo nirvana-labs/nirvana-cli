@@ -126,12 +126,12 @@ func init() {
 				},
 			},
 			{
-				Name:     "organizations:audit-logs",
+				Name:     "audit-logs",
 				Category: "API RESOURCE",
 				Suggest:  true,
 				Commands: []*cli.Command{
-					&organizationsAuditLogsList,
-					&organizationsAuditLogsGet,
+					&auditLogsList,
+					&auditLogsGet,
 				},
 			},
 			{
