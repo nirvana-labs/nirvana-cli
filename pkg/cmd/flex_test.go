@@ -10,60 +10,96 @@ import (
 
 func TestRPCNodesFlexCreate(t *testing.T) {
 	t.Skip("Mock server tests are disabled")
-	mocktest.TestRunMockTestWithFlags(
-		t,
-		"rpc-nodes:flex", "create",
-		"--api-key", "string",
-		"--blockchain", "ethereum",
-		"--name", "my-ethereum-node",
-		"--network", "mainnet",
-		"--project-id", "123e4567-e89b-12d3-a456-426614174000",
-		"--tag", "production",
-		"--tag", "ethereum",
-	)
+	t.Run("regular flags", func(t *testing.T) {
+		mocktest.TestRunMockTestWithFlags(
+			t, "rpc-nodes:flex", "create",
+			"--api-key", "string",
+			"--blockchain", "ethereum",
+			"--name", "my-ethereum-node",
+			"--network", "mainnet",
+			"--project-id", "123e4567-e89b-12d3-a456-426614174000",
+			"--tag", "production",
+			"--tag", "ethereum",
+		)
+	})
+
+	t.Run("piping data", func(t *testing.T) {
+		// Test piping YAML data over stdin
+		pipeData := []byte("" +
+			"blockchain: ethereum\n" +
+			"name: my-ethereum-node\n" +
+			"network: mainnet\n" +
+			"project_id: 123e4567-e89b-12d3-a456-426614174000\n" +
+			"tags:\n" +
+			"  - production\n" +
+			"  - ethereum\n")
+		mocktest.TestRunMockTestWithPipeAndFlags(
+			t, pipeData, "rpc-nodes:flex", "create",
+			"--api-key", "string",
+		)
+	})
 }
 
 func TestRPCNodesFlexUpdate(t *testing.T) {
 	t.Skip("Mock server tests are disabled")
-	mocktest.TestRunMockTestWithFlags(
-		t,
-		"rpc-nodes:flex", "update",
-		"--api-key", "string",
-		"--node-id", "node_id",
-		"--name", "my-ethereum-node",
-		"--tag", "production",
-		"--tag", "ethereum",
-	)
+	t.Run("regular flags", func(t *testing.T) {
+		mocktest.TestRunMockTestWithFlags(
+			t, "rpc-nodes:flex", "update",
+			"--api-key", "string",
+			"--node-id", "node_id",
+			"--name", "my-ethereum-node",
+			"--tag", "production",
+			"--tag", "ethereum",
+		)
+	})
+
+	t.Run("piping data", func(t *testing.T) {
+		// Test piping YAML data over stdin
+		pipeData := []byte("" +
+			"name: my-ethereum-node\n" +
+			"tags:\n" +
+			"  - production\n" +
+			"  - ethereum\n")
+		mocktest.TestRunMockTestWithPipeAndFlags(
+			t, pipeData, "rpc-nodes:flex", "update",
+			"--api-key", "string",
+			"--node-id", "node_id",
+		)
+	})
 }
 
 func TestRPCNodesFlexList(t *testing.T) {
 	t.Skip("Mock server tests are disabled")
-	mocktest.TestRunMockTestWithFlags(
-		t,
-		"rpc-nodes:flex", "list",
-		"--api-key", "string",
-		"--project-id", "project_id",
-		"--cursor", "cursor",
-		"--limit", "10",
-	)
+	t.Run("regular flags", func(t *testing.T) {
+		mocktest.TestRunMockTestWithFlags(
+			t, "rpc-nodes:flex", "list",
+			"--api-key", "string",
+			"--max-items", "10",
+			"--project-id", "project_id",
+			"--cursor", "cursor",
+			"--limit", "10",
+		)
+	})
 }
 
 func TestRPCNodesFlexDelete(t *testing.T) {
 	t.Skip("Mock server tests are disabled")
-	mocktest.TestRunMockTestWithFlags(
-		t,
-		"rpc-nodes:flex", "delete",
-		"--api-key", "string",
-		"--node-id", "node_id",
-	)
+	t.Run("regular flags", func(t *testing.T) {
+		mocktest.TestRunMockTestWithFlags(
+			t, "rpc-nodes:flex", "delete",
+			"--api-key", "string",
+			"--node-id", "node_id",
+		)
+	})
 }
 
 func TestRPCNodesFlexGet(t *testing.T) {
 	t.Skip("Mock server tests are disabled")
-	mocktest.TestRunMockTestWithFlags(
-		t,
-		"rpc-nodes:flex", "get",
-		"--api-key", "string",
-		"--node-id", "node_id",
-	)
+	t.Run("regular flags", func(t *testing.T) {
+		mocktest.TestRunMockTestWithFlags(
+			t, "rpc-nodes:flex", "get",
+			"--api-key", "string",
+			"--node-id", "node_id",
+		)
+	})
 }

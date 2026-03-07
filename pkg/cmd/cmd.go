@@ -3,6 +3,7 @@
 package cmd
 
 import (
+	"bytes"
 	"compress/gzip"
 	"context"
 	"fmt"
@@ -18,15 +19,17 @@ import (
 )
 
 var (
-	Command *cli.Command
+	Command            *cli.Command
+	CommandErrorBuffer bytes.Buffer
 )
 
 func init() {
 	Command = &cli.Command{
-		Name:    "nirvana",
-		Usage:   "CLI for the Nirvana Labs API",
-		Suggest: true,
-		Version: Version,
+		Name:      "nirvana",
+		Usage:     "CLI for the Nirvana Labs API",
+		Suggest:   true,
+		Version:   Version,
+		ErrWriter: &CommandErrorBuffer,
 		Flags: []cli.Flag{
 			&cli.BoolFlag{
 				Name:  "debug",
@@ -120,15 +123,16 @@ func init() {
 					&organizationsUpdate,
 					&organizationsList,
 					&organizationsGet,
+					&organizationsLeave,
 				},
 			},
 			{
-				Name:     "organizations:audit-logs",
+				Name:     "audit-logs",
 				Category: "API RESOURCE",
 				Suggest:  true,
 				Commands: []*cli.Command{
-					&organizationsAuditLogsList,
-					&organizationsAuditLogsGet,
+					&auditLogsList,
+					&auditLogsGet,
 				},
 			},
 			{

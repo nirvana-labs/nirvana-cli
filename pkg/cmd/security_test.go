@@ -11,30 +11,49 @@ import (
 
 func TestUserSecurityUpdate(t *testing.T) {
 	t.Skip("Mock server tests are disabled")
-	mocktest.TestRunMockTestWithFlags(
-		t,
-		"user:security", "update",
-		"--api-key", "string",
-		"--source-ip-rule", "{allowed: [192.168.1.0/24, 10.0.0.0/8], blocked: [192.168.1.100/32]}",
-	)
+	t.Run("regular flags", func(t *testing.T) {
+		mocktest.TestRunMockTestWithFlags(
+			t, "user:security", "update",
+			"--api-key", "string",
+			"--source-ip-rule", "{allowed: [192.168.1.0/24, 10.0.0.0/8], blocked: [192.168.1.100/32]}",
+		)
+	})
 
-	// Check that inner flags have been set up correctly
-	requestflag.CheckInnerFlags(userSecurityUpdate)
+	t.Run("inner flags", func(t *testing.T) {
+		// Check that inner flags have been set up correctly
+		requestflag.CheckInnerFlags(userSecurityUpdate)
 
-	// Alternative argument passing style using inner flags
-	mocktest.TestRunMockTestWithFlags(
-		t,
-		"user:security", "update",
-		"--source-ip-rule.allowed", "[192.168.1.0/24, 10.0.0.0/8]",
-		"--source-ip-rule.blocked", "[192.168.1.100/32]",
-	)
+		// Alternative argument passing style using inner flags
+		mocktest.TestRunMockTestWithFlags(
+			t, "user:security", "update",
+			"--api-key", "string",
+			"--source-ip-rule.allowed", "[192.168.1.0/24, 10.0.0.0/8]",
+			"--source-ip-rule.blocked", "[192.168.1.100/32]",
+		)
+	})
+
+	t.Run("piping data", func(t *testing.T) {
+		// Test piping YAML data over stdin
+		pipeData := []byte("" +
+			"source_ip_rule:\n" +
+			"  allowed:\n" +
+			"    - 192.168.1.0/24\n" +
+			"    - 10.0.0.0/8\n" +
+			"  blocked:\n" +
+			"    - 192.168.1.100/32\n")
+		mocktest.TestRunMockTestWithPipeAndFlags(
+			t, pipeData, "user:security", "update",
+			"--api-key", "string",
+		)
+	})
 }
 
 func TestUserSecurityGet(t *testing.T) {
 	t.Skip("Mock server tests are disabled")
-	mocktest.TestRunMockTestWithFlags(
-		t,
-		"user:security", "get",
-		"--api-key", "string",
-	)
+	t.Run("regular flags", func(t *testing.T) {
+		mocktest.TestRunMockTestWithFlags(
+			t, "user:security", "get",
+			"--api-key", "string",
+		)
+	})
 }

@@ -67,6 +67,10 @@ var organizationsList = cli.Command{
 			Default:   10,
 			QueryPath: "limit",
 		},
+		&requestflag.Flag[int64]{
+			Name:  "max-items",
+			Usage: "The maximum number of items to return (use -1 for unlimited).",
+		},
 	},
 	Action:          handleOrganizationsList,
 	HideHelpCommand: true,
@@ -83,6 +87,20 @@ var organizationsGet = cli.Command{
 		},
 	},
 	Action:          handleOrganizationsGet,
+	HideHelpCommand: true,
+}
+
+var organizationsLeave = cli.Command{
+	Name:    "leave",
+	Usage:   "Leave an Organization",
+	Suggest: true,
+	Flags: []cli.Flag{
+		&requestflag.Flag[string]{
+			Name:     "organization-id",
+			Required: true,
+		},
+	},
+	Action:          handleOrganizationsLeave,
 	HideHelpCommand: true,
 }
 
@@ -196,7 +214,11 @@ func handleOrganizationsList(ctx context.Context, cmd *cli.Command) error {
 		return ShowJSON(os.Stdout, "organizations list", obj, format, transform)
 	} else {
 		iter := client.Organizations.ListAutoPaging(ctx, params, options...)
-		return ShowJSONIterator(os.Stdout, "organizations list", iter, format, transform)
+		maxItems := int64(-1)
+		if cmd.IsSet("max-items") {
+			maxItems = cmd.Value("max-items").(int64)
+		}
+		return ShowJSONIterator(os.Stdout, "organizations list", iter, format, transform, maxItems)
 	}
 }
 
@@ -233,4 +255,29 @@ func handleOrganizationsGet(ctx context.Context, cmd *cli.Command) error {
 	format := cmd.Root().String("format")
 	transform := cmd.Root().String("transform")
 	return ShowJSON(os.Stdout, "organizations get", obj, format, transform)
+}
+
+func handleOrganizationsLeave(ctx context.Context, cmd *cli.Command) error {
+	client := nirvana.NewClient(getDefaultRequestOptions(cmd)...)
+	unusedArgs := cmd.Args().Slice()
+	if !cmd.IsSet("organization-id") && len(unusedArgs) > 0 {
+		cmd.Set("organization-id", unusedArgs[0])
+		unusedArgs = unusedArgs[1:]
+	}
+	if len(unusedArgs) > 0 {
+		return fmt.Errorf("Unexpected extra arguments: %v", unusedArgs)
+	}
+
+	options, err := flagOptions(
+		cmd,
+		apiquery.NestedQueryFormatBrackets,
+		apiquery.ArrayQueryFormatComma,
+		EmptyBody,
+		false,
+	)
+	if err != nil {
+		return err
+	}
+
+	return client.Organizations.Leave(ctx, cmd.Value("organization-id").(string), options...)
 }

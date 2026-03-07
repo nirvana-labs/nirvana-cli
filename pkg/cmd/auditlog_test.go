@@ -8,25 +8,26 @@ import (
 	"github.com/nirvana-labs/nirvana-cli/internal/mocktest"
 )
 
-func TestOrganizationsAuditLogsList(t *testing.T) {
+func TestAuditLogsList(t *testing.T) {
 	t.Skip("Mock server tests are disabled")
-	mocktest.TestRunMockTestWithFlags(
-		t,
-		"organizations:audit-logs", "list",
-		"--api-key", "string",
-		"--organization-id", "organization_id",
-		"--cursor", "cursor",
-		"--limit", "10",
-	)
+	t.Run("regular flags", func(t *testing.T) {
+		mocktest.TestRunMockTestWithFlags(
+			t, "audit-logs", "list",
+			"--api-key", "string",
+			"--max-items", "10",
+			"--cursor", "cursor",
+			"--limit", "10",
+		)
+	})
 }
 
-func TestOrganizationsAuditLogsGet(t *testing.T) {
+func TestAuditLogsGet(t *testing.T) {
 	t.Skip("Mock server tests are disabled")
-	mocktest.TestRunMockTestWithFlags(
-		t,
-		"organizations:audit-logs", "get",
-		"--api-key", "string",
-		"--organization-id", "organization_id",
-		"--audit-log-id", "audit_log_id",
-	)
+	t.Run("regular flags", func(t *testing.T) {
+		mocktest.TestRunMockTestWithFlags(
+			t, "audit-logs", "get",
+			"--api-key", "string",
+			"--audit-log-id", "audit_log_id",
+		)
+	})
 }

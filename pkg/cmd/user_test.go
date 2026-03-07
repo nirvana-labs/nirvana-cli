@@ -10,9 +10,10 @@ import (
 
 func TestUserGet(t *testing.T) {
 	t.Skip("Mock server tests are disabled")
-	mocktest.TestRunMockTestWithFlags(
-		t,
-		"user", "get",
-		"--api-key", "string",
-	)
+	t.Run("regular flags", func(t *testing.T) {
+		mocktest.TestRunMockTestWithFlags(
+			t, "user", "get",
+			"--api-key", "string",
+		)
+	})
 }
