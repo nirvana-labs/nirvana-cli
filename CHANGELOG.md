@@ -1,5 +1,30 @@
 # Changelog
 
+## 0.26.0 (2026-03-07)
+
+Full Changelog: [v0.25.0...v0.26.0](https://github.com/nirvana-labs/nirvana-cli/compare/v0.25.0...v0.26.0)
+
+### Features
+
+* add `--max-items` flag for paginated/streaming endpoints ([0943c7e](https://github.com/nirvana-labs/nirvana-cli/commit/0943c7e38242fc06bda574ae1037665567db1996))
+* **api:** api update ([49a497c](https://github.com/nirvana-labs/nirvana-cli/commit/49a497cf712ee7d6acd6e98251c3c9d5c73d9aea))
+* **api:** api update ([4c8c6f8](https://github.com/nirvana-labs/nirvana-cli/commit/4c8c6f8ea8dc31fc54cfa2e4f7aac93e20524a49))
+* support passing required body params through pipes ([7961d48](https://github.com/nirvana-labs/nirvana-cli/commit/7961d485d18eeb15d1cb1e3ef88335f6d0bd7d6d))
+
+
+### Bug Fixes
+
+* avoid printing usage errors twice ([a7cbadf](https://github.com/nirvana-labs/nirvana-cli/commit/a7cbadfbd51e92914fb372fa7c796403c93d2033))
+* fix for encoding arrays with `any` type items ([cb7405c](https://github.com/nirvana-labs/nirvana-cli/commit/cb7405c2fe7eaf06da84f2545359288ed1fb83c7))
+
+
+### Chores
+
+* **ci:** skip uploading artifacts on stainless-internal branches ([93e445e](https://github.com/nirvana-labs/nirvana-cli/commit/93e445e48dc736cee5044651908cde2e911b318b))
+* **internal:** codegen related update ([6833f0b](https://github.com/nirvana-labs/nirvana-cli/commit/6833f0bf12000d434aa9aa35cc3eebfaa531b15e))
+* **internal:** codegen related update ([4465ff2](https://github.com/nirvana-labs/nirvana-cli/commit/4465ff267459446fa968cbaab167df88e68bf816))
+* **internal:** codegen related update ([047d13a](https://github.com/nirvana-labs/nirvana-cli/commit/047d13a737fa7b83e05099515ac15d4073ec2395))
+
 ## 0.25.0 (2026-03-03)
 
 Full Changelog: [v0.24.1...v0.25.0](https://github.com/nirvana-labs/nirvana-cli/compare/v0.24.1...v0.25.0)
