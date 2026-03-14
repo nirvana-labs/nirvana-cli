@@ -1,5 +1,19 @@
 # Changelog
 
+## 0.27.1 (2026-03-14)
+
+Full Changelog: [v0.27.0...v0.27.1](https://github.com/nirvana-labs/nirvana-cli/compare/v0.27.0...v0.27.1)
+
+### Bug Fixes
+
+* fix for test cases with newlines in YAML and better error reporting ([f5ba1d8](https://github.com/nirvana-labs/nirvana-cli/commit/f5ba1d8e8cb5d3f573fd6d2d82cab7926bbbf877))
+* only set client options when the corresponding CLI flag or env var is explicitly set ([9c9aa22](https://github.com/nirvana-labs/nirvana-cli/commit/9c9aa22046143eaf0f215dfddc2c84b2c459745b))
+
+
+### Chores
+
+* **internal:** codegen related update ([41e8806](https://github.com/nirvana-labs/nirvana-cli/commit/41e8806c030505caab10c03cd9585843a3c01abd))
+
 ## 0.27.0 (2026-03-09)
 
 Full Changelog: [v0.26.0...v0.27.0](https://github.com/nirvana-labs/nirvana-cli/compare/v0.26.0...v0.27.0)
