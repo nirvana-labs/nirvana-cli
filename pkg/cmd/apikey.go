@@ -33,6 +33,18 @@ var apiKeysCreate = requestflag.WithInnerFlags(cli.Command{
 			Required: true,
 			BodyPath: "name",
 		},
+		&requestflag.Flag[[]map[string]any]{
+			Name:     "permission",
+			Usage:    "Scoped permissions for this API key. At least one is required.",
+			Required: true,
+			BodyPath: "permissions",
+		},
+		&requestflag.Flag[[]string]{
+			Name:     "project-id",
+			Usage:    "Project IDs this API key is scoped to. At least one is required.",
+			Required: true,
+			BodyPath: "project_ids",
+		},
 		&requestflag.Flag[map[string]any]{
 			Name:     "source-ip-rule",
 			Usage:    "IP filter rules.",
@@ -52,6 +64,18 @@ var apiKeysCreate = requestflag.WithInnerFlags(cli.Command{
 	Action:          handleAPIKeysCreate,
 	HideHelpCommand: true,
 }, map[string][]requestflag.HasOuterFlag{
+	"permission": {
+		&requestflag.InnerFlag[string]{
+			Name:       "permission.permission",
+			Usage:      `Permission level: "read" or "edit".`,
+			InnerField: "permission",
+		},
+		&requestflag.InnerFlag[string]{
+			Name:       "permission.resource-type",
+			Usage:      "Resource type this permission applies to.",
+			InnerField: "resource_type",
+		},
+	},
 	"source-ip-rule": {
 		&requestflag.InnerFlag[[]string]{
 			Name:       "source-ip-rule.allowed",
@@ -80,6 +104,16 @@ var apiKeysUpdate = requestflag.WithInnerFlags(cli.Command{
 			Usage:    "API Key name.",
 			BodyPath: "name",
 		},
+		&requestflag.Flag[[]map[string]any]{
+			Name:     "permission",
+			Usage:    "Scoped permissions for this API key. When provided, replaces the entire set. At least one is required.",
+			BodyPath: "permissions",
+		},
+		&requestflag.Flag[[]string]{
+			Name:     "project-id",
+			Usage:    "Project IDs this API key is scoped to. When provided, replaces the entire set. At least one is required.",
+			BodyPath: "project_ids",
+		},
 		&requestflag.Flag[map[string]any]{
 			Name:     "source-ip-rule",
 			Usage:    "IP filter rules.",
@@ -94,6 +128,18 @@ var apiKeysUpdate = requestflag.WithInnerFlags(cli.Command{
 	Action:          handleAPIKeysUpdate,
 	HideHelpCommand: true,
 }, map[string][]requestflag.HasOuterFlag{
+	"permission": {
+		&requestflag.InnerFlag[string]{
+			Name:       "permission.permission",
+			Usage:      `Permission level: "read" or "edit".`,
+			InnerField: "permission",
+		},
+		&requestflag.InnerFlag[string]{
+			Name:       "permission.resource-type",
+			Usage:      "Resource type this permission applies to.",
+			InnerField: "resource_type",
+		},
+	},
 	"source-ip-rule": {
 		&requestflag.InnerFlag[[]string]{
 			Name:       "source-ip-rule.allowed",
