@@ -12,8 +12,9 @@ func TestNetworkingConnectRoutesList(t *testing.T) {
 	t.Skip("Mock server tests are disabled")
 	t.Run("regular flags", func(t *testing.T) {
 		mocktest.TestRunMockTestWithFlags(
-			t, "networking:connect:routes", "list",
+			t,
 			"--api-key", "string",
+			"networking:connect:routes", "list",
 			"--max-items", "10",
 			"--cursor", "cursor",
 			"--limit", "10",

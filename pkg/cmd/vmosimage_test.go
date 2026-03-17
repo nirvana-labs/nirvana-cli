@@ -12,8 +12,9 @@ func TestComputeVMsOSImagesList(t *testing.T) {
 	t.Skip("Mock server tests are disabled")
 	t.Run("regular flags", func(t *testing.T) {
 		mocktest.TestRunMockTestWithFlags(
-			t, "compute:vms:os-images", "list",
+			t,
 			"--api-key", "string",
+			"compute:vms:os-images", "list",
 			"--max-items", "10",
 			"--cursor", "cursor",
 			"--limit", "10",

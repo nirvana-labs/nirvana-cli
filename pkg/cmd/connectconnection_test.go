@@ -13,8 +13,9 @@ func TestNetworkingConnectConnectionsCreate(t *testing.T) {
 	t.Skip("Mock server tests are disabled")
 	t.Run("regular flags", func(t *testing.T) {
 		mocktest.TestRunMockTestWithFlags(
-			t, "networking:connect:connections", "create",
+			t,
 			"--api-key", "string",
+			"networking:connect:connections", "create",
 			"--bandwidth-mbps", "50",
 			"--cidr", "10.0.0.0/16",
 			"--name", "my-connect-connection",
@@ -33,8 +34,9 @@ func TestNetworkingConnectConnectionsCreate(t *testing.T) {
 
 		// Alternative argument passing style using inner flags
 		mocktest.TestRunMockTestWithFlags(
-			t, "networking:connect:connections", "create",
+			t,
 			"--api-key", "string",
+			"networking:connect:connections", "create",
 			"--bandwidth-mbps", "50",
 			"--cidr", "10.0.0.0/16",
 			"--name", "my-connect-connection",
@@ -66,8 +68,9 @@ func TestNetworkingConnectConnectionsCreate(t *testing.T) {
 			"  - production\n" +
 			"  - ethereum\n")
 		mocktest.TestRunMockTestWithPipeAndFlags(
-			t, pipeData, "networking:connect:connections", "create",
+			t, pipeData,
 			"--api-key", "string",
+			"networking:connect:connections", "create",
 		)
 	})
 }
@@ -76,8 +79,9 @@ func TestNetworkingConnectConnectionsUpdate(t *testing.T) {
 	t.Skip("Mock server tests are disabled")
 	t.Run("regular flags", func(t *testing.T) {
 		mocktest.TestRunMockTestWithFlags(
-			t, "networking:connect:connections", "update",
+			t,
 			"--api-key", "string",
+			"networking:connect:connections", "update",
 			"--connection-id", "connection_id",
 			"--name", "my-connect-connection",
 			"--tag", "production",
@@ -93,8 +97,9 @@ func TestNetworkingConnectConnectionsUpdate(t *testing.T) {
 			"  - production\n" +
 			"  - ethereum\n")
 		mocktest.TestRunMockTestWithPipeAndFlags(
-			t, pipeData, "networking:connect:connections", "update",
+			t, pipeData,
 			"--api-key", "string",
+			"networking:connect:connections", "update",
 			"--connection-id", "connection_id",
 		)
 	})
@@ -104,8 +109,9 @@ func TestNetworkingConnectConnectionsList(t *testing.T) {
 	t.Skip("Mock server tests are disabled")
 	t.Run("regular flags", func(t *testing.T) {
 		mocktest.TestRunMockTestWithFlags(
-			t, "networking:connect:connections", "list",
+			t,
 			"--api-key", "string",
+			"networking:connect:connections", "list",
 			"--max-items", "10",
 			"--project-id", "project_id",
 			"--cursor", "cursor",
@@ -118,8 +124,9 @@ func TestNetworkingConnectConnectionsDelete(t *testing.T) {
 	t.Skip("Mock server tests are disabled")
 	t.Run("regular flags", func(t *testing.T) {
 		mocktest.TestRunMockTestWithFlags(
-			t, "networking:connect:connections", "delete",
+			t,
 			"--api-key", "string",
+			"networking:connect:connections", "delete",
 			"--connection-id", "connection_id",
 		)
 	})
@@ -129,8 +136,9 @@ func TestNetworkingConnectConnectionsGet(t *testing.T) {
 	t.Skip("Mock server tests are disabled")
 	t.Run("regular flags", func(t *testing.T) {
 		mocktest.TestRunMockTestWithFlags(
-			t, "networking:connect:connections", "get",
+			t,
 			"--api-key", "string",
+			"networking:connect:connections", "get",
 			"--connection-id", "connection_id",
 		)
 	})

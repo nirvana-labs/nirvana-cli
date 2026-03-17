@@ -12,8 +12,9 @@ func TestUserGet(t *testing.T) {
 	t.Skip("Mock server tests are disabled")
 	t.Run("regular flags", func(t *testing.T) {
 		mocktest.TestRunMockTestWithFlags(
-			t, "user", "get",
+			t,
 			"--api-key", "string",
+			"user", "get",
 		)
 	})
 }

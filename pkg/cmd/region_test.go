@@ -12,8 +12,9 @@ func TestRegionsList(t *testing.T) {
 	t.Skip("Mock server tests are disabled")
 	t.Run("regular flags", func(t *testing.T) {
 		mocktest.TestRunMockTestWithFlags(
-			t, "regions", "list",
+			t,
 			"--api-key", "string",
+			"regions", "list",
 			"--max-items", "10",
 			"--cursor", "cursor",
 			"--limit", "10",
@@ -25,8 +26,9 @@ func TestRegionsGet(t *testing.T) {
 	t.Skip("Mock server tests are disabled")
 	t.Run("regular flags", func(t *testing.T) {
 		mocktest.TestRunMockTestWithFlags(
-			t, "regions", "get",
+			t,
 			"--api-key", "string",
+			"regions", "get",
 			"--name", "us-wdc-1",
 		)
 	})

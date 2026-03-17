@@ -12,8 +12,9 @@ func TestNetworkingVPCsCreate(t *testing.T) {
 	t.Skip("Mock server tests are disabled")
 	t.Run("regular flags", func(t *testing.T) {
 		mocktest.TestRunMockTestWithFlags(
-			t, "networking:vpcs", "create",
+			t,
 			"--api-key", "string",
+			"networking:vpcs", "create",
 			"--name", "my-vpc",
 			"--project-id", "123e4567-e89b-12d3-a456-426614174000",
 			"--region", "us-wdc-1",
@@ -34,8 +35,9 @@ func TestNetworkingVPCsCreate(t *testing.T) {
 			"  - production\n" +
 			"  - ethereum\n")
 		mocktest.TestRunMockTestWithPipeAndFlags(
-			t, pipeData, "networking:vpcs", "create",
+			t, pipeData,
 			"--api-key", "string",
+			"networking:vpcs", "create",
 		)
 	})
 }
@@ -44,8 +46,9 @@ func TestNetworkingVPCsUpdate(t *testing.T) {
 	t.Skip("Mock server tests are disabled")
 	t.Run("regular flags", func(t *testing.T) {
 		mocktest.TestRunMockTestWithFlags(
-			t, "networking:vpcs", "update",
+			t,
 			"--api-key", "string",
+			"networking:vpcs", "update",
 			"--vpc-id", "vpc_id",
 			"--name", "my-vpc",
 			"--subnet-name", "my-subnet",
@@ -63,8 +66,9 @@ func TestNetworkingVPCsUpdate(t *testing.T) {
 			"  - production\n" +
 			"  - ethereum\n")
 		mocktest.TestRunMockTestWithPipeAndFlags(
-			t, pipeData, "networking:vpcs", "update",
+			t, pipeData,
 			"--api-key", "string",
+			"networking:vpcs", "update",
 			"--vpc-id", "vpc_id",
 		)
 	})
@@ -74,8 +78,9 @@ func TestNetworkingVPCsList(t *testing.T) {
 	t.Skip("Mock server tests are disabled")
 	t.Run("regular flags", func(t *testing.T) {
 		mocktest.TestRunMockTestWithFlags(
-			t, "networking:vpcs", "list",
+			t,
 			"--api-key", "string",
+			"networking:vpcs", "list",
 			"--max-items", "10",
 			"--project-id", "project_id",
 			"--cursor", "cursor",
@@ -88,8 +93,9 @@ func TestNetworkingVPCsDelete(t *testing.T) {
 	t.Skip("Mock server tests are disabled")
 	t.Run("regular flags", func(t *testing.T) {
 		mocktest.TestRunMockTestWithFlags(
-			t, "networking:vpcs", "delete",
+			t,
 			"--api-key", "string",
+			"networking:vpcs", "delete",
 			"--vpc-id", "vpc_id",
 		)
 	})
@@ -99,8 +105,9 @@ func TestNetworkingVPCsGet(t *testing.T) {
 	t.Skip("Mock server tests are disabled")
 	t.Run("regular flags", func(t *testing.T) {
 		mocktest.TestRunMockTestWithFlags(
-			t, "networking:vpcs", "get",
+			t,
 			"--api-key", "string",
+			"networking:vpcs", "get",
 			"--vpc-id", "vpc_id",
 		)
 	})

@@ -12,8 +12,9 @@ func TestRPCNodesFlexCreate(t *testing.T) {
 	t.Skip("Mock server tests are disabled")
 	t.Run("regular flags", func(t *testing.T) {
 		mocktest.TestRunMockTestWithFlags(
-			t, "rpc-nodes:flex", "create",
+			t,
 			"--api-key", "string",
+			"rpc-nodes:flex", "create",
 			"--blockchain", "ethereum",
 			"--name", "my-ethereum-node",
 			"--network", "mainnet",
@@ -34,8 +35,9 @@ func TestRPCNodesFlexCreate(t *testing.T) {
 			"  - production\n" +
 			"  - ethereum\n")
 		mocktest.TestRunMockTestWithPipeAndFlags(
-			t, pipeData, "rpc-nodes:flex", "create",
+			t, pipeData,
 			"--api-key", "string",
+			"rpc-nodes:flex", "create",
 		)
 	})
 }
@@ -44,8 +46,9 @@ func TestRPCNodesFlexUpdate(t *testing.T) {
 	t.Skip("Mock server tests are disabled")
 	t.Run("regular flags", func(t *testing.T) {
 		mocktest.TestRunMockTestWithFlags(
-			t, "rpc-nodes:flex", "update",
+			t,
 			"--api-key", "string",
+			"rpc-nodes:flex", "update",
 			"--node-id", "node_id",
 			"--name", "my-ethereum-node",
 			"--tag", "production",
@@ -61,8 +64,9 @@ func TestRPCNodesFlexUpdate(t *testing.T) {
 			"  - production\n" +
 			"  - ethereum\n")
 		mocktest.TestRunMockTestWithPipeAndFlags(
-			t, pipeData, "rpc-nodes:flex", "update",
+			t, pipeData,
 			"--api-key", "string",
+			"rpc-nodes:flex", "update",
 			"--node-id", "node_id",
 		)
 	})
@@ -72,8 +76,9 @@ func TestRPCNodesFlexList(t *testing.T) {
 	t.Skip("Mock server tests are disabled")
 	t.Run("regular flags", func(t *testing.T) {
 		mocktest.TestRunMockTestWithFlags(
-			t, "rpc-nodes:flex", "list",
+			t,
 			"--api-key", "string",
+			"rpc-nodes:flex", "list",
 			"--max-items", "10",
 			"--project-id", "project_id",
 			"--cursor", "cursor",
@@ -86,8 +91,9 @@ func TestRPCNodesFlexDelete(t *testing.T) {
 	t.Skip("Mock server tests are disabled")
 	t.Run("regular flags", func(t *testing.T) {
 		mocktest.TestRunMockTestWithFlags(
-			t, "rpc-nodes:flex", "delete",
+			t,
 			"--api-key", "string",
+			"rpc-nodes:flex", "delete",
 			"--node-id", "node_id",
 		)
 	})
@@ -97,8 +103,9 @@ func TestRPCNodesFlexGet(t *testing.T) {
 	t.Skip("Mock server tests are disabled")
 	t.Run("regular flags", func(t *testing.T) {
 		mocktest.TestRunMockTestWithFlags(
-			t, "rpc-nodes:flex", "get",
+			t,
 			"--api-key", "string",
+			"rpc-nodes:flex", "get",
 			"--node-id", "node_id",
 		)
 	})
