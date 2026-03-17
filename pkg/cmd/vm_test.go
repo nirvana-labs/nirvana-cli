@@ -13,8 +13,9 @@ func TestComputeVMsCreate(t *testing.T) {
 	t.Skip("Mock server tests are disabled")
 	t.Run("regular flags", func(t *testing.T) {
 		mocktest.TestRunMockTestWithFlags(
-			t, "compute:vms", "create",
+			t,
 			"--api-key", "string",
+			"compute:vms", "create",
 			"--boot-volume", "{size: 100, type: abs, tags: [production, ethereum]}",
 			"--cpu-config", "{vcpu: 2}",
 			"--memory-config", "{size: 2}",
@@ -37,8 +38,9 @@ func TestComputeVMsCreate(t *testing.T) {
 
 		// Alternative argument passing style using inner flags
 		mocktest.TestRunMockTestWithFlags(
-			t, "compute:vms", "create",
+			t,
 			"--api-key", "string",
+			"compute:vms", "create",
 			"--boot-volume.size", "100",
 			"--boot-volume.type", "abs",
 			"--boot-volume.tags", "[production, ethereum]",
@@ -94,8 +96,9 @@ func TestComputeVMsCreate(t *testing.T) {
 			"  - production\n" +
 			"  - ethereum\n")
 		mocktest.TestRunMockTestWithPipeAndFlags(
-			t, pipeData, "compute:vms", "create",
+			t, pipeData,
 			"--api-key", "string",
+			"compute:vms", "create",
 		)
 	})
 }
@@ -104,8 +107,9 @@ func TestComputeVMsUpdate(t *testing.T) {
 	t.Skip("Mock server tests are disabled")
 	t.Run("regular flags", func(t *testing.T) {
 		mocktest.TestRunMockTestWithFlags(
-			t, "compute:vms", "update",
+			t,
 			"--api-key", "string",
+			"compute:vms", "update",
 			"--vm-id", "vm_id",
 			"--cpu-config", "{vcpu: 2}",
 			"--memory-config", "{size: 2}",
@@ -122,8 +126,9 @@ func TestComputeVMsUpdate(t *testing.T) {
 
 		// Alternative argument passing style using inner flags
 		mocktest.TestRunMockTestWithFlags(
-			t, "compute:vms", "update",
+			t,
 			"--api-key", "string",
+			"compute:vms", "update",
 			"--vm-id", "vm_id",
 			"--cpu-config.vcpu", "2",
 			"--memory-config.size", "2",
@@ -147,8 +152,9 @@ func TestComputeVMsUpdate(t *testing.T) {
 			"  - production\n" +
 			"  - ethereum\n")
 		mocktest.TestRunMockTestWithPipeAndFlags(
-			t, pipeData, "compute:vms", "update",
+			t, pipeData,
 			"--api-key", "string",
+			"compute:vms", "update",
 			"--vm-id", "vm_id",
 		)
 	})
@@ -158,8 +164,9 @@ func TestComputeVMsList(t *testing.T) {
 	t.Skip("Mock server tests are disabled")
 	t.Run("regular flags", func(t *testing.T) {
 		mocktest.TestRunMockTestWithFlags(
-			t, "compute:vms", "list",
+			t,
 			"--api-key", "string",
+			"compute:vms", "list",
 			"--max-items", "10",
 			"--project-id", "project_id",
 			"--cursor", "cursor",
@@ -172,8 +179,9 @@ func TestComputeVMsDelete(t *testing.T) {
 	t.Skip("Mock server tests are disabled")
 	t.Run("regular flags", func(t *testing.T) {
 		mocktest.TestRunMockTestWithFlags(
-			t, "compute:vms", "delete",
+			t,
 			"--api-key", "string",
+			"compute:vms", "delete",
 			"--vm-id", "vm_id",
 		)
 	})
@@ -183,8 +191,9 @@ func TestComputeVMsGet(t *testing.T) {
 	t.Skip("Mock server tests are disabled")
 	t.Run("regular flags", func(t *testing.T) {
 		mocktest.TestRunMockTestWithFlags(
-			t, "compute:vms", "get",
+			t,
 			"--api-key", "string",
+			"compute:vms", "get",
 			"--vm-id", "vm_id",
 		)
 	})
@@ -194,8 +203,9 @@ func TestComputeVMsRestart(t *testing.T) {
 	t.Skip("Mock server tests are disabled")
 	t.Run("regular flags", func(t *testing.T) {
 		mocktest.TestRunMockTestWithFlags(
-			t, "compute:vms", "restart",
+			t,
 			"--api-key", "string",
+			"compute:vms", "restart",
 			"--vm-id", "vm_id",
 		)
 	})

@@ -12,8 +12,9 @@ func TestOrganizationsCreate(t *testing.T) {
 	t.Skip("Mock server tests are disabled")
 	t.Run("regular flags", func(t *testing.T) {
 		mocktest.TestRunMockTestWithFlags(
-			t, "organizations", "create",
+			t,
 			"--api-key", "string",
+			"organizations", "create",
 			"--name", "My Organization",
 		)
 	})
@@ -22,8 +23,9 @@ func TestOrganizationsCreate(t *testing.T) {
 		// Test piping YAML data over stdin
 		pipeData := []byte("name: My Organization")
 		mocktest.TestRunMockTestWithPipeAndFlags(
-			t, pipeData, "organizations", "create",
+			t, pipeData,
 			"--api-key", "string",
+			"organizations", "create",
 		)
 	})
 }
@@ -32,8 +34,9 @@ func TestOrganizationsUpdate(t *testing.T) {
 	t.Skip("Mock server tests are disabled")
 	t.Run("regular flags", func(t *testing.T) {
 		mocktest.TestRunMockTestWithFlags(
-			t, "organizations", "update",
+			t,
 			"--api-key", "string",
+			"organizations", "update",
 			"--organization-id", "organization_id",
 			"--name", "My Updated Organization",
 		)
@@ -43,8 +46,9 @@ func TestOrganizationsUpdate(t *testing.T) {
 		// Test piping YAML data over stdin
 		pipeData := []byte("name: My Updated Organization")
 		mocktest.TestRunMockTestWithPipeAndFlags(
-			t, pipeData, "organizations", "update",
+			t, pipeData,
 			"--api-key", "string",
+			"organizations", "update",
 			"--organization-id", "organization_id",
 		)
 	})
@@ -54,8 +58,9 @@ func TestOrganizationsList(t *testing.T) {
 	t.Skip("Mock server tests are disabled")
 	t.Run("regular flags", func(t *testing.T) {
 		mocktest.TestRunMockTestWithFlags(
-			t, "organizations", "list",
+			t,
 			"--api-key", "string",
+			"organizations", "list",
 			"--max-items", "10",
 			"--cursor", "cursor",
 			"--limit", "10",
@@ -67,8 +72,9 @@ func TestOrganizationsGet(t *testing.T) {
 	t.Skip("Mock server tests are disabled")
 	t.Run("regular flags", func(t *testing.T) {
 		mocktest.TestRunMockTestWithFlags(
-			t, "organizations", "get",
+			t,
 			"--api-key", "string",
+			"organizations", "get",
 			"--organization-id", "organization_id",
 		)
 	})
@@ -78,8 +84,9 @@ func TestOrganizationsLeave(t *testing.T) {
 	t.Skip("Mock server tests are disabled")
 	t.Run("regular flags", func(t *testing.T) {
 		mocktest.TestRunMockTestWithFlags(
-			t, "organizations", "leave",
+			t,
 			"--api-key", "string",
+			"organizations", "leave",
 			"--organization-id", "organization_id",
 		)
 	})

@@ -12,8 +12,9 @@ func TestProjectsCreate(t *testing.T) {
 	t.Skip("Mock server tests are disabled")
 	t.Run("regular flags", func(t *testing.T) {
 		mocktest.TestRunMockTestWithFlags(
-			t, "projects", "create",
+			t,
 			"--api-key", "string",
+			"projects", "create",
 			"--name", "My Project",
 			"--tag", "production",
 			"--tag", "ethereum",
@@ -28,8 +29,9 @@ func TestProjectsCreate(t *testing.T) {
 			"  - production\n" +
 			"  - ethereum\n")
 		mocktest.TestRunMockTestWithPipeAndFlags(
-			t, pipeData, "projects", "create",
+			t, pipeData,
 			"--api-key", "string",
+			"projects", "create",
 		)
 	})
 }
@@ -38,8 +40,9 @@ func TestProjectsUpdate(t *testing.T) {
 	t.Skip("Mock server tests are disabled")
 	t.Run("regular flags", func(t *testing.T) {
 		mocktest.TestRunMockTestWithFlags(
-			t, "projects", "update",
+			t,
 			"--api-key", "string",
+			"projects", "update",
 			"--project-id", "project_id",
 			"--name", "My Updated Project",
 			"--tag", "production",
@@ -55,8 +58,9 @@ func TestProjectsUpdate(t *testing.T) {
 			"  - production\n" +
 			"  - ethereum\n")
 		mocktest.TestRunMockTestWithPipeAndFlags(
-			t, pipeData, "projects", "update",
+			t, pipeData,
 			"--api-key", "string",
+			"projects", "update",
 			"--project-id", "project_id",
 		)
 	})
@@ -66,8 +70,9 @@ func TestProjectsList(t *testing.T) {
 	t.Skip("Mock server tests are disabled")
 	t.Run("regular flags", func(t *testing.T) {
 		mocktest.TestRunMockTestWithFlags(
-			t, "projects", "list",
+			t,
 			"--api-key", "string",
+			"projects", "list",
 			"--max-items", "10",
 			"--cursor", "cursor",
 			"--limit", "10",
@@ -79,8 +84,9 @@ func TestProjectsDelete(t *testing.T) {
 	t.Skip("Mock server tests are disabled")
 	t.Run("regular flags", func(t *testing.T) {
 		mocktest.TestRunMockTestWithFlags(
-			t, "projects", "delete",
+			t,
 			"--api-key", "string",
+			"projects", "delete",
 			"--project-id", "project_id",
 		)
 	})
@@ -90,8 +96,9 @@ func TestProjectsGet(t *testing.T) {
 	t.Skip("Mock server tests are disabled")
 	t.Run("regular flags", func(t *testing.T) {
 		mocktest.TestRunMockTestWithFlags(
-			t, "projects", "get",
+			t,
 			"--api-key", "string",
+			"projects", "get",
 			"--project-id", "project_id",
 		)
 	})

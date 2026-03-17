@@ -13,8 +13,9 @@ func TestAPIKeysCreate(t *testing.T) {
 	t.Skip("Mock server tests are disabled")
 	t.Run("regular flags", func(t *testing.T) {
 		mocktest.TestRunMockTestWithFlags(
-			t, "api-keys", "create",
+			t,
 			"--api-key", "string",
+			"api-keys", "create",
 			"--expires-at", "'2025-12-31T23:59:59Z'",
 			"--name", "My API Key",
 			"--permission", "{permission: edit, resource_type: vm}",
@@ -33,8 +34,9 @@ func TestAPIKeysCreate(t *testing.T) {
 
 		// Alternative argument passing style using inner flags
 		mocktest.TestRunMockTestWithFlags(
-			t, "api-keys", "create",
+			t,
 			"--api-key", "string",
+			"api-keys", "create",
 			"--expires-at", "'2025-12-31T23:59:59Z'",
 			"--name", "My API Key",
 			"--permission.permission", "edit",
@@ -71,8 +73,9 @@ func TestAPIKeysCreate(t *testing.T) {
 			"  - production\n" +
 			"  - ethereum\n")
 		mocktest.TestRunMockTestWithPipeAndFlags(
-			t, pipeData, "api-keys", "create",
+			t, pipeData,
 			"--api-key", "string",
+			"api-keys", "create",
 		)
 	})
 }
@@ -81,8 +84,9 @@ func TestAPIKeysUpdate(t *testing.T) {
 	t.Skip("Mock server tests are disabled")
 	t.Run("regular flags", func(t *testing.T) {
 		mocktest.TestRunMockTestWithFlags(
-			t, "api-keys", "update",
+			t,
 			"--api-key", "string",
+			"api-keys", "update",
 			"--api-key-id", "api_key_id",
 			"--name", "My Updated API Key",
 			"--permission", "{permission: edit, resource_type: vm}",
@@ -99,8 +103,9 @@ func TestAPIKeysUpdate(t *testing.T) {
 
 		// Alternative argument passing style using inner flags
 		mocktest.TestRunMockTestWithFlags(
-			t, "api-keys", "update",
+			t,
 			"--api-key", "string",
+			"api-keys", "update",
 			"--api-key-id", "api_key_id",
 			"--name", "My Updated API Key",
 			"--permission.permission", "edit",
@@ -132,8 +137,9 @@ func TestAPIKeysUpdate(t *testing.T) {
 			"  - production\n" +
 			"  - ethereum\n")
 		mocktest.TestRunMockTestWithPipeAndFlags(
-			t, pipeData, "api-keys", "update",
+			t, pipeData,
 			"--api-key", "string",
+			"api-keys", "update",
 			"--api-key-id", "api_key_id",
 		)
 	})
@@ -143,8 +149,9 @@ func TestAPIKeysList(t *testing.T) {
 	t.Skip("Mock server tests are disabled")
 	t.Run("regular flags", func(t *testing.T) {
 		mocktest.TestRunMockTestWithFlags(
-			t, "api-keys", "list",
+			t,
 			"--api-key", "string",
+			"api-keys", "list",
 			"--max-items", "10",
 			"--cursor", "cursor",
 			"--limit", "10",
@@ -156,8 +163,9 @@ func TestAPIKeysDelete(t *testing.T) {
 	t.Skip("Mock server tests are disabled")
 	t.Run("regular flags", func(t *testing.T) {
 		mocktest.TestRunMockTestWithFlags(
-			t, "api-keys", "delete",
+			t,
 			"--api-key", "string",
+			"api-keys", "delete",
 			"--api-key-id", "api_key_id",
 		)
 	})
@@ -167,8 +175,9 @@ func TestAPIKeysGet(t *testing.T) {
 	t.Skip("Mock server tests are disabled")
 	t.Run("regular flags", func(t *testing.T) {
 		mocktest.TestRunMockTestWithFlags(
-			t, "api-keys", "get",
+			t,
 			"--api-key", "string",
+			"api-keys", "get",
 			"--api-key-id", "api_key_id",
 		)
 	})

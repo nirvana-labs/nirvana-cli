@@ -12,8 +12,9 @@ func TestComputeVolumesAvailabilityCreate(t *testing.T) {
 	t.Skip("Mock server tests are disabled")
 	t.Run("regular flags", func(t *testing.T) {
 		mocktest.TestRunMockTestWithFlags(
-			t, "compute:volumes:availability", "create",
+			t,
 			"--api-key", "string",
+			"compute:volumes:availability", "create",
 			"--name", "my-data-volume",
 			"--project-id", "123e4567-e89b-12d3-a456-426614174000",
 			"--region", "us-wdc-1",
@@ -38,8 +39,9 @@ func TestComputeVolumesAvailabilityCreate(t *testing.T) {
 			"  - ethereum\n" +
 			"vm_id: 123e4567-e89b-12d3-a456-426614174000\n")
 		mocktest.TestRunMockTestWithPipeAndFlags(
-			t, pipeData, "compute:volumes:availability", "create",
+			t, pipeData,
 			"--api-key", "string",
+			"compute:volumes:availability", "create",
 		)
 	})
 }
@@ -48,8 +50,9 @@ func TestComputeVolumesAvailabilityUpdate(t *testing.T) {
 	t.Skip("Mock server tests are disabled")
 	t.Run("regular flags", func(t *testing.T) {
 		mocktest.TestRunMockTestWithFlags(
-			t, "compute:volumes:availability", "update",
+			t,
 			"--api-key", "string",
+			"compute:volumes:availability", "update",
 			"--volume-id", "volume_id",
 			"--name", "my-data-volume",
 			"--size", "100",
@@ -67,8 +70,9 @@ func TestComputeVolumesAvailabilityUpdate(t *testing.T) {
 			"  - production\n" +
 			"  - ethereum\n")
 		mocktest.TestRunMockTestWithPipeAndFlags(
-			t, pipeData, "compute:volumes:availability", "update",
+			t, pipeData,
 			"--api-key", "string",
+			"compute:volumes:availability", "update",
 			"--volume-id", "volume_id",
 		)
 	})

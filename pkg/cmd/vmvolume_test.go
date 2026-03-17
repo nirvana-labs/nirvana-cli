@@ -12,8 +12,9 @@ func TestComputeVMsVolumesList(t *testing.T) {
 	t.Skip("Mock server tests are disabled")
 	t.Run("regular flags", func(t *testing.T) {
 		mocktest.TestRunMockTestWithFlags(
-			t, "compute:vms:volumes", "list",
+			t,
 			"--api-key", "string",
+			"compute:vms:volumes", "list",
 			"--max-items", "10",
 			"--vm-id", "vm_id",
 			"--cursor", "cursor",

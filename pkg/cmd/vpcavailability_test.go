@@ -12,8 +12,9 @@ func TestNetworkingVPCsAvailabilityCreate(t *testing.T) {
 	t.Skip("Mock server tests are disabled")
 	t.Run("regular flags", func(t *testing.T) {
 		mocktest.TestRunMockTestWithFlags(
-			t, "networking:vpcs:availability", "create",
+			t,
 			"--api-key", "string",
+			"networking:vpcs:availability", "create",
 			"--name", "my-vpc",
 			"--project-id", "123e4567-e89b-12d3-a456-426614174000",
 			"--region", "us-wdc-1",
@@ -34,8 +35,9 @@ func TestNetworkingVPCsAvailabilityCreate(t *testing.T) {
 			"  - production\n" +
 			"  - ethereum\n")
 		mocktest.TestRunMockTestWithPipeAndFlags(
-			t, pipeData, "networking:vpcs:availability", "create",
+			t, pipeData,
 			"--api-key", "string",
+			"networking:vpcs:availability", "create",
 		)
 	})
 }
@@ -44,8 +46,9 @@ func TestNetworkingVPCsAvailabilityUpdate(t *testing.T) {
 	t.Skip("Mock server tests are disabled")
 	t.Run("regular flags", func(t *testing.T) {
 		mocktest.TestRunMockTestWithFlags(
-			t, "networking:vpcs:availability", "update",
+			t,
 			"--api-key", "string",
+			"networking:vpcs:availability", "update",
 			"--vpc-id", "vpc_id",
 			"--name", "my-vpc",
 			"--subnet-name", "my-subnet",
@@ -63,8 +66,9 @@ func TestNetworkingVPCsAvailabilityUpdate(t *testing.T) {
 			"  - production\n" +
 			"  - ethereum\n")
 		mocktest.TestRunMockTestWithPipeAndFlags(
-			t, pipeData, "networking:vpcs:availability", "update",
+			t, pipeData,
 			"--api-key", "string",
+			"networking:vpcs:availability", "update",
 			"--vpc-id", "vpc_id",
 		)
 	})

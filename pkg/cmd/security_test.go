@@ -13,8 +13,9 @@ func TestUserSecurityUpdate(t *testing.T) {
 	t.Skip("Mock server tests are disabled")
 	t.Run("regular flags", func(t *testing.T) {
 		mocktest.TestRunMockTestWithFlags(
-			t, "user:security", "update",
+			t,
 			"--api-key", "string",
+			"user:security", "update",
 			"--source-ip-rule", "{allowed: [192.168.1.0/24, 10.0.0.0/8], blocked: [192.168.1.100/32]}",
 		)
 	})
@@ -25,8 +26,9 @@ func TestUserSecurityUpdate(t *testing.T) {
 
 		// Alternative argument passing style using inner flags
 		mocktest.TestRunMockTestWithFlags(
-			t, "user:security", "update",
+			t,
 			"--api-key", "string",
+			"user:security", "update",
 			"--source-ip-rule.allowed", "[192.168.1.0/24, 10.0.0.0/8]",
 			"--source-ip-rule.blocked", "[192.168.1.100/32]",
 		)
@@ -42,8 +44,9 @@ func TestUserSecurityUpdate(t *testing.T) {
 			"  blocked:\n" +
 			"    - 192.168.1.100/32\n")
 		mocktest.TestRunMockTestWithPipeAndFlags(
-			t, pipeData, "user:security", "update",
+			t, pipeData,
 			"--api-key", "string",
+			"user:security", "update",
 		)
 	})
 }
@@ -52,8 +55,9 @@ func TestUserSecurityGet(t *testing.T) {
 	t.Skip("Mock server tests are disabled")
 	t.Run("regular flags", func(t *testing.T) {
 		mocktest.TestRunMockTestWithFlags(
-			t, "user:security", "get",
+			t,
 			"--api-key", "string",
+			"user:security", "get",
 		)
 	})
 }
