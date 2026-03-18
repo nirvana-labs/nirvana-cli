@@ -10,109 +10,86 @@ import (
 	"github.com/nirvana-labs/nirvana-cli/internal/apiquery"
 	"github.com/nirvana-labs/nirvana-cli/internal/requestflag"
 	"github.com/nirvana-labs/nirvana-go"
-	"github.com/nirvana-labs/nirvana-go/api_keys"
+	"github.com/nirvana-labs/nirvana-go/nks"
 	"github.com/nirvana-labs/nirvana-go/option"
 	"github.com/tidwall/gjson"
 	"github.com/urfave/cli/v3"
 )
 
-var apiKeysCreate = requestflag.WithInnerFlags(cli.Command{
+var nksClustersCreate = cli.Command{
 	Name:    "create",
-	Usage:   "Create a new API key",
+	Usage:   "Create an NKS Cluster",
 	Suggest: true,
 	Flags: []cli.Flag{
-		&requestflag.Flag[any]{
-			Name:     "expires-at",
-			Usage:    "When the API Key expires and is no longer valid.",
-			Required: true,
-			BodyPath: "expires_at",
-		},
 		&requestflag.Flag[string]{
 			Name:     "name",
-			Usage:    "API Key name.",
+			Usage:    "Name of the Cluster.",
 			Required: true,
 			BodyPath: "name",
 		},
-		&requestflag.Flag[map[string]any]{
-			Name:     "source-ip-rule",
-			Usage:    "IP filter rules.",
-			BodyPath: "source_ip_rule",
+		&requestflag.Flag[string]{
+			Name:     "project-id",
+			Usage:    "Project ID to create the Cluster in.",
+			Required: true,
+			BodyPath: "project_id",
 		},
-		&requestflag.Flag[any]{
-			Name:     "starts-at",
-			Usage:    "When the API Key starts to be valid.",
-			BodyPath: "starts_at",
+		&requestflag.Flag[string]{
+			Name:     "region",
+			Usage:    "Region the resource is in.",
+			Required: true,
+			BodyPath: "region",
+		},
+		&requestflag.Flag[string]{
+			Name:     "vpc-id",
+			Usage:    "ID of the VPC to use for the Cluster.",
+			Required: true,
+			BodyPath: "vpc_id",
 		},
 		&requestflag.Flag[[]string]{
 			Name:     "tag",
-			Usage:    "Tags to attach to the API Key.",
+			Usage:    "Tags to attach to the Cluster.",
 			BodyPath: "tags",
 		},
 	},
-	Action:          handleAPIKeysCreate,
+	Action:          handleNKSClustersCreate,
 	HideHelpCommand: true,
-}, map[string][]requestflag.HasOuterFlag{
-	"source-ip-rule": {
-		&requestflag.InnerFlag[[]string]{
-			Name:       "source-ip-rule.allowed",
-			Usage:      "List of IPv4 CIDR addresses to allow.",
-			InnerField: "allowed",
-		},
-		&requestflag.InnerFlag[[]string]{
-			Name:       "source-ip-rule.blocked",
-			Usage:      "List of IPv4 CIDR addresses to deny.",
-			InnerField: "blocked",
-		},
-	},
-})
+}
 
-var apiKeysUpdate = requestflag.WithInnerFlags(cli.Command{
+var nksClustersUpdate = cli.Command{
 	Name:    "update",
-	Usage:   "Update an existing API key",
+	Usage:   "Update an NKS cluster",
 	Suggest: true,
 	Flags: []cli.Flag{
 		&requestflag.Flag[string]{
-			Name:     "api-key-id",
+			Name:     "cluster-id",
 			Required: true,
 		},
 		&requestflag.Flag[string]{
 			Name:     "name",
-			Usage:    "API Key name.",
+			Usage:    "Name of the Cluster.",
 			BodyPath: "name",
-		},
-		&requestflag.Flag[map[string]any]{
-			Name:     "source-ip-rule",
-			Usage:    "IP filter rules.",
-			BodyPath: "source_ip_rule",
 		},
 		&requestflag.Flag[[]string]{
 			Name:     "tag",
-			Usage:    "Tags to attach to the API Key.",
+			Usage:    "Tags to attach to the Cluster.",
 			BodyPath: "tags",
 		},
 	},
-	Action:          handleAPIKeysUpdate,
+	Action:          handleNKSClustersUpdate,
 	HideHelpCommand: true,
-}, map[string][]requestflag.HasOuterFlag{
-	"source-ip-rule": {
-		&requestflag.InnerFlag[[]string]{
-			Name:       "source-ip-rule.allowed",
-			Usage:      "List of IPv4 CIDR addresses to allow.",
-			InnerField: "allowed",
-		},
-		&requestflag.InnerFlag[[]string]{
-			Name:       "source-ip-rule.blocked",
-			Usage:      "List of IPv4 CIDR addresses to deny.",
-			InnerField: "blocked",
-		},
-	},
-})
+}
 
-var apiKeysList = cli.Command{
+var nksClustersList = cli.Command{
 	Name:    "list",
-	Usage:   "List all API keys",
+	Usage:   "List all NKS clusters",
 	Suggest: true,
 	Flags: []cli.Flag{
+		&requestflag.Flag[string]{
+			Name:      "project-id",
+			Usage:     "Project ID of resources to request",
+			Required:  true,
+			QueryPath: "project_id",
+		},
 		&requestflag.Flag[string]{
 			Name:      "cursor",
 			Usage:     "Pagination cursor returned by a previous request",
@@ -129,39 +106,39 @@ var apiKeysList = cli.Command{
 			Usage: "The maximum number of items to return (use -1 for unlimited).",
 		},
 	},
-	Action:          handleAPIKeysList,
+	Action:          handleNKSClustersList,
 	HideHelpCommand: true,
 }
 
-var apiKeysDelete = cli.Command{
+var nksClustersDelete = cli.Command{
 	Name:    "delete",
-	Usage:   "Delete an API key",
+	Usage:   "Delete an NKS cluster",
 	Suggest: true,
 	Flags: []cli.Flag{
 		&requestflag.Flag[string]{
-			Name:     "api-key-id",
+			Name:     "cluster-id",
 			Required: true,
 		},
 	},
-	Action:          handleAPIKeysDelete,
+	Action:          handleNKSClustersDelete,
 	HideHelpCommand: true,
 }
 
-var apiKeysGet = cli.Command{
+var nksClustersGet = cli.Command{
 	Name:    "get",
-	Usage:   "Get details about an API key",
+	Usage:   "Get details about an NKS cluster",
 	Suggest: true,
 	Flags: []cli.Flag{
 		&requestflag.Flag[string]{
-			Name:     "api-key-id",
+			Name:     "cluster-id",
 			Required: true,
 		},
 	},
-	Action:          handleAPIKeysGet,
+	Action:          handleNKSClustersGet,
 	HideHelpCommand: true,
 }
 
-func handleAPIKeysCreate(ctx context.Context, cmd *cli.Command) error {
+func handleNKSClustersCreate(ctx context.Context, cmd *cli.Command) error {
 	client := nirvana.NewClient(getDefaultRequestOptions(cmd)...)
 	unusedArgs := cmd.Args().Slice()
 
@@ -169,7 +146,7 @@ func handleAPIKeysCreate(ctx context.Context, cmd *cli.Command) error {
 		return fmt.Errorf("Unexpected extra arguments: %v", unusedArgs)
 	}
 
-	params := api_keys.APIKeyNewParams{}
+	params := nks.ClusterNewParams{}
 
 	options, err := flagOptions(
 		cmd,
@@ -184,7 +161,7 @@ func handleAPIKeysCreate(ctx context.Context, cmd *cli.Command) error {
 
 	var res []byte
 	options = append(options, option.WithResponseBodyInto(&res))
-	_, err = client.APIKeys.New(ctx, params, options...)
+	_, err = client.NKS.Clusters.New(ctx, params, options...)
 	if err != nil {
 		return err
 	}
@@ -192,21 +169,21 @@ func handleAPIKeysCreate(ctx context.Context, cmd *cli.Command) error {
 	obj := gjson.ParseBytes(res)
 	format := cmd.Root().String("format")
 	transform := cmd.Root().String("transform")
-	return ShowJSON(os.Stdout, "api-keys create", obj, format, transform)
+	return ShowJSON(os.Stdout, "nks:clusters create", obj, format, transform)
 }
 
-func handleAPIKeysUpdate(ctx context.Context, cmd *cli.Command) error {
+func handleNKSClustersUpdate(ctx context.Context, cmd *cli.Command) error {
 	client := nirvana.NewClient(getDefaultRequestOptions(cmd)...)
 	unusedArgs := cmd.Args().Slice()
-	if !cmd.IsSet("api-key-id") && len(unusedArgs) > 0 {
-		cmd.Set("api-key-id", unusedArgs[0])
+	if !cmd.IsSet("cluster-id") && len(unusedArgs) > 0 {
+		cmd.Set("cluster-id", unusedArgs[0])
 		unusedArgs = unusedArgs[1:]
 	}
 	if len(unusedArgs) > 0 {
 		return fmt.Errorf("Unexpected extra arguments: %v", unusedArgs)
 	}
 
-	params := api_keys.APIKeyUpdateParams{}
+	params := nks.ClusterUpdateParams{}
 
 	options, err := flagOptions(
 		cmd,
@@ -221,9 +198,9 @@ func handleAPIKeysUpdate(ctx context.Context, cmd *cli.Command) error {
 
 	var res []byte
 	options = append(options, option.WithResponseBodyInto(&res))
-	_, err = client.APIKeys.Update(
+	_, err = client.NKS.Clusters.Update(
 		ctx,
-		cmd.Value("api-key-id").(string),
+		cmd.Value("cluster-id").(string),
 		params,
 		options...,
 	)
@@ -234,10 +211,10 @@ func handleAPIKeysUpdate(ctx context.Context, cmd *cli.Command) error {
 	obj := gjson.ParseBytes(res)
 	format := cmd.Root().String("format")
 	transform := cmd.Root().String("transform")
-	return ShowJSON(os.Stdout, "api-keys update", obj, format, transform)
+	return ShowJSON(os.Stdout, "nks:clusters update", obj, format, transform)
 }
 
-func handleAPIKeysList(ctx context.Context, cmd *cli.Command) error {
+func handleNKSClustersList(ctx context.Context, cmd *cli.Command) error {
 	client := nirvana.NewClient(getDefaultRequestOptions(cmd)...)
 	unusedArgs := cmd.Args().Slice()
 
@@ -245,7 +222,7 @@ func handleAPIKeysList(ctx context.Context, cmd *cli.Command) error {
 		return fmt.Errorf("Unexpected extra arguments: %v", unusedArgs)
 	}
 
-	params := api_keys.APIKeyListParams{}
+	params := nks.ClusterListParams{}
 
 	options, err := flagOptions(
 		cmd,
@@ -263,52 +240,27 @@ func handleAPIKeysList(ctx context.Context, cmd *cli.Command) error {
 	if format == "raw" {
 		var res []byte
 		options = append(options, option.WithResponseBodyInto(&res))
-		_, err = client.APIKeys.List(ctx, params, options...)
+		_, err = client.NKS.Clusters.List(ctx, params, options...)
 		if err != nil {
 			return err
 		}
 		obj := gjson.ParseBytes(res)
-		return ShowJSON(os.Stdout, "api-keys list", obj, format, transform)
+		return ShowJSON(os.Stdout, "nks:clusters list", obj, format, transform)
 	} else {
-		iter := client.APIKeys.ListAutoPaging(ctx, params, options...)
+		iter := client.NKS.Clusters.ListAutoPaging(ctx, params, options...)
 		maxItems := int64(-1)
 		if cmd.IsSet("max-items") {
 			maxItems = cmd.Value("max-items").(int64)
 		}
-		return ShowJSONIterator(os.Stdout, "api-keys list", iter, format, transform, maxItems)
+		return ShowJSONIterator(os.Stdout, "nks:clusters list", iter, format, transform, maxItems)
 	}
 }
 
-func handleAPIKeysDelete(ctx context.Context, cmd *cli.Command) error {
+func handleNKSClustersDelete(ctx context.Context, cmd *cli.Command) error {
 	client := nirvana.NewClient(getDefaultRequestOptions(cmd)...)
 	unusedArgs := cmd.Args().Slice()
-	if !cmd.IsSet("api-key-id") && len(unusedArgs) > 0 {
-		cmd.Set("api-key-id", unusedArgs[0])
-		unusedArgs = unusedArgs[1:]
-	}
-	if len(unusedArgs) > 0 {
-		return fmt.Errorf("Unexpected extra arguments: %v", unusedArgs)
-	}
-
-	options, err := flagOptions(
-		cmd,
-		apiquery.NestedQueryFormatBrackets,
-		apiquery.ArrayQueryFormatComma,
-		EmptyBody,
-		false,
-	)
-	if err != nil {
-		return err
-	}
-
-	return client.APIKeys.Delete(ctx, cmd.Value("api-key-id").(string), options...)
-}
-
-func handleAPIKeysGet(ctx context.Context, cmd *cli.Command) error {
-	client := nirvana.NewClient(getDefaultRequestOptions(cmd)...)
-	unusedArgs := cmd.Args().Slice()
-	if !cmd.IsSet("api-key-id") && len(unusedArgs) > 0 {
-		cmd.Set("api-key-id", unusedArgs[0])
+	if !cmd.IsSet("cluster-id") && len(unusedArgs) > 0 {
+		cmd.Set("cluster-id", unusedArgs[0])
 		unusedArgs = unusedArgs[1:]
 	}
 	if len(unusedArgs) > 0 {
@@ -328,7 +280,7 @@ func handleAPIKeysGet(ctx context.Context, cmd *cli.Command) error {
 
 	var res []byte
 	options = append(options, option.WithResponseBodyInto(&res))
-	_, err = client.APIKeys.Get(ctx, cmd.Value("api-key-id").(string), options...)
+	_, err = client.NKS.Clusters.Delete(ctx, cmd.Value("cluster-id").(string), options...)
 	if err != nil {
 		return err
 	}
@@ -336,5 +288,40 @@ func handleAPIKeysGet(ctx context.Context, cmd *cli.Command) error {
 	obj := gjson.ParseBytes(res)
 	format := cmd.Root().String("format")
 	transform := cmd.Root().String("transform")
-	return ShowJSON(os.Stdout, "api-keys get", obj, format, transform)
+	return ShowJSON(os.Stdout, "nks:clusters delete", obj, format, transform)
+}
+
+func handleNKSClustersGet(ctx context.Context, cmd *cli.Command) error {
+	client := nirvana.NewClient(getDefaultRequestOptions(cmd)...)
+	unusedArgs := cmd.Args().Slice()
+	if !cmd.IsSet("cluster-id") && len(unusedArgs) > 0 {
+		cmd.Set("cluster-id", unusedArgs[0])
+		unusedArgs = unusedArgs[1:]
+	}
+	if len(unusedArgs) > 0 {
+		return fmt.Errorf("Unexpected extra arguments: %v", unusedArgs)
+	}
+
+	options, err := flagOptions(
+		cmd,
+		apiquery.NestedQueryFormatBrackets,
+		apiquery.ArrayQueryFormatComma,
+		EmptyBody,
+		false,
+	)
+	if err != nil {
+		return err
+	}
+
+	var res []byte
+	options = append(options, option.WithResponseBodyInto(&res))
+	_, err = client.NKS.Clusters.Get(ctx, cmd.Value("cluster-id").(string), options...)
+	if err != nil {
+		return err
+	}
+
+	obj := gjson.ParseBytes(res)
+	format := cmd.Root().String("format")
+	transform := cmd.Root().String("transform")
+	return ShowJSON(os.Stdout, "nks:clusters get", obj, format, transform)
 }

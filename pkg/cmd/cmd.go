@@ -308,6 +308,74 @@ func init() {
 				},
 			},
 			{
+				Name:     "nks:clusters",
+				Category: "API RESOURCE",
+				Suggest:  true,
+				Commands: []*cli.Command{
+					&nksClustersCreate,
+					&nksClustersUpdate,
+					&nksClustersList,
+					&nksClustersDelete,
+					&nksClustersGet,
+				},
+			},
+			{
+				Name:     "nks:clusters:availability",
+				Category: "API RESOURCE",
+				Suggest:  true,
+				Commands: []*cli.Command{
+					&nksClustersAvailabilityCreate,
+					&nksClustersAvailabilityUpdate,
+				},
+			},
+			{
+				Name:     "nks:clusters:kubeconfig",
+				Category: "API RESOURCE",
+				Suggest:  true,
+				Commands: []*cli.Command{
+					&nksClustersKubeconfigGet,
+				},
+			},
+			{
+				Name:     "nks:clusters:pools",
+				Category: "API RESOURCE",
+				Suggest:  true,
+				Commands: []*cli.Command{
+					&nksClustersPoolsCreate,
+					&nksClustersPoolsUpdate,
+					&nksClustersPoolsList,
+					&nksClustersPoolsDelete,
+					&nksClustersPoolsGet,
+				},
+			},
+			{
+				Name:     "nks:clusters:pools:availability",
+				Category: "API RESOURCE",
+				Suggest:  true,
+				Commands: []*cli.Command{
+					&nksClustersPoolsAvailabilityCreate,
+					&nksClustersPoolsAvailabilityUpdate,
+				},
+			},
+			{
+				Name:     "nks:clusters:pools:nodes",
+				Category: "API RESOURCE",
+				Suggest:  true,
+				Commands: []*cli.Command{
+					&nksClustersPoolsNodesList,
+					&nksClustersPoolsNodesGet,
+				},
+			},
+			{
+				Name:     "nks:clusters:pools:nodes:volumes",
+				Category: "API RESOURCE",
+				Suggest:  true,
+				Commands: []*cli.Command{
+					&nksClustersPoolsNodesVolumesList,
+					&nksClustersPoolsNodesVolumesGet,
+				},
+			},
+			{
 				Name:            "@manpages",
 				Usage:           "Generate documentation for 'man'",
 				UsageText:       "nirvana @manpages [-o nirvana.1] [--gzip]",
