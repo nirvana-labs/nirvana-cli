@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.29.0 (2026-03-20)
+
+Full Changelog: [v0.28.0...v0.29.0](https://github.com/nirvana-labs/nirvana-cli/compare/v0.28.0...v0.29.0)
+
+### Features
+
+* **api:** api update ([d933dc2](https://github.com/nirvana-labs/nirvana-cli/commit/d933dc27ddabedf010efbdbe7747becf11dd2e8c))
+
 ## 0.28.0 (2026-03-20)
 
 Full Changelog: [v0.27.1...v0.28.0](https://github.com/nirvana-labs/nirvana-cli/compare/v0.27.1...v0.28.0)

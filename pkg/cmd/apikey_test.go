@@ -18,6 +18,9 @@ func TestAPIKeysCreate(t *testing.T) {
 			"api-keys", "create",
 			"--expires-at", "'2025-12-31T23:59:59Z'",
 			"--name", "My API Key",
+			"--permission", "{permission: edit, resource_type: vm}",
+			"--project-id", "123e4567-e89b-12d3-a456-426614174000",
+			"--project-id", "123e4567-e89b-12d3-a456-426614174001",
 			"--source-ip-rule", "{allowed: [192.168.1.0/24, 10.0.0.0/8], blocked: [192.168.1.100/32]}",
 			"--starts-at", "'2025-01-01T00:00:00Z'",
 			"--tag", "production",
@@ -36,6 +39,10 @@ func TestAPIKeysCreate(t *testing.T) {
 			"api-keys", "create",
 			"--expires-at", "'2025-12-31T23:59:59Z'",
 			"--name", "My API Key",
+			"--permission.permission", "edit",
+			"--permission.resource-type", "vm",
+			"--project-id", "123e4567-e89b-12d3-a456-426614174000",
+			"--project-id", "123e4567-e89b-12d3-a456-426614174001",
 			"--source-ip-rule.allowed", "[192.168.1.0/24, 10.0.0.0/8]",
 			"--source-ip-rule.blocked", "[192.168.1.100/32]",
 			"--starts-at", "'2025-01-01T00:00:00Z'",
@@ -49,6 +56,12 @@ func TestAPIKeysCreate(t *testing.T) {
 		pipeData := []byte("" +
 			"expires_at: '2025-12-31T23:59:59Z'\n" +
 			"name: My API Key\n" +
+			"permissions:\n" +
+			"  - permission: edit\n" +
+			"    resource_type: vm\n" +
+			"project_ids:\n" +
+			"  - 123e4567-e89b-12d3-a456-426614174000\n" +
+			"  - 123e4567-e89b-12d3-a456-426614174001\n" +
 			"source_ip_rule:\n" +
 			"  allowed:\n" +
 			"    - 192.168.1.0/24\n" +
@@ -76,6 +89,8 @@ func TestAPIKeysUpdate(t *testing.T) {
 			"api-keys", "update",
 			"--api-key-id", "api_key_id",
 			"--name", "My Updated API Key",
+			"--permission", "{permission: edit, resource_type: vm}",
+			"--project-id", "string",
 			"--source-ip-rule", "{allowed: [192.168.1.0/24, 10.0.0.0/8], blocked: [192.168.1.100/32]}",
 			"--tag", "production",
 			"--tag", "ethereum",
@@ -93,6 +108,9 @@ func TestAPIKeysUpdate(t *testing.T) {
 			"api-keys", "update",
 			"--api-key-id", "api_key_id",
 			"--name", "My Updated API Key",
+			"--permission.permission", "edit",
+			"--permission.resource-type", "vm",
+			"--project-id", "string",
 			"--source-ip-rule.allowed", "[192.168.1.0/24, 10.0.0.0/8]",
 			"--source-ip-rule.blocked", "[192.168.1.100/32]",
 			"--tag", "production",
@@ -104,6 +122,11 @@ func TestAPIKeysUpdate(t *testing.T) {
 		// Test piping YAML data over stdin
 		pipeData := []byte("" +
 			"name: My Updated API Key\n" +
+			"permissions:\n" +
+			"  - permission: edit\n" +
+			"    resource_type: vm\n" +
+			"project_ids:\n" +
+			"  - string\n" +
 			"source_ip_rule:\n" +
 			"  allowed:\n" +
 			"    - 192.168.1.0/24\n" +
