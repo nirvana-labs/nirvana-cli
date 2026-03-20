@@ -1,5 +1,29 @@
 # Changelog
 
+## 0.28.0 (2026-03-20)
+
+Full Changelog: [v0.27.1...v0.28.0](https://github.com/nirvana-labs/nirvana-cli/compare/v0.27.1...v0.28.0)
+
+### Features
+
+* **api:** api update ([139886d](https://github.com/nirvana-labs/nirvana-cli/commit/139886d7a1cfe1d21b32355b9718968c50c46835))
+* **api:** api update ([80f5219](https://github.com/nirvana-labs/nirvana-cli/commit/80f52194823e3abe0244ce9ea05177999823ba3e))
+
+
+### Bug Fixes
+
+* avoid reading from stdin unless request body is form encoded or json ([0762840](https://github.com/nirvana-labs/nirvana-cli/commit/07628403a4ac27f68d6b914f13a092c2d9835312))
+* better support passing client args in any position ([b3bceb4](https://github.com/nirvana-labs/nirvana-cli/commit/b3bceb46efce49318ba37f9953e7f608fe35980a))
+* improve linking behavior when developing on a branch not in the Go SDK ([32625cc](https://github.com/nirvana-labs/nirvana-cli/commit/32625cc44efd9fa84544cefce9182282e43bee14))
+* improved workflow for developing on branches ([644b71e](https://github.com/nirvana-labs/nirvana-cli/commit/644b71ed5ed13d46699e37dd10271c40c9f01d7e))
+* no longer require an API key when building on production repos ([806e38a](https://github.com/nirvana-labs/nirvana-cli/commit/806e38a9184d6e0a2c7c11fc4f608daacd52918a))
+
+
+### Chores
+
+* **internal:** codegen related update ([524abfc](https://github.com/nirvana-labs/nirvana-cli/commit/524abfcdcd6cb28d3da1b54e94f247636ad7cf42))
+* **internal:** tweak CI branches ([b3be7db](https://github.com/nirvana-labs/nirvana-cli/commit/b3be7db2dd47d3b4ba9ba98ea6b4ae2de591052d))
+
 ## 0.27.1 (2026-03-14)
 
 Full Changelog: [v0.27.0...v0.27.1](https://github.com/nirvana-labs/nirvana-cli/compare/v0.27.0...v0.27.1)
