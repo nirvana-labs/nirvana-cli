@@ -9,20 +9,17 @@ import (
 	"github.com/nirvana-labs/nirvana-cli/internal/requestflag"
 )
 
-func TestNetworkingConnectConnectionsCreate(t *testing.T) {
+func TestNKSClustersPoolsCreate(t *testing.T) {
 	t.Skip("Mock server tests are disabled")
 	t.Run("regular flags", func(t *testing.T) {
 		mocktest.TestRunMockTestWithFlags(
 			t,
 			"--api-key", "string",
-			"networking:connect:connections", "create",
-			"--bandwidth-mbps", "50",
-			"--cidr", "10.0.0.0/16",
-			"--name", "my-connect-connection",
-			"--project-id", "123e4567-e89b-12d3-a456-426614174000",
-			"--provider-cidr", "172.16.0.0/16",
-			"--region", "us-wdc-1",
-			"--aws", "{account_id: '523816707215', region: us-east-1}",
+			"nks:clusters:pools", "create",
+			"--cluster-id", "cluster_id",
+			"--name", "my-node-pool",
+			"--node-config", "{ram_gi: 8, storage_gi: 100, vcpu: 4}",
+			"--node-count", "3",
 			"--tag", "production",
 			"--tag", "ethereum",
 		)
@@ -30,21 +27,19 @@ func TestNetworkingConnectConnectionsCreate(t *testing.T) {
 
 	t.Run("inner flags", func(t *testing.T) {
 		// Check that inner flags have been set up correctly
-		requestflag.CheckInnerFlags(networkingConnectConnectionsCreate)
+		requestflag.CheckInnerFlags(nksClustersPoolsCreate)
 
 		// Alternative argument passing style using inner flags
 		mocktest.TestRunMockTestWithFlags(
 			t,
 			"--api-key", "string",
-			"networking:connect:connections", "create",
-			"--bandwidth-mbps", "50",
-			"--cidr", "10.0.0.0/16",
-			"--name", "my-connect-connection",
-			"--project-id", "123e4567-e89b-12d3-a456-426614174000",
-			"--provider-cidr", "172.16.0.0/16",
-			"--region", "us-wdc-1",
-			"--aws.account-id", "523816707215",
-			"--aws.region", "us-east-1",
+			"nks:clusters:pools", "create",
+			"--cluster-id", "cluster_id",
+			"--name", "my-node-pool",
+			"--node-config.ram-gi", "8",
+			"--node-config.storage-gi", "100",
+			"--node-config.vcpu", "4",
+			"--node-count", "3",
 			"--tag", "production",
 			"--tag", "ethereum",
 		)
@@ -53,37 +48,34 @@ func TestNetworkingConnectConnectionsCreate(t *testing.T) {
 	t.Run("piping data", func(t *testing.T) {
 		// Test piping YAML data over stdin
 		pipeData := []byte("" +
-			"bandwidth_mbps: 50\n" +
-			"cidrs:\n" +
-			"  - 10.0.0.0/16\n" +
-			"name: my-connect-connection\n" +
-			"project_id: 123e4567-e89b-12d3-a456-426614174000\n" +
-			"provider_cidrs:\n" +
-			"  - 172.16.0.0/16\n" +
-			"region: us-wdc-1\n" +
-			"aws:\n" +
-			"  account_id: '523816707215'\n" +
-			"  region: us-east-1\n" +
+			"name: my-node-pool\n" +
+			"node_config:\n" +
+			"  ram_gi: 8\n" +
+			"  storage_gi: 100\n" +
+			"  vcpu: 4\n" +
+			"node_count: 3\n" +
 			"tags:\n" +
 			"  - production\n" +
 			"  - ethereum\n")
 		mocktest.TestRunMockTestWithPipeAndFlags(
 			t, pipeData,
 			"--api-key", "string",
-			"networking:connect:connections", "create",
+			"nks:clusters:pools", "create",
+			"--cluster-id", "cluster_id",
 		)
 	})
 }
 
-func TestNetworkingConnectConnectionsUpdate(t *testing.T) {
+func TestNKSClustersPoolsUpdate(t *testing.T) {
 	t.Skip("Mock server tests are disabled")
 	t.Run("regular flags", func(t *testing.T) {
 		mocktest.TestRunMockTestWithFlags(
 			t,
 			"--api-key", "string",
-			"networking:connect:connections", "update",
-			"--connection-id", "connection_id",
-			"--name", "my-connect-connection",
+			"nks:clusters:pools", "update",
+			"--cluster-id", "cluster_id",
+			"--pool-id", "pool_id",
+			"--name", "my-node-pool",
 			"--tag", "production",
 			"--tag", "ethereum",
 		)
@@ -92,54 +84,57 @@ func TestNetworkingConnectConnectionsUpdate(t *testing.T) {
 	t.Run("piping data", func(t *testing.T) {
 		// Test piping YAML data over stdin
 		pipeData := []byte("" +
-			"name: my-connect-connection\n" +
+			"name: my-node-pool\n" +
 			"tags:\n" +
 			"  - production\n" +
 			"  - ethereum\n")
 		mocktest.TestRunMockTestWithPipeAndFlags(
 			t, pipeData,
 			"--api-key", "string",
-			"networking:connect:connections", "update",
-			"--connection-id", "connection_id",
+			"nks:clusters:pools", "update",
+			"--cluster-id", "cluster_id",
+			"--pool-id", "pool_id",
 		)
 	})
 }
 
-func TestNetworkingConnectConnectionsList(t *testing.T) {
+func TestNKSClustersPoolsList(t *testing.T) {
 	t.Skip("Mock server tests are disabled")
 	t.Run("regular flags", func(t *testing.T) {
 		mocktest.TestRunMockTestWithFlags(
 			t,
 			"--api-key", "string",
-			"networking:connect:connections", "list",
+			"nks:clusters:pools", "list",
 			"--max-items", "10",
-			"--project-id", "project_id",
+			"--cluster-id", "cluster_id",
 			"--cursor", "cursor",
 			"--limit", "10",
 		)
 	})
 }
 
-func TestNetworkingConnectConnectionsDelete(t *testing.T) {
+func TestNKSClustersPoolsDelete(t *testing.T) {
 	t.Skip("Mock server tests are disabled")
 	t.Run("regular flags", func(t *testing.T) {
 		mocktest.TestRunMockTestWithFlags(
 			t,
 			"--api-key", "string",
-			"networking:connect:connections", "delete",
-			"--connection-id", "connection_id",
+			"nks:clusters:pools", "delete",
+			"--cluster-id", "cluster_id",
+			"--pool-id", "pool_id",
 		)
 	})
 }
 
-func TestNetworkingConnectConnectionsGet(t *testing.T) {
+func TestNKSClustersPoolsGet(t *testing.T) {
 	t.Skip("Mock server tests are disabled")
 	t.Run("regular flags", func(t *testing.T) {
 		mocktest.TestRunMockTestWithFlags(
 			t,
 			"--api-key", "string",
-			"networking:connect:connections", "get",
-			"--connection-id", "connection_id",
+			"nks:clusters:pools", "get",
+			"--cluster-id", "cluster_id",
+			"--pool-id", "pool_id",
 		)
 	})
 }

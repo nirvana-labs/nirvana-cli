@@ -8,16 +8,14 @@ import (
 	"github.com/nirvana-labs/nirvana-cli/internal/mocktest"
 )
 
-func TestNetworkingConnectRoutesList(t *testing.T) {
+func TestNKSClustersKubeconfigGet(t *testing.T) {
 	t.Skip("Mock server tests are disabled")
 	t.Run("regular flags", func(t *testing.T) {
 		mocktest.TestRunMockTestWithFlags(
 			t,
 			"--api-key", "string",
-			"networking:connect:routes", "list",
-			"--max-items", "10",
-			"--cursor", "cursor",
-			"--limit", "10",
+			"nks:clusters:kubeconfig", "get",
+			"--cluster-id", "cluster_id",
 		)
 	})
 }

@@ -8,17 +8,17 @@ import (
 	"github.com/nirvana-labs/nirvana-cli/internal/mocktest"
 )
 
-func TestNetworkingVPCsCreate(t *testing.T) {
+func TestNKSClustersCreate(t *testing.T) {
 	t.Skip("Mock server tests are disabled")
 	t.Run("regular flags", func(t *testing.T) {
 		mocktest.TestRunMockTestWithFlags(
 			t,
 			"--api-key", "string",
-			"networking:vpcs", "create",
-			"--name", "my-vpc",
+			"nks:clusters", "create",
+			"--name", "my-cluster",
 			"--project-id", "123e4567-e89b-12d3-a456-426614174000",
 			"--region", "us-wdc-1",
-			"--subnet-name", "my-subnet",
+			"--vpc-id", "123e4567-e89b-12d3-a456-426614174000",
 			"--tag", "production",
 			"--tag", "ethereum",
 		)
@@ -27,31 +27,30 @@ func TestNetworkingVPCsCreate(t *testing.T) {
 	t.Run("piping data", func(t *testing.T) {
 		// Test piping YAML data over stdin
 		pipeData := []byte("" +
-			"name: my-vpc\n" +
+			"name: my-cluster\n" +
 			"project_id: 123e4567-e89b-12d3-a456-426614174000\n" +
 			"region: us-wdc-1\n" +
-			"subnet_name: my-subnet\n" +
+			"vpc_id: 123e4567-e89b-12d3-a456-426614174000\n" +
 			"tags:\n" +
 			"  - production\n" +
 			"  - ethereum\n")
 		mocktest.TestRunMockTestWithPipeAndFlags(
 			t, pipeData,
 			"--api-key", "string",
-			"networking:vpcs", "create",
+			"nks:clusters", "create",
 		)
 	})
 }
 
-func TestNetworkingVPCsUpdate(t *testing.T) {
+func TestNKSClustersUpdate(t *testing.T) {
 	t.Skip("Mock server tests are disabled")
 	t.Run("regular flags", func(t *testing.T) {
 		mocktest.TestRunMockTestWithFlags(
 			t,
 			"--api-key", "string",
-			"networking:vpcs", "update",
-			"--vpc-id", "vpc_id",
-			"--name", "my-vpc",
-			"--subnet-name", "my-subnet",
+			"nks:clusters", "update",
+			"--cluster-id", "cluster_id",
+			"--name", "my-cluster",
 			"--tag", "production",
 			"--tag", "ethereum",
 		)
@@ -60,27 +59,26 @@ func TestNetworkingVPCsUpdate(t *testing.T) {
 	t.Run("piping data", func(t *testing.T) {
 		// Test piping YAML data over stdin
 		pipeData := []byte("" +
-			"name: my-vpc\n" +
-			"subnet_name: my-subnet\n" +
+			"name: my-cluster\n" +
 			"tags:\n" +
 			"  - production\n" +
 			"  - ethereum\n")
 		mocktest.TestRunMockTestWithPipeAndFlags(
 			t, pipeData,
 			"--api-key", "string",
-			"networking:vpcs", "update",
-			"--vpc-id", "vpc_id",
+			"nks:clusters", "update",
+			"--cluster-id", "cluster_id",
 		)
 	})
 }
 
-func TestNetworkingVPCsList(t *testing.T) {
+func TestNKSClustersList(t *testing.T) {
 	t.Skip("Mock server tests are disabled")
 	t.Run("regular flags", func(t *testing.T) {
 		mocktest.TestRunMockTestWithFlags(
 			t,
 			"--api-key", "string",
-			"networking:vpcs", "list",
+			"nks:clusters", "list",
 			"--max-items", "10",
 			"--project-id", "project_id",
 			"--cursor", "cursor",
@@ -89,26 +87,26 @@ func TestNetworkingVPCsList(t *testing.T) {
 	})
 }
 
-func TestNetworkingVPCsDelete(t *testing.T) {
+func TestNKSClustersDelete(t *testing.T) {
 	t.Skip("Mock server tests are disabled")
 	t.Run("regular flags", func(t *testing.T) {
 		mocktest.TestRunMockTestWithFlags(
 			t,
 			"--api-key", "string",
-			"networking:vpcs", "delete",
-			"--vpc-id", "vpc_id",
+			"nks:clusters", "delete",
+			"--cluster-id", "cluster_id",
 		)
 	})
 }
 
-func TestNetworkingVPCsGet(t *testing.T) {
+func TestNKSClustersGet(t *testing.T) {
 	t.Skip("Mock server tests are disabled")
 	t.Run("regular flags", func(t *testing.T) {
 		mocktest.TestRunMockTestWithFlags(
 			t,
 			"--api-key", "string",
-			"networking:vpcs", "get",
-			"--vpc-id", "vpc_id",
+			"nks:clusters", "get",
+			"--cluster-id", "cluster_id",
 		)
 	})
 }

@@ -12,8 +12,9 @@ func TestOperationsList(t *testing.T) {
 	t.Skip("Mock server tests are disabled")
 	t.Run("regular flags", func(t *testing.T) {
 		mocktest.TestRunMockTestWithFlags(
-			t, "operations", "list",
+			t,
 			"--api-key", "string",
+			"operations", "list",
 			"--max-items", "10",
 			"--project-id", "project_id",
 			"--cursor", "cursor",
@@ -26,8 +27,9 @@ func TestOperationsGet(t *testing.T) {
 	t.Skip("Mock server tests are disabled")
 	t.Run("regular flags", func(t *testing.T) {
 		mocktest.TestRunMockTestWithFlags(
-			t, "operations", "get",
+			t,
 			"--api-key", "string",
+			"operations", "get",
 			"--operation-id", "operation_id",
 		)
 	})

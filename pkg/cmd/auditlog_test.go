@@ -12,8 +12,9 @@ func TestAuditLogsList(t *testing.T) {
 	t.Skip("Mock server tests are disabled")
 	t.Run("regular flags", func(t *testing.T) {
 		mocktest.TestRunMockTestWithFlags(
-			t, "audit-logs", "list",
+			t,
 			"--api-key", "string",
+			"audit-logs", "list",
 			"--max-items", "10",
 			"--cursor", "cursor",
 			"--limit", "10",
@@ -25,8 +26,9 @@ func TestAuditLogsGet(t *testing.T) {
 	t.Skip("Mock server tests are disabled")
 	t.Run("regular flags", func(t *testing.T) {
 		mocktest.TestRunMockTestWithFlags(
-			t, "audit-logs", "get",
+			t,
 			"--api-key", "string",
+			"audit-logs", "get",
 			"--audit-log-id", "audit_log_id",
 		)
 	})

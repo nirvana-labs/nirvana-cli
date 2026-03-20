@@ -8,28 +8,32 @@ import (
 	"github.com/nirvana-labs/nirvana-cli/internal/mocktest"
 )
 
-func TestRegionsList(t *testing.T) {
+func TestNKSClustersPoolsNodesList(t *testing.T) {
 	t.Skip("Mock server tests are disabled")
 	t.Run("regular flags", func(t *testing.T) {
 		mocktest.TestRunMockTestWithFlags(
 			t,
 			"--api-key", "string",
-			"regions", "list",
+			"nks:clusters:pools:nodes", "list",
 			"--max-items", "10",
+			"--cluster-id", "cluster_id",
+			"--pool-id", "pool_id",
 			"--cursor", "cursor",
 			"--limit", "10",
 		)
 	})
 }
 
-func TestRegionsGet(t *testing.T) {
+func TestNKSClustersPoolsNodesGet(t *testing.T) {
 	t.Skip("Mock server tests are disabled")
 	t.Run("regular flags", func(t *testing.T) {
 		mocktest.TestRunMockTestWithFlags(
 			t,
 			"--api-key", "string",
-			"regions", "get",
-			"--name", "us-wdc-1",
+			"nks:clusters:pools:nodes", "get",
+			"--cluster-id", "cluster_id",
+			"--pool-id", "pool_id",
+			"--node-id", "node_id",
 		)
 	})
 }

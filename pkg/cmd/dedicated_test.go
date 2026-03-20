@@ -12,8 +12,9 @@ func TestRPCNodesDedicatedList(t *testing.T) {
 	t.Skip("Mock server tests are disabled")
 	t.Run("regular flags", func(t *testing.T) {
 		mocktest.TestRunMockTestWithFlags(
-			t, "rpc-nodes:dedicated", "list",
+			t,
 			"--api-key", "string",
+			"rpc-nodes:dedicated", "list",
 			"--max-items", "10",
 			"--project-id", "project_id",
 			"--cursor", "cursor",
@@ -26,8 +27,9 @@ func TestRPCNodesDedicatedGet(t *testing.T) {
 	t.Skip("Mock server tests are disabled")
 	t.Run("regular flags", func(t *testing.T) {
 		mocktest.TestRunMockTestWithFlags(
-			t, "rpc-nodes:dedicated", "get",
+			t,
 			"--api-key", "string",
+			"rpc-nodes:dedicated", "get",
 			"--node-id", "node_id",
 		)
 	})

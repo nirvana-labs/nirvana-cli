@@ -13,8 +13,9 @@ func TestComputeVMsAvailabilityCreate(t *testing.T) {
 	t.Skip("Mock server tests are disabled")
 	t.Run("regular flags", func(t *testing.T) {
 		mocktest.TestRunMockTestWithFlags(
-			t, "compute:vms:availability", "create",
+			t,
 			"--api-key", "string",
+			"compute:vms:availability", "create",
 			"--boot-volume", "{size: 100, type: abs, tags: [production, ethereum]}",
 			"--cpu-config", "{vcpu: 2}",
 			"--memory-config", "{size: 2}",
@@ -37,8 +38,9 @@ func TestComputeVMsAvailabilityCreate(t *testing.T) {
 
 		// Alternative argument passing style using inner flags
 		mocktest.TestRunMockTestWithFlags(
-			t, "compute:vms:availability", "create",
+			t,
 			"--api-key", "string",
+			"compute:vms:availability", "create",
 			"--boot-volume.size", "100",
 			"--boot-volume.type", "abs",
 			"--boot-volume.tags", "[production, ethereum]",
@@ -94,8 +96,9 @@ func TestComputeVMsAvailabilityCreate(t *testing.T) {
 			"  - production\n" +
 			"  - ethereum\n")
 		mocktest.TestRunMockTestWithPipeAndFlags(
-			t, pipeData, "compute:vms:availability", "create",
+			t, pipeData,
 			"--api-key", "string",
+			"compute:vms:availability", "create",
 		)
 	})
 }
@@ -104,8 +107,9 @@ func TestComputeVMsAvailabilityUpdate(t *testing.T) {
 	t.Skip("Mock server tests are disabled")
 	t.Run("regular flags", func(t *testing.T) {
 		mocktest.TestRunMockTestWithFlags(
-			t, "compute:vms:availability", "update",
+			t,
 			"--api-key", "string",
+			"compute:vms:availability", "update",
 			"--vm-id", "vm_id",
 			"--cpu-config", "{vcpu: 2}",
 			"--memory-config", "{size: 2}",
@@ -122,8 +126,9 @@ func TestComputeVMsAvailabilityUpdate(t *testing.T) {
 
 		// Alternative argument passing style using inner flags
 		mocktest.TestRunMockTestWithFlags(
-			t, "compute:vms:availability", "update",
+			t,
 			"--api-key", "string",
+			"compute:vms:availability", "update",
 			"--vm-id", "vm_id",
 			"--cpu-config.vcpu", "2",
 			"--memory-config.size", "2",
@@ -147,8 +152,9 @@ func TestComputeVMsAvailabilityUpdate(t *testing.T) {
 			"  - production\n" +
 			"  - ethereum\n")
 		mocktest.TestRunMockTestWithPipeAndFlags(
-			t, pipeData, "compute:vms:availability", "update",
+			t, pipeData,
 			"--api-key", "string",
+			"compute:vms:availability", "update",
 			"--vm-id", "vm_id",
 		)
 	})
