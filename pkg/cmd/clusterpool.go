@@ -53,20 +53,20 @@ var nksClustersPoolsCreate = requestflag.WithInnerFlags(cli.Command{
 	HideHelpCommand: true,
 }, map[string][]requestflag.HasOuterFlag{
 	"node-config": {
-		&requestflag.InnerFlag[int64]{
-			Name:       "node-config.ram-gi",
-			Usage:      "RAM size in GiB per node.",
-			InnerField: "ram_gi",
+		&requestflag.InnerFlag[map[string]any]{
+			Name:       "node-config.boot-volume",
+			Usage:      "Boot volume configuration.",
+			InnerField: "boot_volume",
 		},
-		&requestflag.InnerFlag[int64]{
-			Name:       "node-config.storage-gi",
-			Usage:      "Storage size in GiB per node.",
-			InnerField: "storage_gi",
+		&requestflag.InnerFlag[map[string]any]{
+			Name:       "node-config.cpu-config",
+			Usage:      "CPU configuration.",
+			InnerField: "cpu_config",
 		},
-		&requestflag.InnerFlag[int64]{
-			Name:       "node-config.vcpu",
-			Usage:      "Number of virtual CPUs per node.",
-			InnerField: "vcpu",
+		&requestflag.InnerFlag[map[string]any]{
+			Name:       "node-config.memory-config",
+			Usage:      "Memory configuration.",
+			InnerField: "memory_config",
 		},
 	},
 })
