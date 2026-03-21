@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.29.1 (2026-03-21)
+
+Full Changelog: [v0.29.0...v0.29.1](https://github.com/nirvana-labs/nirvana-cli/compare/v0.29.0...v0.29.1)
+
+### Chores
+
+* **tests:** bump steady to v0.19.4 ([21bde44](https://github.com/nirvana-labs/nirvana-cli/commit/21bde44308d8883fe2f8f6a22a33939be7002203))
+
 ## 0.29.0 (2026-03-20)
 
 Full Changelog: [v0.28.0...v0.29.0](https://github.com/nirvana-labs/nirvana-cli/compare/v0.28.0...v0.29.0)
