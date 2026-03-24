@@ -337,6 +337,24 @@ func init() {
 				},
 			},
 			{
+				Name:     "nks:clusters:controllers",
+				Category: "API RESOURCE",
+				Suggest:  true,
+				Commands: []*cli.Command{
+					&nksClustersControllersList,
+					&nksClustersControllersGet,
+				},
+			},
+			{
+				Name:     "nks:clusters:controllers:volumes",
+				Category: "API RESOURCE",
+				Suggest:  true,
+				Commands: []*cli.Command{
+					&nksClustersControllersVolumesList,
+					&nksClustersControllersVolumesGet,
+				},
+			},
+			{
 				Name:     "nks:clusters:pools",
 				Category: "API RESOURCE",
 				Suggest:  true,
@@ -373,24 +391,6 @@ func init() {
 				Commands: []*cli.Command{
 					&nksClustersPoolsNodesVolumesList,
 					&nksClustersPoolsNodesVolumesGet,
-				},
-			},
-			{
-				Name:     "nks:clusters:controllers",
-				Category: "API RESOURCE",
-				Suggest:  true,
-				Commands: []*cli.Command{
-					&nksClustersControllersList,
-					&nksClustersControllersGet,
-				},
-			},
-			{
-				Name:     "nks:clusters:controllers:volumes",
-				Category: "API RESOURCE",
-				Suggest:  true,
-				Commands: []*cli.Command{
-					&nksClustersControllersVolumesList,
-					&nksClustersControllersVolumesGet,
 				},
 			},
 			{
