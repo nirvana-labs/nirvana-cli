@@ -1,5 +1,18 @@
 # Changelog
 
+## 0.30.2 (2026-03-24)
+
+Full Changelog: [v0.30.1...v0.30.2](https://github.com/nirvana-labs/nirvana-cli/compare/v0.30.1...v0.30.2)
+
+### Bug Fixes
+
+* cli no longer hangs when stdin is attached to a pipe with empty input ([5a4f807](https://github.com/nirvana-labs/nirvana-cli/commit/5a4f807a286f2d42d93d885a82796b0299baa437))
+
+
+### Chores
+
+* **internal:** update gitignore ([c45338d](https://github.com/nirvana-labs/nirvana-cli/commit/c45338d2351a6cbcbc61a772f3517e03772f7674))
+
 ## 0.30.1 (2026-03-23)
 
 Full Changelog: [v0.30.0...v0.30.1](https://github.com/nirvana-labs/nirvana-cli/compare/v0.30.0...v0.30.1)
