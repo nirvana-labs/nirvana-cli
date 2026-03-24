@@ -376,6 +376,24 @@ func init() {
 				},
 			},
 			{
+				Name:     "nks:clusters:controllers",
+				Category: "API RESOURCE",
+				Suggest:  true,
+				Commands: []*cli.Command{
+					&nksClustersControllersList,
+					&nksClustersControllersGet,
+				},
+			},
+			{
+				Name:     "nks:clusters:controllers:volumes",
+				Category: "API RESOURCE",
+				Suggest:  true,
+				Commands: []*cli.Command{
+					&nksClustersControllersVolumesList,
+					&nksClustersControllersVolumesGet,
+				},
+			},
+			{
 				Name:            "@manpages",
 				Usage:           "Generate documentation for 'man'",
 				UsageText:       "nirvana @manpages [-o nirvana.1] [--gzip]",
