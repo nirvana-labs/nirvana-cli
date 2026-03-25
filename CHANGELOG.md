@@ -1,5 +1,21 @@
 # Changelog
 
+## 0.31.0 (2026-03-25)
+
+Full Changelog: [v0.30.2...v0.31.0](https://github.com/nirvana-labs/nirvana-cli/compare/v0.30.2...v0.31.0)
+
+### Features
+
+* **api:** api update ([73af2f4](https://github.com/nirvana-labs/nirvana-cli/commit/73af2f4be49ac420dc4b59a21310e14748ebbafc))
+* **api:** api update ([4750b6c](https://github.com/nirvana-labs/nirvana-cli/commit/4750b6c2c87f7bb13c7272259c97cbace30a769b))
+* **api:** api update ([36d1d09](https://github.com/nirvana-labs/nirvana-cli/commit/36d1d0965c22a4e586b86e9877560bd3a938b5ed))
+
+
+### Chores
+
+* **ci:** skip lint on metadata-only changes ([8877bcf](https://github.com/nirvana-labs/nirvana-cli/commit/8877bcf6dd51295b5a9acd28e9323d13990691a6))
+* **internal:** codegen related update ([209c5a4](https://github.com/nirvana-labs/nirvana-cli/commit/209c5a48b320811a88437ebf894972e6673a3ed0))
+
 ## 0.30.2 (2026-03-24)
 
 Full Changelog: [v0.30.1...v0.30.2](https://github.com/nirvana-labs/nirvana-cli/compare/v0.30.1...v0.30.2)
