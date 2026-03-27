@@ -32,7 +32,7 @@ var organizationsCreate = cli.Command{
 	HideHelpCommand: true,
 }
 
-var organizationsUpdate = requestflag.WithInnerFlags(cli.Command{
+var organizationsUpdate = cli.Command{
 	Name:    "update",
 	Usage:   "Update an existing organization",
 	Suggest: true,
@@ -46,23 +46,10 @@ var organizationsUpdate = requestflag.WithInnerFlags(cli.Command{
 			Usage:    "Organization name.",
 			BodyPath: "name",
 		},
-		&requestflag.Flag[map[string]any]{
-			Name:     "settings",
-			Usage:    "Organization settings.",
-			BodyPath: "settings",
-		},
 	},
 	Action:          handleOrganizationsUpdate,
 	HideHelpCommand: true,
-}, map[string][]requestflag.HasOuterFlag{
-	"settings": {
-		&requestflag.InnerFlag[bool]{
-			Name:       "settings.jit-provisioning",
-			Usage:      "Whether JIT provisioning is enabled. When enabled, users with SSO access are automatically added to the organization on first login. When disabled, users must be invited.",
-			InnerField: "jit_provisioning",
-		},
-	},
-})
+}
 
 var organizationsList = cli.Command{
 	Name:    "list",
