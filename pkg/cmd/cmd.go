@@ -355,6 +355,15 @@ func init() {
 				},
 			},
 			{
+				Name:     "nks:clusters:load-balancers",
+				Category: "API RESOURCE",
+				Suggest:  true,
+				Commands: []*cli.Command{
+					&nksClustersLoadBalancersList,
+					&nksClustersLoadBalancersGet,
+				},
+			},
+			{
 				Name:     "nks:clusters:pools",
 				Category: "API RESOURCE",
 				Suggest:  true,
