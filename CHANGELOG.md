@@ -1,5 +1,22 @@
 # Changelog
 
+## 0.32.0 (2026-03-27)
+
+Full Changelog: [v0.31.0...v0.32.0](https://github.com/nirvana-labs/nirvana-cli/compare/v0.31.0...v0.32.0)
+
+### Features
+
+* **api:** api update ([0cab057](https://github.com/nirvana-labs/nirvana-cli/commit/0cab057f03ee4d788dbe324a53f7b0ab81d8754f))
+* **api:** api update ([81b7aa3](https://github.com/nirvana-labs/nirvana-cli/commit/81b7aa322a262b172643fcd960120e7e61703138))
+* **api:** api update ([3013e41](https://github.com/nirvana-labs/nirvana-cli/commit/3013e41776c28ca6700c80f127a0273d04432ba2))
+* set CLI flag constant values automatically where `x-stainless-const` is set ([c84f299](https://github.com/nirvana-labs/nirvana-cli/commit/c84f299d6910bdfd55e0b154f66a8726f517cb85))
+
+
+### Chores
+
+* **internal:** codegen related update ([53e54dd](https://github.com/nirvana-labs/nirvana-cli/commit/53e54dd59187699eef7830d9e6e1e202c94905ed))
+* omit full usage information when missing required CLI parameters ([cca3630](https://github.com/nirvana-labs/nirvana-cli/commit/cca3630aa8e6ccfd552c55e68a645802181f304f))
+
 ## 0.31.0 (2026-03-25)
 
 Full Changelog: [v0.30.2...v0.31.0](https://github.com/nirvana-labs/nirvana-cli/compare/v0.30.2...v0.31.0)
