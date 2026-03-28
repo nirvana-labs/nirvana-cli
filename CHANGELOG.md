@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.32.1 (2026-03-28)
+
+Full Changelog: [v0.32.0...v0.32.1](https://github.com/nirvana-labs/nirvana-cli/compare/v0.32.0...v0.32.1)
+
+### Bug Fixes
+
+* fix for off-by-one error in pagination logic ([0b236aa](https://github.com/nirvana-labs/nirvana-cli/commit/0b236aab47d08166d57004c698eaa63d94d36d12))
+
 ## 0.32.0 (2026-03-27)
 
 Full Changelog: [v0.31.0...v0.32.0](https://github.com/nirvana-labs/nirvana-cli/compare/v0.31.0...v0.32.0)
