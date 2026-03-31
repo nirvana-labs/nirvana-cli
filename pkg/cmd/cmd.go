@@ -127,6 +127,15 @@ func init() {
 				},
 			},
 			{
+				Name:     "organizations:memberships",
+				Category: "API RESOURCE",
+				Suggest:  true,
+				Commands: []*cli.Command{
+					&organizationsMembershipsList,
+					&organizationsMembershipsGet,
+				},
+			},
+			{
 				Name:     "audit-logs",
 				Category: "API RESOURCE",
 				Suggest:  true,
