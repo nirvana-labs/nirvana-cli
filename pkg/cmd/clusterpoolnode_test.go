@@ -24,6 +24,20 @@ func TestNKSClustersPoolsNodesList(t *testing.T) {
 	})
 }
 
+func TestNKSClustersPoolsNodesDelete(t *testing.T) {
+	t.Skip("Mock server tests are disabled")
+	t.Run("regular flags", func(t *testing.T) {
+		mocktest.TestRunMockTestWithFlags(
+			t,
+			"--api-key", "string",
+			"nks:clusters:pools:nodes", "delete",
+			"--cluster-id", "cluster_id",
+			"--pool-id", "pool_id",
+			"--node-id", "node_id",
+		)
+	})
+}
+
 func TestNKSClustersPoolsNodesGet(t *testing.T) {
 	t.Skip("Mock server tests are disabled")
 	t.Run("regular flags", func(t *testing.T) {
