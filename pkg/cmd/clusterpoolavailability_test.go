@@ -80,6 +80,7 @@ func TestNKSClustersPoolsAvailabilityUpdate(t *testing.T) {
 			"--cluster-id", "cluster_id",
 			"--pool-id", "pool_id",
 			"--name", "my-node-pool",
+			"--node-count", "5",
 			"--tag", "production",
 			"--tag", "ethereum",
 		)
@@ -89,6 +90,7 @@ func TestNKSClustersPoolsAvailabilityUpdate(t *testing.T) {
 		// Test piping YAML data over stdin
 		pipeData := []byte("" +
 			"name: my-node-pool\n" +
+			"node_count: 5\n" +
 			"tags:\n" +
 			"  - production\n" +
 			"  - ethereum\n")
