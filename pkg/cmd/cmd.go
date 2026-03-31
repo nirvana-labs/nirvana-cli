@@ -390,6 +390,7 @@ func init() {
 				Suggest:  true,
 				Commands: []*cli.Command{
 					&nksClustersPoolsNodesList,
+					&nksClustersPoolsNodesDelete,
 					&nksClustersPoolsNodesGet,
 				},
 			},
