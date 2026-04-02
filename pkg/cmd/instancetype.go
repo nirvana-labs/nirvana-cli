@@ -41,6 +41,25 @@ var instanceTypesList = cli.Command{
 	HideHelpCommand: true,
 }
 
+var instanceTypesGet = cli.Command{
+	Name:    "get",
+	Usage:   "Get an instance type by region and name",
+	Suggest: true,
+	Flags: []cli.Flag{
+		&requestflag.Flag[string]{
+			Name:     "region",
+			Usage:    `Allowed values: "us-sva-1", "us-sva-2", "us-chi-1", "us-wdc-1".`,
+			Required: true,
+		},
+		&requestflag.Flag[string]{
+			Name:     "name",
+			Required: true,
+		},
+	},
+	Action:          handleInstanceTypesGet,
+	HideHelpCommand: true,
+}
+
 func handleInstanceTypesList(ctx context.Context, cmd *cli.Command) error {
 	client := nirvana.NewClient(getDefaultRequestOptions(cmd)...)
 	unusedArgs := cmd.Args().Slice()
@@ -81,4 +100,48 @@ func handleInstanceTypesList(ctx context.Context, cmd *cli.Command) error {
 		}
 		return ShowJSONIterator(os.Stdout, "instance-types list", iter, format, transform, maxItems)
 	}
+}
+
+func handleInstanceTypesGet(ctx context.Context, cmd *cli.Command) error {
+	client := nirvana.NewClient(getDefaultRequestOptions(cmd)...)
+	unusedArgs := cmd.Args().Slice()
+	if !cmd.IsSet("region") && len(unusedArgs) > 0 {
+		cmd.Set("region", unusedArgs[0])
+		unusedArgs = unusedArgs[1:]
+	}
+	if !cmd.IsSet("name") && len(unusedArgs) > 0 {
+		cmd.Set("name", unusedArgs[0])
+		unusedArgs = unusedArgs[1:]
+	}
+	if len(unusedArgs) > 0 {
+		return fmt.Errorf("Unexpected extra arguments: %v", unusedArgs)
+	}
+
+	options, err := flagOptions(
+		cmd,
+		apiquery.NestedQueryFormatBrackets,
+		apiquery.ArrayQueryFormatComma,
+		EmptyBody,
+		false,
+	)
+	if err != nil {
+		return err
+	}
+
+	var res []byte
+	options = append(options, option.WithResponseBodyInto(&res))
+	_, err = client.InstanceTypes.Get(
+		ctx,
+		instance_types.InstanceTypeGetParamsRegion(cmd.Value("region").(string)),
+		cmd.Value("name").(string),
+		options...,
+	)
+	if err != nil {
+		return err
+	}
+
+	obj := gjson.ParseBytes(res)
+	format := cmd.Root().String("format")
+	transform := cmd.Root().String("transform")
+	return ShowJSON(os.Stdout, "instance-types get", obj, format, transform)
 }
