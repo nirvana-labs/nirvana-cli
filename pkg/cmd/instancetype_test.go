@@ -21,3 +21,16 @@ func TestInstanceTypesList(t *testing.T) {
 		)
 	})
 }
+
+func TestInstanceTypesGet(t *testing.T) {
+	t.Skip("Mock server tests are disabled")
+	t.Run("regular flags", func(t *testing.T) {
+		mocktest.TestRunMockTestWithFlags(
+			t,
+			"--api-key", "string",
+			"instance-types", "get",
+			"--region", "us-sva-2",
+			"--name", "n1-standard-8",
+		)
+	})
+}
