@@ -166,6 +166,14 @@ func init() {
 				},
 			},
 			{
+				Name:     "instance-types",
+				Category: "API RESOURCE",
+				Suggest:  true,
+				Commands: []*cli.Command{
+					&instanceTypesList,
+				},
+			},
+			{
 				Name:     "compute:vms",
 				Category: "API RESOURCE",
 				Suggest:  true,
