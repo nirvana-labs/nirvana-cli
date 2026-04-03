@@ -350,6 +350,15 @@ func init() {
 				},
 			},
 			{
+				Name:     "nks:clusters:persistent-volume-claims",
+				Category: "API RESOURCE",
+				Suggest:  true,
+				Commands: []*cli.Command{
+					&nksClustersPersistentVolumeClaimsList,
+					&nksClustersPersistentVolumeClaimsGet,
+				},
+			},
+			{
 				Name:     "nks:clusters:kubeconfig",
 				Category: "API RESOURCE",
 				Suggest:  true,
