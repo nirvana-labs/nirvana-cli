@@ -1,5 +1,21 @@
 # Changelog
 
+## 0.34.0 (2026-04-03)
+
+Full Changelog: [v0.33.0...v0.34.0](https://github.com/nirvana-labs/nirvana-cli/compare/v0.33.0...v0.34.0)
+
+### Features
+
+* allow `-` as value representing stdin to binary-only file parameters in CLIs ([45382e5](https://github.com/nirvana-labs/nirvana-cli/commit/45382e53c5a2dad00fb492a301c35d928431214b))
+* better error message if scheme forgotten in CLI `*_BASE_URL`/`--base-url` ([100f001](https://github.com/nirvana-labs/nirvana-cli/commit/100f0010f71a960724c8eba79f965fb1d42eb0c6))
+* binary-only parameters become CLI flags that take filenames only ([207d34e](https://github.com/nirvana-labs/nirvana-cli/commit/207d34e38141031d30b1fc78efe92067e0969fff))
+
+
+### Chores
+
+* mark all CLI-related tests in Go with `t.Parallel()` ([f134e41](https://github.com/nirvana-labs/nirvana-cli/commit/f134e41fcb3a4876211718102cb8c9a9369cb9bb))
+* switch some CLI Go tests from `os.Chdir` to `t.Chdir` ([8d5b198](https://github.com/nirvana-labs/nirvana-cli/commit/8d5b198284fd49a012be47cb6f08b6308761b473))
+
 ## 0.33.0 (2026-04-03)
 
 Full Changelog: [v0.32.1...v0.33.0](https://github.com/nirvana-labs/nirvana-cli/compare/v0.32.1...v0.33.0)
