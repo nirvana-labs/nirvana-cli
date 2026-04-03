@@ -1,5 +1,30 @@
 # Changelog
 
+## 0.33.0 (2026-04-03)
+
+Full Changelog: [v0.32.1...v0.33.0](https://github.com/nirvana-labs/nirvana-cli/compare/v0.32.1...v0.33.0)
+
+### Features
+
+* **api:** api update ([7b63663](https://github.com/nirvana-labs/nirvana-cli/commit/7b63663b46f6a142119652c3d7cfb05fc14d0f20))
+* **api:** api update ([a6054b7](https://github.com/nirvana-labs/nirvana-cli/commit/a6054b74ec3ecfe1a76729613535fe562efe17f4))
+* **api:** api update ([f487dcf](https://github.com/nirvana-labs/nirvana-cli/commit/f487dcf51aa3224ecec87d87db5e7bc227e2e116))
+* **api:** api update ([01c3ddc](https://github.com/nirvana-labs/nirvana-cli/commit/01c3ddc490b07c67a367a37d23d6998af8b81907))
+* **api:** api update ([2978d0d](https://github.com/nirvana-labs/nirvana-cli/commit/2978d0d291cfd542bda307570b5abec309c9df1f))
+* **api:** api update ([2840dfb](https://github.com/nirvana-labs/nirvana-cli/commit/2840dfbecd491e9cfafdf4f9fea315bcadf8b35d))
+* **api:** api update ([18fa157](https://github.com/nirvana-labs/nirvana-cli/commit/18fa157290441f60de8526e5ac000be20f4cf4a2))
+
+
+### Bug Fixes
+
+* handle empty data set using `--format explore` ([756ae94](https://github.com/nirvana-labs/nirvana-cli/commit/756ae943434177f2d3dec0470a8a8dd362422d17))
+* use `RawJSON` when iterating items with `--format explore` in the CLI ([f0eee43](https://github.com/nirvana-labs/nirvana-cli/commit/f0eee43e8e4b64646a7d9e220b2dd069012e4d00))
+
+
+### Chores
+
+* **internal:** codegen related update ([5ece2d1](https://github.com/nirvana-labs/nirvana-cli/commit/5ece2d172886d5f95dc878f02385e2bea9f245aa))
+
 ## 0.32.1 (2026-03-28)
 
 Full Changelog: [v0.32.0...v0.32.1](https://github.com/nirvana-labs/nirvana-cli/compare/v0.32.0...v0.32.1)

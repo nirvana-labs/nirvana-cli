@@ -89,6 +89,11 @@ var nksClustersPoolsUpdate = cli.Command{
 			Usage:    "Name of the node pool.",
 			BodyPath: "name",
 		},
+		&requestflag.Flag[int64]{
+			Name:     "node-count",
+			Usage:    "Number of nodes.",
+			BodyPath: "node_count",
+		},
 		&requestflag.Flag[[]string]{
 			Name:     "tag",
 			Usage:    "Tags to attach to the node pool.",

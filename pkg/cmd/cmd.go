@@ -127,6 +127,15 @@ func init() {
 				},
 			},
 			{
+				Name:     "organizations:memberships",
+				Category: "API RESOURCE",
+				Suggest:  true,
+				Commands: []*cli.Command{
+					&organizationsMembershipsList,
+					&organizationsMembershipsGet,
+				},
+			},
+			{
 				Name:     "audit-logs",
 				Category: "API RESOURCE",
 				Suggest:  true,
@@ -154,6 +163,15 @@ func init() {
 				Commands: []*cli.Command{
 					&regionsList,
 					&regionsGet,
+				},
+			},
+			{
+				Name:     "instance-types",
+				Category: "API RESOURCE",
+				Suggest:  true,
+				Commands: []*cli.Command{
+					&instanceTypesList,
+					&instanceTypesGet,
 				},
 			},
 			{
@@ -390,6 +408,7 @@ func init() {
 				Suggest:  true,
 				Commands: []*cli.Command{
 					&nksClustersPoolsNodesList,
+					&nksClustersPoolsNodesDelete,
 					&nksClustersPoolsNodesGet,
 				},
 			},
