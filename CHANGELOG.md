@@ -1,5 +1,19 @@
 # Changelog
 
+## 0.36.0 (2026-04-06)
+
+Full Changelog: [v0.35.0...v0.36.0](https://github.com/nirvana-labs/nirvana-cli/compare/v0.35.0...v0.36.0)
+
+### Features
+
+* **api:** api update ([29522b4](https://github.com/nirvana-labs/nirvana-cli/commit/29522b4f321ffd027cdb8092b07a78cca2faecd6))
+
+
+### Chores
+
+* **internal:** codegen related update ([cd9f174](https://github.com/nirvana-labs/nirvana-cli/commit/cd9f174beb8ae2f83892746313dcaf6b175686d9))
+* modify CLI tests to inject stdout so mutating `os.Stdout` isn't necessary ([a2f3623](https://github.com/nirvana-labs/nirvana-cli/commit/a2f36238f6fe93e61482554e81d820bd023098d8))
+
 ## 0.35.0 (2026-04-03)
 
 Full Changelog: [v0.34.0...v0.35.0](https://github.com/nirvana-labs/nirvana-cli/compare/v0.34.0...v0.35.0)
