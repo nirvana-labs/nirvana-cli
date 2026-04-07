@@ -58,15 +58,10 @@ var nksClustersPoolsCreate = requestflag.WithInnerFlags(cli.Command{
 			Usage:      "Boot volume configuration.",
 			InnerField: "boot_volume",
 		},
-		&requestflag.InnerFlag[map[string]any]{
-			Name:       "node-config.cpu-config",
-			Usage:      "CPU configuration.",
-			InnerField: "cpu_config",
-		},
-		&requestflag.InnerFlag[map[string]any]{
-			Name:       "node-config.memory-config",
-			Usage:      "Memory configuration.",
-			InnerField: "memory_config",
+		&requestflag.InnerFlag[string]{
+			Name:       "node-config.instance-type",
+			Usage:      "Instance type name used for worker nodes.",
+			InnerField: "instance_type",
 		},
 	},
 })
