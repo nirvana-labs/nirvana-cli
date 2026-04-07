@@ -18,7 +18,7 @@ func TestNKSClustersPoolsCreate(t *testing.T) {
 			"nks:clusters:pools", "create",
 			"--cluster-id", "cluster_id",
 			"--name", "my-node-pool",
-			"--node-config", "{boot_volume: {size: 100, type: abs}, cpu_config: {vcpu: 4}, memory_config: {size: 8}}",
+			"--node-config", "{boot_volume: {size: 100, type: abs}, instance_type: n1-standard-8}",
 			"--node-count", "3",
 			"--tag", "production",
 			"--tag", "ethereum",
@@ -37,8 +37,7 @@ func TestNKSClustersPoolsCreate(t *testing.T) {
 			"--cluster-id", "cluster_id",
 			"--name", "my-node-pool",
 			"--node-config.boot-volume", "{size: 100, type: abs}",
-			"--node-config.cpu-config", "{vcpu: 4}",
-			"--node-config.memory-config", "{size: 8}",
+			"--node-config.instance-type", "n1-standard-8",
 			"--node-count", "3",
 			"--tag", "production",
 			"--tag", "ethereum",
@@ -53,10 +52,7 @@ func TestNKSClustersPoolsCreate(t *testing.T) {
 			"  boot_volume:\n" +
 			"    size: 100\n" +
 			"    type: abs\n" +
-			"  cpu_config:\n" +
-			"    vcpu: 4\n" +
-			"  memory_config:\n" +
-			"    size: 8\n" +
+			"  instance_type: n1-standard-8\n" +
 			"node_count: 3\n" +
 			"tags:\n" +
 			"  - production\n" +
