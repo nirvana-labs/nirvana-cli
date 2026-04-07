@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.36.1 (2026-04-07)
+
+Full Changelog: [v0.36.0...v0.36.1](https://github.com/nirvana-labs/nirvana-cli/compare/v0.36.0...v0.36.1)
+
+### Bug Fixes
+
+* fall back to main branch if linking fails in CI ([eed416a](https://github.com/nirvana-labs/nirvana-cli/commit/eed416a0f9f06b051a46b92eaad6b9f00165d70d))
+* fix quoting typo ([d02914d](https://github.com/nirvana-labs/nirvana-cli/commit/d02914d355c74f203c5db03f1e01159acf7f4f3f))
+
 ## 0.36.0 (2026-04-06)
 
 Full Changelog: [v0.35.0...v0.36.0](https://github.com/nirvana-labs/nirvana-cli/compare/v0.35.0...v0.36.0)
