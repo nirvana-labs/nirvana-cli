@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.37.1 (2026-04-09)
+
+Full Changelog: [v0.37.0...v0.37.1](https://github.com/nirvana-labs/nirvana-cli/compare/v0.37.0...v0.37.1)
+
+### Chores
+
+* **cli:** let `--format raw` be used in conjunction with `--transform` ([473440b](https://github.com/nirvana-labs/nirvana-cli/commit/473440b3dcbf8323164a842c4c0adb664ae797d2))
+
 ## 0.37.0 (2026-04-07)
 
 Full Changelog: [v0.36.1...v0.37.0](https://github.com/nirvana-labs/nirvana-cli/compare/v0.36.1...v0.37.0)
