@@ -17,7 +17,7 @@ func TestComputeVolumesAvailabilityCreate(t *testing.T) {
 			"compute:volumes:availability", "create",
 			"--name", "my-data-volume",
 			"--project-id", "123e4567-e89b-12d3-a456-426614174000",
-			"--region", "us-wdc-1",
+			"--region", "us-sva-2",
 			"--size", "100",
 			"--type", "abs",
 			"--tag", "production",
@@ -31,7 +31,7 @@ func TestComputeVolumesAvailabilityCreate(t *testing.T) {
 		pipeData := []byte("" +
 			"name: my-data-volume\n" +
 			"project_id: 123e4567-e89b-12d3-a456-426614174000\n" +
-			"region: us-wdc-1\n" +
+			"region: us-sva-2\n" +
 			"size: 100\n" +
 			"type: abs\n" +
 			"tags:\n" +

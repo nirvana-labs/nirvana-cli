@@ -17,7 +17,7 @@ func TestNKSClustersCreate(t *testing.T) {
 			"nks:clusters", "create",
 			"--name", "my-cluster",
 			"--project-id", "123e4567-e89b-12d3-a456-426614174000",
-			"--region", "us-wdc-1",
+			"--region", "us-sva-2",
 			"--vpc-id", "123e4567-e89b-12d3-a456-426614174000",
 			"--tag", "production",
 			"--tag", "ethereum",
@@ -29,7 +29,7 @@ func TestNKSClustersCreate(t *testing.T) {
 		pipeData := []byte("" +
 			"name: my-cluster\n" +
 			"project_id: 123e4567-e89b-12d3-a456-426614174000\n" +
-			"region: us-wdc-1\n" +
+			"region: us-sva-2\n" +
 			"vpc_id: 123e4567-e89b-12d3-a456-426614174000\n" +
 			"tags:\n" +
 			"  - production\n" +

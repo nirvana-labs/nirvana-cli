@@ -48,7 +48,7 @@ var instanceTypesGet = cli.Command{
 	Flags: []cli.Flag{
 		&requestflag.Flag[string]{
 			Name:     "region",
-			Usage:    `Allowed values: "us-sva-1", "us-sva-2", "us-chi-1", "us-wdc-1".`,
+			Usage:    `Allowed values: "us-sea-1", "us-sva-1", "us-sva-2", "us-chi-1", "ap-sin-1".`,
 			Required: true,
 		},
 		&requestflag.Flag[string]{
