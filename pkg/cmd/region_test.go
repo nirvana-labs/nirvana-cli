@@ -29,7 +29,7 @@ func TestRegionsGet(t *testing.T) {
 			t,
 			"--api-key", "string",
 			"regions", "get",
-			"--name", "us-wdc-1",
+			"--name", "us-sva-2",
 		)
 	})
 }

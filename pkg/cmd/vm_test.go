@@ -23,7 +23,7 @@ func TestComputeVMsCreate(t *testing.T) {
 			"--os-image-name", "ubuntu-noble-2025-10-01",
 			"--project-id", "123e4567-e89b-12d3-a456-426614174000",
 			"--public-ip-enabled=true",
-			"--region", "us-wdc-1",
+			"--region", "us-sva-2",
 			"--ssh-key", "{public_key: ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDBIASkmwNiLcdlW6927Zjt1Hf7Kw/PpEZ4Zm+wU9wn2}",
 			"--subnet-id", "123e4567-e89b-12d3-a456-426614174000",
 			"--data-volume", "{name: my-data-volume, size: 100, type: abs, tags: [production, ethereum]}",
@@ -50,7 +50,7 @@ func TestComputeVMsCreate(t *testing.T) {
 			"--os-image-name", "ubuntu-noble-2025-10-01",
 			"--project-id", "123e4567-e89b-12d3-a456-426614174000",
 			"--public-ip-enabled=true",
-			"--region", "us-wdc-1",
+			"--region", "us-sva-2",
 			"--ssh-key.public-key", "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDBIASkmwNiLcdlW6927Zjt1Hf7Kw/PpEZ4Zm+wU9wn2",
 			"--subnet-id", "123e4567-e89b-12d3-a456-426614174000",
 			"--data-volume.name", "my-data-volume",
@@ -79,7 +79,7 @@ func TestComputeVMsCreate(t *testing.T) {
 			"os_image_name: ubuntu-noble-2025-10-01\n" +
 			"project_id: 123e4567-e89b-12d3-a456-426614174000\n" +
 			"public_ip_enabled: true\n" +
-			"region: us-wdc-1\n" +
+			"region: us-sva-2\n" +
 			"ssh_key:\n" +
 			"  public_key: >-\n" +
 			"    ssh-ed25519\n" +

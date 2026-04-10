@@ -17,7 +17,7 @@ func TestNetworkingVPCsAvailabilityCreate(t *testing.T) {
 			"networking:vpcs:availability", "create",
 			"--name", "my-vpc",
 			"--project-id", "123e4567-e89b-12d3-a456-426614174000",
-			"--region", "us-wdc-1",
+			"--region", "us-sva-2",
 			"--subnet-name", "my-subnet",
 			"--tag", "production",
 			"--tag", "ethereum",
@@ -29,7 +29,7 @@ func TestNetworkingVPCsAvailabilityCreate(t *testing.T) {
 		pipeData := []byte("" +
 			"name: my-vpc\n" +
 			"project_id: 123e4567-e89b-12d3-a456-426614174000\n" +
-			"region: us-wdc-1\n" +
+			"region: us-sva-2\n" +
 			"subnet_name: my-subnet\n" +
 			"tags:\n" +
 			"  - production\n" +
