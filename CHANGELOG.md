@@ -1,5 +1,24 @@
 # Changelog
 
+## 0.38.0 (2026-04-10)
+
+Full Changelog: [v0.37.1...v0.38.0](https://github.com/nirvana-labs/nirvana-cli/compare/v0.37.1...v0.38.0)
+
+### Features
+
+* **api:** api update ([fd9c704](https://github.com/nirvana-labs/nirvana-cli/commit/fd9c7047b0d0d09425f2452745259f6baadba662))
+* **api:** api update ([b70bcb9](https://github.com/nirvana-labs/nirvana-cli/commit/b70bcb92a04d0fa4626ad7b0734dd9ba685e42f3))
+
+
+### Bug Fixes
+
+* fix for failing to drop invalid module replace in link script ([0a171a0](https://github.com/nirvana-labs/nirvana-cli/commit/0a171a0d66dc354eeee609422e3a611ab7b451ec))
+
+
+### Chores
+
+* **cli:** additional test cases for `ShowJSONIterator` ([254138a](https://github.com/nirvana-labs/nirvana-cli/commit/254138a4e333f0d6e9d38e1a699ca43cb6293d7e))
+
 ## 0.37.1 (2026-04-09)
 
 Full Changelog: [v0.37.0...v0.37.1](https://github.com/nirvana-labs/nirvana-cli/compare/v0.37.0...v0.37.1)
