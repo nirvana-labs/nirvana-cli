@@ -27,18 +27,6 @@ var computeVMsCreate = requestflag.WithInnerFlags(cli.Command{
 			Required: true,
 			BodyPath: "boot_volume",
 		},
-		&requestflag.Flag[map[string]any]{
-			Name:     "cpu-config",
-			Usage:    "CPU configuration for the VM.",
-			Required: true,
-			BodyPath: "cpu_config",
-		},
-		&requestflag.Flag[map[string]any]{
-			Name:     "memory-config",
-			Usage:    "Memory configuration for the VM.",
-			Required: true,
-			BodyPath: "memory_config",
-		},
 		&requestflag.Flag[string]{
 			Name:     "name",
 			Usage:    "Name of the VM.",
@@ -81,10 +69,25 @@ var computeVMsCreate = requestflag.WithInnerFlags(cli.Command{
 			Required: true,
 			BodyPath: "subnet_id",
 		},
+		&requestflag.Flag[map[string]any]{
+			Name:     "cpu-config",
+			Usage:    "CPU configuration for the VM.",
+			BodyPath: "cpu_config",
+		},
 		&requestflag.Flag[[]map[string]any]{
 			Name:     "data-volume",
 			Usage:    "Data volumes for the VM.",
 			BodyPath: "data_volumes",
+		},
+		&requestflag.Flag[string]{
+			Name:     "instance-type",
+			Usage:    "Instance type name.",
+			BodyPath: "instance_type",
+		},
+		&requestflag.Flag[map[string]any]{
+			Name:     "memory-config",
+			Usage:    "Memory configuration for the VM.",
+			BodyPath: "memory_config",
 		},
 		&requestflag.Flag[[]string]{
 			Name:     "tag",
@@ -112,25 +115,18 @@ var computeVMsCreate = requestflag.WithInnerFlags(cli.Command{
 			InnerField: "tags",
 		},
 	},
-	"cpu-config": {
-		&requestflag.InnerFlag[int64]{
-			Name:       "cpu-config.vcpu",
-			Usage:      "Number of virtual CPUs.",
-			InnerField: "vcpu",
-		},
-	},
-	"memory-config": {
-		&requestflag.InnerFlag[int64]{
-			Name:       "memory-config.size",
-			Usage:      "Size of the memory in GB.",
-			InnerField: "size",
-		},
-	},
 	"ssh-key": {
 		&requestflag.InnerFlag[string]{
 			Name:       "ssh-key.public-key",
 			Usage:      "Public key to and and use to access the VM.",
 			InnerField: "public_key",
+		},
+	},
+	"cpu-config": {
+		&requestflag.InnerFlag[int64]{
+			Name:       "cpu-config.vcpu",
+			Usage:      "Number of virtual CPUs.",
+			InnerField: "vcpu",
 		},
 	},
 	"data-volume": {
@@ -155,6 +151,13 @@ var computeVMsCreate = requestflag.WithInnerFlags(cli.Command{
 			InnerField: "tags",
 		},
 	},
+	"memory-config": {
+		&requestflag.InnerFlag[int64]{
+			Name:       "memory-config.size",
+			Usage:      "Size of the memory in GB.",
+			InnerField: "size",
+		},
+	},
 })
 
 var computeVMsUpdate = requestflag.WithInnerFlags(cli.Command{
@@ -170,6 +173,11 @@ var computeVMsUpdate = requestflag.WithInnerFlags(cli.Command{
 			Name:     "cpu-config",
 			Usage:    "CPU configuration for the VM.",
 			BodyPath: "cpu_config",
+		},
+		&requestflag.Flag[string]{
+			Name:     "instance-type",
+			Usage:    "Instance type name.",
+			BodyPath: "instance_type",
 		},
 		&requestflag.Flag[map[string]any]{
 			Name:     "memory-config",
