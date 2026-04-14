@@ -17,8 +17,6 @@ func TestComputeVMsCreate(t *testing.T) {
 			"--api-key", "string",
 			"compute:vms", "create",
 			"--boot-volume", "{size: 100, type: abs, tags: [production, ethereum]}",
-			"--cpu-config", "{vcpu: 2}",
-			"--memory-config", "{size: 2}",
 			"--name", "my-vm",
 			"--os-image-name", "ubuntu-noble-2025-10-01",
 			"--project-id", "123e4567-e89b-12d3-a456-426614174000",
@@ -26,7 +24,10 @@ func TestComputeVMsCreate(t *testing.T) {
 			"--region", "us-sva-2",
 			"--ssh-key", "{public_key: ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDBIASkmwNiLcdlW6927Zjt1Hf7Kw/PpEZ4Zm+wU9wn2}",
 			"--subnet-id", "123e4567-e89b-12d3-a456-426614174000",
+			"--cpu-config", "{vcpu: 2}",
 			"--data-volume", "{name: my-data-volume, size: 100, type: abs, tags: [production, ethereum]}",
+			"--instance-type", "n1-standard-8",
+			"--memory-config", "{size: 2}",
 			"--tag", "production",
 			"--tag", "ethereum",
 		)
@@ -44,8 +45,6 @@ func TestComputeVMsCreate(t *testing.T) {
 			"--boot-volume.size", "100",
 			"--boot-volume.type", "abs",
 			"--boot-volume.tags", "[production, ethereum]",
-			"--cpu-config.vcpu", "2",
-			"--memory-config.size", "2",
 			"--name", "my-vm",
 			"--os-image-name", "ubuntu-noble-2025-10-01",
 			"--project-id", "123e4567-e89b-12d3-a456-426614174000",
@@ -53,10 +52,13 @@ func TestComputeVMsCreate(t *testing.T) {
 			"--region", "us-sva-2",
 			"--ssh-key.public-key", "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDBIASkmwNiLcdlW6927Zjt1Hf7Kw/PpEZ4Zm+wU9wn2",
 			"--subnet-id", "123e4567-e89b-12d3-a456-426614174000",
+			"--cpu-config.vcpu", "2",
 			"--data-volume.name", "my-data-volume",
 			"--data-volume.size", "100",
 			"--data-volume.type", "abs",
 			"--data-volume.tags", "[production, ethereum]",
+			"--instance-type", "n1-standard-8",
+			"--memory-config.size", "2",
 			"--tag", "production",
 			"--tag", "ethereum",
 		)
@@ -71,10 +73,6 @@ func TestComputeVMsCreate(t *testing.T) {
 			"  tags:\n" +
 			"    - production\n" +
 			"    - ethereum\n" +
-			"cpu_config:\n" +
-			"  vcpu: 2\n" +
-			"memory_config:\n" +
-			"  size: 2\n" +
 			"name: my-vm\n" +
 			"os_image_name: ubuntu-noble-2025-10-01\n" +
 			"project_id: 123e4567-e89b-12d3-a456-426614174000\n" +
@@ -85,6 +83,8 @@ func TestComputeVMsCreate(t *testing.T) {
 			"    ssh-ed25519\n" +
 			"    AAAAC3NzaC1lZDI1NTE5AAAAIDBIASkmwNiLcdlW6927Zjt1Hf7Kw/PpEZ4Zm+wU9wn2\n" +
 			"subnet_id: 123e4567-e89b-12d3-a456-426614174000\n" +
+			"cpu_config:\n" +
+			"  vcpu: 2\n" +
 			"data_volumes:\n" +
 			"  - name: my-data-volume\n" +
 			"    size: 100\n" +
@@ -92,6 +92,9 @@ func TestComputeVMsCreate(t *testing.T) {
 			"    tags:\n" +
 			"      - production\n" +
 			"      - ethereum\n" +
+			"instance_type: n1-standard-8\n" +
+			"memory_config:\n" +
+			"  size: 2\n" +
 			"tags:\n" +
 			"  - production\n" +
 			"  - ethereum\n")
@@ -112,6 +115,7 @@ func TestComputeVMsUpdate(t *testing.T) {
 			"compute:vms", "update",
 			"--vm-id", "vm_id",
 			"--cpu-config", "{vcpu: 2}",
+			"--instance-type", "n1-standard-8",
 			"--memory-config", "{size: 2}",
 			"--name", "my-vm",
 			"--public-ip-enabled=true",
@@ -131,6 +135,7 @@ func TestComputeVMsUpdate(t *testing.T) {
 			"compute:vms", "update",
 			"--vm-id", "vm_id",
 			"--cpu-config.vcpu", "2",
+			"--instance-type", "n1-standard-8",
 			"--memory-config.size", "2",
 			"--name", "my-vm",
 			"--public-ip-enabled=true",
@@ -144,6 +149,7 @@ func TestComputeVMsUpdate(t *testing.T) {
 		pipeData := []byte("" +
 			"cpu_config:\n" +
 			"  vcpu: 2\n" +
+			"instance_type: n1-standard-8\n" +
 			"memory_config:\n" +
 			"  size: 2\n" +
 			"name: my-vm\n" +
