@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.38.1 (2026-04-14)
+
+Full Changelog: [v0.38.0...v0.38.1](https://github.com/nirvana-labs/nirvana-cli/compare/v0.38.0...v0.38.1)
+
+### Chores
+
+* add documentation for ./scripts/link ([b6cbdf8](https://github.com/nirvana-labs/nirvana-cli/commit/b6cbdf8cf5d65968134fbcfdecdbe42b41379670))
+
 ## 0.38.0 (2026-04-10)
 
 Full Changelog: [v0.37.1...v0.38.0](https://github.com/nirvana-labs/nirvana-cli/compare/v0.37.1...v0.38.0)
