@@ -1,5 +1,20 @@
 # Changelog
 
+## 0.40.0 (2026-04-15)
+
+Full Changelog: [v0.39.0...v0.40.0](https://github.com/nirvana-labs/nirvana-cli/compare/v0.39.0...v0.40.0)
+
+### Features
+
+* **api:** api update ([95244b4](https://github.com/nirvana-labs/nirvana-cli/commit/95244b475561110e6d896510929b17f9b6e08b24))
+* **api:** api update ([0ff7883](https://github.com/nirvana-labs/nirvana-cli/commit/0ff7883559f6a2d6e6570f49417d266d4106ceb8))
+* **cli:** alias parameters in data with `x-stainless-cli-data-alias` ([1ca5e5b](https://github.com/nirvana-labs/nirvana-cli/commit/1ca5e5b4390cd386bc419e6ee620f96cb6fcba93))
+
+
+### Chores
+
+* **cli:** fall back to JSON when using default "explore" with non-TTY ([6388a95](https://github.com/nirvana-labs/nirvana-cli/commit/6388a95fe3a5803c3fb68cc6d56c4a27e876f93d))
+
 ## 0.39.0 (2026-04-14)
 
 Full Changelog: [v0.38.1...v0.39.0](https://github.com/nirvana-labs/nirvana-cli/compare/v0.38.1...v0.39.0)
