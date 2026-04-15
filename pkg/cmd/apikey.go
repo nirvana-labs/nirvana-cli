@@ -237,8 +237,9 @@ func handleAPIKeysCreate(ctx context.Context, cmd *cli.Command) error {
 
 	obj := gjson.ParseBytes(res)
 	format := cmd.Root().String("format")
+	explicitFormat := cmd.Root().IsSet("format")
 	transform := cmd.Root().String("transform")
-	return ShowJSON(os.Stdout, "api-keys create", obj, format, transform)
+	return ShowJSON(os.Stdout, os.Stderr, "api-keys create", obj, format, explicitFormat, transform)
 }
 
 func handleAPIKeysUpdate(ctx context.Context, cmd *cli.Command) error {
@@ -279,8 +280,9 @@ func handleAPIKeysUpdate(ctx context.Context, cmd *cli.Command) error {
 
 	obj := gjson.ParseBytes(res)
 	format := cmd.Root().String("format")
+	explicitFormat := cmd.Root().IsSet("format")
 	transform := cmd.Root().String("transform")
-	return ShowJSON(os.Stdout, "api-keys update", obj, format, transform)
+	return ShowJSON(os.Stdout, os.Stderr, "api-keys update", obj, format, explicitFormat, transform)
 }
 
 func handleAPIKeysList(ctx context.Context, cmd *cli.Command) error {
@@ -305,6 +307,7 @@ func handleAPIKeysList(ctx context.Context, cmd *cli.Command) error {
 	}
 
 	format := cmd.Root().String("format")
+	explicitFormat := cmd.Root().IsSet("format")
 	transform := cmd.Root().String("transform")
 	if format == "raw" {
 		var res []byte
@@ -314,14 +317,14 @@ func handleAPIKeysList(ctx context.Context, cmd *cli.Command) error {
 			return err
 		}
 		obj := gjson.ParseBytes(res)
-		return ShowJSON(os.Stdout, "api-keys list", obj, format, transform)
+		return ShowJSON(os.Stdout, os.Stderr, "api-keys list", obj, format, explicitFormat, transform)
 	} else {
 		iter := client.APIKeys.ListAutoPaging(ctx, params, options...)
 		maxItems := int64(-1)
 		if cmd.IsSet("max-items") {
 			maxItems = cmd.Value("max-items").(int64)
 		}
-		return ShowJSONIterator(os.Stdout, "api-keys list", iter, format, transform, maxItems)
+		return ShowJSONIterator(os.Stdout, os.Stderr, "api-keys list", iter, format, explicitFormat, transform, maxItems)
 	}
 }
 
@@ -381,6 +384,7 @@ func handleAPIKeysGet(ctx context.Context, cmd *cli.Command) error {
 
 	obj := gjson.ParseBytes(res)
 	format := cmd.Root().String("format")
+	explicitFormat := cmd.Root().IsSet("format")
 	transform := cmd.Root().String("transform")
-	return ShowJSON(os.Stdout, "api-keys get", obj, format, transform)
+	return ShowJSON(os.Stdout, os.Stderr, "api-keys get", obj, format, explicitFormat, transform)
 }

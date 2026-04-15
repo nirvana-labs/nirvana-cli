@@ -122,6 +122,7 @@ func handleNKSClustersPoolsNodesList(ctx context.Context, cmd *cli.Command) erro
 	}
 
 	format := cmd.Root().String("format")
+	explicitFormat := cmd.Root().IsSet("format")
 	transform := cmd.Root().String("transform")
 	if format == "raw" {
 		var res []byte
@@ -137,7 +138,7 @@ func handleNKSClustersPoolsNodesList(ctx context.Context, cmd *cli.Command) erro
 			return err
 		}
 		obj := gjson.ParseBytes(res)
-		return ShowJSON(os.Stdout, "nks:clusters:pools:nodes list", obj, format, transform)
+		return ShowJSON(os.Stdout, os.Stderr, "nks:clusters:pools:nodes list", obj, format, explicitFormat, transform)
 	} else {
 		iter := client.NKS.Clusters.Pools.Nodes.ListAutoPaging(
 			ctx,
@@ -150,7 +151,7 @@ func handleNKSClustersPoolsNodesList(ctx context.Context, cmd *cli.Command) erro
 		if cmd.IsSet("max-items") {
 			maxItems = cmd.Value("max-items").(int64)
 		}
-		return ShowJSONIterator(os.Stdout, "nks:clusters:pools:nodes list", iter, format, transform, maxItems)
+		return ShowJSONIterator(os.Stdout, os.Stderr, "nks:clusters:pools:nodes list", iter, format, explicitFormat, transform, maxItems)
 	}
 }
 
@@ -199,8 +200,9 @@ func handleNKSClustersPoolsNodesDelete(ctx context.Context, cmd *cli.Command) er
 
 	obj := gjson.ParseBytes(res)
 	format := cmd.Root().String("format")
+	explicitFormat := cmd.Root().IsSet("format")
 	transform := cmd.Root().String("transform")
-	return ShowJSON(os.Stdout, "nks:clusters:pools:nodes delete", obj, format, transform)
+	return ShowJSON(os.Stdout, os.Stderr, "nks:clusters:pools:nodes delete", obj, format, explicitFormat, transform)
 }
 
 func handleNKSClustersPoolsNodesGet(ctx context.Context, cmd *cli.Command) error {
@@ -248,6 +250,7 @@ func handleNKSClustersPoolsNodesGet(ctx context.Context, cmd *cli.Command) error
 
 	obj := gjson.ParseBytes(res)
 	format := cmd.Root().String("format")
+	explicitFormat := cmd.Root().IsSet("format")
 	transform := cmd.Root().String("transform")
-	return ShowJSON(os.Stdout, "nks:clusters:pools:nodes get", obj, format, transform)
+	return ShowJSON(os.Stdout, os.Stderr, "nks:clusters:pools:nodes get", obj, format, explicitFormat, transform)
 }
