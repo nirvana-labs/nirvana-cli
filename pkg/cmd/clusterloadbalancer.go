@@ -88,6 +88,7 @@ func handleNKSClustersLoadBalancersList(ctx context.Context, cmd *cli.Command) e
 	}
 
 	format := cmd.Root().String("format")
+	explicitFormat := cmd.Root().IsSet("format")
 	transform := cmd.Root().String("transform")
 	if format == "raw" {
 		var res []byte
@@ -102,7 +103,7 @@ func handleNKSClustersLoadBalancersList(ctx context.Context, cmd *cli.Command) e
 			return err
 		}
 		obj := gjson.ParseBytes(res)
-		return ShowJSON(os.Stdout, "nks:clusters:load-balancers list", obj, format, transform)
+		return ShowJSON(os.Stdout, os.Stderr, "nks:clusters:load-balancers list", obj, format, explicitFormat, transform)
 	} else {
 		iter := client.NKS.Clusters.LoadBalancers.ListAutoPaging(
 			ctx,
@@ -114,7 +115,7 @@ func handleNKSClustersLoadBalancersList(ctx context.Context, cmd *cli.Command) e
 		if cmd.IsSet("max-items") {
 			maxItems = cmd.Value("max-items").(int64)
 		}
-		return ShowJSONIterator(os.Stdout, "nks:clusters:load-balancers list", iter, format, transform, maxItems)
+		return ShowJSONIterator(os.Stdout, os.Stderr, "nks:clusters:load-balancers list", iter, format, explicitFormat, transform, maxItems)
 	}
 }
 
@@ -158,6 +159,7 @@ func handleNKSClustersLoadBalancersGet(ctx context.Context, cmd *cli.Command) er
 
 	obj := gjson.ParseBytes(res)
 	format := cmd.Root().String("format")
+	explicitFormat := cmd.Root().IsSet("format")
 	transform := cmd.Root().String("transform")
-	return ShowJSON(os.Stdout, "nks:clusters:load-balancers get", obj, format, transform)
+	return ShowJSON(os.Stdout, os.Stderr, "nks:clusters:load-balancers get", obj, format, explicitFormat, transform)
 }

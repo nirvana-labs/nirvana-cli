@@ -88,6 +88,7 @@ func handleNKSClustersControllersList(ctx context.Context, cmd *cli.Command) err
 	}
 
 	format := cmd.Root().String("format")
+	explicitFormat := cmd.Root().IsSet("format")
 	transform := cmd.Root().String("transform")
 	if format == "raw" {
 		var res []byte
@@ -102,7 +103,7 @@ func handleNKSClustersControllersList(ctx context.Context, cmd *cli.Command) err
 			return err
 		}
 		obj := gjson.ParseBytes(res)
-		return ShowJSON(os.Stdout, "nks:clusters:controllers list", obj, format, transform)
+		return ShowJSON(os.Stdout, os.Stderr, "nks:clusters:controllers list", obj, format, explicitFormat, transform)
 	} else {
 		iter := client.NKS.Clusters.Controllers.ListAutoPaging(
 			ctx,
@@ -114,7 +115,7 @@ func handleNKSClustersControllersList(ctx context.Context, cmd *cli.Command) err
 		if cmd.IsSet("max-items") {
 			maxItems = cmd.Value("max-items").(int64)
 		}
-		return ShowJSONIterator(os.Stdout, "nks:clusters:controllers list", iter, format, transform, maxItems)
+		return ShowJSONIterator(os.Stdout, os.Stderr, "nks:clusters:controllers list", iter, format, explicitFormat, transform, maxItems)
 	}
 }
 
@@ -158,6 +159,7 @@ func handleNKSClustersControllersGet(ctx context.Context, cmd *cli.Command) erro
 
 	obj := gjson.ParseBytes(res)
 	format := cmd.Root().String("format")
+	explicitFormat := cmd.Root().IsSet("format")
 	transform := cmd.Root().String("transform")
-	return ShowJSON(os.Stdout, "nks:clusters:controllers get", obj, format, transform)
+	return ShowJSON(os.Stdout, os.Stderr, "nks:clusters:controllers get", obj, format, explicitFormat, transform)
 }

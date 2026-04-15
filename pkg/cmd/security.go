@@ -83,8 +83,9 @@ func handleUserSecurityUpdate(ctx context.Context, cmd *cli.Command) error {
 
 	obj := gjson.ParseBytes(res)
 	format := cmd.Root().String("format")
+	explicitFormat := cmd.Root().IsSet("format")
 	transform := cmd.Root().String("transform")
-	return ShowJSON(os.Stdout, "user:security update", obj, format, transform)
+	return ShowJSON(os.Stdout, os.Stderr, "user:security update", obj, format, explicitFormat, transform)
 }
 
 func handleUserSecurityGet(ctx context.Context, cmd *cli.Command) error {
@@ -115,6 +116,7 @@ func handleUserSecurityGet(ctx context.Context, cmd *cli.Command) error {
 
 	obj := gjson.ParseBytes(res)
 	format := cmd.Root().String("format")
+	explicitFormat := cmd.Root().IsSet("format")
 	transform := cmd.Root().String("transform")
-	return ShowJSON(os.Stdout, "user:security get", obj, format, transform)
+	return ShowJSON(os.Stdout, os.Stderr, "user:security get", obj, format, explicitFormat, transform)
 }

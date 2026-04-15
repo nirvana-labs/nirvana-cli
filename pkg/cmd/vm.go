@@ -118,7 +118,7 @@ var computeVMsCreate = requestflag.WithInnerFlags(cli.Command{
 	"ssh-key": {
 		&requestflag.InnerFlag[string]{
 			Name:       "ssh-key.public-key",
-			Usage:      "Public key to and and use to access the VM.",
+			Usage:      "Public key to and use to access the VM.",
 			InnerField: "public_key",
 		},
 	},
@@ -322,8 +322,9 @@ func handleComputeVMsCreate(ctx context.Context, cmd *cli.Command) error {
 
 	obj := gjson.ParseBytes(res)
 	format := cmd.Root().String("format")
+	explicitFormat := cmd.Root().IsSet("format")
 	transform := cmd.Root().String("transform")
-	return ShowJSON(os.Stdout, "compute:vms create", obj, format, transform)
+	return ShowJSON(os.Stdout, os.Stderr, "compute:vms create", obj, format, explicitFormat, transform)
 }
 
 func handleComputeVMsUpdate(ctx context.Context, cmd *cli.Command) error {
@@ -364,8 +365,9 @@ func handleComputeVMsUpdate(ctx context.Context, cmd *cli.Command) error {
 
 	obj := gjson.ParseBytes(res)
 	format := cmd.Root().String("format")
+	explicitFormat := cmd.Root().IsSet("format")
 	transform := cmd.Root().String("transform")
-	return ShowJSON(os.Stdout, "compute:vms update", obj, format, transform)
+	return ShowJSON(os.Stdout, os.Stderr, "compute:vms update", obj, format, explicitFormat, transform)
 }
 
 func handleComputeVMsList(ctx context.Context, cmd *cli.Command) error {
@@ -390,6 +392,7 @@ func handleComputeVMsList(ctx context.Context, cmd *cli.Command) error {
 	}
 
 	format := cmd.Root().String("format")
+	explicitFormat := cmd.Root().IsSet("format")
 	transform := cmd.Root().String("transform")
 	if format == "raw" {
 		var res []byte
@@ -399,14 +402,14 @@ func handleComputeVMsList(ctx context.Context, cmd *cli.Command) error {
 			return err
 		}
 		obj := gjson.ParseBytes(res)
-		return ShowJSON(os.Stdout, "compute:vms list", obj, format, transform)
+		return ShowJSON(os.Stdout, os.Stderr, "compute:vms list", obj, format, explicitFormat, transform)
 	} else {
 		iter := client.Compute.VMs.ListAutoPaging(ctx, params, options...)
 		maxItems := int64(-1)
 		if cmd.IsSet("max-items") {
 			maxItems = cmd.Value("max-items").(int64)
 		}
-		return ShowJSONIterator(os.Stdout, "compute:vms list", iter, format, transform, maxItems)
+		return ShowJSONIterator(os.Stdout, os.Stderr, "compute:vms list", iter, format, explicitFormat, transform, maxItems)
 	}
 }
 
@@ -441,8 +444,9 @@ func handleComputeVMsDelete(ctx context.Context, cmd *cli.Command) error {
 
 	obj := gjson.ParseBytes(res)
 	format := cmd.Root().String("format")
+	explicitFormat := cmd.Root().IsSet("format")
 	transform := cmd.Root().String("transform")
-	return ShowJSON(os.Stdout, "compute:vms delete", obj, format, transform)
+	return ShowJSON(os.Stdout, os.Stderr, "compute:vms delete", obj, format, explicitFormat, transform)
 }
 
 func handleComputeVMsGet(ctx context.Context, cmd *cli.Command) error {
@@ -476,8 +480,9 @@ func handleComputeVMsGet(ctx context.Context, cmd *cli.Command) error {
 
 	obj := gjson.ParseBytes(res)
 	format := cmd.Root().String("format")
+	explicitFormat := cmd.Root().IsSet("format")
 	transform := cmd.Root().String("transform")
-	return ShowJSON(os.Stdout, "compute:vms get", obj, format, transform)
+	return ShowJSON(os.Stdout, os.Stderr, "compute:vms get", obj, format, explicitFormat, transform)
 }
 
 func handleComputeVMsRestart(ctx context.Context, cmd *cli.Command) error {
@@ -511,6 +516,7 @@ func handleComputeVMsRestart(ctx context.Context, cmd *cli.Command) error {
 
 	obj := gjson.ParseBytes(res)
 	format := cmd.Root().String("format")
+	explicitFormat := cmd.Root().IsSet("format")
 	transform := cmd.Root().String("transform")
-	return ShowJSON(os.Stdout, "compute:vms restart", obj, format, transform)
+	return ShowJSON(os.Stdout, os.Stderr, "compute:vms restart", obj, format, explicitFormat, transform)
 }

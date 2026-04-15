@@ -218,8 +218,9 @@ func handleComputeVolumesCreate(ctx context.Context, cmd *cli.Command) error {
 
 	obj := gjson.ParseBytes(res)
 	format := cmd.Root().String("format")
+	explicitFormat := cmd.Root().IsSet("format")
 	transform := cmd.Root().String("transform")
-	return ShowJSON(os.Stdout, "compute:volumes create", obj, format, transform)
+	return ShowJSON(os.Stdout, os.Stderr, "compute:volumes create", obj, format, explicitFormat, transform)
 }
 
 func handleComputeVolumesUpdate(ctx context.Context, cmd *cli.Command) error {
@@ -260,8 +261,9 @@ func handleComputeVolumesUpdate(ctx context.Context, cmd *cli.Command) error {
 
 	obj := gjson.ParseBytes(res)
 	format := cmd.Root().String("format")
+	explicitFormat := cmd.Root().IsSet("format")
 	transform := cmd.Root().String("transform")
-	return ShowJSON(os.Stdout, "compute:volumes update", obj, format, transform)
+	return ShowJSON(os.Stdout, os.Stderr, "compute:volumes update", obj, format, explicitFormat, transform)
 }
 
 func handleComputeVolumesList(ctx context.Context, cmd *cli.Command) error {
@@ -286,6 +288,7 @@ func handleComputeVolumesList(ctx context.Context, cmd *cli.Command) error {
 	}
 
 	format := cmd.Root().String("format")
+	explicitFormat := cmd.Root().IsSet("format")
 	transform := cmd.Root().String("transform")
 	if format == "raw" {
 		var res []byte
@@ -295,14 +298,14 @@ func handleComputeVolumesList(ctx context.Context, cmd *cli.Command) error {
 			return err
 		}
 		obj := gjson.ParseBytes(res)
-		return ShowJSON(os.Stdout, "compute:volumes list", obj, format, transform)
+		return ShowJSON(os.Stdout, os.Stderr, "compute:volumes list", obj, format, explicitFormat, transform)
 	} else {
 		iter := client.Compute.Volumes.ListAutoPaging(ctx, params, options...)
 		maxItems := int64(-1)
 		if cmd.IsSet("max-items") {
 			maxItems = cmd.Value("max-items").(int64)
 		}
-		return ShowJSONIterator(os.Stdout, "compute:volumes list", iter, format, transform, maxItems)
+		return ShowJSONIterator(os.Stdout, os.Stderr, "compute:volumes list", iter, format, explicitFormat, transform, maxItems)
 	}
 }
 
@@ -337,8 +340,9 @@ func handleComputeVolumesDelete(ctx context.Context, cmd *cli.Command) error {
 
 	obj := gjson.ParseBytes(res)
 	format := cmd.Root().String("format")
+	explicitFormat := cmd.Root().IsSet("format")
 	transform := cmd.Root().String("transform")
-	return ShowJSON(os.Stdout, "compute:volumes delete", obj, format, transform)
+	return ShowJSON(os.Stdout, os.Stderr, "compute:volumes delete", obj, format, explicitFormat, transform)
 }
 
 func handleComputeVolumesAttach(ctx context.Context, cmd *cli.Command) error {
@@ -379,8 +383,9 @@ func handleComputeVolumesAttach(ctx context.Context, cmd *cli.Command) error {
 
 	obj := gjson.ParseBytes(res)
 	format := cmd.Root().String("format")
+	explicitFormat := cmd.Root().IsSet("format")
 	transform := cmd.Root().String("transform")
-	return ShowJSON(os.Stdout, "compute:volumes attach", obj, format, transform)
+	return ShowJSON(os.Stdout, os.Stderr, "compute:volumes attach", obj, format, explicitFormat, transform)
 }
 
 func handleComputeVolumesDetach(ctx context.Context, cmd *cli.Command) error {
@@ -414,8 +419,9 @@ func handleComputeVolumesDetach(ctx context.Context, cmd *cli.Command) error {
 
 	obj := gjson.ParseBytes(res)
 	format := cmd.Root().String("format")
+	explicitFormat := cmd.Root().IsSet("format")
 	transform := cmd.Root().String("transform")
-	return ShowJSON(os.Stdout, "compute:volumes detach", obj, format, transform)
+	return ShowJSON(os.Stdout, os.Stderr, "compute:volumes detach", obj, format, explicitFormat, transform)
 }
 
 func handleComputeVolumesGet(ctx context.Context, cmd *cli.Command) error {
@@ -449,6 +455,7 @@ func handleComputeVolumesGet(ctx context.Context, cmd *cli.Command) error {
 
 	obj := gjson.ParseBytes(res)
 	format := cmd.Root().String("format")
+	explicitFormat := cmd.Root().IsSet("format")
 	transform := cmd.Root().String("transform")
-	return ShowJSON(os.Stdout, "compute:volumes get", obj, format, transform)
+	return ShowJSON(os.Stdout, os.Stderr, "compute:volumes get", obj, format, explicitFormat, transform)
 }
