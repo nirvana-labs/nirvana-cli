@@ -118,7 +118,7 @@ var computeVMsCreate = requestflag.WithInnerFlags(cli.Command{
 	"ssh-key": {
 		&requestflag.InnerFlag[string]{
 			Name:       "ssh-key.public-key",
-			Usage:      "Public key to and and use to access the VM.",
+			Usage:      "Public key to and use to access the VM.",
 			InnerField: "public_key",
 		},
 	},
