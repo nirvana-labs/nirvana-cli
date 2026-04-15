@@ -134,8 +134,9 @@ func handleOrganizationsCreate(ctx context.Context, cmd *cli.Command) error {
 
 	obj := gjson.ParseBytes(res)
 	format := cmd.Root().String("format")
+	explicitFormat := cmd.Root().IsSet("format")
 	transform := cmd.Root().String("transform")
-	return ShowJSON(os.Stdout, "organizations create", obj, format, transform)
+	return ShowJSON(os.Stdout, os.Stderr, "organizations create", obj, format, explicitFormat, transform)
 }
 
 func handleOrganizationsUpdate(ctx context.Context, cmd *cli.Command) error {
@@ -176,8 +177,9 @@ func handleOrganizationsUpdate(ctx context.Context, cmd *cli.Command) error {
 
 	obj := gjson.ParseBytes(res)
 	format := cmd.Root().String("format")
+	explicitFormat := cmd.Root().IsSet("format")
 	transform := cmd.Root().String("transform")
-	return ShowJSON(os.Stdout, "organizations update", obj, format, transform)
+	return ShowJSON(os.Stdout, os.Stderr, "organizations update", obj, format, explicitFormat, transform)
 }
 
 func handleOrganizationsList(ctx context.Context, cmd *cli.Command) error {
@@ -202,6 +204,7 @@ func handleOrganizationsList(ctx context.Context, cmd *cli.Command) error {
 	}
 
 	format := cmd.Root().String("format")
+	explicitFormat := cmd.Root().IsSet("format")
 	transform := cmd.Root().String("transform")
 	if format == "raw" {
 		var res []byte
@@ -211,14 +214,14 @@ func handleOrganizationsList(ctx context.Context, cmd *cli.Command) error {
 			return err
 		}
 		obj := gjson.ParseBytes(res)
-		return ShowJSON(os.Stdout, "organizations list", obj, format, transform)
+		return ShowJSON(os.Stdout, os.Stderr, "organizations list", obj, format, explicitFormat, transform)
 	} else {
 		iter := client.Organizations.ListAutoPaging(ctx, params, options...)
 		maxItems := int64(-1)
 		if cmd.IsSet("max-items") {
 			maxItems = cmd.Value("max-items").(int64)
 		}
-		return ShowJSONIterator(os.Stdout, "organizations list", iter, format, transform, maxItems)
+		return ShowJSONIterator(os.Stdout, os.Stderr, "organizations list", iter, format, explicitFormat, transform, maxItems)
 	}
 }
 
@@ -253,8 +256,9 @@ func handleOrganizationsGet(ctx context.Context, cmd *cli.Command) error {
 
 	obj := gjson.ParseBytes(res)
 	format := cmd.Root().String("format")
+	explicitFormat := cmd.Root().IsSet("format")
 	transform := cmd.Root().String("transform")
-	return ShowJSON(os.Stdout, "organizations get", obj, format, transform)
+	return ShowJSON(os.Stdout, os.Stderr, "organizations get", obj, format, explicitFormat, transform)
 }
 
 func handleOrganizationsLeave(ctx context.Context, cmd *cli.Command) error {

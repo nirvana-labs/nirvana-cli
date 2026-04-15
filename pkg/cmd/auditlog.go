@@ -77,6 +77,7 @@ func handleAuditLogsList(ctx context.Context, cmd *cli.Command) error {
 	}
 
 	format := cmd.Root().String("format")
+	explicitFormat := cmd.Root().IsSet("format")
 	transform := cmd.Root().String("transform")
 	if format == "raw" {
 		var res []byte
@@ -86,14 +87,14 @@ func handleAuditLogsList(ctx context.Context, cmd *cli.Command) error {
 			return err
 		}
 		obj := gjson.ParseBytes(res)
-		return ShowJSON(os.Stdout, "audit-logs list", obj, format, transform)
+		return ShowJSON(os.Stdout, os.Stderr, "audit-logs list", obj, format, explicitFormat, transform)
 	} else {
 		iter := client.AuditLogs.ListAutoPaging(ctx, params, options...)
 		maxItems := int64(-1)
 		if cmd.IsSet("max-items") {
 			maxItems = cmd.Value("max-items").(int64)
 		}
-		return ShowJSONIterator(os.Stdout, "audit-logs list", iter, format, transform, maxItems)
+		return ShowJSONIterator(os.Stdout, os.Stderr, "audit-logs list", iter, format, explicitFormat, transform, maxItems)
 	}
 }
 
@@ -128,6 +129,7 @@ func handleAuditLogsGet(ctx context.Context, cmd *cli.Command) error {
 
 	obj := gjson.ParseBytes(res)
 	format := cmd.Root().String("format")
+	explicitFormat := cmd.Root().IsSet("format")
 	transform := cmd.Root().String("transform")
-	return ShowJSON(os.Stdout, "audit-logs get", obj, format, transform)
+	return ShowJSON(os.Stdout, os.Stderr, "audit-logs get", obj, format, explicitFormat, transform)
 }

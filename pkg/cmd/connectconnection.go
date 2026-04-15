@@ -198,8 +198,9 @@ func handleNetworkingConnectConnectionsCreate(ctx context.Context, cmd *cli.Comm
 
 	obj := gjson.ParseBytes(res)
 	format := cmd.Root().String("format")
+	explicitFormat := cmd.Root().IsSet("format")
 	transform := cmd.Root().String("transform")
-	return ShowJSON(os.Stdout, "networking:connect:connections create", obj, format, transform)
+	return ShowJSON(os.Stdout, os.Stderr, "networking:connect:connections create", obj, format, explicitFormat, transform)
 }
 
 func handleNetworkingConnectConnectionsUpdate(ctx context.Context, cmd *cli.Command) error {
@@ -240,8 +241,9 @@ func handleNetworkingConnectConnectionsUpdate(ctx context.Context, cmd *cli.Comm
 
 	obj := gjson.ParseBytes(res)
 	format := cmd.Root().String("format")
+	explicitFormat := cmd.Root().IsSet("format")
 	transform := cmd.Root().String("transform")
-	return ShowJSON(os.Stdout, "networking:connect:connections update", obj, format, transform)
+	return ShowJSON(os.Stdout, os.Stderr, "networking:connect:connections update", obj, format, explicitFormat, transform)
 }
 
 func handleNetworkingConnectConnectionsList(ctx context.Context, cmd *cli.Command) error {
@@ -266,6 +268,7 @@ func handleNetworkingConnectConnectionsList(ctx context.Context, cmd *cli.Comman
 	}
 
 	format := cmd.Root().String("format")
+	explicitFormat := cmd.Root().IsSet("format")
 	transform := cmd.Root().String("transform")
 	if format == "raw" {
 		var res []byte
@@ -275,14 +278,14 @@ func handleNetworkingConnectConnectionsList(ctx context.Context, cmd *cli.Comman
 			return err
 		}
 		obj := gjson.ParseBytes(res)
-		return ShowJSON(os.Stdout, "networking:connect:connections list", obj, format, transform)
+		return ShowJSON(os.Stdout, os.Stderr, "networking:connect:connections list", obj, format, explicitFormat, transform)
 	} else {
 		iter := client.Networking.Connect.Connections.ListAutoPaging(ctx, params, options...)
 		maxItems := int64(-1)
 		if cmd.IsSet("max-items") {
 			maxItems = cmd.Value("max-items").(int64)
 		}
-		return ShowJSONIterator(os.Stdout, "networking:connect:connections list", iter, format, transform, maxItems)
+		return ShowJSONIterator(os.Stdout, os.Stderr, "networking:connect:connections list", iter, format, explicitFormat, transform, maxItems)
 	}
 }
 
@@ -317,8 +320,9 @@ func handleNetworkingConnectConnectionsDelete(ctx context.Context, cmd *cli.Comm
 
 	obj := gjson.ParseBytes(res)
 	format := cmd.Root().String("format")
+	explicitFormat := cmd.Root().IsSet("format")
 	transform := cmd.Root().String("transform")
-	return ShowJSON(os.Stdout, "networking:connect:connections delete", obj, format, transform)
+	return ShowJSON(os.Stdout, os.Stderr, "networking:connect:connections delete", obj, format, explicitFormat, transform)
 }
 
 func handleNetworkingConnectConnectionsGet(ctx context.Context, cmd *cli.Command) error {
@@ -352,6 +356,7 @@ func handleNetworkingConnectConnectionsGet(ctx context.Context, cmd *cli.Command
 
 	obj := gjson.ParseBytes(res)
 	format := cmd.Root().String("format")
+	explicitFormat := cmd.Root().IsSet("format")
 	transform := cmd.Root().String("transform")
-	return ShowJSON(os.Stdout, "networking:connect:connections get", obj, format, transform)
+	return ShowJSON(os.Stdout, os.Stderr, "networking:connect:connections get", obj, format, explicitFormat, transform)
 }

@@ -112,6 +112,7 @@ func handleNKSClustersPoolsNodesVolumesList(ctx context.Context, cmd *cli.Comman
 	}
 
 	format := cmd.Root().String("format")
+	explicitFormat := cmd.Root().IsSet("format")
 	transform := cmd.Root().String("transform")
 	if format == "raw" {
 		var res []byte
@@ -128,7 +129,7 @@ func handleNKSClustersPoolsNodesVolumesList(ctx context.Context, cmd *cli.Comman
 			return err
 		}
 		obj := gjson.ParseBytes(res)
-		return ShowJSON(os.Stdout, "nks:clusters:pools:nodes:volumes list", obj, format, transform)
+		return ShowJSON(os.Stdout, os.Stderr, "nks:clusters:pools:nodes:volumes list", obj, format, explicitFormat, transform)
 	} else {
 		iter := client.NKS.Clusters.Pools.Nodes.Volumes.ListAutoPaging(
 			ctx,
@@ -142,7 +143,7 @@ func handleNKSClustersPoolsNodesVolumesList(ctx context.Context, cmd *cli.Comman
 		if cmd.IsSet("max-items") {
 			maxItems = cmd.Value("max-items").(int64)
 		}
-		return ShowJSONIterator(os.Stdout, "nks:clusters:pools:nodes:volumes list", iter, format, transform, maxItems)
+		return ShowJSONIterator(os.Stdout, os.Stderr, "nks:clusters:pools:nodes:volumes list", iter, format, explicitFormat, transform, maxItems)
 	}
 }
 
@@ -196,6 +197,7 @@ func handleNKSClustersPoolsNodesVolumesGet(ctx context.Context, cmd *cli.Command
 
 	obj := gjson.ParseBytes(res)
 	format := cmd.Root().String("format")
+	explicitFormat := cmd.Root().IsSet("format")
 	transform := cmd.Root().String("transform")
-	return ShowJSON(os.Stdout, "nks:clusters:pools:nodes:volumes get", obj, format, transform)
+	return ShowJSON(os.Stdout, os.Stderr, "nks:clusters:pools:nodes:volumes get", obj, format, explicitFormat, transform)
 }

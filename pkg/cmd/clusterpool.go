@@ -202,8 +202,9 @@ func handleNKSClustersPoolsCreate(ctx context.Context, cmd *cli.Command) error {
 
 	obj := gjson.ParseBytes(res)
 	format := cmd.Root().String("format")
+	explicitFormat := cmd.Root().IsSet("format")
 	transform := cmd.Root().String("transform")
-	return ShowJSON(os.Stdout, "nks:clusters:pools create", obj, format, transform)
+	return ShowJSON(os.Stdout, os.Stderr, "nks:clusters:pools create", obj, format, explicitFormat, transform)
 }
 
 func handleNKSClustersPoolsUpdate(ctx context.Context, cmd *cli.Command) error {
@@ -249,8 +250,9 @@ func handleNKSClustersPoolsUpdate(ctx context.Context, cmd *cli.Command) error {
 
 	obj := gjson.ParseBytes(res)
 	format := cmd.Root().String("format")
+	explicitFormat := cmd.Root().IsSet("format")
 	transform := cmd.Root().String("transform")
-	return ShowJSON(os.Stdout, "nks:clusters:pools update", obj, format, transform)
+	return ShowJSON(os.Stdout, os.Stderr, "nks:clusters:pools update", obj, format, explicitFormat, transform)
 }
 
 func handleNKSClustersPoolsList(ctx context.Context, cmd *cli.Command) error {
@@ -278,6 +280,7 @@ func handleNKSClustersPoolsList(ctx context.Context, cmd *cli.Command) error {
 	}
 
 	format := cmd.Root().String("format")
+	explicitFormat := cmd.Root().IsSet("format")
 	transform := cmd.Root().String("transform")
 	if format == "raw" {
 		var res []byte
@@ -292,7 +295,7 @@ func handleNKSClustersPoolsList(ctx context.Context, cmd *cli.Command) error {
 			return err
 		}
 		obj := gjson.ParseBytes(res)
-		return ShowJSON(os.Stdout, "nks:clusters:pools list", obj, format, transform)
+		return ShowJSON(os.Stdout, os.Stderr, "nks:clusters:pools list", obj, format, explicitFormat, transform)
 	} else {
 		iter := client.NKS.Clusters.Pools.ListAutoPaging(
 			ctx,
@@ -304,7 +307,7 @@ func handleNKSClustersPoolsList(ctx context.Context, cmd *cli.Command) error {
 		if cmd.IsSet("max-items") {
 			maxItems = cmd.Value("max-items").(int64)
 		}
-		return ShowJSONIterator(os.Stdout, "nks:clusters:pools list", iter, format, transform, maxItems)
+		return ShowJSONIterator(os.Stdout, os.Stderr, "nks:clusters:pools list", iter, format, explicitFormat, transform, maxItems)
 	}
 }
 
@@ -348,8 +351,9 @@ func handleNKSClustersPoolsDelete(ctx context.Context, cmd *cli.Command) error {
 
 	obj := gjson.ParseBytes(res)
 	format := cmd.Root().String("format")
+	explicitFormat := cmd.Root().IsSet("format")
 	transform := cmd.Root().String("transform")
-	return ShowJSON(os.Stdout, "nks:clusters:pools delete", obj, format, transform)
+	return ShowJSON(os.Stdout, os.Stderr, "nks:clusters:pools delete", obj, format, explicitFormat, transform)
 }
 
 func handleNKSClustersPoolsGet(ctx context.Context, cmd *cli.Command) error {
@@ -392,6 +396,7 @@ func handleNKSClustersPoolsGet(ctx context.Context, cmd *cli.Command) error {
 
 	obj := gjson.ParseBytes(res)
 	format := cmd.Root().String("format")
+	explicitFormat := cmd.Root().IsSet("format")
 	transform := cmd.Root().String("transform")
-	return ShowJSON(os.Stdout, "nks:clusters:pools get", obj, format, transform)
+	return ShowJSON(os.Stdout, os.Stderr, "nks:clusters:pools get", obj, format, explicitFormat, transform)
 }

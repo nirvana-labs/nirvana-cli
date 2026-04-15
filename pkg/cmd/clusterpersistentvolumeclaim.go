@@ -88,6 +88,7 @@ func handleNKSClustersPersistentVolumeClaimsList(ctx context.Context, cmd *cli.C
 	}
 
 	format := cmd.Root().String("format")
+	explicitFormat := cmd.Root().IsSet("format")
 	transform := cmd.Root().String("transform")
 	if format == "raw" {
 		var res []byte
@@ -102,7 +103,7 @@ func handleNKSClustersPersistentVolumeClaimsList(ctx context.Context, cmd *cli.C
 			return err
 		}
 		obj := gjson.ParseBytes(res)
-		return ShowJSON(os.Stdout, "nks:clusters:persistent-volume-claims list", obj, format, transform)
+		return ShowJSON(os.Stdout, os.Stderr, "nks:clusters:persistent-volume-claims list", obj, format, explicitFormat, transform)
 	} else {
 		iter := client.NKS.Clusters.PersistentVolumeClaims.ListAutoPaging(
 			ctx,
@@ -114,7 +115,7 @@ func handleNKSClustersPersistentVolumeClaimsList(ctx context.Context, cmd *cli.C
 		if cmd.IsSet("max-items") {
 			maxItems = cmd.Value("max-items").(int64)
 		}
-		return ShowJSONIterator(os.Stdout, "nks:clusters:persistent-volume-claims list", iter, format, transform, maxItems)
+		return ShowJSONIterator(os.Stdout, os.Stderr, "nks:clusters:persistent-volume-claims list", iter, format, explicitFormat, transform, maxItems)
 	}
 }
 
@@ -158,6 +159,7 @@ func handleNKSClustersPersistentVolumeClaimsGet(ctx context.Context, cmd *cli.Co
 
 	obj := gjson.ParseBytes(res)
 	format := cmd.Root().String("format")
+	explicitFormat := cmd.Root().IsSet("format")
 	transform := cmd.Root().String("transform")
-	return ShowJSON(os.Stdout, "nks:clusters:persistent-volume-claims get", obj, format, transform)
+	return ShowJSON(os.Stdout, os.Stderr, "nks:clusters:persistent-volume-claims get", obj, format, explicitFormat, transform)
 }

@@ -144,8 +144,9 @@ func handleProjectsCreate(ctx context.Context, cmd *cli.Command) error {
 
 	obj := gjson.ParseBytes(res)
 	format := cmd.Root().String("format")
+	explicitFormat := cmd.Root().IsSet("format")
 	transform := cmd.Root().String("transform")
-	return ShowJSON(os.Stdout, "projects create", obj, format, transform)
+	return ShowJSON(os.Stdout, os.Stderr, "projects create", obj, format, explicitFormat, transform)
 }
 
 func handleProjectsUpdate(ctx context.Context, cmd *cli.Command) error {
@@ -186,8 +187,9 @@ func handleProjectsUpdate(ctx context.Context, cmd *cli.Command) error {
 
 	obj := gjson.ParseBytes(res)
 	format := cmd.Root().String("format")
+	explicitFormat := cmd.Root().IsSet("format")
 	transform := cmd.Root().String("transform")
-	return ShowJSON(os.Stdout, "projects update", obj, format, transform)
+	return ShowJSON(os.Stdout, os.Stderr, "projects update", obj, format, explicitFormat, transform)
 }
 
 func handleProjectsList(ctx context.Context, cmd *cli.Command) error {
@@ -212,6 +214,7 @@ func handleProjectsList(ctx context.Context, cmd *cli.Command) error {
 	}
 
 	format := cmd.Root().String("format")
+	explicitFormat := cmd.Root().IsSet("format")
 	transform := cmd.Root().String("transform")
 	if format == "raw" {
 		var res []byte
@@ -221,14 +224,14 @@ func handleProjectsList(ctx context.Context, cmd *cli.Command) error {
 			return err
 		}
 		obj := gjson.ParseBytes(res)
-		return ShowJSON(os.Stdout, "projects list", obj, format, transform)
+		return ShowJSON(os.Stdout, os.Stderr, "projects list", obj, format, explicitFormat, transform)
 	} else {
 		iter := client.Projects.ListAutoPaging(ctx, params, options...)
 		maxItems := int64(-1)
 		if cmd.IsSet("max-items") {
 			maxItems = cmd.Value("max-items").(int64)
 		}
-		return ShowJSONIterator(os.Stdout, "projects list", iter, format, transform, maxItems)
+		return ShowJSONIterator(os.Stdout, os.Stderr, "projects list", iter, format, explicitFormat, transform, maxItems)
 	}
 }
 
@@ -288,6 +291,7 @@ func handleProjectsGet(ctx context.Context, cmd *cli.Command) error {
 
 	obj := gjson.ParseBytes(res)
 	format := cmd.Root().String("format")
+	explicitFormat := cmd.Root().IsSet("format")
 	transform := cmd.Root().String("transform")
-	return ShowJSON(os.Stdout, "projects get", obj, format, transform)
+	return ShowJSON(os.Stdout, os.Stderr, "projects get", obj, format, explicitFormat, transform)
 }
