@@ -5,7 +5,6 @@ package cmd
 import (
 	"context"
 	"fmt"
-	"os"
 
 	"github.com/nirvana-labs/nirvana-cli/internal/apiquery"
 	"github.com/nirvana-labs/nirvana-cli/internal/requestflag"
@@ -85,7 +84,12 @@ func handleUserSecurityUpdate(ctx context.Context, cmd *cli.Command) error {
 	format := cmd.Root().String("format")
 	explicitFormat := cmd.Root().IsSet("format")
 	transform := cmd.Root().String("transform")
-	return ShowJSON(os.Stdout, os.Stderr, "user:security update", obj, format, explicitFormat, transform)
+	return ShowJSON(obj, ShowJSONOpts{
+		ExplicitFormat: explicitFormat,
+		Format:         format,
+		Title:          "user:security update",
+		Transform:      transform,
+	})
 }
 
 func handleUserSecurityGet(ctx context.Context, cmd *cli.Command) error {
@@ -118,5 +122,10 @@ func handleUserSecurityGet(ctx context.Context, cmd *cli.Command) error {
 	format := cmd.Root().String("format")
 	explicitFormat := cmd.Root().IsSet("format")
 	transform := cmd.Root().String("transform")
-	return ShowJSON(os.Stdout, os.Stderr, "user:security get", obj, format, explicitFormat, transform)
+	return ShowJSON(obj, ShowJSONOpts{
+		ExplicitFormat: explicitFormat,
+		Format:         format,
+		Title:          "user:security get",
+		Transform:      transform,
+	})
 }

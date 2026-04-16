@@ -5,7 +5,6 @@ package cmd
 import (
 	"context"
 	"fmt"
-	"os"
 
 	"github.com/nirvana-labs/nirvana-cli/internal/apiquery"
 	"github.com/nirvana-labs/nirvana-cli/internal/requestflag"
@@ -103,7 +102,12 @@ func handleNKSClustersControllersList(ctx context.Context, cmd *cli.Command) err
 			return err
 		}
 		obj := gjson.ParseBytes(res)
-		return ShowJSON(os.Stdout, os.Stderr, "nks:clusters:controllers list", obj, format, explicitFormat, transform)
+		return ShowJSON(obj, ShowJSONOpts{
+			ExplicitFormat: explicitFormat,
+			Format:         format,
+			Title:          "nks:clusters:controllers list",
+			Transform:      transform,
+		})
 	} else {
 		iter := client.NKS.Clusters.Controllers.ListAutoPaging(
 			ctx,
@@ -115,7 +119,12 @@ func handleNKSClustersControllersList(ctx context.Context, cmd *cli.Command) err
 		if cmd.IsSet("max-items") {
 			maxItems = cmd.Value("max-items").(int64)
 		}
-		return ShowJSONIterator(os.Stdout, os.Stderr, "nks:clusters:controllers list", iter, format, explicitFormat, transform, maxItems)
+		return ShowJSONIterator(iter, maxItems, ShowJSONOpts{
+			ExplicitFormat: explicitFormat,
+			Format:         format,
+			Title:          "nks:clusters:controllers list",
+			Transform:      transform,
+		})
 	}
 }
 
@@ -161,5 +170,10 @@ func handleNKSClustersControllersGet(ctx context.Context, cmd *cli.Command) erro
 	format := cmd.Root().String("format")
 	explicitFormat := cmd.Root().IsSet("format")
 	transform := cmd.Root().String("transform")
-	return ShowJSON(os.Stdout, os.Stderr, "nks:clusters:controllers get", obj, format, explicitFormat, transform)
+	return ShowJSON(obj, ShowJSONOpts{
+		ExplicitFormat: explicitFormat,
+		Format:         format,
+		Title:          "nks:clusters:controllers get",
+		Transform:      transform,
+	})
 }

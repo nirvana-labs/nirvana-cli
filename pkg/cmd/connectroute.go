@@ -5,7 +5,6 @@ package cmd
 import (
 	"context"
 	"fmt"
-	"os"
 
 	"github.com/nirvana-labs/nirvana-cli/internal/apiquery"
 	"github.com/nirvana-labs/nirvana-cli/internal/requestflag"
@@ -73,13 +72,23 @@ func handleNetworkingConnectRoutesList(ctx context.Context, cmd *cli.Command) er
 			return err
 		}
 		obj := gjson.ParseBytes(res)
-		return ShowJSON(os.Stdout, os.Stderr, "networking:connect:routes list", obj, format, explicitFormat, transform)
+		return ShowJSON(obj, ShowJSONOpts{
+			ExplicitFormat: explicitFormat,
+			Format:         format,
+			Title:          "networking:connect:routes list",
+			Transform:      transform,
+		})
 	} else {
 		iter := client.Networking.Connect.Routes.ListAutoPaging(ctx, params, options...)
 		maxItems := int64(-1)
 		if cmd.IsSet("max-items") {
 			maxItems = cmd.Value("max-items").(int64)
 		}
-		return ShowJSONIterator(os.Stdout, os.Stderr, "networking:connect:routes list", iter, format, explicitFormat, transform, maxItems)
+		return ShowJSONIterator(iter, maxItems, ShowJSONOpts{
+			ExplicitFormat: explicitFormat,
+			Format:         format,
+			Title:          "networking:connect:routes list",
+			Transform:      transform,
+		})
 	}
 }
