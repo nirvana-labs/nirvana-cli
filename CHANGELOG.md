@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.40.1 (2026-04-16)
+
+Full Changelog: [v0.40.0...v0.40.1](https://github.com/nirvana-labs/nirvana-cli/compare/v0.40.0...v0.40.1)
+
+### Chores
+
+* **cli:** switch long lists of positional args over to param structs ([33393f7](https://github.com/nirvana-labs/nirvana-cli/commit/33393f7d33d9740aa0e2f3f4c6a005c429d8012b))
+
 ## 0.40.0 (2026-04-15)
 
 Full Changelog: [v0.39.0...v0.40.0](https://github.com/nirvana-labs/nirvana-cli/compare/v0.39.0...v0.40.0)

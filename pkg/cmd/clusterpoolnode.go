@@ -5,7 +5,6 @@ package cmd
 import (
 	"context"
 	"fmt"
-	"os"
 
 	"github.com/nirvana-labs/nirvana-cli/internal/apiquery"
 	"github.com/nirvana-labs/nirvana-cli/internal/requestflag"
@@ -138,7 +137,12 @@ func handleNKSClustersPoolsNodesList(ctx context.Context, cmd *cli.Command) erro
 			return err
 		}
 		obj := gjson.ParseBytes(res)
-		return ShowJSON(os.Stdout, os.Stderr, "nks:clusters:pools:nodes list", obj, format, explicitFormat, transform)
+		return ShowJSON(obj, ShowJSONOpts{
+			ExplicitFormat: explicitFormat,
+			Format:         format,
+			Title:          "nks:clusters:pools:nodes list",
+			Transform:      transform,
+		})
 	} else {
 		iter := client.NKS.Clusters.Pools.Nodes.ListAutoPaging(
 			ctx,
@@ -151,7 +155,12 @@ func handleNKSClustersPoolsNodesList(ctx context.Context, cmd *cli.Command) erro
 		if cmd.IsSet("max-items") {
 			maxItems = cmd.Value("max-items").(int64)
 		}
-		return ShowJSONIterator(os.Stdout, os.Stderr, "nks:clusters:pools:nodes list", iter, format, explicitFormat, transform, maxItems)
+		return ShowJSONIterator(iter, maxItems, ShowJSONOpts{
+			ExplicitFormat: explicitFormat,
+			Format:         format,
+			Title:          "nks:clusters:pools:nodes list",
+			Transform:      transform,
+		})
 	}
 }
 
@@ -202,7 +211,12 @@ func handleNKSClustersPoolsNodesDelete(ctx context.Context, cmd *cli.Command) er
 	format := cmd.Root().String("format")
 	explicitFormat := cmd.Root().IsSet("format")
 	transform := cmd.Root().String("transform")
-	return ShowJSON(os.Stdout, os.Stderr, "nks:clusters:pools:nodes delete", obj, format, explicitFormat, transform)
+	return ShowJSON(obj, ShowJSONOpts{
+		ExplicitFormat: explicitFormat,
+		Format:         format,
+		Title:          "nks:clusters:pools:nodes delete",
+		Transform:      transform,
+	})
 }
 
 func handleNKSClustersPoolsNodesGet(ctx context.Context, cmd *cli.Command) error {
@@ -252,5 +266,10 @@ func handleNKSClustersPoolsNodesGet(ctx context.Context, cmd *cli.Command) error
 	format := cmd.Root().String("format")
 	explicitFormat := cmd.Root().IsSet("format")
 	transform := cmd.Root().String("transform")
-	return ShowJSON(os.Stdout, os.Stderr, "nks:clusters:pools:nodes get", obj, format, explicitFormat, transform)
+	return ShowJSON(obj, ShowJSONOpts{
+		ExplicitFormat: explicitFormat,
+		Format:         format,
+		Title:          "nks:clusters:pools:nodes get",
+		Transform:      transform,
+	})
 }

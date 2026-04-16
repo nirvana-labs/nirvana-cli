@@ -5,7 +5,6 @@ package cmd
 import (
 	"context"
 	"fmt"
-	"os"
 
 	"github.com/nirvana-labs/nirvana-cli/internal/apiquery"
 	"github.com/nirvana-labs/nirvana-cli/internal/requestflag"
@@ -218,7 +217,12 @@ func handleNetworkingFirewallRulesCreate(ctx context.Context, cmd *cli.Command) 
 	format := cmd.Root().String("format")
 	explicitFormat := cmd.Root().IsSet("format")
 	transform := cmd.Root().String("transform")
-	return ShowJSON(os.Stdout, os.Stderr, "networking:firewall-rules create", obj, format, explicitFormat, transform)
+	return ShowJSON(obj, ShowJSONOpts{
+		ExplicitFormat: explicitFormat,
+		Format:         format,
+		Title:          "networking:firewall-rules create",
+		Transform:      transform,
+	})
 }
 
 func handleNetworkingFirewallRulesUpdate(ctx context.Context, cmd *cli.Command) error {
@@ -266,7 +270,12 @@ func handleNetworkingFirewallRulesUpdate(ctx context.Context, cmd *cli.Command) 
 	format := cmd.Root().String("format")
 	explicitFormat := cmd.Root().IsSet("format")
 	transform := cmd.Root().String("transform")
-	return ShowJSON(os.Stdout, os.Stderr, "networking:firewall-rules update", obj, format, explicitFormat, transform)
+	return ShowJSON(obj, ShowJSONOpts{
+		ExplicitFormat: explicitFormat,
+		Format:         format,
+		Title:          "networking:firewall-rules update",
+		Transform:      transform,
+	})
 }
 
 func handleNetworkingFirewallRulesList(ctx context.Context, cmd *cli.Command) error {
@@ -309,7 +318,12 @@ func handleNetworkingFirewallRulesList(ctx context.Context, cmd *cli.Command) er
 			return err
 		}
 		obj := gjson.ParseBytes(res)
-		return ShowJSON(os.Stdout, os.Stderr, "networking:firewall-rules list", obj, format, explicitFormat, transform)
+		return ShowJSON(obj, ShowJSONOpts{
+			ExplicitFormat: explicitFormat,
+			Format:         format,
+			Title:          "networking:firewall-rules list",
+			Transform:      transform,
+		})
 	} else {
 		iter := client.Networking.FirewallRules.ListAutoPaging(
 			ctx,
@@ -321,7 +335,12 @@ func handleNetworkingFirewallRulesList(ctx context.Context, cmd *cli.Command) er
 		if cmd.IsSet("max-items") {
 			maxItems = cmd.Value("max-items").(int64)
 		}
-		return ShowJSONIterator(os.Stdout, os.Stderr, "networking:firewall-rules list", iter, format, explicitFormat, transform, maxItems)
+		return ShowJSONIterator(iter, maxItems, ShowJSONOpts{
+			ExplicitFormat: explicitFormat,
+			Format:         format,
+			Title:          "networking:firewall-rules list",
+			Transform:      transform,
+		})
 	}
 }
 
@@ -367,7 +386,12 @@ func handleNetworkingFirewallRulesDelete(ctx context.Context, cmd *cli.Command) 
 	format := cmd.Root().String("format")
 	explicitFormat := cmd.Root().IsSet("format")
 	transform := cmd.Root().String("transform")
-	return ShowJSON(os.Stdout, os.Stderr, "networking:firewall-rules delete", obj, format, explicitFormat, transform)
+	return ShowJSON(obj, ShowJSONOpts{
+		ExplicitFormat: explicitFormat,
+		Format:         format,
+		Title:          "networking:firewall-rules delete",
+		Transform:      transform,
+	})
 }
 
 func handleNetworkingFirewallRulesGet(ctx context.Context, cmd *cli.Command) error {
@@ -412,5 +436,10 @@ func handleNetworkingFirewallRulesGet(ctx context.Context, cmd *cli.Command) err
 	format := cmd.Root().String("format")
 	explicitFormat := cmd.Root().IsSet("format")
 	transform := cmd.Root().String("transform")
-	return ShowJSON(os.Stdout, os.Stderr, "networking:firewall-rules get", obj, format, explicitFormat, transform)
+	return ShowJSON(obj, ShowJSONOpts{
+		ExplicitFormat: explicitFormat,
+		Format:         format,
+		Title:          "networking:firewall-rules get",
+		Transform:      transform,
+	})
 }
