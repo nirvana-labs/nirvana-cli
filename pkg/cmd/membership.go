@@ -105,6 +105,7 @@ func handleOrganizationsMembershipsList(ctx context.Context, cmd *cli.Command) e
 		return ShowJSON(obj, ShowJSONOpts{
 			ExplicitFormat: explicitFormat,
 			Format:         format,
+			RawOutput:      cmd.Root().Bool("raw-output"),
 			Title:          "organizations:memberships list",
 			Transform:      transform,
 		})
@@ -122,6 +123,7 @@ func handleOrganizationsMembershipsList(ctx context.Context, cmd *cli.Command) e
 		return ShowJSONIterator(iter, maxItems, ShowJSONOpts{
 			ExplicitFormat: explicitFormat,
 			Format:         format,
+			RawOutput:      cmd.Root().Bool("raw-output"),
 			Title:          "organizations:memberships list",
 			Transform:      transform,
 		})
@@ -173,6 +175,7 @@ func handleOrganizationsMembershipsGet(ctx context.Context, cmd *cli.Command) er
 	return ShowJSON(obj, ShowJSONOpts{
 		ExplicitFormat: explicitFormat,
 		Format:         format,
+		RawOutput:      cmd.Root().Bool("raw-output"),
 		Title:          "organizations:memberships get",
 		Transform:      transform,
 	})

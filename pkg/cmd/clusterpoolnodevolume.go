@@ -131,6 +131,7 @@ func handleNKSClustersPoolsNodesVolumesList(ctx context.Context, cmd *cli.Comman
 		return ShowJSON(obj, ShowJSONOpts{
 			ExplicitFormat: explicitFormat,
 			Format:         format,
+			RawOutput:      cmd.Root().Bool("raw-output"),
 			Title:          "nks:clusters:pools:nodes:volumes list",
 			Transform:      transform,
 		})
@@ -150,6 +151,7 @@ func handleNKSClustersPoolsNodesVolumesList(ctx context.Context, cmd *cli.Comman
 		return ShowJSONIterator(iter, maxItems, ShowJSONOpts{
 			ExplicitFormat: explicitFormat,
 			Format:         format,
+			RawOutput:      cmd.Root().Bool("raw-output"),
 			Title:          "nks:clusters:pools:nodes:volumes list",
 			Transform:      transform,
 		})
@@ -211,6 +213,7 @@ func handleNKSClustersPoolsNodesVolumesGet(ctx context.Context, cmd *cli.Command
 	return ShowJSON(obj, ShowJSONOpts{
 		ExplicitFormat: explicitFormat,
 		Format:         format,
+		RawOutput:      cmd.Root().Bool("raw-output"),
 		Title:          "nks:clusters:pools:nodes:volumes get",
 		Transform:      transform,
 	})

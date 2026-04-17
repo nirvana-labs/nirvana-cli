@@ -89,6 +89,7 @@ func handleRegionsList(ctx context.Context, cmd *cli.Command) error {
 		return ShowJSON(obj, ShowJSONOpts{
 			ExplicitFormat: explicitFormat,
 			Format:         format,
+			RawOutput:      cmd.Root().Bool("raw-output"),
 			Title:          "regions list",
 			Transform:      transform,
 		})
@@ -101,6 +102,7 @@ func handleRegionsList(ctx context.Context, cmd *cli.Command) error {
 		return ShowJSONIterator(iter, maxItems, ShowJSONOpts{
 			ExplicitFormat: explicitFormat,
 			Format:         format,
+			RawOutput:      cmd.Root().Bool("raw-output"),
 			Title:          "regions list",
 			Transform:      transform,
 		})
@@ -143,6 +145,7 @@ func handleRegionsGet(ctx context.Context, cmd *cli.Command) error {
 	return ShowJSON(obj, ShowJSONOpts{
 		ExplicitFormat: explicitFormat,
 		Format:         format,
+		RawOutput:      cmd.Root().Bool("raw-output"),
 		Title:          "regions get",
 		Transform:      transform,
 	})
