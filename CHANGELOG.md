@@ -1,5 +1,19 @@
 # Changelog
 
+## 0.41.0 (2026-04-17)
+
+Full Changelog: [v0.40.1...v0.41.0](https://github.com/nirvana-labs/nirvana-cli/compare/v0.40.1...v0.41.0)
+
+### Features
+
+* **cli:** add `--raw-output`/`-r` option to print raw (non-JSON) strings ([3c187b1](https://github.com/nirvana-labs/nirvana-cli/commit/3c187b111fe4f12627186e3e0826ce122dfcd17f))
+* **cli:** send filename and content type when reading input from files ([fa4fbee](https://github.com/nirvana-labs/nirvana-cli/commit/fa4fbeebf3ef05125166651e6d418c98677b766c))
+
+
+### Chores
+
+* **ci:** support manually triggering release workflow ([f0401db](https://github.com/nirvana-labs/nirvana-cli/commit/f0401db278ea21cac68b076015f36e4a0667d46f))
+
 ## 0.40.1 (2026-04-16)
 
 Full Changelog: [v0.40.0...v0.40.1](https://github.com/nirvana-labs/nirvana-cli/compare/v0.40.0...v0.40.1)
