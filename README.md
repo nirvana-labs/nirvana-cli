@@ -54,16 +54,15 @@ nirvana [resource] <command> [flags...]
 ```sh
 nirvana compute:vms create \
   --api-key 'My API Key' \
-  --boot-volume '{size: 100, type: nvme}' \
+  --boot-volume '{size: 100, type: abs}' \
   --name my-vm \
   --os-image-name ubuntu-noble-2025-10-01 \
   --project-id 123e4567-e89b-12d3-a456-426614174000 \
   --public-ip-enabled \
-  --region us-sva-1 \
+  --region us-sva-2 \
   --ssh-key '{public_key: ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDBIASkmwNiLcdlW6927Zjt1Hf7Kw/PpEZ4Zm+wU9wn2}' \
   --subnet-id 123e4567-e89b-12d3-a456-426614174000 \
-  --cpu-config '{}' \
-  --memory-config '{}'
+  --instance-type n1-standard-2
 ```
 
 For details about specific commands, use the `--help` flag.
