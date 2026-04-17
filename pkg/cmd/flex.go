@@ -172,6 +172,7 @@ func handleRPCNodesFlexCreate(ctx context.Context, cmd *cli.Command) error {
 	return ShowJSON(obj, ShowJSONOpts{
 		ExplicitFormat: explicitFormat,
 		Format:         format,
+		RawOutput:      cmd.Root().Bool("raw-output"),
 		Title:          "rpc-nodes:flex create",
 		Transform:      transform,
 	})
@@ -220,6 +221,7 @@ func handleRPCNodesFlexUpdate(ctx context.Context, cmd *cli.Command) error {
 	return ShowJSON(obj, ShowJSONOpts{
 		ExplicitFormat: explicitFormat,
 		Format:         format,
+		RawOutput:      cmd.Root().Bool("raw-output"),
 		Title:          "rpc-nodes:flex update",
 		Transform:      transform,
 	})
@@ -260,6 +262,7 @@ func handleRPCNodesFlexList(ctx context.Context, cmd *cli.Command) error {
 		return ShowJSON(obj, ShowJSONOpts{
 			ExplicitFormat: explicitFormat,
 			Format:         format,
+			RawOutput:      cmd.Root().Bool("raw-output"),
 			Title:          "rpc-nodes:flex list",
 			Transform:      transform,
 		})
@@ -272,6 +275,7 @@ func handleRPCNodesFlexList(ctx context.Context, cmd *cli.Command) error {
 		return ShowJSONIterator(iter, maxItems, ShowJSONOpts{
 			ExplicitFormat: explicitFormat,
 			Format:         format,
+			RawOutput:      cmd.Root().Bool("raw-output"),
 			Title:          "rpc-nodes:flex list",
 			Transform:      transform,
 		})
@@ -339,6 +343,7 @@ func handleRPCNodesFlexGet(ctx context.Context, cmd *cli.Command) error {
 	return ShowJSON(obj, ShowJSONOpts{
 		ExplicitFormat: explicitFormat,
 		Format:         format,
+		RawOutput:      cmd.Root().Bool("raw-output"),
 		Title:          "rpc-nodes:flex get",
 		Transform:      transform,
 	})

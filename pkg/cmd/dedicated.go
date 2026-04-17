@@ -95,6 +95,7 @@ func handleRPCNodesDedicatedList(ctx context.Context, cmd *cli.Command) error {
 		return ShowJSON(obj, ShowJSONOpts{
 			ExplicitFormat: explicitFormat,
 			Format:         format,
+			RawOutput:      cmd.Root().Bool("raw-output"),
 			Title:          "rpc-nodes:dedicated list",
 			Transform:      transform,
 		})
@@ -107,6 +108,7 @@ func handleRPCNodesDedicatedList(ctx context.Context, cmd *cli.Command) error {
 		return ShowJSONIterator(iter, maxItems, ShowJSONOpts{
 			ExplicitFormat: explicitFormat,
 			Format:         format,
+			RawOutput:      cmd.Root().Bool("raw-output"),
 			Title:          "rpc-nodes:dedicated list",
 			Transform:      transform,
 		})
@@ -149,6 +151,7 @@ func handleRPCNodesDedicatedGet(ctx context.Context, cmd *cli.Command) error {
 	return ShowJSON(obj, ShowJSONOpts{
 		ExplicitFormat: explicitFormat,
 		Format:         format,
+		RawOutput:      cmd.Root().Bool("raw-output"),
 		Title:          "rpc-nodes:dedicated get",
 		Transform:      transform,
 	})

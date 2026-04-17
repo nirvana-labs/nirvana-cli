@@ -105,6 +105,7 @@ func handleNKSClustersControllersList(ctx context.Context, cmd *cli.Command) err
 		return ShowJSON(obj, ShowJSONOpts{
 			ExplicitFormat: explicitFormat,
 			Format:         format,
+			RawOutput:      cmd.Root().Bool("raw-output"),
 			Title:          "nks:clusters:controllers list",
 			Transform:      transform,
 		})
@@ -122,6 +123,7 @@ func handleNKSClustersControllersList(ctx context.Context, cmd *cli.Command) err
 		return ShowJSONIterator(iter, maxItems, ShowJSONOpts{
 			ExplicitFormat: explicitFormat,
 			Format:         format,
+			RawOutput:      cmd.Root().Bool("raw-output"),
 			Title:          "nks:clusters:controllers list",
 			Transform:      transform,
 		})
@@ -173,6 +175,7 @@ func handleNKSClustersControllersGet(ctx context.Context, cmd *cli.Command) erro
 	return ShowJSON(obj, ShowJSONOpts{
 		ExplicitFormat: explicitFormat,
 		Format:         format,
+		RawOutput:      cmd.Root().Bool("raw-output"),
 		Title:          "nks:clusters:controllers get",
 		Transform:      transform,
 	})

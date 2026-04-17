@@ -75,6 +75,7 @@ func handleRPCNodesDedicatedBlockchainsList(ctx context.Context, cmd *cli.Comman
 		return ShowJSON(obj, ShowJSONOpts{
 			ExplicitFormat: explicitFormat,
 			Format:         format,
+			RawOutput:      cmd.Root().Bool("raw-output"),
 			Title:          "rpc-nodes:dedicated:blockchains list",
 			Transform:      transform,
 		})
@@ -87,6 +88,7 @@ func handleRPCNodesDedicatedBlockchainsList(ctx context.Context, cmd *cli.Comman
 		return ShowJSONIterator(iter, maxItems, ShowJSONOpts{
 			ExplicitFormat: explicitFormat,
 			Format:         format,
+			RawOutput:      cmd.Root().Bool("raw-output"),
 			Title:          "rpc-nodes:dedicated:blockchains list",
 			Transform:      transform,
 		})

@@ -220,6 +220,7 @@ func handleNetworkingFirewallRulesCreate(ctx context.Context, cmd *cli.Command) 
 	return ShowJSON(obj, ShowJSONOpts{
 		ExplicitFormat: explicitFormat,
 		Format:         format,
+		RawOutput:      cmd.Root().Bool("raw-output"),
 		Title:          "networking:firewall-rules create",
 		Transform:      transform,
 	})
@@ -273,6 +274,7 @@ func handleNetworkingFirewallRulesUpdate(ctx context.Context, cmd *cli.Command) 
 	return ShowJSON(obj, ShowJSONOpts{
 		ExplicitFormat: explicitFormat,
 		Format:         format,
+		RawOutput:      cmd.Root().Bool("raw-output"),
 		Title:          "networking:firewall-rules update",
 		Transform:      transform,
 	})
@@ -321,6 +323,7 @@ func handleNetworkingFirewallRulesList(ctx context.Context, cmd *cli.Command) er
 		return ShowJSON(obj, ShowJSONOpts{
 			ExplicitFormat: explicitFormat,
 			Format:         format,
+			RawOutput:      cmd.Root().Bool("raw-output"),
 			Title:          "networking:firewall-rules list",
 			Transform:      transform,
 		})
@@ -338,6 +341,7 @@ func handleNetworkingFirewallRulesList(ctx context.Context, cmd *cli.Command) er
 		return ShowJSONIterator(iter, maxItems, ShowJSONOpts{
 			ExplicitFormat: explicitFormat,
 			Format:         format,
+			RawOutput:      cmd.Root().Bool("raw-output"),
 			Title:          "networking:firewall-rules list",
 			Transform:      transform,
 		})
@@ -389,6 +393,7 @@ func handleNetworkingFirewallRulesDelete(ctx context.Context, cmd *cli.Command) 
 	return ShowJSON(obj, ShowJSONOpts{
 		ExplicitFormat: explicitFormat,
 		Format:         format,
+		RawOutput:      cmd.Root().Bool("raw-output"),
 		Title:          "networking:firewall-rules delete",
 		Transform:      transform,
 	})
@@ -439,6 +444,7 @@ func handleNetworkingFirewallRulesGet(ctx context.Context, cmd *cli.Command) err
 	return ShowJSON(obj, ShowJSONOpts{
 		ExplicitFormat: explicitFormat,
 		Format:         format,
+		RawOutput:      cmd.Root().Bool("raw-output"),
 		Title:          "networking:firewall-rules get",
 		Transform:      transform,
 	})

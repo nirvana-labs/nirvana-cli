@@ -105,6 +105,7 @@ func handleNKSClustersPersistentVolumeClaimsList(ctx context.Context, cmd *cli.C
 		return ShowJSON(obj, ShowJSONOpts{
 			ExplicitFormat: explicitFormat,
 			Format:         format,
+			RawOutput:      cmd.Root().Bool("raw-output"),
 			Title:          "nks:clusters:persistent-volume-claims list",
 			Transform:      transform,
 		})
@@ -122,6 +123,7 @@ func handleNKSClustersPersistentVolumeClaimsList(ctx context.Context, cmd *cli.C
 		return ShowJSONIterator(iter, maxItems, ShowJSONOpts{
 			ExplicitFormat: explicitFormat,
 			Format:         format,
+			RawOutput:      cmd.Root().Bool("raw-output"),
 			Title:          "nks:clusters:persistent-volume-claims list",
 			Transform:      transform,
 		})
@@ -173,6 +175,7 @@ func handleNKSClustersPersistentVolumeClaimsGet(ctx context.Context, cmd *cli.Co
 	return ShowJSON(obj, ShowJSONOpts{
 		ExplicitFormat: explicitFormat,
 		Format:         format,
+		RawOutput:      cmd.Root().Bool("raw-output"),
 		Title:          "nks:clusters:persistent-volume-claims get",
 		Transform:      transform,
 	})

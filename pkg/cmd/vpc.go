@@ -177,6 +177,7 @@ func handleNetworkingVPCsCreate(ctx context.Context, cmd *cli.Command) error {
 	return ShowJSON(obj, ShowJSONOpts{
 		ExplicitFormat: explicitFormat,
 		Format:         format,
+		RawOutput:      cmd.Root().Bool("raw-output"),
 		Title:          "networking:vpcs create",
 		Transform:      transform,
 	})
@@ -225,6 +226,7 @@ func handleNetworkingVPCsUpdate(ctx context.Context, cmd *cli.Command) error {
 	return ShowJSON(obj, ShowJSONOpts{
 		ExplicitFormat: explicitFormat,
 		Format:         format,
+		RawOutput:      cmd.Root().Bool("raw-output"),
 		Title:          "networking:vpcs update",
 		Transform:      transform,
 	})
@@ -265,6 +267,7 @@ func handleNetworkingVPCsList(ctx context.Context, cmd *cli.Command) error {
 		return ShowJSON(obj, ShowJSONOpts{
 			ExplicitFormat: explicitFormat,
 			Format:         format,
+			RawOutput:      cmd.Root().Bool("raw-output"),
 			Title:          "networking:vpcs list",
 			Transform:      transform,
 		})
@@ -277,6 +280,7 @@ func handleNetworkingVPCsList(ctx context.Context, cmd *cli.Command) error {
 		return ShowJSONIterator(iter, maxItems, ShowJSONOpts{
 			ExplicitFormat: explicitFormat,
 			Format:         format,
+			RawOutput:      cmd.Root().Bool("raw-output"),
 			Title:          "networking:vpcs list",
 			Transform:      transform,
 		})
@@ -319,6 +323,7 @@ func handleNetworkingVPCsDelete(ctx context.Context, cmd *cli.Command) error {
 	return ShowJSON(obj, ShowJSONOpts{
 		ExplicitFormat: explicitFormat,
 		Format:         format,
+		RawOutput:      cmd.Root().Bool("raw-output"),
 		Title:          "networking:vpcs delete",
 		Transform:      transform,
 	})
@@ -360,6 +365,7 @@ func handleNetworkingVPCsGet(ctx context.Context, cmd *cli.Command) error {
 	return ShowJSON(obj, ShowJSONOpts{
 		ExplicitFormat: explicitFormat,
 		Format:         format,
+		RawOutput:      cmd.Root().Bool("raw-output"),
 		Title:          "networking:vpcs get",
 		Transform:      transform,
 	})
