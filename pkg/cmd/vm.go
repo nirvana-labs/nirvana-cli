@@ -326,6 +326,7 @@ func handleComputeVMsCreate(ctx context.Context, cmd *cli.Command) error {
 	return ShowJSON(obj, ShowJSONOpts{
 		ExplicitFormat: explicitFormat,
 		Format:         format,
+		RawOutput:      cmd.Root().Bool("raw-output"),
 		Title:          "compute:vms create",
 		Transform:      transform,
 	})
@@ -374,6 +375,7 @@ func handleComputeVMsUpdate(ctx context.Context, cmd *cli.Command) error {
 	return ShowJSON(obj, ShowJSONOpts{
 		ExplicitFormat: explicitFormat,
 		Format:         format,
+		RawOutput:      cmd.Root().Bool("raw-output"),
 		Title:          "compute:vms update",
 		Transform:      transform,
 	})
@@ -414,6 +416,7 @@ func handleComputeVMsList(ctx context.Context, cmd *cli.Command) error {
 		return ShowJSON(obj, ShowJSONOpts{
 			ExplicitFormat: explicitFormat,
 			Format:         format,
+			RawOutput:      cmd.Root().Bool("raw-output"),
 			Title:          "compute:vms list",
 			Transform:      transform,
 		})
@@ -426,6 +429,7 @@ func handleComputeVMsList(ctx context.Context, cmd *cli.Command) error {
 		return ShowJSONIterator(iter, maxItems, ShowJSONOpts{
 			ExplicitFormat: explicitFormat,
 			Format:         format,
+			RawOutput:      cmd.Root().Bool("raw-output"),
 			Title:          "compute:vms list",
 			Transform:      transform,
 		})
@@ -468,6 +472,7 @@ func handleComputeVMsDelete(ctx context.Context, cmd *cli.Command) error {
 	return ShowJSON(obj, ShowJSONOpts{
 		ExplicitFormat: explicitFormat,
 		Format:         format,
+		RawOutput:      cmd.Root().Bool("raw-output"),
 		Title:          "compute:vms delete",
 		Transform:      transform,
 	})
@@ -509,6 +514,7 @@ func handleComputeVMsGet(ctx context.Context, cmd *cli.Command) error {
 	return ShowJSON(obj, ShowJSONOpts{
 		ExplicitFormat: explicitFormat,
 		Format:         format,
+		RawOutput:      cmd.Root().Bool("raw-output"),
 		Title:          "compute:vms get",
 		Transform:      transform,
 	})
@@ -550,6 +556,7 @@ func handleComputeVMsRestart(ctx context.Context, cmd *cli.Command) error {
 	return ShowJSON(obj, ShowJSONOpts{
 		ExplicitFormat: explicitFormat,
 		Format:         format,
+		RawOutput:      cmd.Root().Bool("raw-output"),
 		Title:          "compute:vms restart",
 		Transform:      transform,
 	})

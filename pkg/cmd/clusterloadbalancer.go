@@ -105,6 +105,7 @@ func handleNKSClustersLoadBalancersList(ctx context.Context, cmd *cli.Command) e
 		return ShowJSON(obj, ShowJSONOpts{
 			ExplicitFormat: explicitFormat,
 			Format:         format,
+			RawOutput:      cmd.Root().Bool("raw-output"),
 			Title:          "nks:clusters:load-balancers list",
 			Transform:      transform,
 		})
@@ -122,6 +123,7 @@ func handleNKSClustersLoadBalancersList(ctx context.Context, cmd *cli.Command) e
 		return ShowJSONIterator(iter, maxItems, ShowJSONOpts{
 			ExplicitFormat: explicitFormat,
 			Format:         format,
+			RawOutput:      cmd.Root().Bool("raw-output"),
 			Title:          "nks:clusters:load-balancers list",
 			Transform:      transform,
 		})
@@ -173,6 +175,7 @@ func handleNKSClustersLoadBalancersGet(ctx context.Context, cmd *cli.Command) er
 	return ShowJSON(obj, ShowJSONOpts{
 		ExplicitFormat: explicitFormat,
 		Format:         format,
+		RawOutput:      cmd.Root().Bool("raw-output"),
 		Title:          "nks:clusters:load-balancers get",
 		Transform:      transform,
 	})

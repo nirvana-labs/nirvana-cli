@@ -222,6 +222,7 @@ func handleComputeVolumesCreate(ctx context.Context, cmd *cli.Command) error {
 	return ShowJSON(obj, ShowJSONOpts{
 		ExplicitFormat: explicitFormat,
 		Format:         format,
+		RawOutput:      cmd.Root().Bool("raw-output"),
 		Title:          "compute:volumes create",
 		Transform:      transform,
 	})
@@ -270,6 +271,7 @@ func handleComputeVolumesUpdate(ctx context.Context, cmd *cli.Command) error {
 	return ShowJSON(obj, ShowJSONOpts{
 		ExplicitFormat: explicitFormat,
 		Format:         format,
+		RawOutput:      cmd.Root().Bool("raw-output"),
 		Title:          "compute:volumes update",
 		Transform:      transform,
 	})
@@ -310,6 +312,7 @@ func handleComputeVolumesList(ctx context.Context, cmd *cli.Command) error {
 		return ShowJSON(obj, ShowJSONOpts{
 			ExplicitFormat: explicitFormat,
 			Format:         format,
+			RawOutput:      cmd.Root().Bool("raw-output"),
 			Title:          "compute:volumes list",
 			Transform:      transform,
 		})
@@ -322,6 +325,7 @@ func handleComputeVolumesList(ctx context.Context, cmd *cli.Command) error {
 		return ShowJSONIterator(iter, maxItems, ShowJSONOpts{
 			ExplicitFormat: explicitFormat,
 			Format:         format,
+			RawOutput:      cmd.Root().Bool("raw-output"),
 			Title:          "compute:volumes list",
 			Transform:      transform,
 		})
@@ -364,6 +368,7 @@ func handleComputeVolumesDelete(ctx context.Context, cmd *cli.Command) error {
 	return ShowJSON(obj, ShowJSONOpts{
 		ExplicitFormat: explicitFormat,
 		Format:         format,
+		RawOutput:      cmd.Root().Bool("raw-output"),
 		Title:          "compute:volumes delete",
 		Transform:      transform,
 	})
@@ -412,6 +417,7 @@ func handleComputeVolumesAttach(ctx context.Context, cmd *cli.Command) error {
 	return ShowJSON(obj, ShowJSONOpts{
 		ExplicitFormat: explicitFormat,
 		Format:         format,
+		RawOutput:      cmd.Root().Bool("raw-output"),
 		Title:          "compute:volumes attach",
 		Transform:      transform,
 	})
@@ -453,6 +459,7 @@ func handleComputeVolumesDetach(ctx context.Context, cmd *cli.Command) error {
 	return ShowJSON(obj, ShowJSONOpts{
 		ExplicitFormat: explicitFormat,
 		Format:         format,
+		RawOutput:      cmd.Root().Bool("raw-output"),
 		Title:          "compute:volumes detach",
 		Transform:      transform,
 	})
@@ -494,6 +501,7 @@ func handleComputeVolumesGet(ctx context.Context, cmd *cli.Command) error {
 	return ShowJSON(obj, ShowJSONOpts{
 		ExplicitFormat: explicitFormat,
 		Format:         format,
+		RawOutput:      cmd.Root().Bool("raw-output"),
 		Title:          "compute:volumes get",
 		Transform:      transform,
 	})

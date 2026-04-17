@@ -202,6 +202,7 @@ func handleNetworkingConnectConnectionsCreate(ctx context.Context, cmd *cli.Comm
 	return ShowJSON(obj, ShowJSONOpts{
 		ExplicitFormat: explicitFormat,
 		Format:         format,
+		RawOutput:      cmd.Root().Bool("raw-output"),
 		Title:          "networking:connect:connections create",
 		Transform:      transform,
 	})
@@ -250,6 +251,7 @@ func handleNetworkingConnectConnectionsUpdate(ctx context.Context, cmd *cli.Comm
 	return ShowJSON(obj, ShowJSONOpts{
 		ExplicitFormat: explicitFormat,
 		Format:         format,
+		RawOutput:      cmd.Root().Bool("raw-output"),
 		Title:          "networking:connect:connections update",
 		Transform:      transform,
 	})
@@ -290,6 +292,7 @@ func handleNetworkingConnectConnectionsList(ctx context.Context, cmd *cli.Comman
 		return ShowJSON(obj, ShowJSONOpts{
 			ExplicitFormat: explicitFormat,
 			Format:         format,
+			RawOutput:      cmd.Root().Bool("raw-output"),
 			Title:          "networking:connect:connections list",
 			Transform:      transform,
 		})
@@ -302,6 +305,7 @@ func handleNetworkingConnectConnectionsList(ctx context.Context, cmd *cli.Comman
 		return ShowJSONIterator(iter, maxItems, ShowJSONOpts{
 			ExplicitFormat: explicitFormat,
 			Format:         format,
+			RawOutput:      cmd.Root().Bool("raw-output"),
 			Title:          "networking:connect:connections list",
 			Transform:      transform,
 		})
@@ -344,6 +348,7 @@ func handleNetworkingConnectConnectionsDelete(ctx context.Context, cmd *cli.Comm
 	return ShowJSON(obj, ShowJSONOpts{
 		ExplicitFormat: explicitFormat,
 		Format:         format,
+		RawOutput:      cmd.Root().Bool("raw-output"),
 		Title:          "networking:connect:connections delete",
 		Transform:      transform,
 	})
@@ -385,6 +390,7 @@ func handleNetworkingConnectConnectionsGet(ctx context.Context, cmd *cli.Command
 	return ShowJSON(obj, ShowJSONOpts{
 		ExplicitFormat: explicitFormat,
 		Format:         format,
+		RawOutput:      cmd.Root().Bool("raw-output"),
 		Title:          "networking:connect:connections get",
 		Transform:      transform,
 	})

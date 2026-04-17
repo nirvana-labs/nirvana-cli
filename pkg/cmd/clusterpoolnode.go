@@ -140,6 +140,7 @@ func handleNKSClustersPoolsNodesList(ctx context.Context, cmd *cli.Command) erro
 		return ShowJSON(obj, ShowJSONOpts{
 			ExplicitFormat: explicitFormat,
 			Format:         format,
+			RawOutput:      cmd.Root().Bool("raw-output"),
 			Title:          "nks:clusters:pools:nodes list",
 			Transform:      transform,
 		})
@@ -158,6 +159,7 @@ func handleNKSClustersPoolsNodesList(ctx context.Context, cmd *cli.Command) erro
 		return ShowJSONIterator(iter, maxItems, ShowJSONOpts{
 			ExplicitFormat: explicitFormat,
 			Format:         format,
+			RawOutput:      cmd.Root().Bool("raw-output"),
 			Title:          "nks:clusters:pools:nodes list",
 			Transform:      transform,
 		})
@@ -214,6 +216,7 @@ func handleNKSClustersPoolsNodesDelete(ctx context.Context, cmd *cli.Command) er
 	return ShowJSON(obj, ShowJSONOpts{
 		ExplicitFormat: explicitFormat,
 		Format:         format,
+		RawOutput:      cmd.Root().Bool("raw-output"),
 		Title:          "nks:clusters:pools:nodes delete",
 		Transform:      transform,
 	})
@@ -269,6 +272,7 @@ func handleNKSClustersPoolsNodesGet(ctx context.Context, cmd *cli.Command) error
 	return ShowJSON(obj, ShowJSONOpts{
 		ExplicitFormat: explicitFormat,
 		Format:         format,
+		RawOutput:      cmd.Root().Bool("raw-output"),
 		Title:          "nks:clusters:pools:nodes get",
 		Transform:      transform,
 	})
