@@ -1,5 +1,20 @@
 # Changelog
 
+## 0.42.0 (2026-04-19)
+
+Full Changelog: [v0.41.0...v0.42.0](https://github.com/nirvana-labs/nirvana-cli/compare/v0.41.0...v0.42.0)
+
+### Features
+
+* **api:** add update method to nks clusters load balancers ([3ffe6d2](https://github.com/nirvana-labs/nirvana-cli/commit/3ffe6d22e3ffdfdddb99b1c0bb4e80f31b0b0a59))
+
+
+### Chores
+
+* **cli:** use `ShowJSONOpts` as argument to `formatJSON` instead of many positionals ([ff935ea](https://github.com/nirvana-labs/nirvana-cli/commit/ff935eaef007ff9281c4b0573ea4860c89db8d27))
+* **internal:** codegen related update ([319b3f4](https://github.com/nirvana-labs/nirvana-cli/commit/319b3f48132642a85f4e250524ba6fa174e9b98a))
+* **internal:** codegen related update ([9c9f68a](https://github.com/nirvana-labs/nirvana-cli/commit/9c9f68a0d685857a20caf1eaf4acb1728e8829ce))
+
 ## 0.41.0 (2026-04-17)
 
 Full Changelog: [v0.40.1...v0.41.0](https://github.com/nirvana-labs/nirvana-cli/compare/v0.40.1...v0.41.0)
