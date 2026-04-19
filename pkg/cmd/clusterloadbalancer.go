@@ -15,6 +15,30 @@ import (
 	"github.com/urfave/cli/v3"
 )
 
+var nksClustersLoadBalancersUpdate = cli.Command{
+	Name:    "update",
+	Usage:   "Update an NKS load balancer",
+	Suggest: true,
+	Flags: []cli.Flag{
+		&requestflag.Flag[string]{
+			Name:     "cluster-id",
+			Required: true,
+		},
+		&requestflag.Flag[string]{
+			Name:     "load-balancer-id",
+			Required: true,
+		},
+		&requestflag.Flag[bool]{
+			Name:     "public-ip-enabled",
+			Usage:    "Whether to enable a public IP for this load balancer.",
+			Required: true,
+			BodyPath: "public_ip_enabled",
+		},
+	},
+	Action:          handleNKSClustersLoadBalancersUpdate,
+	HideHelpCommand: true,
+}
+
 var nksClustersLoadBalancersList = cli.Command{
 	Name:    "list",
 	Usage:   "List all load balancers in an NKS cluster",
@@ -60,6 +84,60 @@ var nksClustersLoadBalancersGet = cli.Command{
 	},
 	Action:          handleNKSClustersLoadBalancersGet,
 	HideHelpCommand: true,
+}
+
+func handleNKSClustersLoadBalancersUpdate(ctx context.Context, cmd *cli.Command) error {
+	client := nirvana.NewClient(getDefaultRequestOptions(cmd)...)
+	unusedArgs := cmd.Args().Slice()
+	if !cmd.IsSet("cluster-id") && len(unusedArgs) > 0 {
+		cmd.Set("cluster-id", unusedArgs[0])
+		unusedArgs = unusedArgs[1:]
+	}
+	if !cmd.IsSet("load-balancer-id") && len(unusedArgs) > 0 {
+		cmd.Set("load-balancer-id", unusedArgs[0])
+		unusedArgs = unusedArgs[1:]
+	}
+	if len(unusedArgs) > 0 {
+		return fmt.Errorf("Unexpected extra arguments: %v", unusedArgs)
+	}
+
+	params := nks.ClusterLoadBalancerUpdateParams{}
+
+	options, err := flagOptions(
+		cmd,
+		apiquery.NestedQueryFormatBrackets,
+		apiquery.ArrayQueryFormatComma,
+		ApplicationJSON,
+		false,
+	)
+	if err != nil {
+		return err
+	}
+
+	var res []byte
+	options = append(options, option.WithResponseBodyInto(&res))
+	_, err = client.NKS.Clusters.LoadBalancers.Update(
+		ctx,
+		cmd.Value("cluster-id").(string),
+		cmd.Value("load-balancer-id").(string),
+		params,
+		options...,
+	)
+	if err != nil {
+		return err
+	}
+
+	obj := gjson.ParseBytes(res)
+	format := cmd.Root().String("format")
+	explicitFormat := cmd.Root().IsSet("format")
+	transform := cmd.Root().String("transform")
+	return ShowJSON(obj, ShowJSONOpts{
+		ExplicitFormat: explicitFormat,
+		Format:         format,
+		RawOutput:      cmd.Root().Bool("raw-output"),
+		Title:          "nks:clusters:load-balancers update",
+		Transform:      transform,
+	})
 }
 
 func handleNKSClustersLoadBalancersList(ctx context.Context, cmd *cli.Command) error {
