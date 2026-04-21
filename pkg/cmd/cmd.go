@@ -144,6 +144,15 @@ func init() {
 				},
 			},
 			{
+				Name:     "quotas",
+				Category: "API RESOURCE",
+				Suggest:  true,
+				Commands: []*cli.Command{
+					&quotasList,
+					&quotasGet,
+				},
+			},
+			{
 				Name:     "audit-logs",
 				Category: "API RESOURCE",
 				Suggest:  true,
