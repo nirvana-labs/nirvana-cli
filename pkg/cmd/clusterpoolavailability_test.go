@@ -18,7 +18,7 @@ func TestNKSClustersPoolsAvailabilityCreate(t *testing.T) {
 			"nks:clusters:pools:availability", "create",
 			"--cluster-id", "cluster_id",
 			"--name", "my-node-pool",
-			"--node-config", "{boot_volume: {size: 100, type: abs}, instance_type: n1-standard-8}",
+			"--node-config", "{boot_volume: {size: 100, type: abs}, instance_type: n1-standard-8, labels: [env=prod, team=platform]}",
 			"--node-count", "3",
 			"--tag", "production",
 			"--tag", "ethereum",
@@ -38,6 +38,7 @@ func TestNKSClustersPoolsAvailabilityCreate(t *testing.T) {
 			"--name", "my-node-pool",
 			"--node-config.boot-volume", "{size: 100, type: abs}",
 			"--node-config.instance-type", "n1-standard-8",
+			"--node-config.labels", "[env=prod, team=platform]",
 			"--node-count", "3",
 			"--tag", "production",
 			"--tag", "ethereum",
@@ -53,6 +54,9 @@ func TestNKSClustersPoolsAvailabilityCreate(t *testing.T) {
 			"    size: 100\n" +
 			"    type: abs\n" +
 			"  instance_type: n1-standard-8\n" +
+			"  labels:\n" +
+			"    - env=prod\n" +
+			"    - team=platform\n" +
 			"node_count: 3\n" +
 			"tags:\n" +
 			"  - production\n" +
@@ -76,6 +80,26 @@ func TestNKSClustersPoolsAvailabilityUpdate(t *testing.T) {
 			"--cluster-id", "cluster_id",
 			"--pool-id", "pool_id",
 			"--name", "my-node-pool",
+			"--node-config", "{labels: [env=prod, team=platform]}",
+			"--node-count", "5",
+			"--tag", "production",
+			"--tag", "ethereum",
+		)
+	})
+
+	t.Run("inner flags", func(t *testing.T) {
+		// Check that inner flags have been set up correctly
+		requestflag.CheckInnerFlags(nksClustersPoolsAvailabilityUpdate)
+
+		// Alternative argument passing style using inner flags
+		mocktest.TestRunMockTestWithFlags(
+			t,
+			"--api-key", "string",
+			"nks:clusters:pools:availability", "update",
+			"--cluster-id", "cluster_id",
+			"--pool-id", "pool_id",
+			"--name", "my-node-pool",
+			"--node-config.labels", "[env=prod, team=platform]",
 			"--node-count", "5",
 			"--tag", "production",
 			"--tag", "ethereum",
@@ -86,6 +110,10 @@ func TestNKSClustersPoolsAvailabilityUpdate(t *testing.T) {
 		// Test piping YAML data over stdin
 		pipeData := []byte("" +
 			"name: my-node-pool\n" +
+			"node_config:\n" +
+			"  labels:\n" +
+			"    - env=prod\n" +
+			"    - team=platform\n" +
 			"node_count: 5\n" +
 			"tags:\n" +
 			"  - production\n" +

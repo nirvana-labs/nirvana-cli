@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.43.0 (2026-04-22)
+
+Full Changelog: [v0.42.1...v0.43.0](https://github.com/nirvana-labs/nirvana-cli/compare/v0.42.1...v0.43.0)
+
+### Features
+
+* **api:** add label parameter to cluster pools and pools availability methods ([9bd79ce](https://github.com/nirvana-labs/nirvana-cli/commit/9bd79cea414b4055ca48d9656a5db450b90c7d57))
+
 ## 0.42.1 (2026-04-22)
 
 Full Changelog: [v0.42.0...v0.42.1](https://github.com/nirvana-labs/nirvana-cli/compare/v0.42.0...v0.42.1)
