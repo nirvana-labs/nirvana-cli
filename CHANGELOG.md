@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.42.1 (2026-04-22)
+
+Full Changelog: [v0.42.0...v0.42.1](https://github.com/nirvana-labs/nirvana-cli/compare/v0.42.0...v0.42.1)
+
+### Chores
+
+* **internal:** codegen related update ([6a944b3](https://github.com/nirvana-labs/nirvana-cli/commit/6a944b3422907ab6b3cc4fbdcc8968d4f79ed09a))
+* **internal:** regenerate SDK with no functional changes ([c6aa2ef](https://github.com/nirvana-labs/nirvana-cli/commit/c6aa2ef7363bdb4df9f63e89376d42fe0e5c05a8))
+
 ## 0.42.0 (2026-04-19)
 
 Full Changelog: [v0.41.0...v0.42.0](https://github.com/nirvana-labs/nirvana-cli/compare/v0.41.0...v0.42.0)
