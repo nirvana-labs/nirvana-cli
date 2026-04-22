@@ -60,10 +60,15 @@ var nksClustersPoolsAvailabilityCreate = requestflag.WithInnerFlags(cli.Command{
 			Usage:      "Instance type name used for worker nodes.",
 			InnerField: "instance_type",
 		},
+		&requestflag.InnerFlag[[]string]{
+			Name:       "node-config.labels",
+			Usage:      "Kubernetes labels to apply to each node in the pool. Each entry is \"key=value\".\nKeys under kubernetes.io, k8s.io, and nirvanalabs.io prefixes are reserved.",
+			InnerField: "labels",
+		},
 	},
 })
 
-var nksClustersPoolsAvailabilityUpdate = cli.Command{
+var nksClustersPoolsAvailabilityUpdate = requestflag.WithInnerFlags(cli.Command{
 	Name:    "update",
 	Usage:   "Check if an NKS node pool can be updated",
 	Suggest: true,
@@ -81,6 +86,11 @@ var nksClustersPoolsAvailabilityUpdate = cli.Command{
 			Usage:    "Name of the node pool.",
 			BodyPath: "name",
 		},
+		&requestflag.Flag[map[string]any]{
+			Name:     "node-config",
+			Usage:    "Partial node configuration update.",
+			BodyPath: "node_config",
+		},
 		&requestflag.Flag[int64]{
 			Name:     "node-count",
 			Usage:    "Number of nodes.",
@@ -94,7 +104,15 @@ var nksClustersPoolsAvailabilityUpdate = cli.Command{
 	},
 	Action:          handleNKSClustersPoolsAvailabilityUpdate,
 	HideHelpCommand: true,
-}
+}, map[string][]requestflag.HasOuterFlag{
+	"node-config": {
+		&requestflag.InnerFlag[[]string]{
+			Name:       "node-config.labels",
+			Usage:      "Kubernetes labels to apply to each node in the pool. Each entry is \"key=value\".\nWhen provided, the list fully replaces the current labels on the pool and on live nodes.",
+			InnerField: "labels",
+		},
+	},
+})
 
 func handleNKSClustersPoolsAvailabilityCreate(ctx context.Context, cmd *cli.Command) error {
 	client := nirvana.NewClient(getDefaultRequestOptions(cmd)...)
