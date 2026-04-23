@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.43.1 (2026-04-23)
+
+Full Changelog: [v0.43.0...v0.43.1](https://github.com/nirvana-labs/nirvana-cli/compare/v0.43.0...v0.43.1)
+
+### Chores
+
+* **internal:** more robust bootstrap script ([dfeeb9b](https://github.com/nirvana-labs/nirvana-cli/commit/dfeeb9bec79097b3e380da5a7d6d40603538724c))
+
 ## 0.43.0 (2026-04-22)
 
 Full Changelog: [v0.42.1...v0.43.0](https://github.com/nirvana-labs/nirvana-cli/compare/v0.42.1...v0.43.0)
