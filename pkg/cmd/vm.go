@@ -165,8 +165,9 @@ var computeVMsUpdate = requestflag.WithInnerFlags(cli.Command{
 	Suggest: true,
 	Flags: []cli.Flag{
 		&requestflag.Flag[string]{
-			Name:     "vm-id",
-			Required: true,
+			Name:      "vm-id",
+			Required:  true,
+			PathParam: "vm_id",
 		},
 		&requestflag.Flag[map[string]any]{
 			Name:     "cpu-config",
@@ -255,8 +256,9 @@ var computeVMsDelete = cli.Command{
 	Suggest: true,
 	Flags: []cli.Flag{
 		&requestflag.Flag[string]{
-			Name:     "vm-id",
-			Required: true,
+			Name:      "vm-id",
+			Required:  true,
+			PathParam: "vm_id",
 		},
 	},
 	Action:          handleComputeVMsDelete,
@@ -269,8 +271,9 @@ var computeVMsGet = cli.Command{
 	Suggest: true,
 	Flags: []cli.Flag{
 		&requestflag.Flag[string]{
-			Name:     "vm-id",
-			Required: true,
+			Name:      "vm-id",
+			Required:  true,
+			PathParam: "vm_id",
 		},
 	},
 	Action:          handleComputeVMsGet,
@@ -283,8 +286,9 @@ var computeVMsRestart = cli.Command{
 	Suggest: true,
 	Flags: []cli.Flag{
 		&requestflag.Flag[string]{
-			Name:     "vm-id",
-			Required: true,
+			Name:      "vm-id",
+			Required:  true,
+			PathParam: "vm_id",
 		},
 	},
 	Action:          handleComputeVMsRestart,
@@ -299,8 +303,6 @@ func handleComputeVMsCreate(ctx context.Context, cmd *cli.Command) error {
 		return fmt.Errorf("Unexpected extra arguments: %v", unusedArgs)
 	}
 
-	params := compute.VMNewParams{}
-
 	options, err := flagOptions(
 		cmd,
 		apiquery.NestedQueryFormatBrackets,
@@ -311,6 +313,8 @@ func handleComputeVMsCreate(ctx context.Context, cmd *cli.Command) error {
 	if err != nil {
 		return err
 	}
+
+	params := compute.VMNewParams{}
 
 	var res []byte
 	options = append(options, option.WithResponseBodyInto(&res))
@@ -343,8 +347,6 @@ func handleComputeVMsUpdate(ctx context.Context, cmd *cli.Command) error {
 		return fmt.Errorf("Unexpected extra arguments: %v", unusedArgs)
 	}
 
-	params := compute.VMUpdateParams{}
-
 	options, err := flagOptions(
 		cmd,
 		apiquery.NestedQueryFormatBrackets,
@@ -355,6 +357,8 @@ func handleComputeVMsUpdate(ctx context.Context, cmd *cli.Command) error {
 	if err != nil {
 		return err
 	}
+
+	params := compute.VMUpdateParams{}
 
 	var res []byte
 	options = append(options, option.WithResponseBodyInto(&res))
@@ -389,8 +393,6 @@ func handleComputeVMsList(ctx context.Context, cmd *cli.Command) error {
 		return fmt.Errorf("Unexpected extra arguments: %v", unusedArgs)
 	}
 
-	params := compute.VMListParams{}
-
 	options, err := flagOptions(
 		cmd,
 		apiquery.NestedQueryFormatBrackets,
@@ -401,6 +403,8 @@ func handleComputeVMsList(ctx context.Context, cmd *cli.Command) error {
 	if err != nil {
 		return err
 	}
+
+	params := compute.VMListParams{}
 
 	format := cmd.Root().String("format")
 	explicitFormat := cmd.Root().IsSet("format")

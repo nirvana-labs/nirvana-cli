@@ -42,8 +42,9 @@ var projectsUpdate = cli.Command{
 	Suggest: true,
 	Flags: []cli.Flag{
 		&requestflag.Flag[string]{
-			Name:     "project-id",
-			Required: true,
+			Name:      "project-id",
+			Required:  true,
+			PathParam: "project_id",
 		},
 		&requestflag.Flag[string]{
 			Name:     "name",
@@ -91,8 +92,9 @@ var projectsDelete = cli.Command{
 	Suggest: true,
 	Flags: []cli.Flag{
 		&requestflag.Flag[string]{
-			Name:     "project-id",
-			Required: true,
+			Name:      "project-id",
+			Required:  true,
+			PathParam: "project_id",
 		},
 	},
 	Action:          handleProjectsDelete,
@@ -105,8 +107,9 @@ var projectsGet = cli.Command{
 	Suggest: true,
 	Flags: []cli.Flag{
 		&requestflag.Flag[string]{
-			Name:     "project-id",
-			Required: true,
+			Name:      "project-id",
+			Required:  true,
+			PathParam: "project_id",
 		},
 	},
 	Action:          handleProjectsGet,
@@ -121,8 +124,6 @@ func handleProjectsCreate(ctx context.Context, cmd *cli.Command) error {
 		return fmt.Errorf("Unexpected extra arguments: %v", unusedArgs)
 	}
 
-	params := projects.ProjectNewParams{}
-
 	options, err := flagOptions(
 		cmd,
 		apiquery.NestedQueryFormatBrackets,
@@ -133,6 +134,8 @@ func handleProjectsCreate(ctx context.Context, cmd *cli.Command) error {
 	if err != nil {
 		return err
 	}
+
+	params := projects.ProjectNewParams{}
 
 	var res []byte
 	options = append(options, option.WithResponseBodyInto(&res))
@@ -165,8 +168,6 @@ func handleProjectsUpdate(ctx context.Context, cmd *cli.Command) error {
 		return fmt.Errorf("Unexpected extra arguments: %v", unusedArgs)
 	}
 
-	params := projects.ProjectUpdateParams{}
-
 	options, err := flagOptions(
 		cmd,
 		apiquery.NestedQueryFormatBrackets,
@@ -177,6 +178,8 @@ func handleProjectsUpdate(ctx context.Context, cmd *cli.Command) error {
 	if err != nil {
 		return err
 	}
+
+	params := projects.ProjectUpdateParams{}
 
 	var res []byte
 	options = append(options, option.WithResponseBodyInto(&res))
@@ -211,8 +214,6 @@ func handleProjectsList(ctx context.Context, cmd *cli.Command) error {
 		return fmt.Errorf("Unexpected extra arguments: %v", unusedArgs)
 	}
 
-	params := projects.ProjectListParams{}
-
 	options, err := flagOptions(
 		cmd,
 		apiquery.NestedQueryFormatBrackets,
@@ -223,6 +224,8 @@ func handleProjectsList(ctx context.Context, cmd *cli.Command) error {
 	if err != nil {
 		return err
 	}
+
+	params := projects.ProjectListParams{}
 
 	format := cmd.Root().String("format")
 	explicitFormat := cmd.Root().IsSet("format")

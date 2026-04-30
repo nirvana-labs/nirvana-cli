@@ -48,8 +48,6 @@ func handleRPCNodesFlexBlockchainsList(ctx context.Context, cmd *cli.Command) er
 		return fmt.Errorf("Unexpected extra arguments: %v", unusedArgs)
 	}
 
-	params := rpc_nodes.FlexBlockchainListParams{}
-
 	options, err := flagOptions(
 		cmd,
 		apiquery.NestedQueryFormatBrackets,
@@ -60,6 +58,8 @@ func handleRPCNodesFlexBlockchainsList(ctx context.Context, cmd *cli.Command) er
 	if err != nil {
 		return err
 	}
+
+	params := rpc_nodes.FlexBlockchainListParams{}
 
 	format := cmd.Root().String("format")
 	explicitFormat := cmd.Root().IsSet("format")

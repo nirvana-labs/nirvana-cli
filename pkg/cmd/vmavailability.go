@@ -163,8 +163,9 @@ var computeVMsAvailabilityUpdate = requestflag.WithInnerFlags(cli.Command{
 	Suggest: true,
 	Flags: []cli.Flag{
 		&requestflag.Flag[string]{
-			Name:     "vm-id",
-			Required: true,
+			Name:      "vm-id",
+			Required:  true,
+			PathParam: "vm_id",
 		},
 		&requestflag.Flag[map[string]any]{
 			Name:     "cpu-config",
@@ -224,8 +225,6 @@ func handleComputeVMsAvailabilityCreate(ctx context.Context, cmd *cli.Command) e
 		return fmt.Errorf("Unexpected extra arguments: %v", unusedArgs)
 	}
 
-	params := compute.VMAvailabilityNewParams{}
-
 	options, err := flagOptions(
 		cmd,
 		apiquery.NestedQueryFormatBrackets,
@@ -236,6 +235,8 @@ func handleComputeVMsAvailabilityCreate(ctx context.Context, cmd *cli.Command) e
 	if err != nil {
 		return err
 	}
+
+	params := compute.VMAvailabilityNewParams{}
 
 	return client.Compute.VMs.Availability.New(ctx, params, options...)
 }
@@ -251,8 +252,6 @@ func handleComputeVMsAvailabilityUpdate(ctx context.Context, cmd *cli.Command) e
 		return fmt.Errorf("Unexpected extra arguments: %v", unusedArgs)
 	}
 
-	params := compute.VMAvailabilityUpdateParams{}
-
 	options, err := flagOptions(
 		cmd,
 		apiquery.NestedQueryFormatBrackets,
@@ -263,6 +262,8 @@ func handleComputeVMsAvailabilityUpdate(ctx context.Context, cmd *cli.Command) e
 	if err != nil {
 		return err
 	}
+
+	params := compute.VMAvailabilityUpdateParams{}
 
 	return client.Compute.VMs.Availability.Update(
 		ctx,

@@ -21,8 +21,9 @@ var networkingFirewallRulesCreate = cli.Command{
 	Suggest: true,
 	Flags: []cli.Flag{
 		&requestflag.Flag[string]{
-			Name:     "vpc-id",
-			Required: true,
+			Name:      "vpc-id",
+			Required:  true,
+			PathParam: "vpc_id",
 		},
 		&requestflag.Flag[string]{
 			Name:     "destination-address",
@@ -70,12 +71,14 @@ var networkingFirewallRulesUpdate = cli.Command{
 	Suggest: true,
 	Flags: []cli.Flag{
 		&requestflag.Flag[string]{
-			Name:     "vpc-id",
-			Required: true,
+			Name:      "vpc-id",
+			Required:  true,
+			PathParam: "vpc_id",
 		},
 		&requestflag.Flag[string]{
-			Name:     "firewall-rule-id",
-			Required: true,
+			Name:      "firewall-rule-id",
+			Required:  true,
+			PathParam: "firewall_rule_id",
 		},
 		&requestflag.Flag[string]{
 			Name:     "destination-address",
@@ -118,8 +121,9 @@ var networkingFirewallRulesList = cli.Command{
 	Suggest: true,
 	Flags: []cli.Flag{
 		&requestflag.Flag[string]{
-			Name:     "vpc-id",
-			Required: true,
+			Name:      "vpc-id",
+			Required:  true,
+			PathParam: "vpc_id",
 		},
 		&requestflag.Flag[string]{
 			Name:      "cursor",
@@ -147,12 +151,14 @@ var networkingFirewallRulesDelete = cli.Command{
 	Suggest: true,
 	Flags: []cli.Flag{
 		&requestflag.Flag[string]{
-			Name:     "vpc-id",
-			Required: true,
+			Name:      "vpc-id",
+			Required:  true,
+			PathParam: "vpc_id",
 		},
 		&requestflag.Flag[string]{
-			Name:     "firewall-rule-id",
-			Required: true,
+			Name:      "firewall-rule-id",
+			Required:  true,
+			PathParam: "firewall_rule_id",
 		},
 	},
 	Action:          handleNetworkingFirewallRulesDelete,
@@ -165,12 +171,14 @@ var networkingFirewallRulesGet = cli.Command{
 	Suggest: true,
 	Flags: []cli.Flag{
 		&requestflag.Flag[string]{
-			Name:     "vpc-id",
-			Required: true,
+			Name:      "vpc-id",
+			Required:  true,
+			PathParam: "vpc_id",
 		},
 		&requestflag.Flag[string]{
-			Name:     "firewall-rule-id",
-			Required: true,
+			Name:      "firewall-rule-id",
+			Required:  true,
+			PathParam: "firewall_rule_id",
 		},
 	},
 	Action:          handleNetworkingFirewallRulesGet,
@@ -188,8 +196,6 @@ func handleNetworkingFirewallRulesCreate(ctx context.Context, cmd *cli.Command) 
 		return fmt.Errorf("Unexpected extra arguments: %v", unusedArgs)
 	}
 
-	params := networking.FirewallRuleNewParams{}
-
 	options, err := flagOptions(
 		cmd,
 		apiquery.NestedQueryFormatBrackets,
@@ -200,6 +206,8 @@ func handleNetworkingFirewallRulesCreate(ctx context.Context, cmd *cli.Command) 
 	if err != nil {
 		return err
 	}
+
+	params := networking.FirewallRuleNewParams{}
 
 	var res []byte
 	options = append(options, option.WithResponseBodyInto(&res))
@@ -241,8 +249,6 @@ func handleNetworkingFirewallRulesUpdate(ctx context.Context, cmd *cli.Command) 
 		return fmt.Errorf("Unexpected extra arguments: %v", unusedArgs)
 	}
 
-	params := networking.FirewallRuleUpdateParams{}
-
 	options, err := flagOptions(
 		cmd,
 		apiquery.NestedQueryFormatBrackets,
@@ -253,6 +259,8 @@ func handleNetworkingFirewallRulesUpdate(ctx context.Context, cmd *cli.Command) 
 	if err != nil {
 		return err
 	}
+
+	params := networking.FirewallRuleUpdateParams{}
 
 	var res []byte
 	options = append(options, option.WithResponseBodyInto(&res))
@@ -291,8 +299,6 @@ func handleNetworkingFirewallRulesList(ctx context.Context, cmd *cli.Command) er
 		return fmt.Errorf("Unexpected extra arguments: %v", unusedArgs)
 	}
 
-	params := networking.FirewallRuleListParams{}
-
 	options, err := flagOptions(
 		cmd,
 		apiquery.NestedQueryFormatBrackets,
@@ -303,6 +309,8 @@ func handleNetworkingFirewallRulesList(ctx context.Context, cmd *cli.Command) er
 	if err != nil {
 		return err
 	}
+
+	params := networking.FirewallRuleListParams{}
 
 	format := cmd.Root().String("format")
 	explicitFormat := cmd.Root().IsSet("format")

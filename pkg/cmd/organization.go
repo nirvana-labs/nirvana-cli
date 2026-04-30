@@ -37,8 +37,9 @@ var organizationsUpdate = cli.Command{
 	Suggest: true,
 	Flags: []cli.Flag{
 		&requestflag.Flag[string]{
-			Name:     "organization-id",
-			Required: true,
+			Name:      "organization-id",
+			Required:  true,
+			PathParam: "organization_id",
 		},
 		&requestflag.Flag[string]{
 			Name:     "name",
@@ -81,8 +82,9 @@ var organizationsGet = cli.Command{
 	Suggest: true,
 	Flags: []cli.Flag{
 		&requestflag.Flag[string]{
-			Name:     "organization-id",
-			Required: true,
+			Name:      "organization-id",
+			Required:  true,
+			PathParam: "organization_id",
 		},
 	},
 	Action:          handleOrganizationsGet,
@@ -95,8 +97,9 @@ var organizationsLeave = cli.Command{
 	Suggest: true,
 	Flags: []cli.Flag{
 		&requestflag.Flag[string]{
-			Name:     "organization-id",
-			Required: true,
+			Name:      "organization-id",
+			Required:  true,
+			PathParam: "organization_id",
 		},
 	},
 	Action:          handleOrganizationsLeave,
@@ -111,8 +114,6 @@ func handleOrganizationsCreate(ctx context.Context, cmd *cli.Command) error {
 		return fmt.Errorf("Unexpected extra arguments: %v", unusedArgs)
 	}
 
-	params := organizations.OrganizationNewParams{}
-
 	options, err := flagOptions(
 		cmd,
 		apiquery.NestedQueryFormatBrackets,
@@ -123,6 +124,8 @@ func handleOrganizationsCreate(ctx context.Context, cmd *cli.Command) error {
 	if err != nil {
 		return err
 	}
+
+	params := organizations.OrganizationNewParams{}
 
 	var res []byte
 	options = append(options, option.WithResponseBodyInto(&res))
@@ -155,8 +158,6 @@ func handleOrganizationsUpdate(ctx context.Context, cmd *cli.Command) error {
 		return fmt.Errorf("Unexpected extra arguments: %v", unusedArgs)
 	}
 
-	params := organizations.OrganizationUpdateParams{}
-
 	options, err := flagOptions(
 		cmd,
 		apiquery.NestedQueryFormatBrackets,
@@ -167,6 +168,8 @@ func handleOrganizationsUpdate(ctx context.Context, cmd *cli.Command) error {
 	if err != nil {
 		return err
 	}
+
+	params := organizations.OrganizationUpdateParams{}
 
 	var res []byte
 	options = append(options, option.WithResponseBodyInto(&res))
@@ -201,8 +204,6 @@ func handleOrganizationsList(ctx context.Context, cmd *cli.Command) error {
 		return fmt.Errorf("Unexpected extra arguments: %v", unusedArgs)
 	}
 
-	params := organizations.OrganizationListParams{}
-
 	options, err := flagOptions(
 		cmd,
 		apiquery.NestedQueryFormatBrackets,
@@ -213,6 +214,8 @@ func handleOrganizationsList(ctx context.Context, cmd *cli.Command) error {
 	if err != nil {
 		return err
 	}
+
+	params := organizations.OrganizationListParams{}
 
 	format := cmd.Root().String("format")
 	explicitFormat := cmd.Root().IsSet("format")
