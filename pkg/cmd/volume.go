@@ -71,8 +71,9 @@ var computeVolumesUpdate = cli.Command{
 	Suggest: true,
 	Flags: []cli.Flag{
 		&requestflag.Flag[string]{
-			Name:     "volume-id",
-			Required: true,
+			Name:      "volume-id",
+			Required:  true,
+			PathParam: "volume_id",
 		},
 		&requestflag.Flag[string]{
 			Name:     "name",
@@ -131,8 +132,9 @@ var computeVolumesDelete = cli.Command{
 	Suggest: true,
 	Flags: []cli.Flag{
 		&requestflag.Flag[string]{
-			Name:     "volume-id",
-			Required: true,
+			Name:      "volume-id",
+			Required:  true,
+			PathParam: "volume_id",
 		},
 	},
 	Action:          handleComputeVolumesDelete,
@@ -145,8 +147,9 @@ var computeVolumesAttach = cli.Command{
 	Suggest: true,
 	Flags: []cli.Flag{
 		&requestflag.Flag[string]{
-			Name:     "volume-id",
-			Required: true,
+			Name:      "volume-id",
+			Required:  true,
+			PathParam: "volume_id",
 		},
 		&requestflag.Flag[string]{
 			Name:     "vm-id",
@@ -165,8 +168,9 @@ var computeVolumesDetach = cli.Command{
 	Suggest: true,
 	Flags: []cli.Flag{
 		&requestflag.Flag[string]{
-			Name:     "volume-id",
-			Required: true,
+			Name:      "volume-id",
+			Required:  true,
+			PathParam: "volume_id",
 		},
 	},
 	Action:          handleComputeVolumesDetach,
@@ -179,8 +183,9 @@ var computeVolumesGet = cli.Command{
 	Suggest: true,
 	Flags: []cli.Flag{
 		&requestflag.Flag[string]{
-			Name:     "volume-id",
-			Required: true,
+			Name:      "volume-id",
+			Required:  true,
+			PathParam: "volume_id",
 		},
 	},
 	Action:          handleComputeVolumesGet,
@@ -195,8 +200,6 @@ func handleComputeVolumesCreate(ctx context.Context, cmd *cli.Command) error {
 		return fmt.Errorf("Unexpected extra arguments: %v", unusedArgs)
 	}
 
-	params := compute.VolumeNewParams{}
-
 	options, err := flagOptions(
 		cmd,
 		apiquery.NestedQueryFormatBrackets,
@@ -207,6 +210,8 @@ func handleComputeVolumesCreate(ctx context.Context, cmd *cli.Command) error {
 	if err != nil {
 		return err
 	}
+
+	params := compute.VolumeNewParams{}
 
 	var res []byte
 	options = append(options, option.WithResponseBodyInto(&res))
@@ -239,8 +244,6 @@ func handleComputeVolumesUpdate(ctx context.Context, cmd *cli.Command) error {
 		return fmt.Errorf("Unexpected extra arguments: %v", unusedArgs)
 	}
 
-	params := compute.VolumeUpdateParams{}
-
 	options, err := flagOptions(
 		cmd,
 		apiquery.NestedQueryFormatBrackets,
@@ -251,6 +254,8 @@ func handleComputeVolumesUpdate(ctx context.Context, cmd *cli.Command) error {
 	if err != nil {
 		return err
 	}
+
+	params := compute.VolumeUpdateParams{}
 
 	var res []byte
 	options = append(options, option.WithResponseBodyInto(&res))
@@ -285,8 +290,6 @@ func handleComputeVolumesList(ctx context.Context, cmd *cli.Command) error {
 		return fmt.Errorf("Unexpected extra arguments: %v", unusedArgs)
 	}
 
-	params := compute.VolumeListParams{}
-
 	options, err := flagOptions(
 		cmd,
 		apiquery.NestedQueryFormatBrackets,
@@ -297,6 +300,8 @@ func handleComputeVolumesList(ctx context.Context, cmd *cli.Command) error {
 	if err != nil {
 		return err
 	}
+
+	params := compute.VolumeListParams{}
 
 	format := cmd.Root().String("format")
 	explicitFormat := cmd.Root().IsSet("format")
@@ -385,8 +390,6 @@ func handleComputeVolumesAttach(ctx context.Context, cmd *cli.Command) error {
 		return fmt.Errorf("Unexpected extra arguments: %v", unusedArgs)
 	}
 
-	params := compute.VolumeAttachParams{}
-
 	options, err := flagOptions(
 		cmd,
 		apiquery.NestedQueryFormatBrackets,
@@ -397,6 +400,8 @@ func handleComputeVolumesAttach(ctx context.Context, cmd *cli.Command) error {
 	if err != nil {
 		return err
 	}
+
+	params := compute.VolumeAttachParams{}
 
 	var res []byte
 	options = append(options, option.WithResponseBodyInto(&res))

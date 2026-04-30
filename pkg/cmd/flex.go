@@ -60,8 +60,9 @@ var rpcNodesFlexUpdate = cli.Command{
 	Suggest: true,
 	Flags: []cli.Flag{
 		&requestflag.Flag[string]{
-			Name:     "node-id",
-			Required: true,
+			Name:      "node-id",
+			Required:  true,
+			PathParam: "node_id",
 		},
 		&requestflag.Flag[string]{
 			Name:     "name",
@@ -115,8 +116,9 @@ var rpcNodesFlexDelete = cli.Command{
 	Suggest: true,
 	Flags: []cli.Flag{
 		&requestflag.Flag[string]{
-			Name:     "node-id",
-			Required: true,
+			Name:      "node-id",
+			Required:  true,
+			PathParam: "node_id",
 		},
 	},
 	Action:          handleRPCNodesFlexDelete,
@@ -129,8 +131,9 @@ var rpcNodesFlexGet = cli.Command{
 	Suggest: true,
 	Flags: []cli.Flag{
 		&requestflag.Flag[string]{
-			Name:     "node-id",
-			Required: true,
+			Name:      "node-id",
+			Required:  true,
+			PathParam: "node_id",
 		},
 	},
 	Action:          handleRPCNodesFlexGet,
@@ -145,8 +148,6 @@ func handleRPCNodesFlexCreate(ctx context.Context, cmd *cli.Command) error {
 		return fmt.Errorf("Unexpected extra arguments: %v", unusedArgs)
 	}
 
-	params := rpc_nodes.FlexNewParams{}
-
 	options, err := flagOptions(
 		cmd,
 		apiquery.NestedQueryFormatBrackets,
@@ -157,6 +158,8 @@ func handleRPCNodesFlexCreate(ctx context.Context, cmd *cli.Command) error {
 	if err != nil {
 		return err
 	}
+
+	params := rpc_nodes.FlexNewParams{}
 
 	var res []byte
 	options = append(options, option.WithResponseBodyInto(&res))
@@ -189,8 +192,6 @@ func handleRPCNodesFlexUpdate(ctx context.Context, cmd *cli.Command) error {
 		return fmt.Errorf("Unexpected extra arguments: %v", unusedArgs)
 	}
 
-	params := rpc_nodes.FlexUpdateParams{}
-
 	options, err := flagOptions(
 		cmd,
 		apiquery.NestedQueryFormatBrackets,
@@ -201,6 +202,8 @@ func handleRPCNodesFlexUpdate(ctx context.Context, cmd *cli.Command) error {
 	if err != nil {
 		return err
 	}
+
+	params := rpc_nodes.FlexUpdateParams{}
 
 	var res []byte
 	options = append(options, option.WithResponseBodyInto(&res))
@@ -235,8 +238,6 @@ func handleRPCNodesFlexList(ctx context.Context, cmd *cli.Command) error {
 		return fmt.Errorf("Unexpected extra arguments: %v", unusedArgs)
 	}
 
-	params := rpc_nodes.FlexListParams{}
-
 	options, err := flagOptions(
 		cmd,
 		apiquery.NestedQueryFormatBrackets,
@@ -247,6 +248,8 @@ func handleRPCNodesFlexList(ctx context.Context, cmd *cli.Command) error {
 	if err != nil {
 		return err
 	}
+
+	params := rpc_nodes.FlexListParams{}
 
 	format := cmd.Root().String("format")
 	explicitFormat := cmd.Root().IsSet("format")

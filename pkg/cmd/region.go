@@ -46,8 +46,9 @@ var regionsGet = cli.Command{
 	Suggest: true,
 	Flags: []cli.Flag{
 		&requestflag.Flag[string]{
-			Name:     "name",
-			Required: true,
+			Name:      "name",
+			Required:  true,
+			PathParam: "name",
 		},
 	},
 	Action:          handleRegionsGet,
@@ -62,8 +63,6 @@ func handleRegionsList(ctx context.Context, cmd *cli.Command) error {
 		return fmt.Errorf("Unexpected extra arguments: %v", unusedArgs)
 	}
 
-	params := regions.RegionListParams{}
-
 	options, err := flagOptions(
 		cmd,
 		apiquery.NestedQueryFormatBrackets,
@@ -74,6 +73,8 @@ func handleRegionsList(ctx context.Context, cmd *cli.Command) error {
 	if err != nil {
 		return err
 	}
+
+	params := regions.RegionListParams{}
 
 	format := cmd.Root().String("format")
 	explicitFormat := cmd.Root().IsSet("format")

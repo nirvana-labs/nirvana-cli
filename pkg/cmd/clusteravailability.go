@@ -58,8 +58,9 @@ var nksClustersAvailabilityUpdate = cli.Command{
 	Suggest: true,
 	Flags: []cli.Flag{
 		&requestflag.Flag[string]{
-			Name:     "cluster-id",
-			Required: true,
+			Name:      "cluster-id",
+			Required:  true,
+			PathParam: "cluster_id",
 		},
 		&requestflag.Flag[string]{
 			Name:     "name",
@@ -84,8 +85,6 @@ func handleNKSClustersAvailabilityCreate(ctx context.Context, cmd *cli.Command) 
 		return fmt.Errorf("Unexpected extra arguments: %v", unusedArgs)
 	}
 
-	params := nks.ClusterAvailabilityNewParams{}
-
 	options, err := flagOptions(
 		cmd,
 		apiquery.NestedQueryFormatBrackets,
@@ -96,6 +95,8 @@ func handleNKSClustersAvailabilityCreate(ctx context.Context, cmd *cli.Command) 
 	if err != nil {
 		return err
 	}
+
+	params := nks.ClusterAvailabilityNewParams{}
 
 	return client.NKS.Clusters.Availability.New(ctx, params, options...)
 }
@@ -111,8 +112,6 @@ func handleNKSClustersAvailabilityUpdate(ctx context.Context, cmd *cli.Command) 
 		return fmt.Errorf("Unexpected extra arguments: %v", unusedArgs)
 	}
 
-	params := nks.ClusterAvailabilityUpdateParams{}
-
 	options, err := flagOptions(
 		cmd,
 		apiquery.NestedQueryFormatBrackets,
@@ -123,6 +122,8 @@ func handleNKSClustersAvailabilityUpdate(ctx context.Context, cmd *cli.Command) 
 	if err != nil {
 		return err
 	}
+
+	params := nks.ClusterAvailabilityUpdateParams{}
 
 	return client.NKS.Clusters.Availability.Update(
 		ctx,

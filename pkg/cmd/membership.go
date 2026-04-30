@@ -21,8 +21,9 @@ var organizationsMembershipsList = cli.Command{
 	Suggest: true,
 	Flags: []cli.Flag{
 		&requestflag.Flag[string]{
-			Name:     "organization-id",
-			Required: true,
+			Name:      "organization-id",
+			Required:  true,
+			PathParam: "organization_id",
 		},
 		&requestflag.Flag[string]{
 			Name:      "cursor",
@@ -50,12 +51,14 @@ var organizationsMembershipsGet = cli.Command{
 	Suggest: true,
 	Flags: []cli.Flag{
 		&requestflag.Flag[string]{
-			Name:     "organization-id",
-			Required: true,
+			Name:      "organization-id",
+			Required:  true,
+			PathParam: "organization_id",
 		},
 		&requestflag.Flag[string]{
-			Name:     "membership-id",
-			Required: true,
+			Name:      "membership-id",
+			Required:  true,
+			PathParam: "membership_id",
 		},
 	},
 	Action:          handleOrganizationsMembershipsGet,
@@ -73,8 +76,6 @@ func handleOrganizationsMembershipsList(ctx context.Context, cmd *cli.Command) e
 		return fmt.Errorf("Unexpected extra arguments: %v", unusedArgs)
 	}
 
-	params := organizations.MembershipListParams{}
-
 	options, err := flagOptions(
 		cmd,
 		apiquery.NestedQueryFormatBrackets,
@@ -85,6 +86,8 @@ func handleOrganizationsMembershipsList(ctx context.Context, cmd *cli.Command) e
 	if err != nil {
 		return err
 	}
+
+	params := organizations.MembershipListParams{}
 
 	format := cmd.Root().String("format")
 	explicitFormat := cmd.Root().IsSet("format")

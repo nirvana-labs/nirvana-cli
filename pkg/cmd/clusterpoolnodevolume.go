@@ -21,16 +21,19 @@ var nksClustersPoolsNodesVolumesList = cli.Command{
 	Suggest: true,
 	Flags: []cli.Flag{
 		&requestflag.Flag[string]{
-			Name:     "cluster-id",
-			Required: true,
+			Name:      "cluster-id",
+			Required:  true,
+			PathParam: "cluster_id",
 		},
 		&requestflag.Flag[string]{
-			Name:     "pool-id",
-			Required: true,
+			Name:      "pool-id",
+			Required:  true,
+			PathParam: "pool_id",
 		},
 		&requestflag.Flag[string]{
-			Name:     "node-id",
-			Required: true,
+			Name:      "node-id",
+			Required:  true,
+			PathParam: "node_id",
 		},
 		&requestflag.Flag[string]{
 			Name:      "cursor",
@@ -58,20 +61,24 @@ var nksClustersPoolsNodesVolumesGet = cli.Command{
 	Suggest: true,
 	Flags: []cli.Flag{
 		&requestflag.Flag[string]{
-			Name:     "cluster-id",
-			Required: true,
+			Name:      "cluster-id",
+			Required:  true,
+			PathParam: "cluster_id",
 		},
 		&requestflag.Flag[string]{
-			Name:     "pool-id",
-			Required: true,
+			Name:      "pool-id",
+			Required:  true,
+			PathParam: "pool_id",
 		},
 		&requestflag.Flag[string]{
-			Name:     "node-id",
-			Required: true,
+			Name:      "node-id",
+			Required:  true,
+			PathParam: "node_id",
 		},
 		&requestflag.Flag[string]{
-			Name:     "volume-id",
-			Required: true,
+			Name:      "volume-id",
+			Required:  true,
+			PathParam: "volume_id",
 		},
 	},
 	Action:          handleNKSClustersPoolsNodesVolumesGet,
@@ -97,8 +104,6 @@ func handleNKSClustersPoolsNodesVolumesList(ctx context.Context, cmd *cli.Comman
 		return fmt.Errorf("Unexpected extra arguments: %v", unusedArgs)
 	}
 
-	params := nks.ClusterPoolNodeVolumeListParams{}
-
 	options, err := flagOptions(
 		cmd,
 		apiquery.NestedQueryFormatBrackets,
@@ -109,6 +114,8 @@ func handleNKSClustersPoolsNodesVolumesList(ctx context.Context, cmd *cli.Comman
 	if err != nil {
 		return err
 	}
+
+	params := nks.ClusterPoolNodeVolumeListParams{}
 
 	format := cmd.Root().String("format")
 	explicitFormat := cmd.Root().IsSet("format")

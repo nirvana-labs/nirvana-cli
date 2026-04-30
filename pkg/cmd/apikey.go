@@ -95,8 +95,9 @@ var apiKeysUpdate = requestflag.WithInnerFlags(cli.Command{
 	Suggest: true,
 	Flags: []cli.Flag{
 		&requestflag.Flag[string]{
-			Name:     "api-key-id",
-			Required: true,
+			Name:      "api-key-id",
+			Required:  true,
+			PathParam: "api_key_id",
 		},
 		&requestflag.Flag[string]{
 			Name:     "name",
@@ -184,8 +185,9 @@ var apiKeysDelete = cli.Command{
 	Suggest: true,
 	Flags: []cli.Flag{
 		&requestflag.Flag[string]{
-			Name:     "api-key-id",
-			Required: true,
+			Name:      "api-key-id",
+			Required:  true,
+			PathParam: "api_key_id",
 		},
 	},
 	Action:          handleAPIKeysDelete,
@@ -198,8 +200,9 @@ var apiKeysGet = cli.Command{
 	Suggest: true,
 	Flags: []cli.Flag{
 		&requestflag.Flag[string]{
-			Name:     "api-key-id",
-			Required: true,
+			Name:      "api-key-id",
+			Required:  true,
+			PathParam: "api_key_id",
 		},
 	},
 	Action:          handleAPIKeysGet,
@@ -214,8 +217,6 @@ func handleAPIKeysCreate(ctx context.Context, cmd *cli.Command) error {
 		return fmt.Errorf("Unexpected extra arguments: %v", unusedArgs)
 	}
 
-	params := api_keys.APIKeyNewParams{}
-
 	options, err := flagOptions(
 		cmd,
 		apiquery.NestedQueryFormatBrackets,
@@ -226,6 +227,8 @@ func handleAPIKeysCreate(ctx context.Context, cmd *cli.Command) error {
 	if err != nil {
 		return err
 	}
+
+	params := api_keys.APIKeyNewParams{}
 
 	var res []byte
 	options = append(options, option.WithResponseBodyInto(&res))
@@ -258,8 +261,6 @@ func handleAPIKeysUpdate(ctx context.Context, cmd *cli.Command) error {
 		return fmt.Errorf("Unexpected extra arguments: %v", unusedArgs)
 	}
 
-	params := api_keys.APIKeyUpdateParams{}
-
 	options, err := flagOptions(
 		cmd,
 		apiquery.NestedQueryFormatBrackets,
@@ -270,6 +271,8 @@ func handleAPIKeysUpdate(ctx context.Context, cmd *cli.Command) error {
 	if err != nil {
 		return err
 	}
+
+	params := api_keys.APIKeyUpdateParams{}
 
 	var res []byte
 	options = append(options, option.WithResponseBodyInto(&res))
@@ -304,8 +307,6 @@ func handleAPIKeysList(ctx context.Context, cmd *cli.Command) error {
 		return fmt.Errorf("Unexpected extra arguments: %v", unusedArgs)
 	}
 
-	params := api_keys.APIKeyListParams{}
-
 	options, err := flagOptions(
 		cmd,
 		apiquery.NestedQueryFormatBrackets,
@@ -316,6 +317,8 @@ func handleAPIKeysList(ctx context.Context, cmd *cli.Command) error {
 	if err != nil {
 		return err
 	}
+
+	params := api_keys.APIKeyListParams{}
 
 	format := cmd.Root().String("format")
 	explicitFormat := cmd.Root().IsSet("format")

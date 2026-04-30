@@ -52,8 +52,9 @@ var rpcNodesDedicatedGet = cli.Command{
 	Suggest: true,
 	Flags: []cli.Flag{
 		&requestflag.Flag[string]{
-			Name:     "node-id",
-			Required: true,
+			Name:      "node-id",
+			Required:  true,
+			PathParam: "node_id",
 		},
 	},
 	Action:          handleRPCNodesDedicatedGet,
@@ -68,8 +69,6 @@ func handleRPCNodesDedicatedList(ctx context.Context, cmd *cli.Command) error {
 		return fmt.Errorf("Unexpected extra arguments: %v", unusedArgs)
 	}
 
-	params := rpc_nodes.DedicatedListParams{}
-
 	options, err := flagOptions(
 		cmd,
 		apiquery.NestedQueryFormatBrackets,
@@ -80,6 +79,8 @@ func handleRPCNodesDedicatedList(ctx context.Context, cmd *cli.Command) error {
 	if err != nil {
 		return err
 	}
+
+	params := rpc_nodes.DedicatedListParams{}
 
 	format := cmd.Root().String("format")
 	explicitFormat := cmd.Root().IsSet("format")

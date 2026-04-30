@@ -19,8 +19,9 @@ var nksClustersPoolsAvailabilityCreate = requestflag.WithInnerFlags(cli.Command{
 	Suggest: true,
 	Flags: []cli.Flag{
 		&requestflag.Flag[string]{
-			Name:     "cluster-id",
-			Required: true,
+			Name:      "cluster-id",
+			Required:  true,
+			PathParam: "cluster_id",
 		},
 		&requestflag.Flag[string]{
 			Name:     "name",
@@ -74,12 +75,14 @@ var nksClustersPoolsAvailabilityUpdate = requestflag.WithInnerFlags(cli.Command{
 	Suggest: true,
 	Flags: []cli.Flag{
 		&requestflag.Flag[string]{
-			Name:     "cluster-id",
-			Required: true,
+			Name:      "cluster-id",
+			Required:  true,
+			PathParam: "cluster_id",
 		},
 		&requestflag.Flag[string]{
-			Name:     "pool-id",
-			Required: true,
+			Name:      "pool-id",
+			Required:  true,
+			PathParam: "pool_id",
 		},
 		&requestflag.Flag[string]{
 			Name:     "name",
@@ -125,8 +128,6 @@ func handleNKSClustersPoolsAvailabilityCreate(ctx context.Context, cmd *cli.Comm
 		return fmt.Errorf("Unexpected extra arguments: %v", unusedArgs)
 	}
 
-	params := nks.ClusterPoolAvailabilityNewParams{}
-
 	options, err := flagOptions(
 		cmd,
 		apiquery.NestedQueryFormatBrackets,
@@ -137,6 +138,8 @@ func handleNKSClustersPoolsAvailabilityCreate(ctx context.Context, cmd *cli.Comm
 	if err != nil {
 		return err
 	}
+
+	params := nks.ClusterPoolAvailabilityNewParams{}
 
 	return client.NKS.Clusters.Pools.Availability.New(
 		ctx,
@@ -161,8 +164,6 @@ func handleNKSClustersPoolsAvailabilityUpdate(ctx context.Context, cmd *cli.Comm
 		return fmt.Errorf("Unexpected extra arguments: %v", unusedArgs)
 	}
 
-	params := nks.ClusterPoolAvailabilityUpdateParams{}
-
 	options, err := flagOptions(
 		cmd,
 		apiquery.NestedQueryFormatBrackets,
@@ -173,6 +174,8 @@ func handleNKSClustersPoolsAvailabilityUpdate(ctx context.Context, cmd *cli.Comm
 	if err != nil {
 		return err
 	}
+
+	params := nks.ClusterPoolAvailabilityUpdateParams{}
 
 	return client.NKS.Clusters.Pools.Availability.Update(
 		ctx,

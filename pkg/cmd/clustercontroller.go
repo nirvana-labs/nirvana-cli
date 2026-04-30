@@ -21,8 +21,9 @@ var nksClustersControllersList = cli.Command{
 	Suggest: true,
 	Flags: []cli.Flag{
 		&requestflag.Flag[string]{
-			Name:     "cluster-id",
-			Required: true,
+			Name:      "cluster-id",
+			Required:  true,
+			PathParam: "cluster_id",
 		},
 		&requestflag.Flag[string]{
 			Name:      "cursor",
@@ -50,12 +51,14 @@ var nksClustersControllersGet = cli.Command{
 	Suggest: true,
 	Flags: []cli.Flag{
 		&requestflag.Flag[string]{
-			Name:     "cluster-id",
-			Required: true,
+			Name:      "cluster-id",
+			Required:  true,
+			PathParam: "cluster_id",
 		},
 		&requestflag.Flag[string]{
-			Name:     "controller-id",
-			Required: true,
+			Name:      "controller-id",
+			Required:  true,
+			PathParam: "controller_id",
 		},
 	},
 	Action:          handleNKSClustersControllersGet,
@@ -73,8 +76,6 @@ func handleNKSClustersControllersList(ctx context.Context, cmd *cli.Command) err
 		return fmt.Errorf("Unexpected extra arguments: %v", unusedArgs)
 	}
 
-	params := nks.ClusterControllerListParams{}
-
 	options, err := flagOptions(
 		cmd,
 		apiquery.NestedQueryFormatBrackets,
@@ -85,6 +86,8 @@ func handleNKSClustersControllersList(ctx context.Context, cmd *cli.Command) err
 	if err != nil {
 		return err
 	}
+
+	params := nks.ClusterControllerListParams{}
 
 	format := cmd.Root().String("format")
 	explicitFormat := cmd.Root().IsSet("format")

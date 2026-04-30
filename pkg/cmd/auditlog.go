@@ -46,8 +46,9 @@ var auditLogsGet = cli.Command{
 	Suggest: true,
 	Flags: []cli.Flag{
 		&requestflag.Flag[string]{
-			Name:     "audit-log-id",
-			Required: true,
+			Name:      "audit-log-id",
+			Required:  true,
+			PathParam: "audit_log_id",
 		},
 	},
 	Action:          handleAuditLogsGet,
@@ -62,8 +63,6 @@ func handleAuditLogsList(ctx context.Context, cmd *cli.Command) error {
 		return fmt.Errorf("Unexpected extra arguments: %v", unusedArgs)
 	}
 
-	params := audit_logs.AuditLogListParams{}
-
 	options, err := flagOptions(
 		cmd,
 		apiquery.NestedQueryFormatBrackets,
@@ -74,6 +73,8 @@ func handleAuditLogsList(ctx context.Context, cmd *cli.Command) error {
 	if err != nil {
 		return err
 	}
+
+	params := audit_logs.AuditLogListParams{}
 
 	format := cmd.Root().String("format")
 	explicitFormat := cmd.Root().IsSet("format")

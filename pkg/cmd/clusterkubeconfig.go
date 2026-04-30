@@ -20,8 +20,9 @@ var nksClustersKubeconfigGet = cli.Command{
 	Suggest: true,
 	Flags: []cli.Flag{
 		&requestflag.Flag[string]{
-			Name:     "cluster-id",
-			Required: true,
+			Name:      "cluster-id",
+			Required:  true,
+			PathParam: "cluster_id",
 		},
 	},
 	Action:          handleNKSClustersKubeconfigGet,

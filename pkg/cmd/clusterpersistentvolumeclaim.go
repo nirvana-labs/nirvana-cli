@@ -21,8 +21,9 @@ var nksClustersPersistentVolumeClaimsList = cli.Command{
 	Suggest: true,
 	Flags: []cli.Flag{
 		&requestflag.Flag[string]{
-			Name:     "cluster-id",
-			Required: true,
+			Name:      "cluster-id",
+			Required:  true,
+			PathParam: "cluster_id",
 		},
 		&requestflag.Flag[string]{
 			Name:      "cursor",
@@ -50,12 +51,14 @@ var nksClustersPersistentVolumeClaimsGet = cli.Command{
 	Suggest: true,
 	Flags: []cli.Flag{
 		&requestflag.Flag[string]{
-			Name:     "cluster-id",
-			Required: true,
+			Name:      "cluster-id",
+			Required:  true,
+			PathParam: "cluster_id",
 		},
 		&requestflag.Flag[string]{
-			Name:     "persistent-volume-claim-id",
-			Required: true,
+			Name:      "persistent-volume-claim-id",
+			Required:  true,
+			PathParam: "persistent_volume_claim_id",
 		},
 	},
 	Action:          handleNKSClustersPersistentVolumeClaimsGet,
@@ -73,8 +76,6 @@ func handleNKSClustersPersistentVolumeClaimsList(ctx context.Context, cmd *cli.C
 		return fmt.Errorf("Unexpected extra arguments: %v", unusedArgs)
 	}
 
-	params := nks.ClusterPersistentVolumeClaimListParams{}
-
 	options, err := flagOptions(
 		cmd,
 		apiquery.NestedQueryFormatBrackets,
@@ -85,6 +86,8 @@ func handleNKSClustersPersistentVolumeClaimsList(ctx context.Context, cmd *cli.C
 	if err != nil {
 		return err
 	}
+
+	params := nks.ClusterPersistentVolumeClaimListParams{}
 
 	format := cmd.Root().String("format")
 	explicitFormat := cmd.Root().IsSet("format")
