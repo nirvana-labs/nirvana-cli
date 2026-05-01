@@ -60,8 +60,9 @@ var networkingVPCsUpdate = cli.Command{
 	Suggest: true,
 	Flags: []cli.Flag{
 		&requestflag.Flag[string]{
-			Name:     "vpc-id",
-			Required: true,
+			Name:      "vpc-id",
+			Required:  true,
+			PathParam: "vpc_id",
 		},
 		&requestflag.Flag[string]{
 			Name:     "name",
@@ -120,8 +121,9 @@ var networkingVPCsDelete = cli.Command{
 	Suggest: true,
 	Flags: []cli.Flag{
 		&requestflag.Flag[string]{
-			Name:     "vpc-id",
-			Required: true,
+			Name:      "vpc-id",
+			Required:  true,
+			PathParam: "vpc_id",
 		},
 	},
 	Action:          handleNetworkingVPCsDelete,
@@ -134,8 +136,9 @@ var networkingVPCsGet = cli.Command{
 	Suggest: true,
 	Flags: []cli.Flag{
 		&requestflag.Flag[string]{
-			Name:     "vpc-id",
-			Required: true,
+			Name:      "vpc-id",
+			Required:  true,
+			PathParam: "vpc_id",
 		},
 	},
 	Action:          handleNetworkingVPCsGet,
@@ -150,8 +153,6 @@ func handleNetworkingVPCsCreate(ctx context.Context, cmd *cli.Command) error {
 		return fmt.Errorf("Unexpected extra arguments: %v", unusedArgs)
 	}
 
-	params := networking.VPCNewParams{}
-
 	options, err := flagOptions(
 		cmd,
 		apiquery.NestedQueryFormatBrackets,
@@ -162,6 +163,8 @@ func handleNetworkingVPCsCreate(ctx context.Context, cmd *cli.Command) error {
 	if err != nil {
 		return err
 	}
+
+	params := networking.VPCNewParams{}
 
 	var res []byte
 	options = append(options, option.WithResponseBodyInto(&res))
@@ -194,8 +197,6 @@ func handleNetworkingVPCsUpdate(ctx context.Context, cmd *cli.Command) error {
 		return fmt.Errorf("Unexpected extra arguments: %v", unusedArgs)
 	}
 
-	params := networking.VPCUpdateParams{}
-
 	options, err := flagOptions(
 		cmd,
 		apiquery.NestedQueryFormatBrackets,
@@ -206,6 +207,8 @@ func handleNetworkingVPCsUpdate(ctx context.Context, cmd *cli.Command) error {
 	if err != nil {
 		return err
 	}
+
+	params := networking.VPCUpdateParams{}
 
 	var res []byte
 	options = append(options, option.WithResponseBodyInto(&res))
@@ -240,8 +243,6 @@ func handleNetworkingVPCsList(ctx context.Context, cmd *cli.Command) error {
 		return fmt.Errorf("Unexpected extra arguments: %v", unusedArgs)
 	}
 
-	params := networking.VPCListParams{}
-
 	options, err := flagOptions(
 		cmd,
 		apiquery.NestedQueryFormatBrackets,
@@ -252,6 +253,8 @@ func handleNetworkingVPCsList(ctx context.Context, cmd *cli.Command) error {
 	if err != nil {
 		return err
 	}
+
+	params := networking.VPCListParams{}
 
 	format := cmd.Root().String("format")
 	explicitFormat := cmd.Root().IsSet("format")

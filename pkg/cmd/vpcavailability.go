@@ -58,8 +58,9 @@ var networkingVPCsAvailabilityUpdate = cli.Command{
 	Suggest: true,
 	Flags: []cli.Flag{
 		&requestflag.Flag[string]{
-			Name:     "vpc-id",
-			Required: true,
+			Name:      "vpc-id",
+			Required:  true,
+			PathParam: "vpc_id",
 		},
 		&requestflag.Flag[string]{
 			Name:     "name",
@@ -89,8 +90,6 @@ func handleNetworkingVPCsAvailabilityCreate(ctx context.Context, cmd *cli.Comman
 		return fmt.Errorf("Unexpected extra arguments: %v", unusedArgs)
 	}
 
-	params := networking.VPCAvailabilityNewParams{}
-
 	options, err := flagOptions(
 		cmd,
 		apiquery.NestedQueryFormatBrackets,
@@ -101,6 +100,8 @@ func handleNetworkingVPCsAvailabilityCreate(ctx context.Context, cmd *cli.Comman
 	if err != nil {
 		return err
 	}
+
+	params := networking.VPCAvailabilityNewParams{}
 
 	return client.Networking.VPCs.Availability.New(ctx, params, options...)
 }
@@ -116,8 +117,6 @@ func handleNetworkingVPCsAvailabilityUpdate(ctx context.Context, cmd *cli.Comman
 		return fmt.Errorf("Unexpected extra arguments: %v", unusedArgs)
 	}
 
-	params := networking.VPCAvailabilityUpdateParams{}
-
 	options, err := flagOptions(
 		cmd,
 		apiquery.NestedQueryFormatBrackets,
@@ -128,6 +127,8 @@ func handleNetworkingVPCsAvailabilityUpdate(ctx context.Context, cmd *cli.Comman
 	if err != nil {
 		return err
 	}
+
+	params := networking.VPCAvailabilityUpdateParams{}
 
 	return client.Networking.VPCs.Availability.Update(
 		ctx,

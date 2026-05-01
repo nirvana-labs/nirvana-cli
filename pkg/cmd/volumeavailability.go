@@ -69,8 +69,9 @@ var computeVolumesAvailabilityUpdate = cli.Command{
 	Suggest: true,
 	Flags: []cli.Flag{
 		&requestflag.Flag[string]{
-			Name:     "volume-id",
-			Required: true,
+			Name:      "volume-id",
+			Required:  true,
+			PathParam: "volume_id",
 		},
 		&requestflag.Flag[string]{
 			Name:     "name",
@@ -100,8 +101,6 @@ func handleComputeVolumesAvailabilityCreate(ctx context.Context, cmd *cli.Comman
 		return fmt.Errorf("Unexpected extra arguments: %v", unusedArgs)
 	}
 
-	params := compute.VolumeAvailabilityNewParams{}
-
 	options, err := flagOptions(
 		cmd,
 		apiquery.NestedQueryFormatBrackets,
@@ -112,6 +111,8 @@ func handleComputeVolumesAvailabilityCreate(ctx context.Context, cmd *cli.Comman
 	if err != nil {
 		return err
 	}
+
+	params := compute.VolumeAvailabilityNewParams{}
 
 	return client.Compute.Volumes.Availability.New(ctx, params, options...)
 }
@@ -127,8 +128,6 @@ func handleComputeVolumesAvailabilityUpdate(ctx context.Context, cmd *cli.Comman
 		return fmt.Errorf("Unexpected extra arguments: %v", unusedArgs)
 	}
 
-	params := compute.VolumeAvailabilityUpdateParams{}
-
 	options, err := flagOptions(
 		cmd,
 		apiquery.NestedQueryFormatBrackets,
@@ -139,6 +138,8 @@ func handleComputeVolumesAvailabilityUpdate(ctx context.Context, cmd *cli.Comman
 	if err != nil {
 		return err
 	}
+
+	params := compute.VolumeAvailabilityUpdateParams{}
 
 	return client.Compute.Volumes.Availability.Update(
 		ctx,

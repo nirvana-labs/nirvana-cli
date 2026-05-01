@@ -21,12 +21,14 @@ var nksClustersLoadBalancersUpdate = cli.Command{
 	Suggest: true,
 	Flags: []cli.Flag{
 		&requestflag.Flag[string]{
-			Name:     "cluster-id",
-			Required: true,
+			Name:      "cluster-id",
+			Required:  true,
+			PathParam: "cluster_id",
 		},
 		&requestflag.Flag[string]{
-			Name:     "load-balancer-id",
-			Required: true,
+			Name:      "load-balancer-id",
+			Required:  true,
+			PathParam: "load_balancer_id",
 		},
 		&requestflag.Flag[bool]{
 			Name:     "public-ip-enabled",
@@ -45,8 +47,9 @@ var nksClustersLoadBalancersList = cli.Command{
 	Suggest: true,
 	Flags: []cli.Flag{
 		&requestflag.Flag[string]{
-			Name:     "cluster-id",
-			Required: true,
+			Name:      "cluster-id",
+			Required:  true,
+			PathParam: "cluster_id",
 		},
 		&requestflag.Flag[string]{
 			Name:      "cursor",
@@ -74,12 +77,14 @@ var nksClustersLoadBalancersGet = cli.Command{
 	Suggest: true,
 	Flags: []cli.Flag{
 		&requestflag.Flag[string]{
-			Name:     "cluster-id",
-			Required: true,
+			Name:      "cluster-id",
+			Required:  true,
+			PathParam: "cluster_id",
 		},
 		&requestflag.Flag[string]{
-			Name:     "load-balancer-id",
-			Required: true,
+			Name:      "load-balancer-id",
+			Required:  true,
+			PathParam: "load_balancer_id",
 		},
 	},
 	Action:          handleNKSClustersLoadBalancersGet,
@@ -101,8 +106,6 @@ func handleNKSClustersLoadBalancersUpdate(ctx context.Context, cmd *cli.Command)
 		return fmt.Errorf("Unexpected extra arguments: %v", unusedArgs)
 	}
 
-	params := nks.ClusterLoadBalancerUpdateParams{}
-
 	options, err := flagOptions(
 		cmd,
 		apiquery.NestedQueryFormatBrackets,
@@ -113,6 +116,8 @@ func handleNKSClustersLoadBalancersUpdate(ctx context.Context, cmd *cli.Command)
 	if err != nil {
 		return err
 	}
+
+	params := nks.ClusterLoadBalancerUpdateParams{}
 
 	var res []byte
 	options = append(options, option.WithResponseBodyInto(&res))
@@ -151,8 +156,6 @@ func handleNKSClustersLoadBalancersList(ctx context.Context, cmd *cli.Command) e
 		return fmt.Errorf("Unexpected extra arguments: %v", unusedArgs)
 	}
 
-	params := nks.ClusterLoadBalancerListParams{}
-
 	options, err := flagOptions(
 		cmd,
 		apiquery.NestedQueryFormatBrackets,
@@ -163,6 +166,8 @@ func handleNKSClustersLoadBalancersList(ctx context.Context, cmd *cli.Command) e
 	if err != nil {
 		return err
 	}
+
+	params := nks.ClusterLoadBalancerListParams{}
 
 	format := cmd.Root().String("format")
 	explicitFormat := cmd.Root().IsSet("format")

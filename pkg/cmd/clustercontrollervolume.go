@@ -21,12 +21,14 @@ var nksClustersControllersVolumesList = cli.Command{
 	Suggest: true,
 	Flags: []cli.Flag{
 		&requestflag.Flag[string]{
-			Name:     "cluster-id",
-			Required: true,
+			Name:      "cluster-id",
+			Required:  true,
+			PathParam: "cluster_id",
 		},
 		&requestflag.Flag[string]{
-			Name:     "controller-id",
-			Required: true,
+			Name:      "controller-id",
+			Required:  true,
+			PathParam: "controller_id",
 		},
 		&requestflag.Flag[string]{
 			Name:      "cursor",
@@ -54,16 +56,19 @@ var nksClustersControllersVolumesGet = cli.Command{
 	Suggest: true,
 	Flags: []cli.Flag{
 		&requestflag.Flag[string]{
-			Name:     "cluster-id",
-			Required: true,
+			Name:      "cluster-id",
+			Required:  true,
+			PathParam: "cluster_id",
 		},
 		&requestflag.Flag[string]{
-			Name:     "controller-id",
-			Required: true,
+			Name:      "controller-id",
+			Required:  true,
+			PathParam: "controller_id",
 		},
 		&requestflag.Flag[string]{
-			Name:     "volume-id",
-			Required: true,
+			Name:      "volume-id",
+			Required:  true,
+			PathParam: "volume_id",
 		},
 	},
 	Action:          handleNKSClustersControllersVolumesGet,
@@ -85,8 +90,6 @@ func handleNKSClustersControllersVolumesList(ctx context.Context, cmd *cli.Comma
 		return fmt.Errorf("Unexpected extra arguments: %v", unusedArgs)
 	}
 
-	params := nks.ClusterControllerVolumeListParams{}
-
 	options, err := flagOptions(
 		cmd,
 		apiquery.NestedQueryFormatBrackets,
@@ -97,6 +100,8 @@ func handleNKSClustersControllersVolumesList(ctx context.Context, cmd *cli.Comma
 	if err != nil {
 		return err
 	}
+
+	params := nks.ClusterControllerVolumeListParams{}
 
 	format := cmd.Root().String("format")
 	explicitFormat := cmd.Root().IsSet("format")

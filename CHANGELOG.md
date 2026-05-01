@@ -1,5 +1,19 @@
 # Changelog
 
+## 0.44.0 (2026-05-01)
+
+Full Changelog: [v0.43.2...v0.44.0](https://github.com/nirvana-labs/nirvana-cli/compare/v0.43.2...v0.44.0)
+
+### Features
+
+* support passing path and query params over stdin ([5126a4b](https://github.com/nirvana-labs/nirvana-cli/commit/5126a4b3188d10830936ffb4f8ae1a09bef4c31f))
+
+
+### Bug Fixes
+
+* **cli:** correctly load zsh autocompletion ([cfa0f56](https://github.com/nirvana-labs/nirvana-cli/commit/cfa0f5633331608ba6c22377ad71068f9b214135))
+* flags for nullable body scalar fields are strictly typed ([fc1d5d1](https://github.com/nirvana-labs/nirvana-cli/commit/fc1d5d14dc2f7a97c35b0d57e8ab7f3f235ba66e))
+
 ## 0.43.2 (2026-04-23)
 
 Full Changelog: [v0.43.1...v0.43.2](https://github.com/nirvana-labs/nirvana-cli/compare/v0.43.1...v0.43.2)

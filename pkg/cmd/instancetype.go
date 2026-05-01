@@ -46,13 +46,15 @@ var instanceTypesGet = cli.Command{
 	Suggest: true,
 	Flags: []cli.Flag{
 		&requestflag.Flag[string]{
-			Name:     "region",
-			Usage:    `Allowed values: "us-sva-1", "us-sva-2", "us-chi-1".`,
-			Required: true,
+			Name:      "region",
+			Usage:     `Allowed values: "us-sva-1", "us-sva-2", "us-chi-1".`,
+			Required:  true,
+			PathParam: "region",
 		},
 		&requestflag.Flag[string]{
-			Name:     "name",
-			Required: true,
+			Name:      "name",
+			Required:  true,
+			PathParam: "name",
 		},
 	},
 	Action:          handleInstanceTypesGet,
@@ -67,8 +69,6 @@ func handleInstanceTypesList(ctx context.Context, cmd *cli.Command) error {
 		return fmt.Errorf("Unexpected extra arguments: %v", unusedArgs)
 	}
 
-	params := instance_types.InstanceTypeListParams{}
-
 	options, err := flagOptions(
 		cmd,
 		apiquery.NestedQueryFormatBrackets,
@@ -79,6 +79,8 @@ func handleInstanceTypesList(ctx context.Context, cmd *cli.Command) error {
 	if err != nil {
 		return err
 	}
+
+	params := instance_types.InstanceTypeListParams{}
 
 	format := cmd.Root().String("format")
 	explicitFormat := cmd.Root().IsSet("format")
