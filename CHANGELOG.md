@@ -1,5 +1,15 @@
 # Changelog
 
+## 0.44.1 (2026-05-08)
+
+Full Changelog: [v0.44.0...v0.44.1](https://github.com/nirvana-labs/nirvana-cli/compare/v0.44.0...v0.44.1)
+
+### Chores
+
+* **internal:** codegen related update ([e6fe32c](https://github.com/nirvana-labs/nirvana-cli/commit/e6fe32c5b5eba807cc4673d610eb7e1566b3f808))
+* **internal:** codegen related update ([49f85d6](https://github.com/nirvana-labs/nirvana-cli/commit/49f85d674ac64b077518431c216875b79f87cde2))
+* redact api-key headers in debug logs ([fe86419](https://github.com/nirvana-labs/nirvana-cli/commit/fe864194bc3ff0b7ca3c7adf7f357a05d65fae2b))
+
 ## 0.44.0 (2026-05-01)
 
 Full Changelog: [v0.43.2...v0.44.0](https://github.com/nirvana-labs/nirvana-cli/compare/v0.43.2...v0.44.0)
