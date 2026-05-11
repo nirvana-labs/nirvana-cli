@@ -15,6 +15,7 @@ func TestNKSClustersCreate(t *testing.T) {
 			t,
 			"--api-key", "string",
 			"nks:clusters", "create",
+			"--autoscaling=true",
 			"--name", "my-cluster",
 			"--project-id", "123e4567-e89b-12d3-a456-426614174000",
 			"--region", "us-sva-2",
@@ -27,6 +28,7 @@ func TestNKSClustersCreate(t *testing.T) {
 	t.Run("piping data", func(t *testing.T) {
 		// Test piping YAML data over stdin
 		pipeData := []byte("" +
+			"autoscaling: true\n" +
 			"name: my-cluster\n" +
 			"project_id: 123e4567-e89b-12d3-a456-426614174000\n" +
 			"region: us-sva-2\n" +
@@ -50,6 +52,7 @@ func TestNKSClustersUpdate(t *testing.T) {
 			"--api-key", "string",
 			"nks:clusters", "update",
 			"--cluster-id", "cluster_id",
+			"--autoscaling=true",
 			"--name", "my-cluster",
 			"--tag", "production",
 			"--tag", "ethereum",
@@ -59,6 +62,7 @@ func TestNKSClustersUpdate(t *testing.T) {
 	t.Run("piping data", func(t *testing.T) {
 		// Test piping YAML data over stdin
 		pipeData := []byte("" +
+			"autoscaling: true\n" +
 			"name: my-cluster\n" +
 			"tags:\n" +
 			"  - production\n" +

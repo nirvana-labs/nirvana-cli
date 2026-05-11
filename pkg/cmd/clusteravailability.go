@@ -18,6 +18,12 @@ var nksClustersAvailabilityCreate = cli.Command{
 	Usage:   "Check if an NKS cluster can be created",
 	Suggest: true,
 	Flags: []cli.Flag{
+		&requestflag.Flag[bool]{
+			Name:     "autoscaling",
+			Usage:    "Whether to enable autoscaling for the Cluster.",
+			Required: true,
+			BodyPath: "autoscaling",
+		},
 		&requestflag.Flag[string]{
 			Name:     "name",
 			Usage:    "Name of the Cluster.",
@@ -61,6 +67,11 @@ var nksClustersAvailabilityUpdate = cli.Command{
 			Name:      "cluster-id",
 			Required:  true,
 			PathParam: "cluster_id",
+		},
+		&requestflag.Flag[bool]{
+			Name:     "autoscaling",
+			Usage:    "Whether to enable autoscaling for the Cluster.",
+			BodyPath: "autoscaling",
 		},
 		&requestflag.Flag[string]{
 			Name:     "name",
