@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.45.1 (2026-05-11)
+
+Full Changelog: [v0.45.0...v0.45.1](https://github.com/nirvana-labs/nirvana-cli/compare/v0.45.0...v0.45.1)
+
+### Bug Fixes
+
+* **api:** remove us-sva-1 region from instancetype and quota ([927dccb](https://github.com/nirvana-labs/nirvana-cli/commit/927dccb163d2c54283e603ee9b8ae0cf1e58655d))
+
 ## 0.45.0 (2026-05-11)
 
 Full Changelog: [v0.44.2...v0.45.0](https://github.com/nirvana-labs/nirvana-cli/compare/v0.44.2...v0.45.0)
