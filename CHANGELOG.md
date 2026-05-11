@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.45.0 (2026-05-11)
+
+Full Changelog: [v0.44.2...v0.45.0](https://github.com/nirvana-labs/nirvana-cli/compare/v0.44.2...v0.45.0)
+
+### Features
+
+* **api:** add autoscaling parameter to clusters and clusters availability methods ([db0339b](https://github.com/nirvana-labs/nirvana-cli/commit/db0339bbd662a808e77815b9739b4978cf850af0))
+
 ## 0.44.2 (2026-05-11)
 
 Full Changelog: [v0.44.1...v0.44.2](https://github.com/nirvana-labs/nirvana-cli/compare/v0.44.1...v0.44.2)
