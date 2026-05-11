@@ -47,7 +47,7 @@ var instanceTypesGet = cli.Command{
 	Flags: []cli.Flag{
 		&requestflag.Flag[string]{
 			Name:      "region",
-			Usage:     `Allowed values: "us-sva-1", "us-sva-2".`,
+			Usage:     `Allowed values: "us-sva-2".`,
 			Required:  true,
 			PathParam: "region",
 		},

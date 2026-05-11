@@ -26,7 +26,7 @@ func TestQuotasGet(t *testing.T) {
 			t,
 			"--api-key", "string",
 			"quotas", "get",
-			"--region", "us-sva-1",
+			"--region", "us-sva-2",
 		)
 	})
 }
