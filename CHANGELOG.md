@@ -1,5 +1,18 @@
 # Changelog
 
+## 0.44.2 (2026-05-11)
+
+Full Changelog: [v0.44.1...v0.44.2](https://github.com/nirvana-labs/nirvana-cli/compare/v0.44.1...v0.44.2)
+
+### Bug Fixes
+
+* **api:** remove us-chi-1 from region parameter in instancetype and quota ([eed2d3a](https://github.com/nirvana-labs/nirvana-cli/commit/eed2d3aedbf9b2329e5469c497be5340c19b98d3))
+
+
+### Chores
+
+* **internal:** regenerate SDK with no functional changes ([1903cd6](https://github.com/nirvana-labs/nirvana-cli/commit/1903cd66d758d531bc528299259f771af745b646))
+
 ## 0.44.1 (2026-05-08)
 
 Full Changelog: [v0.44.0...v0.44.1](https://github.com/nirvana-labs/nirvana-cli/compare/v0.44.0...v0.44.1)
