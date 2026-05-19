@@ -153,6 +153,15 @@ func init() {
 				},
 			},
 			{
+				Name:     "usage",
+				Category: "API RESOURCE",
+				Suggest:  true,
+				Commands: []*cli.Command{
+					&usageList,
+					&usageGet,
+				},
+			},
+			{
 				Name:     "audit-logs",
 				Category: "API RESOURCE",
 				Suggest:  true,
