@@ -17,6 +17,7 @@ func TestComputeVMsAvailabilityCreate(t *testing.T) {
 			"--api-key", "string",
 			"compute:vms:availability", "create",
 			"--boot-volume", "{size: 100, type: abs, tags: [production, ethereum]}",
+			"--instance-type", "n1-standard-8",
 			"--name", "my-vm",
 			"--os-image-name", "ubuntu-noble-2025-10-01",
 			"--project-id", "123e4567-e89b-12d3-a456-426614174000",
@@ -24,10 +25,7 @@ func TestComputeVMsAvailabilityCreate(t *testing.T) {
 			"--region", "us-sva-2",
 			"--ssh-key", "{public_key: ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDBIASkmwNiLcdlW6927Zjt1Hf7Kw/PpEZ4Zm+wU9wn2}",
 			"--subnet-id", "123e4567-e89b-12d3-a456-426614174000",
-			"--cpu-config", "{vcpu: 2}",
 			"--data-volume", "{name: my-data-volume, size: 100, type: abs, tags: [production, ethereum]}",
-			"--instance-type", "n1-standard-8",
-			"--memory-config", "{size: 2}",
 			"--tag", "production",
 			"--tag", "ethereum",
 		)
@@ -45,6 +43,7 @@ func TestComputeVMsAvailabilityCreate(t *testing.T) {
 			"--boot-volume.size", "100",
 			"--boot-volume.type", "abs",
 			"--boot-volume.tags", "[production, ethereum]",
+			"--instance-type", "n1-standard-8",
 			"--name", "my-vm",
 			"--os-image-name", "ubuntu-noble-2025-10-01",
 			"--project-id", "123e4567-e89b-12d3-a456-426614174000",
@@ -52,13 +51,10 @@ func TestComputeVMsAvailabilityCreate(t *testing.T) {
 			"--region", "us-sva-2",
 			"--ssh-key.public-key", "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDBIASkmwNiLcdlW6927Zjt1Hf7Kw/PpEZ4Zm+wU9wn2",
 			"--subnet-id", "123e4567-e89b-12d3-a456-426614174000",
-			"--cpu-config.vcpu", "2",
 			"--data-volume.name", "my-data-volume",
 			"--data-volume.size", "100",
 			"--data-volume.type", "abs",
 			"--data-volume.tags", "[production, ethereum]",
-			"--instance-type", "n1-standard-8",
-			"--memory-config.size", "2",
 			"--tag", "production",
 			"--tag", "ethereum",
 		)
@@ -73,6 +69,7 @@ func TestComputeVMsAvailabilityCreate(t *testing.T) {
 			"  tags:\n" +
 			"    - production\n" +
 			"    - ethereum\n" +
+			"instance_type: n1-standard-8\n" +
 			"name: my-vm\n" +
 			"os_image_name: ubuntu-noble-2025-10-01\n" +
 			"project_id: 123e4567-e89b-12d3-a456-426614174000\n" +
@@ -83,8 +80,6 @@ func TestComputeVMsAvailabilityCreate(t *testing.T) {
 			"    ssh-ed25519\n" +
 			"    AAAAC3NzaC1lZDI1NTE5AAAAIDBIASkmwNiLcdlW6927Zjt1Hf7Kw/PpEZ4Zm+wU9wn2\n" +
 			"subnet_id: 123e4567-e89b-12d3-a456-426614174000\n" +
-			"cpu_config:\n" +
-			"  vcpu: 2\n" +
 			"data_volumes:\n" +
 			"  - name: my-data-volume\n" +
 			"    size: 100\n" +
@@ -92,9 +87,6 @@ func TestComputeVMsAvailabilityCreate(t *testing.T) {
 			"    tags:\n" +
 			"      - production\n" +
 			"      - ethereum\n" +
-			"instance_type: n1-standard-8\n" +
-			"memory_config:\n" +
-			"  size: 2\n" +
 			"tags:\n" +
 			"  - production\n" +
 			"  - ethereum\n")
@@ -114,29 +106,7 @@ func TestComputeVMsAvailabilityUpdate(t *testing.T) {
 			"--api-key", "string",
 			"compute:vms:availability", "update",
 			"--vm-id", "vm_id",
-			"--cpu-config", "{vcpu: 2}",
 			"--instance-type", "n1-standard-8",
-			"--memory-config", "{size: 2}",
-			"--name", "my-vm",
-			"--public-ip-enabled=true",
-			"--tag", "production",
-			"--tag", "ethereum",
-		)
-	})
-
-	t.Run("inner flags", func(t *testing.T) {
-		// Check that inner flags have been set up correctly
-		requestflag.CheckInnerFlags(computeVMsAvailabilityUpdate)
-
-		// Alternative argument passing style using inner flags
-		mocktest.TestRunMockTestWithFlags(
-			t,
-			"--api-key", "string",
-			"compute:vms:availability", "update",
-			"--vm-id", "vm_id",
-			"--cpu-config.vcpu", "2",
-			"--instance-type", "n1-standard-8",
-			"--memory-config.size", "2",
 			"--name", "my-vm",
 			"--public-ip-enabled=true",
 			"--tag", "production",
@@ -147,11 +117,7 @@ func TestComputeVMsAvailabilityUpdate(t *testing.T) {
 	t.Run("piping data", func(t *testing.T) {
 		// Test piping YAML data over stdin
 		pipeData := []byte("" +
-			"cpu_config:\n" +
-			"  vcpu: 2\n" +
 			"instance_type: n1-standard-8\n" +
-			"memory_config:\n" +
-			"  size: 2\n" +
 			"name: my-vm\n" +
 			"public_ip_enabled: true\n" +
 			"tags:\n" +
