@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.45.3 (2026-05-20)
+
+Full Changelog: [v0.45.2...v0.45.3](https://github.com/nirvana-labs/nirvana-cli/compare/v0.45.2...v0.45.3)
+
+### Bug Fixes
+
+* **api:** make instance-type required, remove cpu-config/memory-config in VMs ([32ededb](https://github.com/nirvana-labs/nirvana-cli/commit/32ededb2805d93bf979f106500ef245d0943d455))
+
 ## 0.45.2 (2026-05-19)
 
 Full Changelog: [v0.45.1...v0.45.2](https://github.com/nirvana-labs/nirvana-cli/compare/v0.45.1...v0.45.2)
