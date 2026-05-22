@@ -373,6 +373,14 @@ func init() {
 				},
 			},
 			{
+				Name:     "nks:clusters:kubernetes-versions",
+				Category: "API RESOURCE",
+				Suggest:  true,
+				Commands: []*cli.Command{
+					&nksClustersKubernetesVersionsList,
+				},
+			},
+			{
 				Name:     "nks:clusters:persistent-volume-claims",
 				Category: "API RESOURCE",
 				Suggest:  true,

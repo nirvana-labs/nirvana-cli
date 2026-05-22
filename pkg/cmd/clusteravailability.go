@@ -25,6 +25,12 @@ var nksClustersAvailabilityCreate = cli.Command{
 			BodyPath: "autoscaling",
 		},
 		&requestflag.Flag[string]{
+			Name:     "kubernetes-version",
+			Usage:    "Kubernetes version for the Cluster.",
+			Required: true,
+			BodyPath: "kubernetes_version",
+		},
+		&requestflag.Flag[string]{
 			Name:     "name",
 			Usage:    "Name of the Cluster.",
 			Required: true,
