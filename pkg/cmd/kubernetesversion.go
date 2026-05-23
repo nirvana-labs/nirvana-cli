@@ -15,7 +15,7 @@ import (
 	"github.com/urfave/cli/v3"
 )
 
-var nksClustersKubernetesVersionsList = cli.Command{
+var nksKubernetesVersionsList = cli.Command{
 	Name:    "list",
 	Usage:   "List all supported Kubernetes versions for NKS clusters",
 	Suggest: true,
@@ -36,11 +36,11 @@ var nksClustersKubernetesVersionsList = cli.Command{
 			Usage: "The maximum number of items to return (use -1 for unlimited).",
 		},
 	},
-	Action:          handleNKSClustersKubernetesVersionsList,
+	Action:          handleNKSKubernetesVersionsList,
 	HideHelpCommand: true,
 }
 
-func handleNKSClustersKubernetesVersionsList(ctx context.Context, cmd *cli.Command) error {
+func handleNKSKubernetesVersionsList(ctx context.Context, cmd *cli.Command) error {
 	client := nirvana.NewClient(getDefaultRequestOptions(cmd)...)
 	unusedArgs := cmd.Args().Slice()
 
@@ -59,7 +59,7 @@ func handleNKSClustersKubernetesVersionsList(ctx context.Context, cmd *cli.Comma
 		return err
 	}
 
-	params := nks.ClusterKubernetesVersionListParams{}
+	params := nks.KubernetesVersionListParams{}
 
 	format := cmd.Root().String("format")
 	explicitFormat := cmd.Root().IsSet("format")
@@ -67,7 +67,7 @@ func handleNKSClustersKubernetesVersionsList(ctx context.Context, cmd *cli.Comma
 	if format == "raw" {
 		var res []byte
 		options = append(options, option.WithResponseBodyInto(&res))
-		_, err = client.NKS.Clusters.KubernetesVersions.List(ctx, params, options...)
+		_, err = client.NKS.KubernetesVersions.List(ctx, params, options...)
 		if err != nil {
 			return err
 		}
@@ -76,11 +76,11 @@ func handleNKSClustersKubernetesVersionsList(ctx context.Context, cmd *cli.Comma
 			ExplicitFormat: explicitFormat,
 			Format:         format,
 			RawOutput:      cmd.Root().Bool("raw-output"),
-			Title:          "nks:clusters:kubernetes-versions list",
+			Title:          "nks:kubernetes-versions list",
 			Transform:      transform,
 		})
 	} else {
-		iter := client.NKS.Clusters.KubernetesVersions.ListAutoPaging(ctx, params, options...)
+		iter := client.NKS.KubernetesVersions.ListAutoPaging(ctx, params, options...)
 		maxItems := int64(-1)
 		if cmd.IsSet("max-items") {
 			maxItems = cmd.Value("max-items").(int64)
@@ -89,7 +89,7 @@ func handleNKSClustersKubernetesVersionsList(ctx context.Context, cmd *cli.Comma
 			ExplicitFormat: explicitFormat,
 			Format:         format,
 			RawOutput:      cmd.Root().Bool("raw-output"),
-			Title:          "nks:clusters:kubernetes-versions list",
+			Title:          "nks:kubernetes-versions list",
 			Transform:      transform,
 		})
 	}
