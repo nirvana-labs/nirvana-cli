@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.47.0 (2026-05-26)
+
+Full Changelog: [v0.46.0...v0.47.0](https://github.com/nirvana-labs/nirvana-cli/compare/v0.46.0...v0.47.0)
+
+### Features
+
+* **api:** api update ([2739612](https://github.com/nirvana-labs/nirvana-cli/commit/2739612cc11a847fd9e610a1d8bbc90214009721))
+* **api:** manual updates ([9e71744](https://github.com/nirvana-labs/nirvana-cli/commit/9e71744f3e6c4ee193a40f415b5ec4dcd596f7e3))
+
 ## 0.46.0 (2026-05-22)
 
 Full Changelog: [v0.45.3...v0.46.0](https://github.com/nirvana-labs/nirvana-cli/compare/v0.45.3...v0.46.0)
