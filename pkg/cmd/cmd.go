@@ -352,6 +352,14 @@ func init() {
 				},
 			},
 			{
+				Name:     "nks:kubernetes-versions",
+				Category: "API RESOURCE",
+				Suggest:  true,
+				Commands: []*cli.Command{
+					&nksKubernetesVersionsList,
+				},
+			},
+			{
 				Name:     "nks:clusters",
 				Category: "API RESOURCE",
 				Suggest:  true,
@@ -370,14 +378,6 @@ func init() {
 				Commands: []*cli.Command{
 					&nksClustersAvailabilityCreate,
 					&nksClustersAvailabilityUpdate,
-				},
-			},
-			{
-				Name:     "nks:clusters:kubernetes-versions",
-				Category: "API RESOURCE",
-				Suggest:  true,
-				Commands: []*cli.Command{
-					&nksClustersKubernetesVersionsList,
 				},
 			},
 			{
