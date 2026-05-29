@@ -1,5 +1,18 @@
 # Changelog
 
+## 0.48.0 (2026-05-29)
+
+Full Changelog: [v0.47.1...v0.48.0](https://github.com/nirvana-labs/nirvana-cli/compare/v0.47.1...v0.48.0)
+
+### Features
+
+* **api:** add billing_email parameter to organizations create/update methods ([64d547f](https://github.com/nirvana-labs/nirvana-cli/commit/64d547f35f0182d99e407552a1ecc072d63bd056))
+
+
+### Chores
+
+* **nirvana-api:** update OpenAPI spec ([8c266fb](https://github.com/nirvana-labs/nirvana-cli/commit/8c266fbd9b837f84a47b31cb8ab6a1e28562f7b3))
+
 ## 0.47.1 (2026-05-28)
 
 Full Changelog: [v0.47.0...v0.47.1](https://github.com/nirvana-labs/nirvana-cli/compare/v0.47.0...v0.47.1)
