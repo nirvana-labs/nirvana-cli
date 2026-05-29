@@ -26,6 +26,11 @@ var organizationsCreate = cli.Command{
 			Required: true,
 			BodyPath: "name",
 		},
+		&requestflag.Flag[string]{
+			Name:     "billing-email",
+			Usage:    "Optional billing email. When omitted, the oldest owner's email is used.",
+			BodyPath: "billing_email",
+		},
 	},
 	Action:          handleOrganizationsCreate,
 	HideHelpCommand: true,
@@ -40,6 +45,11 @@ var organizationsUpdate = cli.Command{
 			Name:      "organization-id",
 			Required:  true,
 			PathParam: "organization_id",
+		},
+		&requestflag.Flag[*string]{
+			Name:     "billing-email",
+			Usage:    "Billing email. Omit to leave unchanged, send null to clear (reverts to the\noldest owner's email), or send a value to set it.",
+			BodyPath: "billing_email",
 		},
 		&requestflag.Flag[string]{
 			Name:     "name",

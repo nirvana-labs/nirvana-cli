@@ -16,12 +16,15 @@ func TestOrganizationsCreate(t *testing.T) {
 			"--api-key", "string",
 			"organizations", "create",
 			"--name", "My Organization",
+			"--billing-email", "billing@example.com",
 		)
 	})
 
 	t.Run("piping data", func(t *testing.T) {
 		// Test piping YAML data over stdin
-		pipeData := []byte("name: My Organization")
+		pipeData := []byte("" +
+			"name: My Organization\n" +
+			"billing_email: billing@example.com\n")
 		mocktest.TestRunMockTestWithPipeAndFlags(
 			t, pipeData,
 			"--api-key", "string",
@@ -38,13 +41,16 @@ func TestOrganizationsUpdate(t *testing.T) {
 			"--api-key", "string",
 			"organizations", "update",
 			"--organization-id", "organization_id",
+			"--billing-email", "billing@example.com",
 			"--name", "My Updated Organization",
 		)
 	})
 
 	t.Run("piping data", func(t *testing.T) {
 		// Test piping YAML data over stdin
-		pipeData := []byte("name: My Updated Organization")
+		pipeData := []byte("" +
+			"billing_email: billing@example.com\n" +
+			"name: My Updated Organization\n")
 		mocktest.TestRunMockTestWithPipeAndFlags(
 			t, pipeData,
 			"--api-key", "string",
