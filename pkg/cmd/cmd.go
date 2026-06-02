@@ -144,6 +144,16 @@ func init() {
 				},
 			},
 			{
+				Name:     "organizations:address",
+				Category: "API RESOURCE",
+				Suggest:  true,
+				Commands: []*cli.Command{
+					&organizationsAddressCreate,
+					&organizationsAddressUpdate,
+					&organizationsAddressGet,
+				},
+			},
+			{
 				Name:     "quotas",
 				Category: "API RESOURCE",
 				Suggest:  true,
