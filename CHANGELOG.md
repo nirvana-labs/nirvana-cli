@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.48.2 (2026-06-03)
+
+Full Changelog: [v0.48.1...v0.48.2](https://github.com/nirvana-labs/nirvana-cli/compare/v0.48.1...v0.48.2)
+
+### Chores
+
+* **internal:** regenerate SDK with no functional changes ([8aab2da](https://github.com/nirvana-labs/nirvana-cli/commit/8aab2dae20ca38a4535ae2bfb886e6c037e47e39))
+* **internal:** regenerate SDK with no functional changes ([b222c24](https://github.com/nirvana-labs/nirvana-cli/commit/b222c243e3a8e81b57739d4f82865e6d0b6f8199))
+
 ## 0.48.1 (2026-05-30)
 
 Full Changelog: [v0.48.0...v0.48.1](https://github.com/nirvana-labs/nirvana-cli/compare/v0.48.0...v0.48.1)
