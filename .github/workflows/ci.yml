@@ -31,11 +31,11 @@ jobs:
       # fine-grained GitHub PAT with `Contents: Read` on the Go SDK repo
       # as a secret named `GO_REPO_READ_TOKEN` in this repo. Apply this
       # edit as custom code so stlc preserves it across regenerations.
-      # - name: Authenticate git for the private Go SDK repo
-      #   shell: bash
-      #   env:
-      #     GO_MODULE_REPO: ${{ github.repository == 'nirvana-labs/nirvana-cli-staging' && 'nirvana-labs/nirvana-go-staging' || 'nirvana-labs/nirvana-go' }}
-      #   run: git config --global url."https://x-access-token:${{ secrets.GO_REPO_READ_TOKEN }}@github.com/${GO_MODULE_REPO}".insteadOf "https://github.com/${GO_MODULE_REPO}"
+      - name: Authenticate git for the private Go SDK repo
+        shell: bash
+        env:
+          GO_MODULE_REPO: ${{ github.repository == 'nirvana-labs/nirvana-cli-staging' && 'nirvana-labs/nirvana-go-staging' || 'nirvana-labs/nirvana-go' }}
+        run: git config --global url."https://x-access-token:${{ secrets.GO_REPO_READ_TOKEN }}@github.com/${GO_MODULE_REPO}".insteadOf "https://github.com/${GO_MODULE_REPO}"
       - uses: ./.github/actions/setup-go
 
       - name: Link staging branch
@@ -64,11 +64,11 @@ jobs:
       # fine-grained GitHub PAT with `Contents: Read` on the Go SDK repo
       # as a secret named `GO_REPO_READ_TOKEN` in this repo. Apply this
       # edit as custom code so stlc preserves it across regenerations.
-      # - name: Authenticate git for the private Go SDK repo
-      #   shell: bash
-      #   env:
-      #     GO_MODULE_REPO: ${{ github.repository == 'nirvana-labs/nirvana-cli-staging' && 'nirvana-labs/nirvana-go-staging' || 'nirvana-labs/nirvana-go' }}
-      #   run: git config --global url."https://x-access-token:${{ secrets.GO_REPO_READ_TOKEN }}@github.com/${GO_MODULE_REPO}".insteadOf "https://github.com/${GO_MODULE_REPO}"
+      - name: Authenticate git for the private Go SDK repo
+        shell: bash
+        env:
+          GO_MODULE_REPO: ${{ github.repository == 'nirvana-labs/nirvana-cli-staging' && 'nirvana-labs/nirvana-go-staging' || 'nirvana-labs/nirvana-go' }}
+        run: git config --global url."https://x-access-token:${{ secrets.GO_REPO_READ_TOKEN }}@github.com/${GO_MODULE_REPO}".insteadOf "https://github.com/${GO_MODULE_REPO}"
       - uses: ./.github/actions/setup-go
 
       - name: Link staging branch
@@ -103,11 +103,11 @@ jobs:
       # fine-grained GitHub PAT with `Contents: Read` on the Go SDK repo
       # as a secret named `GO_REPO_READ_TOKEN` in this repo. Apply this
       # edit as custom code so stlc preserves it across regenerations.
-      # - name: Authenticate git for the private Go SDK repo
-      #   shell: bash
-      #   env:
-      #     GO_MODULE_REPO: ${{ github.repository == 'nirvana-labs/nirvana-cli-staging' && 'nirvana-labs/nirvana-go-staging' || 'nirvana-labs/nirvana-go' }}
-      #   run: git config --global url."https://x-access-token:${{ secrets.GO_REPO_READ_TOKEN }}@github.com/${GO_MODULE_REPO}".insteadOf "https://github.com/${GO_MODULE_REPO}"
+      - name: Authenticate git for the private Go SDK repo
+        shell: bash
+        env:
+          GO_MODULE_REPO: ${{ github.repository == 'nirvana-labs/nirvana-cli-staging' && 'nirvana-labs/nirvana-go-staging' || 'nirvana-labs/nirvana-go' }}
+        run: git config --global url."https://x-access-token:${{ secrets.GO_REPO_READ_TOKEN }}@github.com/${GO_MODULE_REPO}".insteadOf "https://github.com/${GO_MODULE_REPO}"
       - uses: ./.github/actions/setup-go
 
       - name: Link staging branch
