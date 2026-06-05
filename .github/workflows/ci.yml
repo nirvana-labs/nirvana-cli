@@ -26,6 +26,8 @@ jobs:
 
     steps:
       - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        with:
+          persist-credentials: false
 
       # If your Go SDK repo is private, uncomment the step below and add a
       # fine-grained GitHub PAT with `Contents: Read` on the Go SDK repo
@@ -61,6 +63,8 @@ jobs:
     if: (github.event_name == 'push' || github.event.pull_request.head.repo.fork) && (github.event_name != 'push' || github.event.head_commit.message != 'codegen metadata')
     steps:
       - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        with:
+          persist-credentials: false
 
       # If your Go SDK repo is private, uncomment the step below and add a
       # fine-grained GitHub PAT with `Contents: Read` on the Go SDK repo
@@ -102,6 +106,8 @@ jobs:
     if: github.event_name == 'push' || github.event.pull_request.head.repo.fork
     steps:
       - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        with:
+          persist-credentials: false
 
       # If your Go SDK repo is private, uncomment the step below and add a
       # fine-grained GitHub PAT with `Contents: Read` on the Go SDK repo
