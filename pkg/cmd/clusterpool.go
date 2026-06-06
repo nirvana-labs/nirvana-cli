@@ -68,6 +68,11 @@ var nksClustersPoolsCreate = requestflag.WithInnerFlags(cli.Command{
 			Usage:      "Kubernetes labels to apply to each node in the pool. Each entry is \"key=value\".\nKeys under kubernetes.io, k8s.io, and nirvanalabs.io prefixes are reserved.",
 			InnerField: "labels",
 		},
+		&requestflag.InnerFlag[[]string]{
+			Name:       "node-config.taints",
+			Usage:      "Kubernetes taints to apply to each node in the pool at creation time.\nEach entry is \"key=value:Effect\" where Effect is NoSchedule, PreferNoSchedule, or NoExecute.\nTaints are immutable after pool creation.",
+			InnerField: "taints",
+		},
 	},
 })
 

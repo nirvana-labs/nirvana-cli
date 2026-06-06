@@ -18,7 +18,7 @@ func TestNKSClustersPoolsAvailabilityCreate(t *testing.T) {
 			"nks:clusters:pools:availability", "create",
 			"--cluster-id", "cluster_id",
 			"--name", "my-node-pool",
-			"--node-config", "{boot_volume: {size: 100, type: abs}, instance_type: n1-standard-8, labels: [env=prod, team=platform]}",
+			"--node-config", "{boot_volume: {size: 100, type: abs}, instance_type: n1-standard-8, labels: [env=prod, team=platform], taints: [dedicated=gpu:NoSchedule]}",
 			"--node-count", "3",
 			"--tag", "production",
 			"--tag", "ethereum",
@@ -39,6 +39,7 @@ func TestNKSClustersPoolsAvailabilityCreate(t *testing.T) {
 			"--node-config.boot-volume", "{size: 100, type: abs}",
 			"--node-config.instance-type", "n1-standard-8",
 			"--node-config.labels", "[env=prod, team=platform]",
+			"--node-config.taints", "[dedicated=gpu:NoSchedule]",
 			"--node-count", "3",
 			"--tag", "production",
 			"--tag", "ethereum",
@@ -57,6 +58,8 @@ func TestNKSClustersPoolsAvailabilityCreate(t *testing.T) {
 			"  labels:\n" +
 			"    - env=prod\n" +
 			"    - team=platform\n" +
+			"  taints:\n" +
+			"    - dedicated=gpu:NoSchedule\n" +
 			"node_count: 3\n" +
 			"tags:\n" +
 			"  - production\n" +
