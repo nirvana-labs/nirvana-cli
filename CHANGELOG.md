@@ -1,5 +1,21 @@
 # Changelog
 
+## [0.48.4](https://github.com/nirvana-labs/nirvana-cli/compare/v0.48.3...v0.48.4) (2026-06-06)
+
+
+### Chores
+
+* **release:** update SDK ([#87](https://github.com/nirvana-labs/nirvana-cli/issues/87)) ([0db5e3e](https://github.com/nirvana-labs/nirvana-cli/commit/0db5e3eff09dde2cbf1b9c51314d56464864d59e))
+* **release:** update SDK ([#89](https://github.com/nirvana-labs/nirvana-cli/issues/89)) ([24501e5](https://github.com/nirvana-labs/nirvana-cli/commit/24501e54dc68dd3f5294153dc974b3c65c274698))
+
+## 0.48.3 (2026-06-05)
+
+Full Changelog: [v0.48.2...v0.48.3](https://github.com/nirvana-labs/nirvana-cli/compare/v0.48.2...v0.48.3)
+
+### Chores
+
+* **release:** update SDK ([#84](https://github.com/nirvana-labs/nirvana-cli/issues/84)) ([3a96a8d](https://github.com/nirvana-labs/nirvana-cli/commit/3a96a8d70ba2740d821bc051e73be5c875056a05))
+
 ## 0.48.2 (2026-06-03)
 
 Full Changelog: [v0.48.1...v0.48.2](https://github.com/nirvana-labs/nirvana-cli/compare/v0.48.1...v0.48.2)
