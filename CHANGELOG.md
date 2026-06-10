@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.48.6](https://github.com/nirvana-labs/nirvana-cli/compare/v0.48.5...v0.48.6) (2026-06-10)
+
+
+### Chores
+
+* **release:** update SDK ([#94](https://github.com/nirvana-labs/nirvana-cli/issues/94)) ([7b50ac1](https://github.com/nirvana-labs/nirvana-cli/commit/7b50ac1f8ab306a137d6570e742db1cddd4840f8))
+
 ## [0.48.5](https://github.com/nirvana-labs/nirvana-cli/compare/v0.48.4...v0.48.5) (2026-06-06)
 
 
