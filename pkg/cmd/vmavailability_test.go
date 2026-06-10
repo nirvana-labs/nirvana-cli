@@ -19,7 +19,7 @@ func TestComputeVMsAvailabilityCreate(t *testing.T) {
 			"--boot-volume", "{size: 100, type: abs, tags: [production, ethereum]}",
 			"--instance-type", "n1-standard-8",
 			"--name", "my-vm",
-			"--os-image-name", "ubuntu-noble-2025-10-01",
+			"--os-image-name", "ubuntu-noble-2026-05-18",
 			"--project-id", "123e4567-e89b-12d3-a456-426614174000",
 			"--public-ip-enabled=true",
 			"--region", "us-sva-2",
@@ -45,7 +45,7 @@ func TestComputeVMsAvailabilityCreate(t *testing.T) {
 			"--boot-volume.tags", "[production, ethereum]",
 			"--instance-type", "n1-standard-8",
 			"--name", "my-vm",
-			"--os-image-name", "ubuntu-noble-2025-10-01",
+			"--os-image-name", "ubuntu-noble-2026-05-18",
 			"--project-id", "123e4567-e89b-12d3-a456-426614174000",
 			"--public-ip-enabled=true",
 			"--region", "us-sva-2",
@@ -71,7 +71,7 @@ func TestComputeVMsAvailabilityCreate(t *testing.T) {
 			"    - ethereum\n" +
 			"instance_type: n1-standard-8\n" +
 			"name: my-vm\n" +
-			"os_image_name: ubuntu-noble-2025-10-01\n" +
+			"os_image_name: ubuntu-noble-2026-05-18\n" +
 			"project_id: 123e4567-e89b-12d3-a456-426614174000\n" +
 			"public_ip_enabled: true\n" +
 			"region: us-sva-2\n" +
