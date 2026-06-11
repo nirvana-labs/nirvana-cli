@@ -233,6 +233,15 @@ func init() {
 				},
 			},
 			{
+				Name:     "compute:vms:cost",
+				Category: "API RESOURCE",
+				Suggest:  true,
+				Commands: []*cli.Command{
+					&computeVMsCostCreate,
+					&computeVMsCostUpdate,
+				},
+			},
+			{
 				Name:     "compute:vms:volumes",
 				Category: "API RESOURCE",
 				Suggest:  true,
@@ -272,6 +281,15 @@ func init() {
 				},
 			},
 			{
+				Name:     "compute:volumes:cost",
+				Category: "API RESOURCE",
+				Suggest:  true,
+				Commands: []*cli.Command{
+					&computeVolumesCostCreate,
+					&computeVolumesCostUpdate,
+				},
+			},
+			{
 				Name:     "networking:vpcs",
 				Category: "API RESOURCE",
 				Suggest:  true,
@@ -290,6 +308,15 @@ func init() {
 				Commands: []*cli.Command{
 					&networkingVPCsAvailabilityCreate,
 					&networkingVPCsAvailabilityUpdate,
+				},
+			},
+			{
+				Name:     "networking:vpcs:cost",
+				Category: "API RESOURCE",
+				Suggest:  true,
+				Commands: []*cli.Command{
+					&networkingVPCsCostCreate,
+					&networkingVPCsCostUpdate,
 				},
 			},
 			{
@@ -314,6 +341,15 @@ func init() {
 					&networkingConnectConnectionsList,
 					&networkingConnectConnectionsDelete,
 					&networkingConnectConnectionsGet,
+				},
+			},
+			{
+				Name:     "networking:connect:connections:cost",
+				Category: "API RESOURCE",
+				Suggest:  true,
+				Commands: []*cli.Command{
+					&networkingConnectConnectionsCostCreate,
+					&networkingConnectConnectionsCostUpdate,
 				},
 			},
 			{
@@ -391,6 +427,15 @@ func init() {
 				},
 			},
 			{
+				Name:     "nks:clusters:cost",
+				Category: "API RESOURCE",
+				Suggest:  true,
+				Commands: []*cli.Command{
+					&nksClustersCostCreate,
+					&nksClustersCostUpdate,
+				},
+			},
+			{
 				Name:     "nks:clusters:persistent-volume-claims",
 				Category: "API RESOURCE",
 				Suggest:  true,
@@ -454,6 +499,15 @@ func init() {
 				Commands: []*cli.Command{
 					&nksClustersPoolsAvailabilityCreate,
 					&nksClustersPoolsAvailabilityUpdate,
+				},
+			},
+			{
+				Name:     "nks:clusters:pools:cost",
+				Category: "API RESOURCE",
+				Suggest:  true,
+				Commands: []*cli.Command{
+					&nksClustersPoolsCostCreate,
+					&nksClustersPoolsCostUpdate,
 				},
 			},
 			{
