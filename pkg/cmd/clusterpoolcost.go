@@ -39,8 +39,7 @@ var nksClustersPoolsCostCreate = requestflag.WithInnerFlags(cli.Command{
 		},
 		&requestflag.Flag[int64]{
 			Name:     "node-count",
-			Usage:    "Number of nodes. Must be between 1 and 100.",
-			Required: true,
+			Usage:    "Number of nodes. Must be between 0 and 100.",
 			BodyPath: "node_count",
 		},
 		&requestflag.Flag[[]string]{
