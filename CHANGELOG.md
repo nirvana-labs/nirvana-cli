@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.50.0](https://github.com/nirvana-labs/nirvana-cli/compare/v0.49.0...v0.50.0) (2026-06-30)
+
+
+### Features
+
+* **cli:** enable organizations.billing.summary on the CLI target ([6cdbcd1](https://github.com/nirvana-labs/nirvana-cli/commit/6cdbcd164d1372a436061d55e23d1799ffc6e775))
+
 ## [0.49.0](https://github.com/nirvana-labs/nirvana-cli/compare/v0.48.12...v0.49.0) (2026-06-30)
 
 
