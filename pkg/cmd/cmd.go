@@ -154,6 +154,14 @@ func init() {
 				},
 			},
 			{
+				Name:     "organizations:billing",
+				Category: "API RESOURCE",
+				Suggest:  true,
+				Commands: []*cli.Command{
+					&organizationsBillingSummary,
+				},
+			},
+			{
 				Name:     "quotas",
 				Category: "API RESOURCE",
 				Suggest:  true,
