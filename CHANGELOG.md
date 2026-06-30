@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.49.0](https://github.com/nirvana-labs/nirvana-cli/compare/v0.48.12...v0.49.0) (2026-06-30)
+
+
+### Features
+
+* **stainless:** wire organizations.billing.summary into SDK config ([5eae11e](https://github.com/nirvana-labs/nirvana-cli/commit/5eae11e12161d6f0e21f59578c0158d56a4e263f))
+
 ## [0.48.12](https://github.com/nirvana-labs/nirvana-cli/compare/v0.48.11...v0.48.12) (2026-06-29)
 
 
