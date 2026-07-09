@@ -83,26 +83,6 @@ func TestNKSClustersPoolsAvailabilityUpdate(t *testing.T) {
 			"--cluster-id", "cluster_id",
 			"--pool-id", "pool_id",
 			"--name", "my-node-pool",
-			"--node-config", "{labels: [env=prod, team=platform]}",
-			"--node-count", "5",
-			"--tag", "production",
-			"--tag", "ethereum",
-		)
-	})
-
-	t.Run("inner flags", func(t *testing.T) {
-		// Check that inner flags have been set up correctly
-		requestflag.CheckInnerFlags(nksClustersPoolsAvailabilityUpdate)
-
-		// Alternative argument passing style using inner flags
-		mocktest.TestRunMockTestWithFlags(
-			t,
-			"--api-key", "string",
-			"nks:clusters:pools:availability", "update",
-			"--cluster-id", "cluster_id",
-			"--pool-id", "pool_id",
-			"--name", "my-node-pool",
-			"--node-config.labels", "[env=prod, team=platform]",
 			"--node-count", "5",
 			"--tag", "production",
 			"--tag", "ethereum",
@@ -113,10 +93,6 @@ func TestNKSClustersPoolsAvailabilityUpdate(t *testing.T) {
 		// Test piping YAML data over stdin
 		pipeData := []byte("" +
 			"name: my-node-pool\n" +
-			"node_config:\n" +
-			"  labels:\n" +
-			"    - env=prod\n" +
-			"    - team=platform\n" +
 			"node_count: 5\n" +
 			"tags:\n" +
 			"  - production\n" +
