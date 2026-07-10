@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.51.0](https://github.com/nirvana-labs/nirvana-cli/compare/v0.50.3...v0.51.0) (2026-07-10)
+
+
+### Features
+
+* **stainless:** wire billing cost, history, and top-up into SDK config ([79e4ae6](https://github.com/nirvana-labs/nirvana-cli/commit/79e4ae617c2fc3327e2fb99426c41b16bf5dee65))
+
 ## [0.50.3](https://github.com/nirvana-labs/nirvana-cli/compare/v0.50.2...v0.50.3) (2026-07-09)
 
 
