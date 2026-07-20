@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.52.0](https://github.com/nirvana-labs/nirvana-cli/compare/v0.51.1...v0.52.0) (2026-07-20)
+
+
+### Features
+
+* **stainless:** add billing recharge endpoint and wire into SDK config ([3e1bd06](https://github.com/nirvana-labs/nirvana-cli/commit/3e1bd062fc33c243402ef98f89ec032178add906))
+
 ## [0.51.1](https://github.com/nirvana-labs/nirvana-cli/compare/v0.51.0...v0.51.1) (2026-07-15)
 
 
