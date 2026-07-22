@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.53.0](https://github.com/nirvana-labs/nirvana-cli/compare/v0.52.1...v0.53.0) (2026-07-22)
+
+
+### Features
+
+* **stainless:** add recharge_policy group to SDK config ([d6cdddd](https://github.com/nirvana-labs/nirvana-cli/commit/d6cdddd068a7d668c74573b187471f03f8952756))
+
 ## [0.52.1](https://github.com/nirvana-labs/nirvana-cli/compare/v0.52.0...v0.52.1) (2026-07-22)
 
 
