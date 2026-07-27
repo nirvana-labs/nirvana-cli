@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.53.3](https://github.com/nirvana-labs/nirvana-cli/compare/v0.53.2...v0.53.3) (2026-07-27)
+
+
+### Bug Fixes
+
+* **deps:** bump handlebars (TS) + x/crypto (terraform) for VANTA CVEs ([7668f78](https://github.com/nirvana-labs/nirvana-cli/commit/7668f78d2b3d908771fe5732916a803ffd6a7add))
+
 ## [0.53.2](https://github.com/nirvana-labs/nirvana-cli/compare/v0.53.1...v0.53.2) (2026-07-23)
 
 
