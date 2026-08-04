@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.53.4](https://github.com/nirvana-labs/nirvana-cli/compare/v0.53.3...v0.53.4) (2026-08-04)
+
+
+### Bug Fixes
+
+* **terraform:** seal nks_cluster 30m operation wait timeout as custom code ([cb3c0e4](https://github.com/nirvana-labs/nirvana-cli/commit/cb3c0e4c76b52afd3259d683b74f83bc294c8918))
+
 ## [0.53.3](https://github.com/nirvana-labs/nirvana-cli/compare/v0.53.2...v0.53.3) (2026-07-27)
 
 
