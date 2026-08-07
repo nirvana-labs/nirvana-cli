@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.54.0](https://github.com/nirvana-labs/nirvana-cli/compare/v0.53.5...v0.54.0) (2026-08-07)
+
+
+### Features
+
+* **stainless:** wire NKS pool-level volumes list into SDK config ([026c50b](https://github.com/nirvana-labs/nirvana-cli/commit/026c50b249696a232beab79992fc85ccf2d2af9d))
+
 ## [0.53.5](https://github.com/nirvana-labs/nirvana-cli/compare/v0.53.4...v0.53.5) (2026-08-07)
 
 
