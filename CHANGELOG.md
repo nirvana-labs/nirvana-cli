@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.54.1](https://github.com/nirvana-labs/nirvana-cli/compare/v0.54.0...v0.54.1) (2026-08-17)
+
+
+### Chores
+
+* **nirvana-api:** update OpenAPI spec ([56cb894](https://github.com/nirvana-labs/nirvana-cli/commit/56cb894f8385a86b810a16e6c6ce6be8ef49baba))
+
 ## [0.54.0](https://github.com/nirvana-labs/nirvana-cli/compare/v0.53.5...v0.54.0) (2026-08-07)
 
 
