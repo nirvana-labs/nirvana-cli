@@ -85,6 +85,11 @@ func TestNetworkingVPCsList(t *testing.T) {
 			"--project-id", "project_id",
 			"--cursor", "cursor",
 			"--limit", "10",
+			"--name", "name",
+			"--region", "region",
+			"--sort", "sort",
+			"--status", "pending",
+			"--tag", "string",
 		)
 	})
 }

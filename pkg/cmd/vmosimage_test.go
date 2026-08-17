@@ -17,7 +17,10 @@ func TestComputeVMsOSImagesList(t *testing.T) {
 			"compute:vms:os-images", "list",
 			"--max-items", "10",
 			"--cursor", "cursor",
+			"--display-name", "display_name",
 			"--limit", "10",
+			"--name", "name",
+			"--sort", "sort",
 		)
 	})
 }

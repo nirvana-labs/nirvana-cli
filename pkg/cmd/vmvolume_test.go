@@ -18,7 +18,13 @@ func TestComputeVMsVolumesList(t *testing.T) {
 			"--max-items", "10",
 			"--vm-id", "vm_id",
 			"--cursor", "cursor",
+			"--kind", "boot",
 			"--limit", "10",
+			"--name", "name",
+			"--sort", "sort",
+			"--status", "pending",
+			"--tag", "string",
+			"--type", "nvme",
 		)
 	})
 }

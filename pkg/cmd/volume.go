@@ -106,16 +106,62 @@ var computeVolumesList = cli.Command{
 			Required:  true,
 			QueryPath: "project_id",
 		},
+		&requestflag.Flag[bool]{
+			Name:      "attached",
+			Usage:     "Filter by whether the Volume is attached to a VM. Combine with vm_id and both must hold.",
+			QueryPath: "attached",
+		},
 		&requestflag.Flag[string]{
 			Name:      "cursor",
-			Usage:     "Pagination cursor returned by a previous request",
+			Usage:     "Pagination cursor returned by a previous request. Only valid for the same filters and sort order.",
 			QueryPath: "cursor",
+		},
+		&requestflag.Flag[string]{
+			Name:      "kind",
+			Usage:     "Filter by Volume kind",
+			QueryPath: "kind",
 		},
 		&requestflag.Flag[int64]{
 			Name:      "limit",
 			Usage:     "Maximum number of items to return",
 			Default:   10,
 			QueryPath: "limit",
+		},
+		&requestflag.Flag[string]{
+			Name:      "name",
+			Usage:     "Filter by a case-insensitive substring of the Volume name",
+			QueryPath: "name",
+		},
+		&requestflag.Flag[string]{
+			Name:      "region",
+			Usage:     "Filter by region",
+			QueryPath: "region",
+		},
+		&requestflag.Flag[string]{
+			Name:      "sort",
+			Usage:     "Comma-separated sort terms in precedence order, each field:asc or field:desc. Fields: created_at, updated_at, name, status, size",
+			Default:   "created_at:desc",
+			QueryPath: "sort",
+		},
+		&requestflag.Flag[string]{
+			Name:      "status",
+			Usage:     "Filter by Volume status",
+			QueryPath: "status",
+		},
+		&requestflag.Flag[[]string]{
+			Name:      "tag",
+			Usage:     "Filter by tags. Repeat the parameter to require several tags; a Volume must carry all of them.",
+			QueryPath: "tags",
+		},
+		&requestflag.Flag[string]{
+			Name:      "type",
+			Usage:     "Filter by storage type",
+			QueryPath: "type",
+		},
+		&requestflag.Flag[string]{
+			Name:      "vm-id",
+			Usage:     "Filter by the VM the Volume is attached to",
+			QueryPath: "vm_id",
 		},
 		&requestflag.Flag[int64]{
 			Name:  "max-items",

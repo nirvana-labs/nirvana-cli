@@ -120,9 +120,14 @@ var networkingConnectConnectionsList = cli.Command{
 			Required:  true,
 			QueryPath: "project_id",
 		},
+		&requestflag.Flag[int64]{
+			Name:      "bandwidth-mbps",
+			Usage:     "Filter by provisioned bandwidth in Mbps",
+			QueryPath: "bandwidth_mbps",
+		},
 		&requestflag.Flag[string]{
 			Name:      "cursor",
-			Usage:     "Pagination cursor returned by a previous request",
+			Usage:     "Pagination cursor returned by a previous request. Only valid for the same filters and sort order.",
 			QueryPath: "cursor",
 		},
 		&requestflag.Flag[int64]{
@@ -130,6 +135,42 @@ var networkingConnectConnectionsList = cli.Command{
 			Usage:     "Maximum number of items to return",
 			Default:   10,
 			QueryPath: "limit",
+		},
+		&requestflag.Flag[string]{
+			Name:      "name",
+			Usage:     "Filter by a case-insensitive substring of the Connect Connection name",
+			QueryPath: "name",
+		},
+		&requestflag.Flag[string]{
+			Name:      "provider",
+			Usage:     "Filter by provider",
+			QueryPath: "provider",
+		},
+		&requestflag.Flag[string]{
+			Name:      "provider-region",
+			Usage:     "Filter by the provider's own region",
+			QueryPath: "provider_region",
+		},
+		&requestflag.Flag[string]{
+			Name:      "region",
+			Usage:     "Filter by Nirvana region",
+			QueryPath: "region",
+		},
+		&requestflag.Flag[string]{
+			Name:      "sort",
+			Usage:     "Comma-separated sort terms in precedence order, each field:asc or field:desc. Fields: created_at, updated_at, name, status, bandwidth_mbps",
+			Default:   "created_at:desc",
+			QueryPath: "sort",
+		},
+		&requestflag.Flag[string]{
+			Name:      "status",
+			Usage:     "Filter by Connect Connection status",
+			QueryPath: "status",
+		},
+		&requestflag.Flag[[]string]{
+			Name:      "tag",
+			Usage:     "Filter by tags. Repeat the parameter to require several tags; a Connect Connection must carry all of them.",
+			QueryPath: "tags",
 		},
 		&requestflag.Flag[int64]{
 			Name:  "max-items",

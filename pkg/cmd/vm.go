@@ -184,7 +184,7 @@ var computeVMsList = cli.Command{
 		},
 		&requestflag.Flag[string]{
 			Name:      "cursor",
-			Usage:     "Pagination cursor returned by a previous request",
+			Usage:     "Pagination cursor returned by a previous request. Only valid for the same filters and sort order.",
 			QueryPath: "cursor",
 		},
 		&requestflag.Flag[int64]{
@@ -192,6 +192,47 @@ var computeVMsList = cli.Command{
 			Usage:     "Maximum number of items to return",
 			Default:   10,
 			QueryPath: "limit",
+		},
+		&requestflag.Flag[string]{
+			Name:      "name",
+			Usage:     "Filter by a case-insensitive substring of the VM name",
+			QueryPath: "name",
+		},
+		&requestflag.Flag[bool]{
+			Name:      "public-ip-enabled",
+			Usage:     "Filter by whether a public IP is enabled",
+			QueryPath: "public_ip_enabled",
+		},
+		&requestflag.Flag[string]{
+			Name:      "region",
+			Usage:     "Filter by region",
+			QueryPath: "region",
+		},
+		&requestflag.Flag[string]{
+			Name:      "sort",
+			Usage:     "Comma-separated sort terms in precedence order, each field:asc or field:desc. Fields: created_at, updated_at, name, status, vcpu, memory",
+			Default:   "created_at:desc",
+			QueryPath: "sort",
+		},
+		&requestflag.Flag[string]{
+			Name:      "status",
+			Usage:     "Filter by VM status",
+			QueryPath: "status",
+		},
+		&requestflag.Flag[string]{
+			Name:      "subnet-id",
+			Usage:     "Filter by the subnet the VM is attached to",
+			QueryPath: "subnet_id",
+		},
+		&requestflag.Flag[[]string]{
+			Name:      "tag",
+			Usage:     "Filter by tags. Repeat the parameter to require several tags; a VM must carry all of them.",
+			QueryPath: "tags",
+		},
+		&requestflag.Flag[string]{
+			Name:      "vpc-id",
+			Usage:     "Filter by the VPC the VM is attached to",
+			QueryPath: "vpc_id",
 		},
 		&requestflag.Flag[int64]{
 			Name:  "max-items",

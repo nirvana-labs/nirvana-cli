@@ -17,8 +17,13 @@ func TestRPCNodesDedicatedList(t *testing.T) {
 			"rpc-nodes:dedicated", "list",
 			"--max-items", "10",
 			"--project-id", "project_id",
+			"--blockchain", "blockchain",
 			"--cursor", "cursor",
 			"--limit", "10",
+			"--name", "name",
+			"--network", "network",
+			"--sort", "sort",
+			"--tag", "string",
 		)
 	})
 }

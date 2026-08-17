@@ -21,15 +21,76 @@ var instanceTypesList = cli.Command{
 	Suggest: true,
 	Flags: []cli.Flag{
 		&requestflag.Flag[string]{
+			Name:      "chipset",
+			Usage:     "Filter by chipset",
+			QueryPath: "chipset",
+		},
+		&requestflag.Flag[string]{
 			Name:      "cursor",
-			Usage:     "Pagination cursor returned by a previous request",
+			Usage:     "Pagination cursor returned by a previous request. Only valid for the same filters and sort order.",
 			QueryPath: "cursor",
+		},
+		&requestflag.Flag[string]{
+			Name:      "family",
+			Usage:     "Filter by family",
+			QueryPath: "family",
 		},
 		&requestflag.Flag[int64]{
 			Name:      "limit",
 			Usage:     "Maximum number of items to return",
 			Default:   10,
 			QueryPath: "limit",
+		},
+		&requestflag.Flag[int64]{
+			Name:      "memory-gb-max",
+			Usage:     "Only Instance Types with at most this much memory, in GB",
+			QueryPath: "memory_gb_max",
+		},
+		&requestflag.Flag[int64]{
+			Name:      "memory-gb-min",
+			Usage:     "Only Instance Types with at least this much memory, in GB",
+			QueryPath: "memory_gb_min",
+		},
+		&requestflag.Flag[string]{
+			Name:      "name",
+			Usage:     "Filter by a case-insensitive substring of the Instance Type name",
+			QueryPath: "name",
+		},
+		&requestflag.Flag[float64]{
+			Name:      "network-bandwidth-gbps-max",
+			Usage:     "Only Instance Types with at most this much network bandwidth, in Gbps",
+			QueryPath: "network_bandwidth_gbps_max",
+		},
+		&requestflag.Flag[float64]{
+			Name:      "network-bandwidth-gbps-min",
+			Usage:     "Only Instance Types with at least this much network bandwidth, in Gbps",
+			QueryPath: "network_bandwidth_gbps_min",
+		},
+		&requestflag.Flag[string]{
+			Name:      "region",
+			Usage:     "Filter by region",
+			QueryPath: "region",
+		},
+		&requestflag.Flag[string]{
+			Name:      "series",
+			Usage:     "Filter by series",
+			QueryPath: "series",
+		},
+		&requestflag.Flag[string]{
+			Name:      "sort",
+			Usage:     "Comma-separated sort terms in precedence order, each field:asc or field:desc. Fields: series, family, name, vcpu, memory_gb, network_bandwidth_gbps",
+			Default:   "series:asc,family:asc,vcpu:asc",
+			QueryPath: "sort",
+		},
+		&requestflag.Flag[int64]{
+			Name:      "vcpu-max",
+			Usage:     "Only Instance Types with at most this many vCPUs",
+			QueryPath: "vcpu_max",
+		},
+		&requestflag.Flag[int64]{
+			Name:      "vcpu-min",
+			Usage:     "Only Instance Types with at least this many vCPUs",
+			QueryPath: "vcpu_min",
 		},
 		&requestflag.Flag[int64]{
 			Name:  "max-items",

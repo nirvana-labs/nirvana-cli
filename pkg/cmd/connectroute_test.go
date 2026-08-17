@@ -18,6 +18,10 @@ func TestNetworkingConnectRoutesList(t *testing.T) {
 			"--max-items", "10",
 			"--cursor", "cursor",
 			"--limit", "10",
+			"--provider", "provider",
+			"--provider-region", "provider_region",
+			"--region", "region",
+			"--sort", "sort",
 		)
 	})
 }
