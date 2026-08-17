@@ -114,8 +114,16 @@ func TestNetworkingConnectConnectionsList(t *testing.T) {
 			"networking:connect:connections", "list",
 			"--max-items", "10",
 			"--project-id", "project_id",
+			"--bandwidth-mbps", "50",
 			"--cursor", "cursor",
 			"--limit", "10",
+			"--name", "name",
+			"--provider", "provider",
+			"--provider-region", "provider_region",
+			"--region", "region",
+			"--sort", "sort",
+			"--status", "pending",
+			"--tag", "string",
 		)
 	})
 }

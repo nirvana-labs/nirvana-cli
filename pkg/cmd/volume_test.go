@@ -87,8 +87,17 @@ func TestComputeVolumesList(t *testing.T) {
 			"compute:volumes", "list",
 			"--max-items", "10",
 			"--project-id", "project_id",
+			"--attached=true",
 			"--cursor", "cursor",
+			"--kind", "boot",
 			"--limit", "10",
+			"--name", "name",
+			"--region", "region",
+			"--sort", "sort",
+			"--status", "pending",
+			"--tag", "string",
+			"--type", "nvme",
+			"--vm-id", "vm_id",
 		)
 	})
 }

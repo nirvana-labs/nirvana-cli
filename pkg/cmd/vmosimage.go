@@ -22,14 +22,30 @@ var computeVMsOSImagesList = cli.Command{
 	Flags: []cli.Flag{
 		&requestflag.Flag[string]{
 			Name:      "cursor",
-			Usage:     "Pagination cursor returned by a previous request",
+			Usage:     "Pagination cursor returned by a previous request. Only valid for the same filters and sort order.",
 			QueryPath: "cursor",
+		},
+		&requestflag.Flag[string]{
+			Name:      "display-name",
+			Usage:     "Filter by a case-insensitive substring of the OS Image display name",
+			QueryPath: "display_name",
 		},
 		&requestflag.Flag[int64]{
 			Name:      "limit",
 			Usage:     "Maximum number of items to return",
 			Default:   10,
 			QueryPath: "limit",
+		},
+		&requestflag.Flag[string]{
+			Name:      "name",
+			Usage:     "Filter by a case-insensitive substring of the OS Image name",
+			QueryPath: "name",
+		},
+		&requestflag.Flag[string]{
+			Name:      "sort",
+			Usage:     "Comma-separated sort terms in precedence order, each field:asc or field:desc. Fields: created_at, name, display_name, position. An image name embeds its version, so name:asc is lexicographic rather than newest-first; position is the catalog's intended display order.",
+			Default:   "created_at:desc",
+			QueryPath: "sort",
 		},
 		&requestflag.Flag[int64]{
 			Name:  "max-items",

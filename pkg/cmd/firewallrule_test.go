@@ -107,6 +107,11 @@ func TestNetworkingFirewallRulesList(t *testing.T) {
 			"--vpc-id", "vpc_id",
 			"--cursor", "cursor",
 			"--limit", "10",
+			"--name", "name",
+			"--protocol", "tcp",
+			"--sort", "sort",
+			"--status", "pending",
+			"--tag", "string",
 		)
 	})
 }

@@ -143,6 +143,14 @@ func TestComputeVMsList(t *testing.T) {
 			"--project-id", "project_id",
 			"--cursor", "cursor",
 			"--limit", "10",
+			"--name", "name",
+			"--public-ip-enabled=true",
+			"--region", "region",
+			"--sort", "sort",
+			"--status", "pending",
+			"--subnet-id", "subnet_id",
+			"--tag", "string",
+			"--vpc-id", "vpc_id",
 		)
 	})
 }
