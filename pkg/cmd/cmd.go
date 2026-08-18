@@ -266,6 +266,22 @@ func init() {
 				},
 			},
 			{
+				Name:     "compute:vms:metrics",
+				Category: "API RESOURCE",
+				Suggest:  true,
+				Commands: []*cli.Command{
+					&computeVMsMetricsList,
+				},
+			},
+			{
+				Name:     "compute:vms:metric-descriptors",
+				Category: "API RESOURCE",
+				Suggest:  true,
+				Commands: []*cli.Command{
+					&computeVMsMetricDescriptorsList,
+				},
+			},
+			{
 				Name:     "compute:volumes",
 				Category: "API RESOURCE",
 				Suggest:  true,
