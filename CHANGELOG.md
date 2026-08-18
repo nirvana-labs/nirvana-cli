@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.54.2](https://github.com/nirvana-labs/nirvana-cli/compare/v0.54.1...v0.54.2) (2026-08-18)
+
+
+### Chores
+
+* **stlc:** restore terraform target and drop the cli metrics skips ([611e87c](https://github.com/nirvana-labs/nirvana-cli/commit/611e87c9d7491e9c632091f51810701fa6cb658f))
+
 ## [0.54.1](https://github.com/nirvana-labs/nirvana-cli/compare/v0.54.0...v0.54.1) (2026-08-17)
 
 
