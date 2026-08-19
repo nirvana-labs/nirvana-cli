@@ -19,6 +19,9 @@ func TestOrganizationsMembershipsList(t *testing.T) {
 			"--organization-id", "organization_id",
 			"--cursor", "cursor",
 			"--limit", "10",
+			"--role", "owner",
+			"--sort", "sort",
+			"--user-id", "user_id",
 		)
 	})
 }

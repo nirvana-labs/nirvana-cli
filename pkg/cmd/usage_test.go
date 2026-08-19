@@ -16,8 +16,15 @@ func TestUsageList(t *testing.T) {
 			"--api-key", "string",
 			"usage", "list",
 			"--max-items", "10",
+			"--active-at-max", "'2019-12-27T18:11:19.117Z'",
+			"--active-at-min", "'2019-12-27T18:11:19.117Z'",
 			"--cursor", "cursor",
+			"--dimension", "dimension",
 			"--limit", "10",
+			"--region", "region",
+			"--resource-id", "resource_id",
+			"--resource-type", "vm",
+			"--sort", "sort",
 		)
 	})
 }

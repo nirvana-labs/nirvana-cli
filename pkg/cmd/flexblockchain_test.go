@@ -16,8 +16,11 @@ func TestRPCNodesFlexBlockchainsList(t *testing.T) {
 			"--api-key", "string",
 			"rpc-nodes:flex:blockchains", "list",
 			"--max-items", "10",
+			"--blockchain", "blockchain",
 			"--cursor", "cursor",
 			"--limit", "10",
+			"--network", "network",
+			"--sort", "sort",
 		)
 	})
 }

@@ -27,7 +27,7 @@ var organizationsMembershipsList = cli.Command{
 		},
 		&requestflag.Flag[string]{
 			Name:      "cursor",
-			Usage:     "Pagination cursor returned by a previous request",
+			Usage:     "Pagination cursor returned by a previous request. Only valid for the same filters and sort order.",
 			QueryPath: "cursor",
 		},
 		&requestflag.Flag[int64]{
@@ -35,6 +35,22 @@ var organizationsMembershipsList = cli.Command{
 			Usage:     "Maximum number of items to return",
 			Default:   10,
 			QueryPath: "limit",
+		},
+		&requestflag.Flag[string]{
+			Name:      "role",
+			Usage:     "Filter by membership role",
+			QueryPath: "role",
+		},
+		&requestflag.Flag[string]{
+			Name:      "sort",
+			Usage:     "Comma-separated sort terms in precedence order, each field:asc or field:desc. Fields: created_at, updated_at, role",
+			Default:   "created_at:desc",
+			QueryPath: "sort",
+		},
+		&requestflag.Flag[string]{
+			Name:      "user-id",
+			Usage:     "Filter by the member's user ID",
+			QueryPath: "user_id",
 		},
 		&requestflag.Flag[int64]{
 			Name:  "max-items",
