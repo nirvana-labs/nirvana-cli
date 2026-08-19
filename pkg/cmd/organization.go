@@ -68,7 +68,7 @@ var organizationsList = cli.Command{
 	Flags: []cli.Flag{
 		&requestflag.Flag[string]{
 			Name:      "cursor",
-			Usage:     "Pagination cursor returned by a previous request",
+			Usage:     "Pagination cursor returned by a previous request. Only valid for the same filters and sort order.",
 			QueryPath: "cursor",
 		},
 		&requestflag.Flag[int64]{
@@ -76,6 +76,22 @@ var organizationsList = cli.Command{
 			Usage:     "Maximum number of items to return",
 			Default:   10,
 			QueryPath: "limit",
+		},
+		&requestflag.Flag[string]{
+			Name:      "name",
+			Usage:     "Filter by a case-insensitive substring of the organization name",
+			QueryPath: "name",
+		},
+		&requestflag.Flag[string]{
+			Name:      "sort",
+			Usage:     "Comma-separated sort terms in precedence order, each field:asc or field:desc. Fields: created_at, updated_at, name",
+			Default:   "created_at:desc",
+			QueryPath: "sort",
+		},
+		&requestflag.Flag[string]{
+			Name:      "type",
+			Usage:     "Filter by organization type",
+			QueryPath: "type",
 		},
 		&requestflag.Flag[int64]{
 			Name:  "max-items",

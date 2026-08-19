@@ -26,16 +26,52 @@ var operationsList = cli.Command{
 			Required:  true,
 			QueryPath: "project_id",
 		},
+		&requestflag.Flag[any]{
+			Name:      "created-at-max",
+			Usage:     "Only operations started at or before this RFC 3339 instant",
+			QueryPath: "created_at_max",
+		},
+		&requestflag.Flag[any]{
+			Name:      "created-at-min",
+			Usage:     "Only operations started at or after this RFC 3339 instant",
+			QueryPath: "created_at_min",
+		},
 		&requestflag.Flag[string]{
 			Name:      "cursor",
-			Usage:     "Pagination cursor returned by a previous request",
+			Usage:     "Pagination cursor returned by a previous request. Only valid for the same filters and sort order.",
 			QueryPath: "cursor",
+		},
+		&requestflag.Flag[string]{
+			Name:      "kind",
+			Usage:     "Filter by the kind of resource the operation acts on",
+			QueryPath: "kind",
 		},
 		&requestflag.Flag[int64]{
 			Name:      "limit",
 			Usage:     "Maximum number of items to return",
 			Default:   10,
 			QueryPath: "limit",
+		},
+		&requestflag.Flag[string]{
+			Name:      "resource-id",
+			Usage:     "Filter by the resource the operation acts on",
+			QueryPath: "resource_id",
+		},
+		&requestflag.Flag[string]{
+			Name:      "sort",
+			Usage:     "Comma-separated sort terms in precedence order, each field:asc or field:desc. Fields: created_at, updated_at",
+			Default:   "created_at:desc",
+			QueryPath: "sort",
+		},
+		&requestflag.Flag[string]{
+			Name:      "status",
+			Usage:     "Filter by operation status",
+			QueryPath: "status",
+		},
+		&requestflag.Flag[string]{
+			Name:      "type",
+			Usage:     "Filter by operation type",
+			QueryPath: "type",
 		},
 		&requestflag.Flag[int64]{
 			Name:  "max-items",

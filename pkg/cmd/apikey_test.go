@@ -155,6 +155,10 @@ func TestAPIKeysList(t *testing.T) {
 			"--max-items", "10",
 			"--cursor", "cursor",
 			"--limit", "10",
+			"--name", "name",
+			"--sort", "sort",
+			"--status", "active",
+			"--tag", "string",
 		)
 	})
 }

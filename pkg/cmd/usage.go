@@ -20,16 +20,52 @@ var usageList = cli.Command{
 	Usage:   "List per-resource usage records for the current organization. Each item is one\nresource with its nested dimension history (active and closed segments).",
 	Suggest: true,
 	Flags: []cli.Flag{
+		&requestflag.Flag[any]{
+			Name:      "active-at-max",
+			Usage:     "Only resources metered at or before this RFC 3339 instant",
+			QueryPath: "active_at_max",
+		},
+		&requestflag.Flag[any]{
+			Name:      "active-at-min",
+			Usage:     "Only resources metered at or after this RFC 3339 instant; a window a usage row must overlap",
+			QueryPath: "active_at_min",
+		},
 		&requestflag.Flag[string]{
 			Name:      "cursor",
-			Usage:     "Pagination cursor returned by a previous request",
+			Usage:     "Pagination cursor returned by a previous request. Only valid for the same filters and sort order.",
 			QueryPath: "cursor",
+		},
+		&requestflag.Flag[string]{
+			Name:      "dimension",
+			Usage:     "Only resources with usage in this dimension",
+			QueryPath: "dimension",
 		},
 		&requestflag.Flag[int64]{
 			Name:      "limit",
 			Usage:     "Maximum number of items to return",
 			Default:   10,
 			QueryPath: "limit",
+		},
+		&requestflag.Flag[string]{
+			Name:      "region",
+			Usage:     "Filter by region",
+			QueryPath: "region",
+		},
+		&requestflag.Flag[string]{
+			Name:      "resource-id",
+			Usage:     "Filter by a single resource",
+			QueryPath: "resource_id",
+		},
+		&requestflag.Flag[string]{
+			Name:      "resource-type",
+			Usage:     "Filter by the kind of resource metered",
+			QueryPath: "resource_type",
+		},
+		&requestflag.Flag[string]{
+			Name:      "sort",
+			Usage:     "Sort term as field:asc or field:desc. Field: created_at, the resource's earliest usage row matching the filters",
+			Default:   "created_at:desc",
+			QueryPath: "sort",
 		},
 		&requestflag.Flag[int64]{
 			Name:  "max-items",

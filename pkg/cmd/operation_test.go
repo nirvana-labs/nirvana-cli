@@ -17,8 +17,15 @@ func TestOperationsList(t *testing.T) {
 			"operations", "list",
 			"--max-items", "10",
 			"--project-id", "project_id",
+			"--created-at-max", "'2019-12-27T18:11:19.117Z'",
+			"--created-at-min", "'2019-12-27T18:11:19.117Z'",
 			"--cursor", "cursor",
+			"--kind", "vm",
 			"--limit", "10",
+			"--resource-id", "resource_id",
+			"--sort", "sort",
+			"--status", "pending",
+			"--type", "create",
 		)
 	})
 }

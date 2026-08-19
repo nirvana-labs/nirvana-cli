@@ -21,8 +21,38 @@ var auditLogsList = cli.Command{
 	Suggest: true,
 	Flags: []cli.Flag{
 		&requestflag.Flag[string]{
+			Name:      "action",
+			Usage:     "Filter by recorded action",
+			QueryPath: "action",
+		},
+		&requestflag.Flag[string]{
+			Name:      "actor-id",
+			Usage:     "Filter by the acting user or API key",
+			QueryPath: "actor_id",
+		},
+		&requestflag.Flag[string]{
+			Name:      "actor-type",
+			Usage:     "Filter by the kind of actor that acted",
+			QueryPath: "actor_type",
+		},
+		&requestflag.Flag[string]{
+			Name:      "client-ip",
+			Usage:     "Filter by client IP address, matched exactly",
+			QueryPath: "client_ip",
+		},
+		&requestflag.Flag[any]{
+			Name:      "created-at-max",
+			Usage:     "Only entries at or before this RFC 3339 instant",
+			QueryPath: "created_at_max",
+		},
+		&requestflag.Flag[any]{
+			Name:      "created-at-min",
+			Usage:     "Only entries at or after this RFC 3339 instant",
+			QueryPath: "created_at_min",
+		},
+		&requestflag.Flag[string]{
 			Name:      "cursor",
-			Usage:     "Pagination cursor returned by a previous request",
+			Usage:     "Pagination cursor returned by a previous request. Only valid for the same filters and sort order.",
 			QueryPath: "cursor",
 		},
 		&requestflag.Flag[int64]{
@@ -30,6 +60,42 @@ var auditLogsList = cli.Command{
 			Usage:     "Maximum number of items to return",
 			Default:   10,
 			QueryPath: "limit",
+		},
+		&requestflag.Flag[string]{
+			Name:      "method",
+			Usage:     "Filter by HTTP method",
+			QueryPath: "method",
+		},
+		&requestflag.Flag[string]{
+			Name:      "path",
+			Usage:     "Filter by a case-insensitive substring of the request path",
+			QueryPath: "path",
+		},
+		&requestflag.Flag[string]{
+			Name:      "sort",
+			Usage:     "Comma-separated sort terms in precedence order, each field:asc or field:desc. Fields: created_at, status_code",
+			Default:   "created_at:desc",
+			QueryPath: "sort",
+		},
+		&requestflag.Flag[int64]{
+			Name:      "status-code-max",
+			Usage:     "Only entries with a status code at or below this",
+			QueryPath: "status_code_max",
+		},
+		&requestflag.Flag[int64]{
+			Name:      "status-code-min",
+			Usage:     "Only entries with a status code at or above this, e.g. 400 for failures only",
+			QueryPath: "status_code_min",
+		},
+		&requestflag.Flag[string]{
+			Name:      "target-id",
+			Usage:     "Filter by the resource acted on",
+			QueryPath: "target_id",
+		},
+		&requestflag.Flag[string]{
+			Name:      "target-type",
+			Usage:     "Filter by the kind of resource acted on",
+			QueryPath: "target_type",
 		},
 		&requestflag.Flag[int64]{
 			Name:  "max-items",
