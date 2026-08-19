@@ -158,7 +158,21 @@ func init() {
 				Category: "API RESOURCE",
 				Suggest:  true,
 				Commands: []*cli.Command{
+					&organizationsBillingCost,
+					&organizationsBillingHistory,
+					&organizationsBillingRecharge,
+					&organizationsBillingStatements,
 					&organizationsBillingSummary,
+					&organizationsBillingTopUp,
+				},
+			},
+			{
+				Name:     "organizations:billing:recharge-policy",
+				Category: "API RESOURCE",
+				Suggest:  true,
+				Commands: []*cli.Command{
+					&organizationsBillingRechargePolicyUpdate,
+					&organizationsBillingRechargePolicyGet,
 				},
 			},
 			{
@@ -551,6 +565,14 @@ func init() {
 				Commands: []*cli.Command{
 					&nksClustersPoolsNodesVolumesList,
 					&nksClustersPoolsNodesVolumesGet,
+				},
+			},
+			{
+				Name:     "nks:clusters:pools:volumes",
+				Category: "API RESOURCE",
+				Suggest:  true,
+				Commands: []*cli.Command{
+					&nksClustersPoolsVolumesList,
 				},
 			},
 			{
