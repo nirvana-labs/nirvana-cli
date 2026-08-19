@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.54.4](https://github.com/nirvana-labs/nirvana-cli/compare/v0.54.3...v0.54.4) (2026-08-19)
+
+
+### Chores
+
+* **stlc:** restore terraform and drop the remaining cli skips ([a460af8](https://github.com/nirvana-labs/nirvana-cli/commit/a460af8ee2eb8c7d62f642dd5fd3bf1936c64018))
+
 ## [0.54.3](https://github.com/nirvana-labs/nirvana-cli/compare/v0.54.2...v0.54.3) (2026-08-19)
 
 
