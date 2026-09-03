@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.54.5](https://github.com/nirvana-labs/nirvana-cli/compare/v0.54.4...v0.54.5) (2026-09-03)
+
+
+### Bug Fixes
+
+* **deps:** clear Dependabot alerts in this repo and the TS SDK ([9a6fb43](https://github.com/nirvana-labs/nirvana-cli/commit/9a6fb438b563630fb75f479ae3c1730e0aaf7e71))
+* **sdk:** Restore cli + terraform targets and clear grpc GHSA-vp52-pcj8-j9qc ([9a6fb43](https://github.com/nirvana-labs/nirvana-cli/commit/9a6fb438b563630fb75f479ae3c1730e0aaf7e71))
+
 ## [0.54.4](https://github.com/nirvana-labs/nirvana-cli/compare/v0.54.3...v0.54.4) (2026-08-19)
 
 
