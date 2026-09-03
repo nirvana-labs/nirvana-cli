@@ -117,7 +117,14 @@ func TestNKSClustersPoolsList(t *testing.T) {
 			"--max-items", "10",
 			"--cluster-id", "cluster_id",
 			"--cursor", "cursor",
+			"--instance-type", "instance_type",
 			"--limit", "10",
+			"--name", "name",
+			"--node-count-max", "0",
+			"--node-count-min", "0",
+			"--sort", "sort",
+			"--status", "ready",
+			"--tag", "string",
 		)
 	})
 }

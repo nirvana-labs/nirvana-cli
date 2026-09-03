@@ -21,8 +21,18 @@ var regionsList = cli.Command{
 	Suggest: true,
 	Flags: []cli.Flag{
 		&requestflag.Flag[string]{
+			Name:      "availability",
+			Usage:     "Filter by region availability",
+			QueryPath: "availability",
+		},
+		&requestflag.Flag[bool]{
+			Name:      "compute-vms",
+			Usage:     "Only regions where Virtual Machines are available",
+			QueryPath: "compute_vms",
+		},
+		&requestflag.Flag[string]{
 			Name:      "cursor",
-			Usage:     "Pagination cursor returned by a previous request",
+			Usage:     "Pagination cursor returned by a previous request. Only valid for the same filters and sort order.",
 			QueryPath: "cursor",
 		},
 		&requestflag.Flag[int64]{
@@ -30,6 +40,42 @@ var regionsList = cli.Command{
 			Usage:     "Maximum number of items to return",
 			Default:   10,
 			QueryPath: "limit",
+		},
+		&requestflag.Flag[bool]{
+			Name:      "networking-connect",
+			Usage:     "Only regions where Nirvana Connect is available",
+			QueryPath: "networking_connect",
+		},
+		&requestflag.Flag[bool]{
+			Name:      "networking-vpcs",
+			Usage:     "Only regions where VPCs are available",
+			QueryPath: "networking_vpcs",
+		},
+		&requestflag.Flag[bool]{
+			Name:      "nks-autoscaling",
+			Usage:     "Only regions where NKS node pool autoscaling is available",
+			QueryPath: "nks_autoscaling",
+		},
+		&requestflag.Flag[bool]{
+			Name:      "nks-clusters",
+			Usage:     "Only regions where NKS clusters are available",
+			QueryPath: "nks_clusters",
+		},
+		&requestflag.Flag[string]{
+			Name:      "sort",
+			Usage:     "Comma-separated sort terms in precedence order, each field:asc or field:desc. Fields: longitude, name, availability",
+			Default:   "longitude:asc",
+			QueryPath: "sort",
+		},
+		&requestflag.Flag[bool]{
+			Name:      "storage-abs",
+			Usage:     "Only regions where Accelerated Block Storage is available",
+			QueryPath: "storage_abs",
+		},
+		&requestflag.Flag[bool]{
+			Name:      "storage-local-nvme",
+			Usage:     "Only regions where locally-attached NVMe storage is available",
+			QueryPath: "storage_local_nvme",
 		},
 		&requestflag.Flag[int64]{
 			Name:  "max-items",

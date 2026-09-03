@@ -19,6 +19,12 @@ func TestNKSClustersPersistentVolumeClaimsList(t *testing.T) {
 			"--cluster-id", "cluster_id",
 			"--cursor", "cursor",
 			"--limit", "10",
+			"--name", "name",
+			"--size-gb-max", "0",
+			"--size-gb-min", "0",
+			"--sort", "sort",
+			"--status", "ready",
+			"--type", "abs",
 		)
 	})
 }

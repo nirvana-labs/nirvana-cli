@@ -16,8 +16,17 @@ func TestRegionsList(t *testing.T) {
 			"--api-key", "string",
 			"regions", "list",
 			"--max-items", "10",
+			"--availability", "live",
+			"--compute-vms=true",
 			"--cursor", "cursor",
 			"--limit", "10",
+			"--networking-connect=true",
+			"--networking-vpcs=true",
+			"--nks-autoscaling=true",
+			"--nks-clusters=true",
+			"--sort", "sort",
+			"--storage-abs=true",
+			"--storage-local-nvme=true",
 		)
 	})
 }

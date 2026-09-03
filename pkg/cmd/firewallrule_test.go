@@ -110,7 +110,7 @@ func TestNetworkingFirewallRulesList(t *testing.T) {
 			"--name", "name",
 			"--protocol", "tcp",
 			"--sort", "sort",
-			"--status", "pending",
+			"--status", "ready",
 			"--tag", "string",
 		)
 	})

@@ -107,16 +107,57 @@ var nksClustersList = cli.Command{
 			Required:  true,
 			QueryPath: "project_id",
 		},
+		&requestflag.Flag[bool]{
+			Name:      "autoscaling",
+			Usage:     "Filter by whether autoscaling is enabled",
+			QueryPath: "autoscaling",
+		},
 		&requestflag.Flag[string]{
 			Name:      "cursor",
-			Usage:     "Pagination cursor returned by a previous request",
+			Usage:     "Pagination cursor returned by a previous request. Only valid for the same filters and sort order.",
 			QueryPath: "cursor",
+		},
+		&requestflag.Flag[string]{
+			Name:      "kubernetes-version",
+			Usage:     "Filter by Kubernetes version, matched exactly",
+			QueryPath: "kubernetes_version",
 		},
 		&requestflag.Flag[int64]{
 			Name:      "limit",
 			Usage:     "Maximum number of items to return",
 			Default:   10,
 			QueryPath: "limit",
+		},
+		&requestflag.Flag[string]{
+			Name:      "name",
+			Usage:     "Filter by a case-insensitive substring of the Cluster name",
+			QueryPath: "name",
+		},
+		&requestflag.Flag[string]{
+			Name:      "region",
+			Usage:     "Filter by region",
+			QueryPath: "region",
+		},
+		&requestflag.Flag[string]{
+			Name:      "sort",
+			Usage:     "Comma-separated sort terms in precedence order, each field:asc or field:desc. Fields: created_at, updated_at, name, status",
+			Default:   "created_at:desc",
+			QueryPath: "sort",
+		},
+		&requestflag.Flag[string]{
+			Name:      "status",
+			Usage:     "Filter by Cluster status",
+			QueryPath: "status",
+		},
+		&requestflag.Flag[[]string]{
+			Name:      "tag",
+			Usage:     "Filter by tags. Repeat the parameter to require several tags; a Cluster must carry all of them.",
+			QueryPath: "tags",
+		},
+		&requestflag.Flag[string]{
+			Name:      "vpc-id",
+			Usage:     "Filter by the VPC the Cluster is in",
+			QueryPath: "vpc_id",
 		},
 		&requestflag.Flag[int64]{
 			Name:  "max-items",

@@ -32,14 +32,50 @@ var nksClustersControllersVolumesList = cli.Command{
 		},
 		&requestflag.Flag[string]{
 			Name:      "cursor",
-			Usage:     "Pagination cursor returned by a previous request",
+			Usage:     "Pagination cursor returned by a previous request. Only valid for the same filters and sort order.",
 			QueryPath: "cursor",
+		},
+		&requestflag.Flag[string]{
+			Name:      "kind",
+			Usage:     "Filter by volume kind",
+			QueryPath: "kind",
 		},
 		&requestflag.Flag[int64]{
 			Name:      "limit",
 			Usage:     "Maximum number of items to return",
 			Default:   10,
 			QueryPath: "limit",
+		},
+		&requestflag.Flag[string]{
+			Name:      "name",
+			Usage:     "Filter by a case-insensitive substring of the volume name",
+			QueryPath: "name",
+		},
+		&requestflag.Flag[int64]{
+			Name:      "size-gb-max",
+			Usage:     "Only volumes of at most this size",
+			QueryPath: "size_gb_max",
+		},
+		&requestflag.Flag[int64]{
+			Name:      "size-gb-min",
+			Usage:     "Only volumes of at least this size",
+			QueryPath: "size_gb_min",
+		},
+		&requestflag.Flag[string]{
+			Name:      "sort",
+			Usage:     "Comma-separated sort terms in precedence order, each field:asc or field:desc. Fields: created_at, updated_at, name, status, size_gb",
+			Default:   "created_at:desc",
+			QueryPath: "sort",
+		},
+		&requestflag.Flag[string]{
+			Name:      "status",
+			Usage:     "Filter by volume status",
+			QueryPath: "status",
+		},
+		&requestflag.Flag[string]{
+			Name:      "type",
+			Usage:     "Filter by storage type",
+			QueryPath: "type",
 		},
 		&requestflag.Flag[int64]{
 			Name:  "max-items",
