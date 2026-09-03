@@ -18,6 +18,8 @@ func TestNKSKubernetesVersionsList(t *testing.T) {
 			"--max-items", "10",
 			"--cursor", "cursor",
 			"--limit", "10",
+			"--name", "name",
+			"--sort", "sort",
 		)
 	})
 }

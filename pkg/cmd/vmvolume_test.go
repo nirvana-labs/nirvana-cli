@@ -22,7 +22,7 @@ func TestComputeVMsVolumesList(t *testing.T) {
 			"--limit", "10",
 			"--name", "name",
 			"--sort", "sort",
-			"--status", "pending",
+			"--status", "ready",
 			"--tag", "string",
 			"--type", "nvme",
 		)

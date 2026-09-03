@@ -87,8 +87,16 @@ func TestNKSClustersList(t *testing.T) {
 			"nks:clusters", "list",
 			"--max-items", "10",
 			"--project-id", "project_id",
+			"--autoscaling=true",
 			"--cursor", "cursor",
+			"--kubernetes-version", "kubernetes_version",
 			"--limit", "10",
+			"--name", "name",
+			"--region", "region",
+			"--sort", "sort",
+			"--status", "ready",
+			"--tag", "string",
+			"--vpc-id", "vpc_id",
 		)
 	})
 }

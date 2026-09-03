@@ -18,7 +18,13 @@ func TestNKSClustersControllersList(t *testing.T) {
 			"--max-items", "10",
 			"--cluster-id", "cluster_id",
 			"--cursor", "cursor",
+			"--has-private-ip=true",
+			"--instance-type", "instance_type",
 			"--limit", "10",
+			"--name", "name",
+			"--private-ip", "private_ip",
+			"--sort", "sort",
+			"--status", "ready",
 		)
 	})
 }

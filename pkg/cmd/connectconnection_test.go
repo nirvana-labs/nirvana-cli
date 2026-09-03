@@ -122,7 +122,7 @@ func TestNetworkingConnectConnectionsList(t *testing.T) {
 			"--provider-region", "provider_region",
 			"--region", "region",
 			"--sort", "sort",
-			"--status", "pending",
+			"--status", "ready",
 			"--tag", "string",
 		)
 	})

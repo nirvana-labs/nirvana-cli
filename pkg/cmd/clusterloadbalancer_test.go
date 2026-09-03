@@ -45,6 +45,11 @@ func TestNKSClustersLoadBalancersList(t *testing.T) {
 			"--cluster-id", "cluster_id",
 			"--cursor", "cursor",
 			"--limit", "10",
+			"--namespace", "namespace",
+			"--public-ip-enabled=true",
+			"--service-name", "service_name",
+			"--sort", "sort",
+			"--status", "ready",
 		)
 	})
 }

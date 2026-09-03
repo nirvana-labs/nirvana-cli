@@ -94,7 +94,7 @@ func TestComputeVolumesList(t *testing.T) {
 			"--name", "name",
 			"--region", "region",
 			"--sort", "sort",
-			"--status", "pending",
+			"--status", "ready",
 			"--tag", "string",
 			"--type", "nvme",
 			"--vm-id", "vm_id",

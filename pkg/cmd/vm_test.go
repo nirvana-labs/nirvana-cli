@@ -147,7 +147,7 @@ func TestComputeVMsList(t *testing.T) {
 			"--public-ip-enabled=true",
 			"--region", "region",
 			"--sort", "sort",
-			"--status", "pending",
+			"--status", "ready",
 			"--subnet-id", "subnet_id",
 			"--tag", "string",
 			"--vpc-id", "vpc_id",

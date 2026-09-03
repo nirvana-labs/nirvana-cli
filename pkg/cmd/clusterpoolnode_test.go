@@ -19,7 +19,12 @@ func TestNKSClustersPoolsNodesList(t *testing.T) {
 			"--cluster-id", "cluster_id",
 			"--pool-id", "pool_id",
 			"--cursor", "cursor",
+			"--has-private-ip=true",
 			"--limit", "10",
+			"--name", "name",
+			"--private-ip", "private_ip",
+			"--sort", "sort",
+			"--status", "ready",
 		)
 	})
 }

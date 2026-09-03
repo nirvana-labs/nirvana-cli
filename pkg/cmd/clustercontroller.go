@@ -27,14 +27,45 @@ var nksClustersControllersList = cli.Command{
 		},
 		&requestflag.Flag[string]{
 			Name:      "cursor",
-			Usage:     "Pagination cursor returned by a previous request",
+			Usage:     "Pagination cursor returned by a previous request. Only valid for the same filters and sort order.",
 			QueryPath: "cursor",
+		},
+		&requestflag.Flag[bool]{
+			Name:      "has-private-ip",
+			Usage:     "Filter by whether a private address has been assigned yet",
+			QueryPath: "has_private_ip",
+		},
+		&requestflag.Flag[string]{
+			Name:      "instance-type",
+			Usage:     "Filter by the controller's instance type",
+			QueryPath: "instance_type",
 		},
 		&requestflag.Flag[int64]{
 			Name:      "limit",
 			Usage:     "Maximum number of items to return",
 			Default:   10,
 			QueryPath: "limit",
+		},
+		&requestflag.Flag[string]{
+			Name:      "name",
+			Usage:     "Filter by a case-insensitive substring of the controller name",
+			QueryPath: "name",
+		},
+		&requestflag.Flag[string]{
+			Name:      "private-ip",
+			Usage:     "Filter by the controller's private address",
+			QueryPath: "private_ip",
+		},
+		&requestflag.Flag[string]{
+			Name:      "sort",
+			Usage:     "Comma-separated sort terms in precedence order, each field:asc or field:desc. Fields: created_at, updated_at, name, status",
+			Default:   "created_at:desc",
+			QueryPath: "sort",
+		},
+		&requestflag.Flag[string]{
+			Name:      "status",
+			Usage:     "Filter by controller status",
+			QueryPath: "status",
 		},
 		&requestflag.Flag[int64]{
 			Name:  "max-items",

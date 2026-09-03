@@ -20,7 +20,14 @@ func TestNKSClustersPoolsNodesVolumesList(t *testing.T) {
 			"--pool-id", "pool_id",
 			"--node-id", "node_id",
 			"--cursor", "cursor",
+			"--kind", "boot",
 			"--limit", "10",
+			"--name", "name",
+			"--size-gb-max", "0",
+			"--size-gb-min", "0",
+			"--sort", "sort",
+			"--status", "ready",
+			"--type", "abs",
 		)
 	})
 }

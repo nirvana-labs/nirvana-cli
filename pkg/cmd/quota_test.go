@@ -15,6 +15,11 @@ func TestQuotasList(t *testing.T) {
 			t,
 			"--api-key", "string",
 			"quotas", "list",
+			"--max-items", "10",
+			"--cursor", "cursor",
+			"--limit", "10",
+			"--region", "region",
+			"--sort", "sort",
 		)
 	})
 }
