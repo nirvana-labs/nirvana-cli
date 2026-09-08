@@ -1,5 +1,21 @@
 # Changelog
 
+## [0.55.0](https://github.com/nirvana-labs/nirvana-cli/compare/v0.54.5...v0.55.0) (2026-09-08)
+
+
+### ⚠ BREAKING CHANGES
+
+* **api:** remove Nirvana Connect [CORE-4847]
+
+### Features
+
+* **api:** remove Nirvana Connect [CORE-4847] ([76a46ec](https://github.com/nirvana-labs/nirvana-cli/commit/76a46ec03a1f027b605fe53eb4f9d1e9fccb8e94))
+
+
+### Bug Fixes
+
+* **deps:** Clear 9 TypeScript Dependabot alerts (qs, browserslist, @humanfs/node) ([76a46ec](https://github.com/nirvana-labs/nirvana-cli/commit/76a46ec03a1f027b605fe53eb4f9d1e9fccb8e94))
+
 ## [0.54.5](https://github.com/nirvana-labs/nirvana-cli/compare/v0.54.4...v0.54.5) (2026-09-03)
 
 
