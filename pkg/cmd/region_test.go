@@ -20,7 +20,6 @@ func TestRegionsList(t *testing.T) {
 			"--compute-vms=true",
 			"--cursor", "cursor",
 			"--limit", "10",
-			"--networking-connect=true",
 			"--networking-vpcs=true",
 			"--nks-autoscaling=true",
 			"--nks-clusters=true",
