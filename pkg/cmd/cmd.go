@@ -370,35 +370,6 @@ func init() {
 				},
 			},
 			{
-				Name:     "networking:connect:connections",
-				Category: "API RESOURCE",
-				Suggest:  true,
-				Commands: []*cli.Command{
-					&networkingConnectConnectionsCreate,
-					&networkingConnectConnectionsUpdate,
-					&networkingConnectConnectionsList,
-					&networkingConnectConnectionsDelete,
-					&networkingConnectConnectionsGet,
-				},
-			},
-			{
-				Name:     "networking:connect:connections:cost",
-				Category: "API RESOURCE",
-				Suggest:  true,
-				Commands: []*cli.Command{
-					&networkingConnectConnectionsCostCreate,
-					&networkingConnectConnectionsCostUpdate,
-				},
-			},
-			{
-				Name:     "networking:connect:routes",
-				Category: "API RESOURCE",
-				Suggest:  true,
-				Commands: []*cli.Command{
-					&networkingConnectRoutesList,
-				},
-			},
-			{
 				Name:     "rpc-nodes:flex",
 				Category: "API RESOURCE",
 				Suggest:  true,

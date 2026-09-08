@@ -42,11 +42,6 @@ var regionsList = cli.Command{
 			QueryPath: "limit",
 		},
 		&requestflag.Flag[bool]{
-			Name:      "networking-connect",
-			Usage:     "Only regions where Nirvana Connect is available",
-			QueryPath: "networking_connect",
-		},
-		&requestflag.Flag[bool]{
 			Name:      "networking-vpcs",
 			Usage:     "Only regions where VPCs are available",
 			QueryPath: "networking_vpcs",
