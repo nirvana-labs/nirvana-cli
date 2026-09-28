@@ -1,5 +1,17 @@
 # Changelog
 
+## [0.55.1](https://github.com/nirvana-labs/nirvana-cli/compare/v0.55.0...v0.55.1) (2026-09-28)
+
+
+### Bug Fixes
+
+* **deps:** bump hono to 4.13.7 in the TS SDK to clear 3 GHSAs ([138505a](https://github.com/nirvana-labs/nirvana-cli/commit/138505a026923981c125838a2047e593620fd9c0))
+
+
+### Chores
+
+* **nirvana-api:** update OpenAPI spec ([138505a](https://github.com/nirvana-labs/nirvana-cli/commit/138505a026923981c125838a2047e593620fd9c0))
+
 ## [0.55.0](https://github.com/nirvana-labs/nirvana-cli/compare/v0.54.5...v0.55.0) (2026-09-08)
 
 
