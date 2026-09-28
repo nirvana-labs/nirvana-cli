@@ -154,7 +154,7 @@ var organizationsBillingSummary = cli.Command{
 
 var organizationsBillingTopUp = cli.Command{
 	Name:    "top-up",
-	Usage:   "Charge the card on file and credit the prepaid balance. A unique Idempotency-Key\nheader is required; reuse it across retries so a timed-out top-up is not charged\ntwice.",
+	Usage:   "Charge the card on file and credit the prepaid balance. An Idempotency-Key\nheader is required. Reuse the same key when retrying, so a top-up that timed out\nisn't charged twice.",
 	Suggest: true,
 	Flags: []cli.Flag{
 		&requestflag.Flag[string]{
