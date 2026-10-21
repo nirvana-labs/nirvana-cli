@@ -8,6 +8,32 @@ import (
 	"github.com/nirvana-labs/nirvana-cli/internal/mocktest"
 )
 
+func TestOrganizationsMembershipsUpdate(t *testing.T) {
+	t.Skip("Mock server tests are disabled")
+	t.Run("regular flags", func(t *testing.T) {
+		mocktest.TestRunMockTestWithFlags(
+			t,
+			"--api-key", "string",
+			"organizations:memberships", "update",
+			"--organization-id", "organization_id",
+			"--membership-id", "membership_id",
+			"--role", "owner",
+		)
+	})
+
+	t.Run("piping data", func(t *testing.T) {
+		// Test piping YAML data over stdin
+		pipeData := []byte("role: owner")
+		mocktest.TestRunMockTestWithPipeAndFlags(
+			t, pipeData,
+			"--api-key", "string",
+			"organizations:memberships", "update",
+			"--organization-id", "organization_id",
+			"--membership-id", "membership_id",
+		)
+	})
+}
+
 func TestOrganizationsMembershipsList(t *testing.T) {
 	t.Skip("Mock server tests are disabled")
 	t.Run("regular flags", func(t *testing.T) {
@@ -22,6 +48,19 @@ func TestOrganizationsMembershipsList(t *testing.T) {
 			"--role", "owner",
 			"--sort", "sort",
 			"--user-id", "user_id",
+		)
+	})
+}
+
+func TestOrganizationsMembershipsDelete(t *testing.T) {
+	t.Skip("Mock server tests are disabled")
+	t.Run("regular flags", func(t *testing.T) {
+		mocktest.TestRunMockTestWithFlags(
+			t,
+			"--api-key", "string",
+			"organizations:memberships", "delete",
+			"--organization-id", "organization_id",
+			"--membership-id", "membership_id",
 		)
 	})
 }

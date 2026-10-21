@@ -139,8 +139,21 @@ func init() {
 				Category: "API RESOURCE",
 				Suggest:  true,
 				Commands: []*cli.Command{
+					&organizationsMembershipsUpdate,
 					&organizationsMembershipsList,
+					&organizationsMembershipsDelete,
 					&organizationsMembershipsGet,
+				},
+			},
+			{
+				Name:     "organizations:memberships:invitations",
+				Category: "API RESOURCE",
+				Suggest:  true,
+				Commands: []*cli.Command{
+					&organizationsMembershipsInvitationsCreate,
+					&organizationsMembershipsInvitationsList,
+					&organizationsMembershipsInvitationsDelete,
+					&organizationsMembershipsInvitationsResend,
 				},
 			},
 			{

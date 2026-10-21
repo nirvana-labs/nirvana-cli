@@ -20,7 +20,7 @@ import (
 	"github.com/nirvana-labs/nirvana-cli/internal/apiquery"
 	"github.com/nirvana-labs/nirvana-cli/internal/debugmiddleware"
 	"github.com/nirvana-labs/nirvana-cli/internal/requestflag"
-	"github.com/nirvana-labs/nirvana-go/option"
+	"github.com/nirvana-labs/nirvana-go/v2/option"
 
 	"github.com/goccy/go-yaml"
 	"github.com/urfave/cli/v3"

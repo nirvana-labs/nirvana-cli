@@ -17,7 +17,7 @@ import (
 	"syscall"
 
 	"github.com/nirvana-labs/nirvana-cli/internal/jsonview"
-	"github.com/nirvana-labs/nirvana-go/option"
+	"github.com/nirvana-labs/nirvana-go/v2/option"
 
 	"github.com/charmbracelet/x/term"
 	"github.com/itchyny/json2yaml"
