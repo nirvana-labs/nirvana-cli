@@ -164,7 +164,7 @@ var organizationsBillingTopUp = cli.Command{
 		},
 		&requestflag.Flag[string]{
 			Name:     "amount",
-			Usage:    "Amount to charge and credit, in USD. Must be greater than 0, at most two decimal places, and at most 10000.",
+			Usage:    "Amount to charge and credit, in USD. Must be at least 1.00, at most two decimal places, and at most 10000.",
 			Required: true,
 			BodyPath: "amount",
 		},

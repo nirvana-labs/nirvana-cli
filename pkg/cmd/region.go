@@ -72,6 +72,11 @@ var regionsList = cli.Command{
 			Usage:     "Only regions where locally-attached NVMe storage is available",
 			QueryPath: "storage_local_nvme",
 		},
+		&requestflag.Flag[bool]{
+			Name:      "storage-longhorn",
+			Usage:     "Only regions where Longhorn replicated block storage is available",
+			QueryPath: "storage_longhorn",
+		},
 		&requestflag.Flag[int64]{
 			Name:  "max-items",
 			Usage: "The maximum number of items to return (use -1 for unlimited).",

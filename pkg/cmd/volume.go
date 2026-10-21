@@ -82,7 +82,7 @@ var computeVolumesUpdate = cli.Command{
 		},
 		&requestflag.Flag[int64]{
 			Name:     "size",
-			Usage:    "Size of the Volume in GB.",
+			Usage:    "Size of the Volume in GB. Longhorn volumes cannot be resized.",
 			BodyPath: "size",
 		},
 		&requestflag.Flag[[]string]{
