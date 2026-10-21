@@ -1,5 +1,17 @@
 # Changelog
 
+## [0.55.2](https://github.com/nirvana-labs/nirvana-cli/compare/v0.55.1...v0.55.2) (2026-10-21)
+
+
+### Bug Fixes
+
+* **deps:** clear Dependabot alerts in the TS SDK and config repo ([92a02fd](https://github.com/nirvana-labs/nirvana-cli/commit/92a02fdd45873825c10386b89a2a5b9c8f0763f1))
+
+
+### Chores
+
+* update OpenAPI spec, sync tracking files and drop terraform for one cycle ([92a02fd](https://github.com/nirvana-labs/nirvana-cli/commit/92a02fdd45873825c10386b89a2a5b9c8f0763f1))
+
 ## [0.55.1](https://github.com/nirvana-labs/nirvana-cli/compare/v0.55.0...v0.55.1) (2026-09-28)
 
 
