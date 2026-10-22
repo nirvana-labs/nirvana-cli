@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.55.3](https://github.com/nirvana-labs/nirvana-cli/compare/v0.55.2...v0.55.3) (2026-10-22)
+
+
+### Chores
+
+* **stlc:** move cli and terraform to the v2 Go SDK, restore terraform, drop membership cli skips [CORE-4996] ([1e0df6f](https://github.com/nirvana-labs/nirvana-cli/commit/1e0df6f522033be36294212a2121fa2657109547))
+
 ## [0.55.2](https://github.com/nirvana-labs/nirvana-cli/compare/v0.55.1...v0.55.2) (2026-10-21)
 
 
