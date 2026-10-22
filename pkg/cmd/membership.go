@@ -8,12 +8,38 @@ import (
 
 	"github.com/nirvana-labs/nirvana-cli/internal/apiquery"
 	"github.com/nirvana-labs/nirvana-cli/internal/requestflag"
-	"github.com/nirvana-labs/nirvana-go"
-	"github.com/nirvana-labs/nirvana-go/option"
-	"github.com/nirvana-labs/nirvana-go/organizations"
+	"github.com/nirvana-labs/nirvana-go/v2"
+	"github.com/nirvana-labs/nirvana-go/v2/option"
+	"github.com/nirvana-labs/nirvana-go/v2/organizations"
 	"github.com/tidwall/gjson"
 	"github.com/urfave/cli/v3"
 )
+
+var organizationsMembershipsUpdate = cli.Command{
+	Name:    "update",
+	Usage:   "Change the role of a member of an organization. Owners may assign any role.\nAdmins may assign admin, billing or member, and cannot change the role of an\nowner. The last owner cannot be demoted, and members cannot change their own\nrole except for an owner stepping down while another owner remains.",
+	Suggest: true,
+	Flags: []cli.Flag{
+		&requestflag.Flag[string]{
+			Name:      "organization-id",
+			Required:  true,
+			PathParam: "organization_id",
+		},
+		&requestflag.Flag[string]{
+			Name:      "membership-id",
+			Required:  true,
+			PathParam: "membership_id",
+		},
+		&requestflag.Flag[string]{
+			Name:     "role",
+			Usage:    "Role of the user in the organization.",
+			Required: true,
+			BodyPath: "role",
+		},
+	},
+	Action:          handleOrganizationsMembershipsUpdate,
+	HideHelpCommand: true,
+}
 
 var organizationsMembershipsList = cli.Command{
 	Name:    "list",
@@ -61,6 +87,26 @@ var organizationsMembershipsList = cli.Command{
 	HideHelpCommand: true,
 }
 
+var organizationsMembershipsDelete = cli.Command{
+	Name:    "delete",
+	Usage:   "Remove a member from an organization. Admins cannot remove an owner, and the\nlast owner cannot be removed.",
+	Suggest: true,
+	Flags: []cli.Flag{
+		&requestflag.Flag[string]{
+			Name:      "organization-id",
+			Required:  true,
+			PathParam: "organization_id",
+		},
+		&requestflag.Flag[string]{
+			Name:      "membership-id",
+			Required:  true,
+			PathParam: "membership_id",
+		},
+	},
+	Action:          handleOrganizationsMembershipsDelete,
+	HideHelpCommand: true,
+}
+
 var organizationsMembershipsGet = cli.Command{
 	Name:    "get",
 	Usage:   "Get details about an organization membership",
@@ -79,6 +125,60 @@ var organizationsMembershipsGet = cli.Command{
 	},
 	Action:          handleOrganizationsMembershipsGet,
 	HideHelpCommand: true,
+}
+
+func handleOrganizationsMembershipsUpdate(ctx context.Context, cmd *cli.Command) error {
+	client := nirvana.NewClient(getDefaultRequestOptions(cmd)...)
+	unusedArgs := cmd.Args().Slice()
+	if !cmd.IsSet("organization-id") && len(unusedArgs) > 0 {
+		cmd.Set("organization-id", unusedArgs[0])
+		unusedArgs = unusedArgs[1:]
+	}
+	if !cmd.IsSet("membership-id") && len(unusedArgs) > 0 {
+		cmd.Set("membership-id", unusedArgs[0])
+		unusedArgs = unusedArgs[1:]
+	}
+	if len(unusedArgs) > 0 {
+		return fmt.Errorf("Unexpected extra arguments: %v", unusedArgs)
+	}
+
+	options, err := flagOptions(
+		cmd,
+		apiquery.NestedQueryFormatBrackets,
+		apiquery.ArrayQueryFormatComma,
+		ApplicationJSON,
+		false,
+	)
+	if err != nil {
+		return err
+	}
+
+	params := organizations.MembershipUpdateParams{}
+
+	var res []byte
+	options = append(options, option.WithResponseBodyInto(&res))
+	_, err = client.Organizations.Memberships.Update(
+		ctx,
+		cmd.Value("organization-id").(string),
+		cmd.Value("membership-id").(string),
+		params,
+		options...,
+	)
+	if err != nil {
+		return err
+	}
+
+	obj := gjson.ParseBytes(res)
+	format := cmd.Root().String("format")
+	explicitFormat := cmd.Root().IsSet("format")
+	transform := cmd.Root().String("transform")
+	return ShowJSON(obj, ShowJSONOpts{
+		ExplicitFormat: explicitFormat,
+		Format:         format,
+		RawOutput:      cmd.Root().Bool("raw-output"),
+		Title:          "organizations:memberships update",
+		Transform:      transform,
+	})
 }
 
 func handleOrganizationsMembershipsList(ctx context.Context, cmd *cli.Command) error {
@@ -147,6 +247,40 @@ func handleOrganizationsMembershipsList(ctx context.Context, cmd *cli.Command) e
 			Transform:      transform,
 		})
 	}
+}
+
+func handleOrganizationsMembershipsDelete(ctx context.Context, cmd *cli.Command) error {
+	client := nirvana.NewClient(getDefaultRequestOptions(cmd)...)
+	unusedArgs := cmd.Args().Slice()
+	if !cmd.IsSet("organization-id") && len(unusedArgs) > 0 {
+		cmd.Set("organization-id", unusedArgs[0])
+		unusedArgs = unusedArgs[1:]
+	}
+	if !cmd.IsSet("membership-id") && len(unusedArgs) > 0 {
+		cmd.Set("membership-id", unusedArgs[0])
+		unusedArgs = unusedArgs[1:]
+	}
+	if len(unusedArgs) > 0 {
+		return fmt.Errorf("Unexpected extra arguments: %v", unusedArgs)
+	}
+
+	options, err := flagOptions(
+		cmd,
+		apiquery.NestedQueryFormatBrackets,
+		apiquery.ArrayQueryFormatComma,
+		EmptyBody,
+		false,
+	)
+	if err != nil {
+		return err
+	}
+
+	return client.Organizations.Memberships.Delete(
+		ctx,
+		cmd.Value("organization-id").(string),
+		cmd.Value("membership-id").(string),
+		options...,
+	)
 }
 
 func handleOrganizationsMembershipsGet(ctx context.Context, cmd *cli.Command) error {

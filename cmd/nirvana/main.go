@@ -11,7 +11,7 @@ import (
 	"slices"
 
 	"github.com/nirvana-labs/nirvana-cli/pkg/cmd"
-	"github.com/nirvana-labs/nirvana-go"
+	"github.com/nirvana-labs/nirvana-go/v2"
 	"github.com/tidwall/gjson"
 	"github.com/urfave/cli/v3"
 )
