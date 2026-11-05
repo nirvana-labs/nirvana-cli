@@ -58,7 +58,7 @@ var quotasGet = cli.Command{
 	Flags: []cli.Flag{
 		&requestflag.Flag[string]{
 			Name:      "region",
-			Usage:     `Allowed values: "us-sva-2".`,
+			Usage:     `Allowed values: "us-sva-2", "us-wdc-1".`,
 			Required:  true,
 			PathParam: "region",
 		},
