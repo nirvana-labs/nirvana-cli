@@ -1,5 +1,17 @@
 # Changelog
 
+## [0.56.0](https://github.com/nirvana-labs/nirvana-cli/compare/v0.55.4...v0.56.0) (2026-11-05)
+
+
+### Features
+
+* add sandbox_clusters to the SDKs and sync the OpenAPI spec ([2ba0c9e](https://github.com/nirvana-labs/nirvana-cli/commit/2ba0c9e04ca0fd719dda7b14df032bf781b6496f))
+
+
+### Chores
+
+* **nirvana-api:** update OpenAPI spec ([2ba0c9e](https://github.com/nirvana-labs/nirvana-cli/commit/2ba0c9e04ca0fd719dda7b14df032bf781b6496f))
+
 ## [0.55.4](https://github.com/nirvana-labs/nirvana-cli/compare/v0.55.3...v0.55.4) (2026-10-26)
 
 
