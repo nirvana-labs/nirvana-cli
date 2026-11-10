@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.57.0](https://github.com/nirvana-labs/nirvana-cli/compare/v0.56.1...v0.57.0) (2026-11-10)
+
+
+### Features
+
+* object storage in the CLI and Terraform provider [CORE-5047] ([a6f939a](https://github.com/nirvana-labs/nirvana-cli/commit/a6f939a78c5a584562c321e7d4892c30aaf8b062))
+
 ## [0.56.1](https://github.com/nirvana-labs/nirvana-cli/compare/v0.56.0...v0.56.1) (2026-11-10)
 
 
