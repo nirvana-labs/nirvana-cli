@@ -143,6 +143,7 @@ func init() {
 					&organizationsMembershipsList,
 					&organizationsMembershipsDelete,
 					&organizationsMembershipsGet,
+					&organizationsMembershipsMe,
 				},
 			},
 			{
@@ -557,6 +558,58 @@ func init() {
 				Suggest:  true,
 				Commands: []*cli.Command{
 					&nksClustersPoolsVolumesList,
+				},
+			},
+			{
+				Name:     "sandbox-clusters",
+				Category: "API RESOURCE",
+				Suggest:  true,
+				Commands: []*cli.Command{
+					&sandboxClustersCreate,
+					&sandboxClustersUpdate,
+					&sandboxClustersList,
+					&sandboxClustersDelete,
+					&sandboxClustersGet,
+				},
+			},
+			{
+				Name:     "storage:buckets",
+				Category: "API RESOURCE",
+				Suggest:  true,
+				Commands: []*cli.Command{
+					&storageBucketsCreate,
+					&storageBucketsUpdate,
+					&storageBucketsList,
+					&storageBucketsDelete,
+					&storageBucketsGet,
+				},
+			},
+			{
+				Name:     "storage:buckets:availability",
+				Category: "API RESOURCE",
+				Suggest:  true,
+				Commands: []*cli.Command{
+					&storageBucketsAvailabilityCreate,
+				},
+			},
+			{
+				Name:     "storage:buckets:cost",
+				Category: "API RESOURCE",
+				Suggest:  true,
+				Commands: []*cli.Command{
+					&storageBucketsCostCreate,
+				},
+			},
+			{
+				Name:     "storage:keys",
+				Category: "API RESOURCE",
+				Suggest:  true,
+				Commands: []*cli.Command{
+					&storageKeysCreate,
+					&storageKeysUpdate,
+					&storageKeysList,
+					&storageKeysDelete,
+					&storageKeysGet,
 				},
 			},
 			{
