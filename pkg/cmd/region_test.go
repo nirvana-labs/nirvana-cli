@@ -27,6 +27,7 @@ func TestRegionsList(t *testing.T) {
 			"--storage-abs=true",
 			"--storage-local-nvme=true",
 			"--storage-longhorn=true",
+			"--storage-object=true",
 		)
 	})
 }
