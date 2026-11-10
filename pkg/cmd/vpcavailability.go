@@ -8,8 +8,8 @@ import (
 
 	"github.com/nirvana-labs/nirvana-cli/internal/apiquery"
 	"github.com/nirvana-labs/nirvana-cli/internal/requestflag"
-	"github.com/nirvana-labs/nirvana-go/v2"
-	"github.com/nirvana-labs/nirvana-go/v2/networking"
+	"github.com/nirvana-labs/nirvana-go/v3"
+	"github.com/nirvana-labs/nirvana-go/v3/networking"
 	"github.com/urfave/cli/v3"
 )
 

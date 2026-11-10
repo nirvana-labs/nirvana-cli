@@ -8,9 +8,9 @@ import (
 
 	"github.com/nirvana-labs/nirvana-cli/internal/apiquery"
 	"github.com/nirvana-labs/nirvana-cli/internal/requestflag"
-	"github.com/nirvana-labs/nirvana-go/v2"
-	"github.com/nirvana-labs/nirvana-go/v2/option"
-	"github.com/nirvana-labs/nirvana-go/v2/regions"
+	"github.com/nirvana-labs/nirvana-go/v3"
+	"github.com/nirvana-labs/nirvana-go/v3/option"
+	"github.com/nirvana-labs/nirvana-go/v3/regions"
 	"github.com/tidwall/gjson"
 	"github.com/urfave/cli/v3"
 )
@@ -76,6 +76,11 @@ var regionsList = cli.Command{
 			Name:      "storage-longhorn",
 			Usage:     "Only regions where Longhorn replicated block storage is available",
 			QueryPath: "storage_longhorn",
+		},
+		&requestflag.Flag[bool]{
+			Name:      "storage-object",
+			Usage:     "Only regions where object storage (S3-compatible buckets) is available",
+			QueryPath: "storage_object",
 		},
 		&requestflag.Flag[int64]{
 			Name:  "max-items",
