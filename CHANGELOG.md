@@ -1,5 +1,14 @@
 # Changelog
 
+## [0.56.1](https://github.com/nirvana-labs/nirvana-cli/compare/v0.56.0...v0.56.1) (2026-11-10)
+
+
+### Chores
+
+* **nirvana-api:** update OpenAPI spec ([334d370](https://github.com/nirvana-labs/nirvana-cli/commit/334d37016734683e41cd7ce7da8ff708a31f55ca))
+* **nirvana-api:** update OpenAPI spec ([334d370](https://github.com/nirvana-labs/nirvana-cli/commit/334d37016734683e41cd7ce7da8ff708a31f55ca))
+* **stlc:** move cli and terraform to the v3 Go SDK ([334d370](https://github.com/nirvana-labs/nirvana-cli/commit/334d37016734683e41cd7ce7da8ff708a31f55ca))
+
 ## [0.56.0](https://github.com/nirvana-labs/nirvana-cli/compare/v0.55.4...v0.56.0) (2026-11-05)
 
 
