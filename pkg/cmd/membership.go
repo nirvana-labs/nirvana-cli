@@ -127,6 +127,21 @@ var organizationsMembershipsGet = cli.Command{
 	HideHelpCommand: true,
 }
 
+var organizationsMembershipsMe = cli.Command{
+	Name:    "me",
+	Usage:   "Get the authenticated user's own membership in an organization, including their\nrole. Available to every member of the organization, whatever their role.",
+	Suggest: true,
+	Flags: []cli.Flag{
+		&requestflag.Flag[string]{
+			Name:      "organization-id",
+			Required:  true,
+			PathParam: "organization_id",
+		},
+	},
+	Action:          handleOrganizationsMembershipsMe,
+	HideHelpCommand: true,
+}
+
 func handleOrganizationsMembershipsUpdate(ctx context.Context, cmd *cli.Command) error {
 	client := nirvana.NewClient(getDefaultRequestOptions(cmd)...)
 	unusedArgs := cmd.Args().Slice()
@@ -330,6 +345,48 @@ func handleOrganizationsMembershipsGet(ctx context.Context, cmd *cli.Command) er
 		Format:         format,
 		RawOutput:      cmd.Root().Bool("raw-output"),
 		Title:          "organizations:memberships get",
+		Transform:      transform,
+	})
+}
+
+func handleOrganizationsMembershipsMe(ctx context.Context, cmd *cli.Command) error {
+	client := nirvana.NewClient(getDefaultRequestOptions(cmd)...)
+	unusedArgs := cmd.Args().Slice()
+	if !cmd.IsSet("organization-id") && len(unusedArgs) > 0 {
+		cmd.Set("organization-id", unusedArgs[0])
+		unusedArgs = unusedArgs[1:]
+	}
+	if len(unusedArgs) > 0 {
+		return fmt.Errorf("Unexpected extra arguments: %v", unusedArgs)
+	}
+
+	options, err := flagOptions(
+		cmd,
+		apiquery.NestedQueryFormatBrackets,
+		apiquery.ArrayQueryFormatComma,
+		EmptyBody,
+		false,
+	)
+	if err != nil {
+		return err
+	}
+
+	var res []byte
+	options = append(options, option.WithResponseBodyInto(&res))
+	_, err = client.Organizations.Memberships.Me(ctx, cmd.Value("organization-id").(string), options...)
+	if err != nil {
+		return err
+	}
+
+	obj := gjson.ParseBytes(res)
+	format := cmd.Root().String("format")
+	explicitFormat := cmd.Root().IsSet("format")
+	transform := cmd.Root().String("transform")
+	return ShowJSON(obj, ShowJSONOpts{
+		ExplicitFormat: explicitFormat,
+		Format:         format,
+		RawOutput:      cmd.Root().Bool("raw-output"),
+		Title:          "organizations:memberships me",
 		Transform:      transform,
 	})
 }
