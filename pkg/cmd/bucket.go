@@ -127,7 +127,7 @@ var storageBucketsList = cli.Command{
 
 var storageBucketsDelete = cli.Command{
 	Name:    "delete",
-	Usage:   "Delete a Bucket. The Bucket is deleted asynchronously: follow the returned\noperation until it is done. A Bucket that still holds objects is only deleted\nwith force.",
+	Usage:   "Delete a Bucket. The Bucket is deleted asynchronously: follow the returned\noperation until it is done. A Bucket that still holds objects is only deleted\nwith force: without it, the request is refused with 409 BUCKET_NOT_EMPTY and no\noperation is started, and objects written after the request is accepted fail the\noperation instead.",
 	Suggest: true,
 	Flags: []cli.Flag{
 		&requestflag.Flag[string]{
