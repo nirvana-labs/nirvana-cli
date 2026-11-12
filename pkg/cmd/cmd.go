@@ -573,6 +573,14 @@ func init() {
 				},
 			},
 			{
+				Name:     "sandbox-clusters:cost",
+				Category: "API RESOURCE",
+				Suggest:  true,
+				Commands: []*cli.Command{
+					&sandboxClustersCostCreate,
+				},
+			},
+			{
 				Name:     "storage:buckets",
 				Category: "API RESOURCE",
 				Suggest:  true,
