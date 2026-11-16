@@ -58,7 +58,7 @@ var usageList = cli.Command{
 		},
 		&requestflag.Flag[string]{
 			Name:      "resource-type",
-			Usage:     "Filter by the kind of resource metered",
+			Usage:     "Filter by metered resource kind",
 			QueryPath: "resource_type",
 		},
 		&requestflag.Flag[string]{
