@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.58.3](https://github.com/nirvana-labs/nirvana-cli/compare/v0.58.2...v0.58.3) (2026-11-19)
+
+
+### Bug Fixes
+
+* **deps:** reseal TS, CLI and terraform to clear Dependabot alerts ([473cf24](https://github.com/nirvana-labs/nirvana-cli/commit/473cf242a3b59371914c01ccdac3685b81422108))
+
 ## [0.58.2](https://github.com/nirvana-labs/nirvana-cli/compare/v0.58.1...v0.58.2) (2026-11-17)
 
 
