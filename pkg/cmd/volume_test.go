@@ -96,7 +96,7 @@ func TestComputeVolumesList(t *testing.T) {
 			"--sort", "sort",
 			"--status", "ready",
 			"--tag", "string",
-			"--type", "nvme",
+			"--type", "abs",
 			"--vm-id", "vm_id",
 		)
 	})
