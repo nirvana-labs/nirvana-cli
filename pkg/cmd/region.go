@@ -68,11 +68,6 @@ var regionsList = cli.Command{
 			QueryPath: "storage_abs",
 		},
 		&requestflag.Flag[bool]{
-			Name:      "storage-ceph",
-			Usage:     "Only regions where Ceph replicated block storage is available",
-			QueryPath: "storage_ceph",
-		},
-		&requestflag.Flag[bool]{
 			Name:      "storage-local-nvme",
 			Usage:     "Only regions where locally-attached NVMe storage is available",
 			QueryPath: "storage_local_nvme",
