@@ -25,7 +25,6 @@ func TestRegionsList(t *testing.T) {
 			"--nks-clusters=true",
 			"--sort", "sort",
 			"--storage-abs=true",
-			"--storage-ceph=true",
 			"--storage-local-nvme=true",
 			"--storage-object=true",
 		)
