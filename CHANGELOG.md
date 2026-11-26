@@ -1,5 +1,17 @@
 # Changelog
 
+## [0.59.0](https://github.com/nirvana-labs/nirvana-cli/compare/v0.58.4...v0.59.0) (2026-11-26)
+
+
+### Features
+
+* **stlc:** map sandbox_vms and add the missing list-filter enums ([1d47bca](https://github.com/nirvana-labs/nirvana-cli/commit/1d47bca41aaf07baa3d8f38fc92c45898a262ec6))
+
+
+### Chores
+
+* **nirvana-api:** update OpenAPI spec ([1d47bca](https://github.com/nirvana-labs/nirvana-cli/commit/1d47bca41aaf07baa3d8f38fc92c45898a262ec6))
+
 ## [0.58.4](https://github.com/nirvana-labs/nirvana-cli/compare/v0.58.3...v0.58.4) (2026-11-26)
 
 
