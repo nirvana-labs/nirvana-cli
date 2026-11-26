@@ -68,11 +68,6 @@ var regionsList = cli.Command{
 			QueryPath: "storage_abs",
 		},
 		&requestflag.Flag[bool]{
-			Name:      "storage-local-nvme",
-			Usage:     "Only regions where locally-attached NVMe storage is available",
-			QueryPath: "storage_local_nvme",
-		},
-		&requestflag.Flag[bool]{
 			Name:      "storage-object",
 			Usage:     "Only regions where object storage (S3-compatible buckets) is available",
 			QueryPath: "storage_object",
