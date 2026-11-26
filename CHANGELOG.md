@@ -1,5 +1,17 @@
 # Changelog
 
+## [0.58.4](https://github.com/nirvana-labs/nirvana-cli/compare/v0.58.3...v0.58.4) (2026-11-26)
+
+
+### Bug Fixes
+
+* **deps:** bump MCP worker to agents 0.28.1 / @modelcontextprotocol/sdk 1.32.1 ([5e652aa](https://github.com/nirvana-labs/nirvana-cli/commit/5e652aa01e755c18c6dcefcdf064cb3e7dbe78c1))
+
+
+### Chores
+
+* **nirvana-api:** update OpenAPI spec ([5e652aa](https://github.com/nirvana-labs/nirvana-cli/commit/5e652aa01e755c18c6dcefcdf064cb3e7dbe78c1))
+
 ## [0.58.3](https://github.com/nirvana-labs/nirvana-cli/compare/v0.58.2...v0.58.3) (2026-11-19)
 
 
